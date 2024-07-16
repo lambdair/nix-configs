@@ -6,6 +6,10 @@
       url = "github:nix-community/home-manager";
       inputs.nikpkgs.follows = "nixpkgs";
     };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: {
@@ -20,6 +24,9 @@
         pkgs = import inputs.nixpkgs {
           system = "x86_64-linux";
           config.allowUnfree = true;
+          overlays = [
+            inputs.rust-overlay.overlays.default
+          ];
         };
         extraSpecialArgs = {
           inherit inputs;

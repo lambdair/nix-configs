@@ -8,8 +8,11 @@ rec {
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
+    # language
     nil
     nixfmt-rfc-style
+    rust-bin.stable.latest.default
+    rust-analyzer
 
     # cui tools
     ripgrep
