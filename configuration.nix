@@ -11,7 +11,14 @@
         "nix-command"
         "flakes"
       ];
+      auto-optimise-store = true;
     };
+    gc = {
+      automatic = true;
+      dates = "wekly";
+      options = "-delete-older-then 7d";
+    };
+  };
 
   imports = [
     # Include the results of the hardware scan.
