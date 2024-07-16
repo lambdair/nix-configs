@@ -15,6 +15,10 @@ rec {
     ripgrep
     fd
     tldr
+
+    # gui tools
+    vivaldi
+    thunderbird
   ];
 
   imports = [ ./helix.nix ];
