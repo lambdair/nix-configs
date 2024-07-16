@@ -11,5 +11,18 @@ rec {
   ];
 
   programs = {
+    git = {
+      enable = true;
+      userEmail = "lambdair1984@protonmail.com";
+      userName = "Lambdair";
+    };
+
+    jujutsu = {
+      enable = true;
+      settings = {
+        user.email = "lambdair1984@protonmail.com";
+        user.name = "Lambdair";
+      };
+    };
   };
 }
