@@ -8,6 +8,8 @@ rec {
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
+    nil
+    nixfmt-rfc-style
   ];
 
   imports = [ ./helix.nix ];
