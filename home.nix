@@ -9,6 +9,8 @@ rec {
 
   home.packages = with pkgs; [
     # language
+    uiua
+    tree-sitter-grammars.tree-sitter-uiua
     nil
     nixfmt-rfc-style
     rust-bin.stable.latest.default
