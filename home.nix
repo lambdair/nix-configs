@@ -23,6 +23,11 @@ rec {
 
   imports = [ ./helix.nix ];
 
+  catppuccin = {
+    flavor = "frappe";
+    enable = true;
+  };
+
   programs = {
     wezterm = {
       enable = true;

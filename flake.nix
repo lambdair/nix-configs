@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    catppuccin.url = "github:catppuccin/nix";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nikpkgs.follows = "nixpkgs";
@@ -25,6 +26,7 @@
         };
         modules = [
           ./home.nix
+          inputs.catppuccin.homeManagerModules.catppuccin
         ];
       };
     };
