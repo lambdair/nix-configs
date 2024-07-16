@@ -10,6 +10,8 @@ rec {
   home.packages = with pkgs; [
   ];
 
+  imports = [ ./helix.nix ];
+
   programs = {
     wezterm = {
       enable = true;
