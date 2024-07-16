@@ -22,6 +22,7 @@ rec {
     tldr
 
     # gui tools
+    emacs-unstable
     vivaldi
     thunderbird
     (pkgs.appimageTools.wrapType2 {

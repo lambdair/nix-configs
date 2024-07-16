@@ -10,6 +10,9 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+    };
   };
 
   outputs = inputs: {
@@ -26,6 +29,7 @@
           config.allowUnfree = true;
           overlays = [
             inputs.rust-overlay.overlays.default
+            inputs.emacs-overlay.overlay
           ];
         };
         extraSpecialArgs = {
