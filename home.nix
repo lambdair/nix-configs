@@ -25,6 +25,7 @@ rec {
     emacs-unstable
     vivaldi
     thunderbird
+    discord
     (pkgs.appimageTools.wrapType2 {
       name = "heptabase";
       version = "1.34.0";
