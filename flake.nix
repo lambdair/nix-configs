@@ -6,6 +6,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +22,10 @@
   outputs =
     inputs:
     let
-      systems = [ "x86_64-linux" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
       forAllSystems = inputs.nixpkgs.lib.genAttrs systems;
     in
     {
@@ -26,6 +33,17 @@
         myNixOS = inputs.nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [ ./configuration.nix ];
+        };
+      };
+
+      darwinConfigurations = {
+        myMacOS = inputs.nix-darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [
+            ./hosts/sonora
+            inputs.home-manager.darwinModules.home-manager
+            { home-manager.users.ziyuguo = import ./home/darwin; }
+          ];
         };
       };
 
@@ -64,6 +82,7 @@
               delta
               git
               jujutsu
+              zoxide
             ];
             shellHook = ''
               exec ${pkgs.nushell}/bin/nu
