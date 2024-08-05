@@ -22,7 +22,7 @@ rec {
     tldr
 
     # gui tools
-    emacs-unstable
+    emacs-git
     vivaldi
     thunderbird
     discord
