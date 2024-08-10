@@ -45,7 +45,8 @@
   };
 
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    type = "fcitx5";
+    enable = true;
     fcitx5.addons = [ pkgs.fcitx5-mozc ];
   };
 
@@ -58,8 +59,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us,jp";
-    xkbVariant = "";
+    xkb.layout = "us,jp";
+    xkb.variant = "";
   };
 
   # Configure console keymap

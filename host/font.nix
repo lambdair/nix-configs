@@ -7,7 +7,7 @@
 
 {
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
