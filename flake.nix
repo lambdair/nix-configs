@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     catppuccin.url = "github:catppuccin/nix";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -26,6 +27,13 @@
         myNixOS = inputs.nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [ ./host/daiquiri ];
+        };
+        myWSL = inputs.nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            inputs.nixos-wsl.nixosModules.default
+            ./host/sonora
+          ];
         };
       };
 
