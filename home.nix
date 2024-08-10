@@ -15,6 +15,7 @@ rec {
     nixfmt-rfc-style
     rust-bin.stable.latest.default
     rust-analyzer
+    lean4
 
     # cui tools
     ripgrep
