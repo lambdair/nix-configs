@@ -73,9 +73,13 @@ rec {
       shellAliases = {
         ze = "zellij";
         lg = "lazygit";
+        e = "emacs";
+        et = "emacsclient -nw -a hx";
+        es = "emacs --daemon";
+        ek = "emacsclient -e '(kill-emacs)'";
       };
       environmentVariables = {
-        EDITOR = "hx";
+        EDITOR = "'emacsclient -nw -a hx'";
       };
     };
 
