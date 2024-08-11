@@ -1,0 +1,16 @@
+[lean4-mode]
+src.git = "https://github.com/leanprover-community/lean4-mode"
+fetch.github = "leanprover-community/lean4-mode"
+
+[nael]
+src.git = "https://codeberg.org/mekeor/nael"
+fetch.git = "https://codeberg.org/mekeor/nael"
+
+[typst-ts-mode]
+src.git = "https://codeberg.org/meow_king/typst-ts-mode"
+fetch.git = "https://codeberg.org/meow_king/typst-ts-mode"
+
+[heptabase]
+src.github_tag = "heptameta/project-meta"
+src.prefix = "v"
+fetch.url = "https://github.com/heptameta/project-meta/releases/download/v$ver/Heptabase-$ver.AppImage"

@@ -64,46 +64,51 @@
       # Expose the package set, including overlays, for convenience.
       darwinPackages = inputs.self.darwinConfigurations."simple".pkgs;
 
-      homeConfigurations = {
-        NixHome = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = import inputs.nixpkgs {
-            system = "x86_64-linux";
-            config.allowUnfree = true;
-            overlays = [
-              inputs.rust-overlay.overlays.default
-              inputs.emacs-overlay.overlay
+      homeConfigurations =
+        let
+          system = "x86_64-linux";
+          sources = inputs.nixpkgs.legacyPackages.${system}.callPackage ./_sources/generated.nix { };
+        in
+        {
+          NixHome = inputs.home-manager.lib.homeManagerConfiguration {
+            pkgs = import inputs.nixpkgs {
+              system = system;
+              config.allowUnfree = true;
+              overlays = [
+                inputs.rust-overlay.overlays.default
+                inputs.emacs-overlay.overlay
+              ];
+            };
+            extraSpecialArgs = {
+              inherit inputs sources;
+            };
+            modules = [
+              ./home
+              ./home/linux
+              inputs.catppuccin.homeManagerModules.catppuccin
+              inputs.nixvim.homeManagerModules.nixvim
             ];
           };
-          extraSpecialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ./home
-            ./home/linux
-            inputs.catppuccin.homeManagerModules.catppuccin
-            inputs.nixvim.homeManagerModules.nixvim
-          ];
-        };
-        MacHome = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = import inputs.nixpkgs {
-            system = "aarch64-darwin";
-            config.allowUnfree = true;
-            overlays = [
-              inputs.rust-overlay.overlays.default
-              inputs.emacs-overlay.overlay
+          MacHome = inputs.home-manager.lib.homeManagerConfiguration {
+            pkgs = import inputs.nixpkgs {
+              system = "aarch64-darwin";
+              config.allowUnfree = true;
+              overlays = [
+                inputs.rust-overlay.overlays.default
+                inputs.emacs-overlay.overlay
+              ];
+            };
+            extraSpecialArgs = {
+              inherit inputs;
+            };
+            modules = [
+              ./home
+              ./home/mac
+              inputs.catppuccin.homeManagerModules.catppuccin
+              inputs.nixvim.homeManagerModules.nixvim
             ];
           };
-          extraSpecialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ./home
-            ./home/mac
-            inputs.catppuccin.homeManagerModules.catppuccin
-            inputs.nixvim.homeManagerModules.nixvim
-          ];
         };
-      };
 
       devShells = forAllSystems (
         system:

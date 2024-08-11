@@ -1,0 +1,78 @@
+{
+    "heptabase": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "heptabase",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-9qA4yjCMWMZz05Rv6qRn6RnEkw3VFmXCiGEklYxQMNA=",
+            "type": "url",
+            "url": "https://github.com/heptameta/project-meta/releases/download/v1.51.2/Heptabase-1.51.2.AppImage"
+        },
+        "version": "1.51.2"
+    },
+    "lean4-mode": {
+        "cargoLocks": null,
+        "date": "2024-12-10",
+        "extract": null,
+        "name": "lean4-mode",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "leanprover-community",
+            "repo": "lean4-mode",
+            "rev": "76895d8939111654a472cfc617cfd43fbf5f1eb6",
+            "sha256": "sha256-DLgdxd0m3SmJ9heJ/pe5k8bZCfvWdaKAF0BDYEkwlMQ=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "76895d8939111654a472cfc617cfd43fbf5f1eb6"
+    },
+    "nael": {
+        "cargoLocks": null,
+        "date": "2024-11-19",
+        "extract": null,
+        "name": "nael",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "1598704f994d26388b9880f417bf7df3c1a28ea1",
+            "sha256": "sha256-UTPc3IcoresXkKf5PMkVQDuwe/+hZV+FAa205vLXDTo=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://codeberg.org/mekeor/nael"
+        },
+        "version": "1598704f994d26388b9880f417bf7df3c1a28ea1"
+    },
+    "typst-ts-mode": {
+        "cargoLocks": null,
+        "date": "2025-01-18",
+        "extract": null,
+        "name": "typst-ts-mode",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "aee8ff090cff6f39a70ac2c9035b1eb2b69924d7",
+            "sha256": "sha256-oZ4uq87PeqXGIy8Dmx7ppGzrxDhiJEGOH8nXerZ03ik=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://codeberg.org/meow_king/typst-ts-mode"
+        },
+        "version": "aee8ff090cff6f39a70ac2c9035b1eb2b69924d7"
+    }
+}

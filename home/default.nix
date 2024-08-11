@@ -41,6 +41,9 @@ in
       ciao
       teyjus
       abella
+      typst
+      typstyle
+      tinymist
 
       # cui tools
       ripgrep
@@ -49,6 +52,7 @@ in
       tdf
       nb
       nix-search
+      nvfetcher
       python312Packages.pylatexenc
     ]
     ++ libs;
@@ -56,6 +60,7 @@ in
   imports = [
     ./helix.nix
     ./nvim
+    ./emacs
   ];
 
   catppuccin = {
