@@ -14,6 +14,9 @@
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+    };
   };
 
   outputs =
@@ -53,6 +56,7 @@
           modules = [
             ./home.nix
             inputs.catppuccin.homeManagerModules.catppuccin
+            inputs.nixvim.homeManagerModules.nixvim
           ];
         };
       };

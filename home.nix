@@ -37,7 +37,10 @@ rec {
     })
   ];
 
-  imports = [ ./helix.nix ];
+  imports = [
+    ./helix.nix
+    ./nvim
+  ];
 
   catppuccin = {
     flavor = "frappe";
@@ -77,6 +80,7 @@ rec {
         et = "emacsclient -nw -a hx";
         es = "emacs --daemon";
         ek = "emacsclient -e '(kill-emacs)'";
+        vi = "nvim";
       };
       environmentVariables = {
         EDITOR = "'emacsclient -nw -a hx'";
