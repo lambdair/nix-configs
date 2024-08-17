@@ -69,6 +69,8 @@
         {
           default = pkgs.mkShellNoCC {
             packages = with pkgs; [
+              nushell
+              zellij
               helix
               nil
               yazi
@@ -77,8 +79,9 @@
               git
               jujutsu
             ];
+            EDITOR = "hx";
             shellHook = ''
-              exec ${pkgs.nushell}/bin/nu
+              exec zellij options --default-shell nu "$@"
             '';
           };
         }
