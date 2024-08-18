@@ -22,16 +22,19 @@
   outputs =
     inputs:
     let
-      systems = [ "x86_64-linux" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
       forAllSystems = inputs.nixpkgs.lib.genAttrs systems;
     in
     {
       nixosConfigurations = {
-        myNixOS = inputs.nixpkgs.lib.nixosSystem {
+        NixOS = inputs.nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [ ./host/daiquiri ];
         };
-        myWSL = inputs.nixpkgs.lib.nixosSystem {
+        WSL = inputs.nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             inputs.nixos-wsl.nixosModules.default
@@ -41,7 +44,7 @@
       };
 
       homeConfigurations = {
-        myHome = inputs.home-manager.lib.homeManagerConfiguration {
+        NixHome = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = import inputs.nixpkgs {
             system = "x86_64-linux";
             config.allowUnfree = true;
@@ -54,7 +57,27 @@
             inherit inputs;
           };
           modules = [
-            ./home.nix
+            ./home
+            ./home/linux
+            inputs.catppuccin.homeManagerModules.catppuccin
+            inputs.nixvim.homeManagerModules.nixvim
+          ];
+        };
+        MacHome = inputs.home-manager.lib.homeManagerConfiguration {
+          pkgs = import inputs.nixpkgs {
+            system = "aarch64-darwin";
+            config.allowUnfree = true;
+            overlays = [
+              inputs.rust-overlay.overlays.default
+              inputs.emacs-overlay.overlay
+            ];
+          };
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./home
+            ./home/mac
             inputs.catppuccin.homeManagerModules.catppuccin
             inputs.nixvim.homeManagerModules.nixvim
           ];
