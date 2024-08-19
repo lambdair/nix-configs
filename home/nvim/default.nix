@@ -67,6 +67,9 @@
         enable = true;
       };
 
+      gitsigns.enable = true;
+      lazygit.enable = true;
+
       treesitter.enable = true;
       nix.enable = true;
       lean = {
