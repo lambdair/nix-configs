@@ -14,6 +14,8 @@
     globals = {
       mapleader = " ";
       maplocalleader = ",";
+
+      "conjure#mapping#doc_word" = false;
     };
 
     luaLoader.enable = true;
