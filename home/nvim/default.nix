@@ -18,18 +18,13 @@
 
     luaLoader.enable = true;
 
+    keymaps = import ./keymaps.nix;
+
     plugins = {
       telescope = {
         enable = true;
         extensions = {
           fzf-native.enable = true;
-        };
-        keymaps = {
-          "<leader>f" = "find_files";
-          "<leader>/" = "live_grep";
-          "<leader>b" = "buffers";
-          "<leader>hh" = "help_tags";
-          "<leader>?" = "builtin";
         };
       };
       dashboard.enable = true;
