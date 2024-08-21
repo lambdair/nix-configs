@@ -2,9 +2,14 @@
   programs.nixvim = {
     enable = true;
 
-    colorschemes.catppuccin = {
-      enable = true;
-      settings.flavour = "frappe";
+    colorscheme = "catppuccin";
+    colorschemes = {
+      catppuccin = {
+        enable = true;
+        settings.flavour = "frappe";
+      };
+      tokyonight.enable = true;
+      nord.enable = true;
     };
 
     opts = {
