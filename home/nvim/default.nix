@@ -77,7 +77,10 @@
       gitsigns.enable = true;
       lazygit.enable = true;
 
-      nvim-autopairs.enable = true;
+      nvim-autopairs = {
+        enable = true;
+        settings.disable_filetype = [ "clojure" ];
+      };
       parinfer-rust.enable = true;
 
       treesitter.enable = true;
