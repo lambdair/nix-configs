@@ -13,6 +13,7 @@
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
       nerdfonts
+      cascadia-code
       hackgen-font
       hackgen-nf-font
       julia-mono
