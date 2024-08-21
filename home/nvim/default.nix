@@ -77,6 +77,9 @@
       gitsigns.enable = true;
       lazygit.enable = true;
 
+      nvim-autopairs.enable = true;
+      parinfer-rust.enable = true;
+
       treesitter.enable = true;
       nix.enable = true;
       lean = {
