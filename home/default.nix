@@ -40,6 +40,11 @@
       extraConfig = builtins.readFile ./wezterm.lua;
     };
 
+    kitty = {
+      enable = true;
+      extraConfig = builtins.readFile ./kitty.conf;
+    };
+
     git = {
       enable = true;
       userEmail = "lambdair1984@protonmail.com";
