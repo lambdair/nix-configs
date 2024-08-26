@@ -27,6 +27,15 @@
 
     keymaps = import ./keymaps.nix;
 
+    extraConfigLua = ''
+      local lspconfig = require('lspconfig')
+      lspconfig.uiua.setup{}
+    '';
+
+    filetype.extension = {
+      ua = "uiua";
+    };
+
     plugins = {
       telescope = {
         enable = true;
