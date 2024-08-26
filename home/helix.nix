@@ -3,6 +3,19 @@
     enable = true;
     defaultEditor = true;
     settings = {
+      editor = {
+        line-number = "relative";
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+        indent-guides = {
+          character = "|";
+          render = true;
+        };
+      };
+
       keys.normal = {
         C-a = "goto_line_start";
         C-e = "goto_line_end";
