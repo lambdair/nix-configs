@@ -12,8 +12,13 @@
   }
   {
     action = "<cmd>Telescope buffers<CR>";
-    key = "<leader>b";
+    key = "<leader>bb";
     options.desc = "Buffers";
+  }
+  {
+    action = "<cmd>Telescope current_buffer_fuzzy_find<CR>";
+    key = "<leader>b/";
+    options.desc = "Live grep (buffer)";
   }
   {
     action = "<cmd>Telescope help_tags<CR>";
@@ -45,7 +50,7 @@
     options.desc = "References";
   }
   {
-    action = "<cmd>Telescope lsp_workspace_symbols<CR>";
+    action = "<cmd>Telescope lsp_document_symbols<CR>";
     key = "<leader>s";
     options.desc = "Symbols";
   }
