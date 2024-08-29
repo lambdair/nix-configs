@@ -72,11 +72,23 @@
           sources = [
             { name = "nvim_lsp"; }
             { name = "latex_symbols"; }
+            { name = "buffer"; }
+            { name = "path"; }
+            { name = "copilot"; }
           ];
         };
       };
       cmp-nvim-lsp.enable = true;
       cmp-latex-symbols.enable = true;
+      cmp-buffer.enable = true;
+      cmp-path.enable = true;
+      copilot-cmp.enable = true;
+
+      copilot-lua = {
+        enable = true;
+        panel.enabled = false;
+        suggestion.enabled = false;
+      };
 
       mini.enable = true;
       which-key = {
