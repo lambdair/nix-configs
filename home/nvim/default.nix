@@ -96,7 +96,9 @@
       };
 
       gitsigns.enable = true;
+      diffview.enable = true;
       lazygit.enable = true;
+      neogit.enable = true;
 
       nvim-autopairs = {
         enable = true;
