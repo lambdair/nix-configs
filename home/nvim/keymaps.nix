@@ -73,6 +73,12 @@
   # LazyGit
   {
     action = "<cmd>LazyGit<CR>";
+    key = "<leader>gG";
+  }
+
+  # Neogit
+  {
+    action = "<cmd>Neogit<CR>";
     key = "<leader>gg";
   }
 
@@ -96,5 +102,17 @@
     action = "<cmd>Gitsigns reset_hunk<CR>";
     key = "<leader>gr";
     options.desc = "Reset change";
+  }
+
+  # Diffview
+  {
+    action = "<cmd>DiffviewOpen<CR>";
+    key = "<leader>gd";
+    options.desc = "Open Diffview";
+  }
+  {
+    action = "<cmd>DiffviewClose<CR>";
+    key = "<leader>gD";
+    options.desc = "Close Diffview";
   }
 ]
