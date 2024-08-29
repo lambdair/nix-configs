@@ -64,6 +64,11 @@
     key = "<leader>r";
     options.desc = "Rename symbol";
   }
+  {
+    action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
+    key = "<leader>a";
+    options.desc = "Code action";
+  }
 
   # LazyGit
   {
