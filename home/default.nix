@@ -19,6 +19,7 @@
     ripgrep
     fd
     tldr
+    tdf
 
     # gui tools
     emacs-git
