@@ -20,6 +20,7 @@
     fd
     tldr
     tdf
+    nb
 
     # gui tools
     emacs-git
