@@ -53,7 +53,7 @@
         servers = {
           nil-ls.enable = true;
           clojure-lsp.enable = true;
-          typst-lsp.enable = true;
+          tinymist.enable = true;
           typos-lsp.enable = true;
         };
       };
