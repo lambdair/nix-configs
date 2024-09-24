@@ -21,6 +21,7 @@
     tldr
     tdf
     nb
+    python312Packages.pylatexenc
 
     # gui tools
     emacs-git

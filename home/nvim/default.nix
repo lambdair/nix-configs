@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.nixvim = {
     enable = true;
@@ -30,6 +31,8 @@
     extraConfigLua = ''
       local lspconfig = require('lspconfig')
       lspconfig.uiua.setup{}
+
+      require("render-markdown").setup({})
     '';
 
     filetype.extension = {
@@ -109,7 +112,10 @@
       };
       parinfer-rust.enable = true;
 
-      treesitter.enable = true;
+      treesitter = {
+        enable = true;
+        settings.highlight.enable = true;
+      };
       nix.enable = true;
       lean = {
         enable = true;
@@ -118,5 +124,17 @@
       };
       conjure.enable = true;
     };
+
+    extraPlugins = with pkgs.vimPlugins; [
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "render-markdown-nvim";
+        src = pkgs.fetchFromGitHub {
+          owner = "MeanderingProgrammer";
+          repo = "render-markdown.nvim";
+          rev = "d8be43719a09c82647ead778b607cd904202b670";
+          sha256 = "sha256-4nkhlKEEJ4xK7wfVpq7kBFJlap5RhRFx8pup2FvIa+4=";
+        };
+      })
+    ];
   };
 }
