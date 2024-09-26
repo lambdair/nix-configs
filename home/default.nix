@@ -14,6 +14,8 @@
     rust-bin.stable.latest.default
     rust-analyzer
     lean4
+    sbcl
+    acl2-minimal
 
     # cui tools
     ripgrep
