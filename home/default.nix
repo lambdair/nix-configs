@@ -13,7 +13,9 @@
     nixfmt-rfc-style
     rust-bin.stable.latest.default
     rust-analyzer
-    lean4
+    (pkgs.callPackage ./lean4.nix {
+      inherit (pkgs) fetchFromGitHub;
+    })
     sbcl
     acl2-minimal
 
