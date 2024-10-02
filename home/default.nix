@@ -17,7 +17,7 @@
       inherit (pkgs) fetchFromGitHub;
     })
     sbcl
-    acl2-minimal
+    racket-minimal
 
     # cui tools
     ripgrep
