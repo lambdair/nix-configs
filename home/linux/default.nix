@@ -6,6 +6,7 @@ rec {
 
   home.packages = with pkgs; [
     vivaldi
+    nyxt
     thunderbird
     discord
     (pkgs.appimageTools.wrapType2 {
