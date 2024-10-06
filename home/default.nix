@@ -1,35 +1,48 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, lib, ... }:
+let
+  libs = with pkgs; [
+    SDL2
+    SDL2_ttf
+    SDL2_image
+    libffi
+    openssl
+    ncurses
+  ];
+  libPath = lib.makeLibraryPath libs;
+in
+rec {
   home.stateVersion = "24.05";
 
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [
-    # language
-    uiua
-    tree-sitter-grammars.tree-sitter-uiua
-    nil
-    nixfmt-rfc-style
-    rust-bin.stable.latest.default
-    rust-analyzer
-    (pkgs.callPackage ./lean4.nix {
-      inherit (pkgs) fetchFromGitHub;
-    })
-    sbcl
-    racket-minimal
+  home.packages =
+    with pkgs;
+    [
+      # language
+      uiua
+      tree-sitter-grammars.tree-sitter-uiua
+      nil
+      nixfmt-rfc-style
+      rust-bin.stable.latest.default
+      rust-analyzer
+      (pkgs.callPackage ./lean4.nix {
+        inherit (pkgs) fetchFromGitHub;
+      })
+      sbcl
+      racket-minimal
 
-    # cui tools
-    ripgrep
-    fd
-    tldr
-    tdf
-    nb
-    python312Packages.pylatexenc
+      # cui tools
+      ripgrep
+      fd
+      tldr
+      tdf
+      nb
+      python312Packages.pylatexenc
 
-    # gui tools
-    emacs-git
-  ];
+      # gui tools
+      emacs-git
+    ]
+    ++ libs;
 
   imports = [
     ./helix.nix
@@ -83,6 +96,7 @@
       };
       environmentVariables = {
         EDITOR = "'emacsclient -nw -a hx'";
+        LD_LIBRARY_PATH = "'${libPath}'";
       };
     };
 
