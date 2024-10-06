@@ -89,13 +89,13 @@ rec {
         ze = "zellij";
         lg = "lazygit";
         e = "emacs";
-        et = "emacsclient -nw -a hx";
+        et = "emacsclient -nw -a nvim";
         es = "emacs --daemon";
         ek = "emacsclient -e '(kill-emacs)'";
         vi = "nvim";
       };
       environmentVariables = {
-        EDITOR = "'emacsclient -nw -a hx'";
+        EDITOR = "'emacsclient -nw -a nvim'";
         LD_LIBRARY_PATH = "'${libPath}'";
       };
     };
