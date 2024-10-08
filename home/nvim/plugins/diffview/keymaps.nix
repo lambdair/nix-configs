@@ -1,12 +1,12 @@
 [
   {
-    action = "<cmd>DiffviewOpen<CR>";
-    key = "<leader>gd";
-    options.desc = "Open Diffview";
+    action = "<cmd>tabnew<CR>";
+    key = "<leader>tn";
+    options.desc = "New tab";
   }
   {
-    action = "<cmd>DiffviewClose<CR>";
-    key = "<leader>gD";
-    options.desc = "Close Diffview";
+    action = "<cmd>tabclose<CR>";
+    key = "<leader>td";
+    options.desc = "Close tab";
   }
 ]
