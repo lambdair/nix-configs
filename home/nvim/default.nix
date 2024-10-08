@@ -1,4 +1,8 @@
 { pkgs, ... }:
+let
+  fzf-lua = import ./plugins/fzf-lua;
+  lsp = import ./plugins/lsp;
+in
 {
   programs.nixvim = {
     enable = true;
@@ -26,7 +30,8 @@
 
     luaLoader.enable = true;
 
-    keymaps = import ./keymaps.nix;
+    keymaps =
+      import ./keymaps.nix ++ import ./plugins/fzf-lua/keymaps.nix ++ import ./plugins/lsp/keymaps.nix;
 
     extraConfigLua = ''
       local lspconfig = require('lspconfig')
@@ -39,93 +44,80 @@
       ua = "uiua";
     };
 
-    plugins = {
-      telescope = {
-        enable = true;
-        extensions = {
-          fzf-native.enable = true;
-        };
-      };
-      dashboard.enable = true;
-      web-devicons.enable = true;
-      lualine.enable = true;
-      neo-tree.enable = true;
-      oil.enable = true;
+    plugins =
+      fzf-lua
+      // lsp
+      // {
+        dashboard.enable = true;
+        web-devicons.enable = true;
+        lualine.enable = true;
+        neo-tree.enable = true;
+        oil.enable = true;
 
-      lsp = {
-        enable = true;
-        servers = {
-          nil-ls.enable = true;
-          clojure-lsp.enable = true;
-          tinymist.enable = true;
-          typos-lsp.enable = true;
-        };
-      };
-
-      cmp = {
-        enable = true;
-        autoEnableSources = true;
-        settings = {
-          mapping = {
-            "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-            "<Down>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-            "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-            "<Up>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-            "<CR>" = "cmp.mapping.confirm({ select = true })";
-            "<C-f>" = "cmp.mapping.scroll_docs(4)";
-            "<C-b>" = "cmp.mapping.scroll_docs(-4)";
-            "<C-e>" = "cmp.mapping.abort()";
-            "<C-Space>" = "cmp.mapping.complete()";
+        cmp = {
+          enable = true;
+          autoEnableSources = true;
+          settings = {
+            mapping = {
+              "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+              "<Down>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+              "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+              "<Up>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+              "<CR>" = "cmp.mapping.confirm({ select = true })";
+              "<C-f>" = "cmp.mapping.scroll_docs(4)";
+              "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+              "<C-e>" = "cmp.mapping.abort()";
+              "<C-Space>" = "cmp.mapping.complete()";
+            };
+            sources = [
+              { name = "nvim_lsp"; }
+              { name = "latex_symbols"; }
+              { name = "buffer"; }
+              { name = "path"; }
+              { name = "copilot"; }
+            ];
           };
-          sources = [
-            { name = "nvim_lsp"; }
-            { name = "latex_symbols"; }
-            { name = "buffer"; }
-            { name = "path"; }
-            { name = "copilot"; }
-          ];
         };
-      };
-      cmp-nvim-lsp.enable = true;
-      cmp-latex-symbols.enable = true;
-      cmp-buffer.enable = true;
-      cmp-path.enable = true;
-      copilot-cmp.enable = true;
+        cmp-nvim-lsp.enable = true;
+        cmp-latex-symbols.enable = true;
+        cmp-buffer.enable = true;
+        cmp-path.enable = true;
+        copilot-cmp.enable = true;
 
-      copilot-lua = {
-        enable = true;
-        panel.enabled = false;
-        suggestion.enabled = false;
-      };
+        copilot-lua = {
+          enable = true;
+          panel.enabled = false;
+          suggestion.enabled = false;
+        };
 
-      mini.enable = true;
-      which-key = {
-        enable = true;
-      };
+        mini.enable = true;
+        which-key = {
+          enable = true;
+        };
 
-      gitsigns.enable = true;
-      diffview.enable = true;
-      lazygit.enable = true;
-      neogit.enable = true;
+        gitsigns.enable = true;
+        diffview.enable = true;
+        lazygit.enable = true;
+        neogit.enable = true;
 
-      nvim-autopairs = {
-        enable = true;
-        settings.disable_filetype = [ "clojure" ];
-      };
-      parinfer-rust.enable = true;
+        nvim-autopairs = {
+          enable = true;
+          settings.disable_filetype = [ "clojure" ];
+        };
+        parinfer-rust.enable = true;
 
-      treesitter = {
-        enable = true;
-        settings.highlight.enable = true;
+        treesitter = {
+          enable = true;
+          settings.highlight.enable = true;
+        };
+        nix.enable = true;
+        lean = {
+          enable = true;
+          mappings = true;
+          abbreviations.leader = ",";
+        };
+        conjure.enable = true;
       };
-      nix.enable = true;
-      lean = {
-        enable = true;
-        mappings = true;
-        abbreviations.leader = ",";
-      };
-      conjure.enable = true;
-    };
 
     extraPlugins = with pkgs.vimPlugins; [
       (pkgs.vimUtils.buildVimPlugin {

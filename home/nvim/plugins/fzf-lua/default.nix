@@ -1,0 +1,5 @@
+{
+  fzf-lua = {
+    enable = true;
+  };
+}
