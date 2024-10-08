@@ -11,10 +11,10 @@ rec {
     discord
     (pkgs.appimageTools.wrapType2 {
       name = "heptabase";
-      version = "1.34.0";
+      version = "1.41.1";
       src = fetchurl {
-        url = "https://github.com/heptameta/project-meta/releases/download/v1.34.0/Heptabase-1.34.0.AppImage";
-        sha256 = "0lbmyb3wr4jj0w47b3zdxlrnq8dyb5yjqzr4lmqqrhvxbabs037b";
+        url = "https://github.com/heptameta/project-meta/releases/download/v1.41.1/Heptabase-1.41.1.AppImage";
+        sha256 = "MX5lKTSJFBhtUMPlefSWvVayFYt0ydZ7lToUDdDUsT4=";
       };
     })
   ];
