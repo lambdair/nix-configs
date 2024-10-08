@@ -46,8 +46,7 @@
           buildPhase = ''
             make sdl2-ncurses
           '';
-          installPhase = ''
-          '';
+          installPhase = '''';
         };
 
         formatter = pkgs.nixfmt-rfc-style;
