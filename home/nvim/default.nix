@@ -33,7 +33,7 @@ in
   programs.nixvim = {
     enable = true;
 
-    colorscheme = "catppuccin";
+    colorscheme = "nordic";
     colorschemes = {
       catppuccin = {
         enable = true;
