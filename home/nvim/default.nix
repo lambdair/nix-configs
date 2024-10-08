@@ -9,6 +9,15 @@ let
     in
     builtins.foldl' (acc: name: acc // import (dir + "/${name}")) { } plugins;
 
+  # Import all extra plugins from the directory
+  importExtraPlugins =
+    dir:
+    let
+      pluginNames = builtins.attrNames (builtins.readDir dir);
+      plugins = builtins.filter (name: builtins.pathExists (dir + "/${name}/default.nix")) pluginNames;
+    in
+    builtins.map (name: import (dir + "/${name}") { inherit pkgs; }) plugins;
+
   # Import all keymaps from the directory
   importKeymaps =
     dir:
@@ -47,8 +56,6 @@ in
 
     luaLoader.enable = true;
 
-    keymaps = import ./keymaps.nix ++ importKeymaps ./plugins;
-
     extraConfigLua = ''
       local lspconfig = require('lspconfig')
       lspconfig.uiua.setup{}
@@ -61,17 +68,8 @@ in
     };
 
     plugins = importPlugins ./plugins;
+    extraPlugins = importExtraPlugins ./extra-plugins;
 
-    extraPlugins = [
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "render-markdown-nvim";
-        src = pkgs.fetchFromGitHub {
-          owner = "MeanderingProgrammer";
-          repo = "render-markdown.nvim";
-          rev = "d8be43719a09c82647ead778b607cd904202b670";
-          sha256 = "sha256-4nkhlKEEJ4xK7wfVpq7kBFJlap5RhRFx8pup2FvIa+4=";
-        };
-      })
-    ];
+    keymaps = import ./keymaps.nix ++ importKeymaps ./plugins;
   };
 }
