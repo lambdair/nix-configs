@@ -1,0 +1,3 @@
+{
+  conjure.enable = true;
+}

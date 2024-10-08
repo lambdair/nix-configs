@@ -1,0 +1,3 @@
+{
+  diffview.enable = true;
+}

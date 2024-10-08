@@ -1,0 +1,5 @@
+{
+  which-key = {
+    enable = true;
+  };
+}
