@@ -2,11 +2,11 @@
   lsp = {
     enable = true;
     servers = {
-      nil-ls.enable = true;
+      nil_ls.enable = true;
       nushell.enable = true;
-      clojure-lsp.enable = true;
+      clojure_lsp.enable = true;
       tinymist.enable = true;
-      typos-lsp.enable = true;
+      typos_lsp.enable = true;
     };
   };
 }

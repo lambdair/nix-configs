@@ -13,8 +13,8 @@ rec {
       name = "heptabase";
       version = "1.41.1";
       src = fetchurl {
-        url = "https://github.com/heptameta/project-meta/releases/download/v1.41.1/Heptabase-1.41.1.AppImage";
-        sha256 = "MX5lKTSJFBhtUMPlefSWvVayFYt0ydZ7lToUDdDUsT4=";
+        url = "https://github.com/heptameta/project-meta/releases/download/v1.43.0/Heptabase-1.43.0.AppImage";
+        sha256 = "sha256-ig56Xyh6+UQerR+wXg0Sp4GLBosrUc07C/6B27TbAz8=";
       };
     })
   ];
