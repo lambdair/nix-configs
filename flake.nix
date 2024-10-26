@@ -2,6 +2,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin.url = "github:catppuccin/nix";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -13,9 +17,11 @@
     };
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
       url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -42,6 +48,21 @@
           ];
         };
       };
+
+      darwinConfigurations = {
+        MacOS = inputs.nix-darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [
+            ./host/sonora
+          ];
+          specialArgs = {
+            inherit inputs;
+          };
+        };
+      };
+
+      # Expose the package set, including overlays, for convenience.
+      darwinPackages = inputs.self.darwinConfigurations."simple".pkgs;
 
       homeConfigurations = {
         NixHome = inputs.home-manager.lib.homeManagerConfiguration {
