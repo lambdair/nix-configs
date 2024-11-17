@@ -41,6 +41,7 @@ rec {
       tldr
       tdf
       nb
+      nix-search
       python312Packages.pylatexenc
 
       # gui tools
