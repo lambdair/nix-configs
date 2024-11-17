@@ -11,7 +11,7 @@ let
   libPath = lib.makeLibraryPath libs;
 in
 rec {
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 
   programs.home-manager.enable = true;
 
