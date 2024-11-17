@@ -30,6 +30,10 @@ rec {
       })
       sbcl
       racket-minimal
+      clojure
+      clojure-lsp
+      cljfmt
+      babashka
 
       # cui tools
       ripgrep
