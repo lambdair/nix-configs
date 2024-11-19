@@ -98,6 +98,7 @@ rec {
         es = "emacs --daemon";
         ek = "emacsclient -e '(kill-emacs)'";
         vi = "nvim";
+        uu = "uiua repl";
       };
       environmentVariables = {
         EDITOR = "'emacsclient -nw -a nvim'";
