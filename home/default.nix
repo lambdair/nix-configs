@@ -34,6 +34,7 @@ rec {
       clojure-lsp
       cljfmt
       babashka
+      scryer-prolog
 
       # cui tools
       ripgrep
