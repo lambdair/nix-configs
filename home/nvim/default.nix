@@ -52,6 +52,8 @@ in
       maplocalleader = ",";
 
       "conjure#mapping#doc_word" = false;
+      "elin_default_key_mapping_leader" = "<LocalLeader>";
+      "elin_enable_default_key_mappings" = true;
     };
 
     luaLoader.enable = true;
