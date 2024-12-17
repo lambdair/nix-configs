@@ -10,7 +10,7 @@ rec {
     thunderbird
     discord
     (pkgs.appimageTools.wrapType2 {
-      name = "heptabase";
+      pname = "heptabase";
       version = "1.41.1";
       src = fetchurl {
         url = "https://github.com/heptameta/project-meta/releases/download/v1.43.0/Heptabase-1.43.0.AppImage";
