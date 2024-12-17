@@ -28,6 +28,8 @@ rec {
       (pkgs.callPackage ./lean4.nix {
         inherit (pkgs) fetchFromGitHub;
       })
+      isabelle
+      maude
       sbcl
       racket-minimal
       clojure
