@@ -12,7 +12,7 @@
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
-      nerdfonts
+      nerd-fonts.hack
       cascadia-code
       hackgen-font
       hackgen-nf-font
