@@ -32,6 +32,7 @@ rec {
       maude
       sbcl
       racket-minimal
+      guile
       clojure
       clojure-lsp
       cljfmt
