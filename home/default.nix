@@ -38,6 +38,9 @@ rec {
       cljfmt
       babashka
       scryer-prolog
+      ciao
+      teyjus
+      abella
 
       # cui tools
       ripgrep
