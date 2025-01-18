@@ -103,7 +103,7 @@ in
         uu = "uiua repl";
       };
       environmentVariables = {
-        EDITOR = "'emacsclient -nw -a nvim'";
+        EDITOR = "nvim";
         LD_LIBRARY_PATH = "'${libPath}'";
       };
     };
