@@ -10,7 +10,7 @@ let
   ];
   libPath = lib.makeLibraryPath libs;
 in
-rec {
+{
   home.stateVersion = "24.11";
 
   programs.home-manager.enable = true;
@@ -25,10 +25,8 @@ rec {
       nixfmt-rfc-style
       rust-bin.stable.latest.default
       rust-analyzer
-      (pkgs.callPackage ./lean4.nix {
-        inherit (pkgs) fetchFromGitHub;
-      })
-      isabelle
+      lean4
+      # isabelle
       maude
       sbcl
       racket-minimal
@@ -50,9 +48,6 @@ rec {
       nb
       nix-search
       python312Packages.pylatexenc
-
-      # gui tools
-      emacs-git
     ]
     ++ libs;
 
