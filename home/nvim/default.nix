@@ -52,6 +52,7 @@ in
       maplocalleader = ",";
 
       "conjure#mapping#doc_word" = false;
+      "conjure#filetype#scheme" = "conjure.client.guile.socket";
       "elin_default_key_mapping_leader" = "<LocalLeader>";
       "elin_enable_default_key_mappings" = true;
     };
