@@ -18,6 +18,8 @@ in
   home.packages =
     with pkgs;
     [
+      guix
+
       # language
       uiua
       tree-sitter-grammars.tree-sitter-uiua
