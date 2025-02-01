@@ -54,6 +54,7 @@ in
       nix-search
       nvfetcher
       python312Packages.pylatexenc
+      emacs-lsp-booster
     ]
     ++ libs;
 

@@ -1,4 +1,25 @@
 {
+    "eglot-booster": {
+        "cargoLocks": null,
+        "date": "2024-10-29",
+        "extract": null,
+        "name": "eglot-booster",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "jdtsmith",
+            "repo": "eglot-booster",
+            "rev": "e6daa6bcaf4aceee29c8a5a949b43eb1b89900ed",
+            "sha256": "sha256-PLfaXELkdX5NZcSmR1s/kgmU16ODF8bn56nfTh9g6bs=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "e6daa6bcaf4aceee29c8a5a949b43eb1b89900ed"
+    },
     "heptabase": {
         "cargoLocks": null,
         "date": null,

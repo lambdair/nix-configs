@@ -26,7 +26,7 @@ in
       (import ./ui { inherit epkgs; })
       ++ (import ./navigation { inherit epkgs; })
       ++ (import ./language { inherit pkgs epkgs sources; })
-      ++ (import ./lsp { inherit pkgs epkgs; })
+      ++ (import ./lsp { inherit pkgs epkgs sources; })
       ++ [
         eros
 

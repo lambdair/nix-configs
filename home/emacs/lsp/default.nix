@@ -1,8 +1,12 @@
-{ pkgs, epkgs }:
+{
+  pkgs,
+  epkgs,
+  sources,
+}:
 let
   eglot-booster = pkgs.callPackage ./eglot-booster {
-    inherit (pkgs) fetchgit;
     inherit (pkgs.emacsPackages) trivialBuild;
+    inherit sources;
   };
 in
 with epkgs;

@@ -10,6 +10,10 @@ fetch.git = "https://codeberg.org/mekeor/nael"
 src.git = "https://codeberg.org/meow_king/typst-ts-mode"
 fetch.git = "https://codeberg.org/meow_king/typst-ts-mode"
 
+[eglot-booster]
+src.git = "https://github.com/jdtsmith/eglot-booster"
+fetch.github = "jdtsmith/eglot-booster"
+
 [heptabase]
 src.github_tag = "heptameta/project-meta"
 src.prefix = "v"
