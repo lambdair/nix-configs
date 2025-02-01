@@ -4,7 +4,7 @@
   sources,
 }:
 let
-  eglot-booster = pkgs.callPackage ./eglot-booster {
+  eglot-booster = pkgs.callPackage ./eglot-booster.nix {
     inherit (pkgs.emacsPackages) trivialBuild;
     inherit sources;
   };
