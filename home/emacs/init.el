@@ -31,6 +31,9 @@
 (setq ring-bell-function 'ignore)
 (setq scroll-conservatively 1)
 (setq indent-tabs-mode 0)
+(setq make-backup-files nil)
+(setq backup-inhibited nil)
+(setq create-lockfiles nil)
 
 (leaf autorevert
   :doc "revert buffers when files on disk change"
