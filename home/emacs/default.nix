@@ -46,21 +46,15 @@ in
         nerd-icons-corfu
         cape
         orderless
-        affe
 
         leaf
         leaf-keywords
         leaf-tree
 
-        macrostep
-
         apheleia
 
         # lang
         tree-sitter-langs
-
-        ## lisp
-        lispy
 
         expreg
         puni
@@ -69,6 +63,7 @@ in
         aggressive-indent
 
         ctrlf
+        affe
 
         exec-path-from-shell
 

@@ -73,6 +73,13 @@
       (set-fontset-font "fontset-default"
 			'kana "Rounded Mgen+ 2m"))))
 
+(leaf catppuccin-theme
+  :doc "Catppuccin for Emacs - 🍄 Soothing pastel theme for Emacs"
+  :config
+  (setq catppuccin-flavor 'frappe)
+  ;; (setq catppuccin-flavor 'latte)
+  (load-theme 'catppuccin :no-confirm))
+
 (leaf dashboard
   :doc "A startup screen extracted from Spacemacs"
   :config

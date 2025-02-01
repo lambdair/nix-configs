@@ -32,6 +32,13 @@ with epkgs;
   nael
   lean4-mode
 
+  # lisp family
+  lispy
+
+  # emacs lipy
+  eros
+  macrostep
+
   # clojure
   clojure-ts-mode
   clojure-mode
