@@ -14,6 +14,8 @@
         ++ (import ./language { inherit pkgs epkgs sources; })
         ++ (import ./lsp { inherit pkgs epkgs sources; })
         ++ [
+          pkgs.tree-sitter-grammars.tree-sitter-typescript
+          pkgs.tree-sitter-grammars.tree-sitter-tsx
           eros
 
           magit
@@ -66,6 +68,10 @@
 
     })
   ];
+  home.file.".emacs.d/tree-sitter/libtree-sitter-typescript.so".source =
+    "${pkgs.tree-sitter-grammars.tree-sitter-typescript}/parser";
+  home.file.".emacs.d/tree-sitter/libtree-sitter-tsx.so".source =
+    "${pkgs.tree-sitter-grammars.tree-sitter-tsx}/parser";
   # home.file.".emacs.d/tree-sitter/libtree-sitter-typst.so".source =
   #   "${typst-ts-mode}/share/emacs/site-lisp/tree-sitter/libtree-sitter-typst.so";
 }

@@ -407,6 +407,12 @@ vi style of % jumping to matching brace."
     (setq affe-regexp-compiler #'affe-orderless-regexp-compiler)))
 
 
+(leaf treesit
+  :config
+  (add-to-list 'treesit-extra-load-path
+	       (expand-file-name "tree-sitter" user-emacs-directory)))
+
+
 (leaf lsp
   (leaf eglot
     :doc "The Emacs Client for LSP servers"
