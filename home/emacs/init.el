@@ -106,6 +106,13 @@
     :global-minor-mode nerd-icons-completion-mode
     :config (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
 
+  (leaf neotree
+    :doc "A tree plugin like NerdTree for Vim"
+    :config (setq neo-theme
+		  (if (display-graphic-p)
+		      'nerd-icons
+		    'arrow)))
+
   (leaf resize-window
     :config
     (defun resize-window (&optional arg)
@@ -137,13 +144,17 @@
 
 (leaf key-bindings
   :config
-  (defun goto-match-paren (arg)
-    "Go to the matching parenthesis if on parenthesis, otherwise insert %.
+  (leaf my-key-bindings
+    :config
+    (defun goto-match-paren (arg)
+      "Go to the matching parenthesis if on parenthesis, otherwise insert %.
 vi style of % jumping to matching brace."
-    (interactive "p")
-    (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
-          ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
-          (t nil)))
+      (interactive "p")
+      (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
+            ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
+            (t nil)))
+    (global-set-key (kbd "<home>") 'beginning-of-line)
+    (global-set-key (kbd "<end>") 'end-of-line))
 
   (leaf meow
     :doc "Yet Another modal editing"
@@ -246,8 +257,10 @@ vi style of % jumping to matching brace."
     :doc "Display available keybindings in popup"
     :global-minor-mode which-key-mode)
 
-  (global-set-key (kbd "<home>") 'beginning-of-line)
-  (global-set-key (kbd "<end>") 'end-of-line))
+  (leaf ace-window
+    :doc "Quickly switch windows"
+    :bind* ("M-o" . ace-window)
+    :config (setq aw-dispatch-always 1)))
 
 
 (use-package consult
@@ -394,6 +407,52 @@ vi style of % jumping to matching brace."
     (setq affe-regexp-compiler #'affe-orderless-regexp-compiler)))
 
 
+(leaf lsp
+  (leaf eglot
+    :doc "The Emacs Client for LSP servers"
+    :config (add-hook 'prog-mode-hook #'eglot-ensure))
+
+  (leaf eglot-booster
+    :doc "Boost eglot using lsp-booster"
+    :require t
+    :after eglot
+    :config (eglot-booster-mode))
+
+  (setenv "LSP_USE_PLISTS" "true")
+
+  (leaf lsp-mode
+    :config
+    (defun lsp-booster--advice-json-parse (old-fn &rest args)
+      "Try to parse bytecode instead of json."
+      (or
+       (when (equal (following-char) ?#)
+	 (let ((bytecode (read (current-buffer))))
+	   (when (byte-code-function-p bytecode)
+             (funcall bytecode))))
+       (apply old-fn args)))
+    (advice-add (if (progn (require 'json)
+			   (fboundp 'json-parse-buffer))
+                    'json-parse-buffer
+		  'json-read)
+		:around
+		#'lsp-booster--advice-json-parse)
+
+    (defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
+      "Prepend emacs-lsp-booster command to lsp CMD."
+      (let ((orig-result (funcall old-fn cmd test?)))
+	(if (and (not test?) ;; for check lsp-server-present?
+		 (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
+		 lsp-use-plists
+		 (not (functionp 'json-rpc-connection)) ;; native json-rpc
+		 (executable-find "emacs-lsp-booster"))
+            (progn
+              (when-let ((command-from-exec-path (executable-find (car orig-result)))) ;; resolve command from exec-path (in case not found in $PATH)
+		(setcar orig-result command-from-exec-path))
+              (message "Using emacs-lsp-booster for %s!" orig-result)
+              (cons "emacs-lsp-booster" orig-result))
+	  orig-result)))
+    (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)))
+
 (leaf edit-enhancement
   :config
   (leaf puni
@@ -487,13 +546,53 @@ vi style of % jumping to matching brace."
     (add-hook 'emacs-lisp-mode-hook #'lispy-mode)
     (add-hook 'scheme-mode-hook #'lispy-mode))
 
+  (leaf cider
+    :doc "Clojure Interactive Development Environment that Rocks")
+
+  (leaf clojure-ts-mode
+    :doc "Major mode for Clojure code")
+
   (leaf sly
     :doc "Sylvester the Cat's Common Lisp IDE"
     :config (setq inferior-lisp-program "sbcl"))
 
+  (leaf lean4-mode
+    :doc "Major mode for Lean language"
+    :require t)
+
+  ;; (leaf nael
+  ;;   :doc "A humble major-mode for Lean"
+  ;;   :require t
+  ;;   :after eglot
+  ;;   :config
+  ;;   (defun my-nael-setup ()
+  ;;     (interactive)
+  ;;     ;; Enable Emacs' built-in `TeX' input-method.  Alternatively, you
+  ;;     ;; could install the external `unicode-math-input' package and
+  ;;     ;; use the `unicode-math' input-method.
+  ;;     ;; (set-input-method "TeX")
+  ;;     (set-input-method "unicode-math")
+  ;;     ;; Enable Emacs' built-in LSP-client Eglot.
+  ;;     (eglot-ensure))
+
+  ;;   (add-hook 'nael-mode-hook #'my-nael-setup)
+
+  ;;   :bind
+  ;;   (nael-mode-map
+  ;;    ;; Nael buffer-locally sets `compile-command' to "lake build".
+  ;;    ("C-c C-c" . project-compile)
+
+  ;;    ;; Find out how to type the character at point in the current
+  ;;    ;; input-method.
+  ;;    ("C-c C-k" . quail-show-key)))
+
   (leaf uiua-mode
     :doc "Uiua integration"
     :mode "\\.ua\\'")
+
+  (leaf nix-mode
+    :doc "Major mode for Nix expressions, powered by tree-sitter"
+    :mode "\\.nix\\'")
 
   (leaf typst-ts-mode
     :doc "Tree Sitter support for Typst"
