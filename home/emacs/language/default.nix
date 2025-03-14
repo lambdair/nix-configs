@@ -34,6 +34,7 @@ with epkgs;
 
   # lisp family
   lispy
+  parinfer-rust-mode
 
   # emacs lipy
   eros

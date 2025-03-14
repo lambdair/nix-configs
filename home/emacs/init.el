@@ -4,10 +4,9 @@
 
 ;;; Code:
 
-;;; activate leaf
-(use-package leaf
-  ;; Simplify your init.el configuration, extended use-package
-  )
+;; activate leaf
+;; Simplify your init.el configuration, extended use-package
+(use-package leaf)
 
 (leaf leaf-keywords
   :config
@@ -16,8 +15,8 @@
 (leaf leaf-tree
   :doc "Interactive side-bar feature for init.el using leaf"
   :bind (emacs-lisp-mode-map
-	 :package leaf
-	 ("C-c C-t" . leaf-tree-mode)))
+         :package leaf
+         ("C-c C-t" . leaf-tree-mode)))
 
 
 (leaf system-behaivior
@@ -29,7 +28,7 @@
   (setq use-short-answers 1)
   (setq ring-bell-function 'ignore)
   (setq scroll-conservatively 1)
-  (setq indent-tabs-mode 0)
+  (setq-default indent-tabs-mode nil)
   (setq make-backup-files nil)
   (setq backup-inhibited nil)
   (setq create-lockfiles nil)
@@ -59,20 +58,20 @@
   (leaf font
     :config
     (if (eq system-type 'darwin)
-	(progn
-	  (add-to-list 'default-frame-alist '(font . "Uiua386-16"))
-	  ;; (set-frame-font "Uiua386 16" nil t)
-	  (set-fontset-font "fontset-default"
-			    'han "Rounded Men+ 2m")
-	  (set-fontset-font "fontset-default"
-			    'kana "Rounded Mgen+ 2m"))
+        (progn
+          (add-to-list 'default-frame-alist '(font . "Uiua386-16"))
+          ;; (set-frame-font "Uiua386 16" nil t)
+          (set-fontset-font "fontset-default"
+                            'han "Rounded Men+ 2m")
+          (set-fontset-font "fontset-default"
+                            'kana "Rounded Mgen+ 2m"))
       (progn
-	;; (set-frame-font "Uiua386 12" nil t)
-	(add-to-list 'default-frame-alist '(font . "Uiua386-12"))
-	(set-fontset-font "fontset-default"
-			  'han "Rounded Mgen+ 2m")
-	(set-fontset-font "fontset-default"
-			  'kana "Rounded Mgen+ 2m"))))
+        ;; (set-frame-font "Uiua386 12" nil t)
+        (add-to-list 'default-frame-alist '(font . "Uiua386-12"))
+        (set-fontset-font "fontset-default"
+                          'han "Rounded Mgen+ 2m")
+        (set-fontset-font "fontset-default"
+                          'kana "Rounded Mgen+ 2m"))))
 
   (leaf catppuccin-theme
     :doc "Catppuccin for Emacs - 🍄 Soothing pastel theme for Emacs"
@@ -109,9 +108,9 @@
   (leaf neotree
     :doc "A tree plugin like NerdTree for Vim"
     :config (setq neo-theme
-		  (if (display-graphic-p)
-		      'nerd-icons
-		    'arrow)))
+                  (if (display-graphic-p)
+                      'nerd-icons
+                    'arrow)))
 
   (leaf resize-window
     :config
@@ -121,24 +120,24 @@
       (if (one-window-p) (error "Cannot resize sole window"))
       (or arg (setq arg 1))
       (let (c)
-	(catch 'done
-	  (while t
-	    (message
-	     "hl=horizontal, kj=vertical (by %d); 1-9=unit, q=quit"
-	     arg)
-	    (setq c (read-char))
-	    (condition-case ()
-		(cond
-		 ((= c ?k) (enlarge-window arg))
-		 ((= c ?j) (shrink-window arg))
-		 ((= c ?l) (enlarge-window-horizontally arg))
-		 ((= c ?h) (shrink-window-horizontally arg))
-		 ((= c ?\^G) (keyboard-quit))
-		 ((= c ?q) (throw 'done t))
-		 ((and (> c ?0) (<= c ?9)) (setq arg (- c ?0)))
-		 (t (beep)))
-	      (error (beep)))))
-	(message "Done.")))
+        (catch 'done
+          (while t
+            (message
+             "hl=horizontal, kj=vertical (by %d); 1-9=unit, q=quit"
+             arg)
+            (setq c (read-char))
+            (condition-case ()
+                (cond
+                 ((= c ?k) (enlarge-window arg))
+                 ((= c ?j) (shrink-window arg))
+                 ((= c ?l) (enlarge-window-horizontally arg))
+                 ((= c ?h) (shrink-window-horizontally arg))
+                 ((= c ?\^G) (keyboard-quit))
+                 ((= c ?q) (throw 'done t))
+                 ((and (> c ?0) (<= c ?9)) (setq arg (- c ?0)))
+                 (t (beep)))
+              (error (beep)))))
+        (message "Done.")))
     (global-set-key (kbd "C-x w w") 'resize-window)))
 
 
@@ -287,7 +286,7 @@ vi style of % jumping to matching brace."
          ("C-M-#" . consult-register)
          ;; Other custom bindings
          ("M-y" . consult-yank-pop)
-	 ("C-M-y" . consult-yank-from-kill-ring)
+         ("C-M-y" . consult-yank-from-kill-ring)
          ;; M-g bindings in `goto-map'
          ("M-g e" . consult-compile-error)
          ("M-g f" . consult-flymake)
@@ -314,7 +313,7 @@ vi style of % jumping to matching brace."
          ("M-e" . consult-isearch-history)
          ("M-s e" . consult-isearch-history)
          ("M-s l" . consult-line) ;; needed by consult-line to detect isearch
-         ("M-s L" . consult-line-multi)	;; needed by consult-line to detect isearch
+         ("M-s L" . consult-line-multi) ;; needed by consult-line to detect isearch
          ;; Minibuffer history
          :map minibuffer-local-map
          ("M-s" . consult-history) ;; orig. next-matching-history-element
@@ -371,20 +370,19 @@ vi style of % jumping to matching brace."
 
   ;; filter buffer
   (setq consult-buffer-filter
-	'("\\` "
-	  "\\`\\*Warnings\\*\\'"
-	  "\\`\\*Messages\\*\\'"
-	  "\\`\\*Async-native-compile-log\\*\\'"
-	  "\\`\\*EGLOT .*\\*\\'"
-	  "\\`magit-.*\\'"
-	  "\\`\\*vc\\*\\'"))
-  )
+        '("\\` "
+          "\\`\\*Warnings\\*\\'"
+          "\\`\\*Messages\\*\\'"
+          "\\`\\*Async-native-compile-log\\*\\'"
+          "\\`\\*EGLOT .*\\*\\'"
+          "\\`magit-.*\\'"
+          "\\`\\*vc\\*\\'")))
 
 ;; (leaf embark
 ;;   :doc "Conveniently act on minibuffer completions"
 ;;   :bind (minibuffer-mode-map
-;; 	 ("M-." . embark-dwim)
-;; 	 ("C-." . embark-act)))
+;;           ("M-." . embark-dwim)
+;;           ("C-." . embark-act)))
 
 ;; (leaf embark-consult
 ;;   :doc "Consult integration for Embark"
@@ -410,13 +408,13 @@ vi style of % jumping to matching brace."
 (leaf treesit
   :config
   (add-to-list 'treesit-extra-load-path
-	       (expand-file-name "tree-sitter" user-emacs-directory)))
+               (expand-file-name "tree-sitter" user-emacs-directory)))
 
 
 (leaf lsp
-  (leaf eglot
-    :doc "The Emacs Client for LSP servers"
-    :config (add-hook 'prog-mode-hook #'eglot-ensure))
+  ;; (leaf eglot
+  ;;   :doc "The Emacs Client for LSP servers"
+  ;;   :config (add-hook 'prog-mode-hook #'eglot-ensure))
 
   (leaf eglot-booster
     :doc "Boost eglot using lsp-booster"
@@ -427,36 +425,37 @@ vi style of % jumping to matching brace."
   (setenv "LSP_USE_PLISTS" "true")
 
   (leaf lsp-mode
+    :hook (clojure-mode . lsp-mode)
     :config
     (defun lsp-booster--advice-json-parse (old-fn &rest args)
       "Try to parse bytecode instead of json."
       (or
        (when (equal (following-char) ?#)
-	 (let ((bytecode (read (current-buffer))))
-	   (when (byte-code-function-p bytecode)
+         (let ((bytecode (read (current-buffer))))
+           (when (byte-code-function-p bytecode)
              (funcall bytecode))))
        (apply old-fn args)))
     (advice-add (if (progn (require 'json)
-			   (fboundp 'json-parse-buffer))
+                           (fboundp 'json-parse-buffer))
                     'json-parse-buffer
-		  'json-read)
-		:around
-		#'lsp-booster--advice-json-parse)
+                  'json-read)
+                :around
+                #'lsp-booster--advice-json-parse)
 
     (defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
       "Prepend emacs-lsp-booster command to lsp CMD."
       (let ((orig-result (funcall old-fn cmd test?)))
-	(if (and (not test?) ;; for check lsp-server-present?
-		 (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
-		 lsp-use-plists
-		 (not (functionp 'json-rpc-connection)) ;; native json-rpc
-		 (executable-find "emacs-lsp-booster"))
+        (if (and (not test?) ;; for check lsp-server-present?
+                 (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
+                 lsp-use-plists
+                 (not (functionp 'json-rpc-connection)) ;; native json-rpc
+                 (executable-find "emacs-lsp-booster"))
             (progn
               (when-let ((command-from-exec-path (executable-find (car orig-result)))) ;; resolve command from exec-path (in case not found in $PATH)
-		(setcar orig-result command-from-exec-path))
+                (setcar orig-result command-from-exec-path))
               (message "Using emacs-lsp-booster for %s!" orig-result)
               (cons "emacs-lsp-booster" orig-result))
-	  orig-result)))
+          orig-result)))
     (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)))
 
 (leaf edit-enhancement
@@ -474,8 +473,8 @@ vi style of % jumping to matching brace."
 (leaf flymake
   :doc "A universal on-the-fly syntax checker"
   :bind (prog-mode-map
-	 ("M-n" . flymake-goto-next-error)
-	 ("M-p" . flymake-goto-prev-error)))
+         ("M-n" . flymake-goto-next-error)
+         ("M-p" . flymake-goto-prev-error)))
 
 
 (leaf completion
@@ -519,9 +518,7 @@ vi style of % jumping to matching brace."
     (add-hook 'completion-at-point-functions #'cape-dabbrev)
     (add-hook 'completion-at-point-functions #'cape-file)
     (add-hook 'completion-at-point-functions #'cape-elisp-block)
-    ;; (add-hook 'completion-at-point-functions #'cape-history)
-    ;; ...
-    )
+    (add-hook 'completion-at-point-functions #'cape-history))
 
   (leaf orderless
     :doc "Completion style for matching regexps in any order"
@@ -543,24 +540,31 @@ vi style of % jumping to matching brace."
     :doc "Minor mode to aggressively keep your code always indented"
     :hook (emacs-lisp-mode . aggressive-indent-mode))
 
-  (leaf lispy
-    :doc "vi-like Paredit"
-    :require t
+  ;; (leaf lispy
+  ;;   :doc "vi-like Paredit"
+  ;;   :require t
+  ;;   :config
+  ;;   (define-key lispy-mode-map (kbd "M-.") nil)
+  ;;   (add-hook 'clojure-mode-hook #'lispy-mode)
+  ;;   (add-hook 'emacs-lisp-mode-hook #'lispy-mode)
+  ;;   (add-hook 'scheme-mode-hook #'lispy-mode))
+
+  (leaf parinfer-rust-mode
+    :doc "An interface for the parinfer-rust library"
     :config
-    (define-key lispy-mode-map (kbd "M-.") nil)
-    (add-hook 'clojure-mode-hook #'lispy-mode)
-    (add-hook 'emacs-lisp-mode-hook #'lispy-mode)
-    (add-hook 'scheme-mode-hook #'lispy-mode))
+    (add-hook 'clojure-mode-hook #'parinfer-rust-mode)
+    (add-hook 'emacs-lisp-mode-hook #'parinfer-rust-mode)
+    (add-hook 'scheme-mode-hook #'parinfer-rust-mode))
 
   (leaf cider
     :doc "Clojure Interactive Development Environment that Rocks")
 
-  (leaf clojure-ts-mode
-    :doc "Major mode for Clojure code")
+  ;;   (leaf clojure-ts-mode
+  ;;     :doc "Major mode for Clojure code")
 
-  (leaf sly
-    :doc "Sylvester the Cat's Common Lisp IDE"
-    :config (setq inferior-lisp-program "sbcl"))
+  ;;   (leaf sly
+  ;;     :doc "Sylvester the Cat's Common Lisp IDE"
+  ;;     :config (setq inferior-lisp-program "sbcl"))
 
   (leaf lean4-mode
     :doc "Major mode for Lean language"
@@ -592,23 +596,27 @@ vi style of % jumping to matching brace."
   ;;    ;; input-method.
   ;;    ("C-c C-k" . quail-show-key)))
 
+  (setq auto-mode-alist (cons '("\\.pl\\'" . prolog-mode)
+                              auto-mode-alist))
+
   (leaf uiua-mode
     :doc "Uiua integration"
     :mode "\\.ua\\'")
 
   (leaf nix-mode
     :doc "Major mode for Nix expressions, powered by tree-sitter"
-    :mode "\\.nix\\'")
+    :mode "\\.nix\\'"))
 
-  (leaf typst-ts-mode
-    :doc "Tree Sitter support for Typst"
-    :after eglot
-    :mode "\\.typ\\'"
-    :config (add-to-list 'eglot-server-programs
-			 `((typst-ts-mode) .
-			   ,(eglot-alternatives `(,typst-ts-lsp-download-path
-						  "tinymist"
-						  "typst-lsp"))))))
+;; (leaf typst-ts-mode
+;;   :doc "Tree Sitter support for Typst"
+;;   :after eglot
+;;   :mode "\\.typ\\'"
+;;   :config (add-to-list 'eglot-server-programs
+;;                        `((typst-ts-mode) .
+;;                          ,(eglot-alternatives `(,typst-ts-lsp-download-path
+;;                                                 "tinymist"
+;;                                                 "typst-lsp")))))
+
 
 (leaf exec-path-from-shell
   :doc "Get environment variables such as $PATH from the shell"
@@ -645,7 +653,7 @@ vi style of % jumping to matching brace."
     :mode "\\.pdf\\'"
     :hook
     (pdf-view-mode-hook . (lambda ()
-			    (display-line-numbers-mode 0)))
+                            (display-line-numbers-mode 0)))
     :config
     (pdf-loader-install))
 
@@ -654,8 +662,7 @@ vi style of % jumping to matching brace."
 
   (leaf copilot
     :doc "An unofficial Copilot plugin for Emacs"
-    :hook (prog-mode . copilot-mode)
     :bind (copilot-completion-map
-	   ("<tab>" . copilot-accept-completion))
-    :config (add-hook 'prog-mode-hook #'copilot-mode)))
+           ("<tab>" . copilot-accept-completion))
+    :config (global-copilot-mode)))
 ;;; init.el ends here
