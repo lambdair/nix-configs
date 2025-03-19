@@ -50,6 +50,9 @@ with epkgs;
   geiser-guile
   geiser-racket
 
+  # racket
+  racket-mode
+
   # common lisp
   sly
 

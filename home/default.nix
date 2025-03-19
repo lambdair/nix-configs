@@ -31,7 +31,7 @@ in
       # isabelle
       maude
       sbcl
-      racket-minimal
+      racket
       guile
       clojure
       clojure-lsp
