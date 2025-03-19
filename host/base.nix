@@ -35,6 +35,8 @@
   environment.systemPackages = with pkgs; [
     helix
     nushell
+    git
+    home-manager
   ];
 
   # This value determines the NixOS release from which the default
