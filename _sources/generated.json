@@ -76,6 +76,48 @@
         },
         "version": "1598704f994d26388b9880f417bf7df3c1a28ea1"
     },
+    "nordic": {
+        "cargoLocks": null,
+        "date": "2025-03-18",
+        "extract": null,
+        "name": "nordic",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "AlexvZyl",
+            "repo": "nordic.nvim",
+            "rev": "8627750ece357e9670f9e69853091f7fbb8d6523",
+            "sha256": "sha256-2uc4PHAQuuZe1UKY49jShQ3qVzTRV6Y2DsMKSem2Qqw=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "8627750ece357e9670f9e69853091f7fbb8d6523"
+    },
+    "racket-langserver": {
+        "cargoLocks": null,
+        "date": "2025-02-14",
+        "extract": null,
+        "name": "racket-langserver",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "jeapostrophe",
+            "repo": "racket-langserver",
+            "rev": "d1fb56fcabe350c23326516bcbd591d80c8882c5",
+            "sha256": "sha256-GWYU/Qxtdd2Ccma1UX2gQiN68sHExMM2kkDnHelDOQU=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "d1fb56fcabe350c23326516bcbd591d80c8882c5"
+    },
     "typst-ts-mode": {
         "cargoLocks": null,
         "date": "2025-03-18",

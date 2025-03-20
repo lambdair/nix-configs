@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, sources, ... }:
 let
   # Import all plugins from the directory
   importPlugins =
@@ -30,8 +30,47 @@ let
     builtins.foldl' (acc: name: acc ++ import (dir + "/${name}/keymaps.nix")) [ ] keymapFiles;
 in
 {
-  programs.nixvim = {
+  programs.neovim = {
     enable = true;
+    viAlias = true;
+    vimAlias = true;
+    plugins = with pkgs.vimPlugins; [
+      fzf-lua
+
+      ## ui
+      which-key-nvim
+      lualine-nvim
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "nordic";
+        version = sources.nordic.version;
+        src = sources.nordic.src;
+      })
+      nvim-web-devicons
+      gitsigns-nvim
+      neo-tree-nvim
+
+      ## completion
+      nvim-cmp
+
+      ## language
+      nvim-lspconfig
+      lean-nvim
+      parinfer-rust
+      vim-racket
+      conjure
+
+      ## git
+      diffview-nvim
+      neogit
+
+      ## ai
+      copilot-lua
+    ];
+    extraLuaConfig = builtins.readFile ./init.lua;
+  };
+
+  programs.nixvim = {
+    enable = false;
 
     colorscheme = "nordic";
     colorschemes = {

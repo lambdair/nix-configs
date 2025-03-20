@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, sources, ... }:
 let
   libs = with pkgs; [
     SDL2

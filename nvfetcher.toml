@@ -1,3 +1,4 @@
+# emacs
 [lean4-mode]
 src.git = "https://github.com/leanprover-community/lean4-mode"
 fetch.github = "leanprover-community/lean4-mode"
@@ -18,3 +19,13 @@ fetch.github = "jdtsmith/eglot-booster"
 src.github_tag = "heptameta/project-meta"
 src.prefix = "v"
 fetch.url = "https://github.com/heptameta/project-meta/releases/download/v$ver/Heptabase-$ver.AppImage"
+
+
+# nvim
+[nordic]
+src.git = "https://github.com/AlexvZyl/nordic.nvim"
+fetch.github = "AlexvZyl/nordic.nvim"
+
+[racket-langserver]
+src.git = "https://github.com/jeapostrophe/racket-langserver"
+fetch.github = "jeapostrophe/racket-langserver"

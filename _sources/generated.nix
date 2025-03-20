@@ -47,6 +47,30 @@
     };
     date = "2024-11-19";
   };
+  nordic = {
+    pname = "nordic";
+    version = "8627750ece357e9670f9e69853091f7fbb8d6523";
+    src = fetchFromGitHub {
+      owner = "AlexvZyl";
+      repo = "nordic.nvim";
+      rev = "8627750ece357e9670f9e69853091f7fbb8d6523";
+      fetchSubmodules = false;
+      sha256 = "sha256-2uc4PHAQuuZe1UKY49jShQ3qVzTRV6Y2DsMKSem2Qqw=";
+    };
+    date = "2025-03-18";
+  };
+  racket-langserver = {
+    pname = "racket-langserver";
+    version = "d1fb56fcabe350c23326516bcbd591d80c8882c5";
+    src = fetchFromGitHub {
+      owner = "jeapostrophe";
+      repo = "racket-langserver";
+      rev = "d1fb56fcabe350c23326516bcbd591d80c8882c5";
+      fetchSubmodules = false;
+      sha256 = "sha256-GWYU/Qxtdd2Ccma1UX2gQiN68sHExMM2kkDnHelDOQU=";
+    };
+    date = "2025-02-14";
+  };
   typst-ts-mode = {
     pname = "typst-ts-mode";
     version = "e0542e3e42c55983282115a97c13c023a464ff00";
