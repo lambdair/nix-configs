@@ -24,6 +24,7 @@ do
   lspconfig.fennel_ls.setup({capabilities = capabilities})
   lspconfig.racket_langserver.setup({capabilities = capabilities})
 end
+require("lean"):setup({mappings = true})
 local opt = vim.opt
 opt.number = true
 opt.relativenumber = true

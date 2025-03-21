@@ -46,6 +46,7 @@ in
         src = sources.nordic.src;
       })
       nvim-web-devicons
+      mini-icons
       gitsigns-nvim
       neo-tree-nvim
       smart-splits-nvim
@@ -60,6 +61,7 @@ in
 
       ## language
       nvim-lspconfig
+      nvim-treesitter
       nvim-treesitter-parsers.racket
       nvim-treesitter-parsers.fennel
       nvim-treesitter-parsers.prolog
@@ -76,6 +78,9 @@ in
 
       ## ai
       copilot-lua
+
+      ## lib
+      plenary-nvim
     ];
     extraLuaConfig = builtins.readFile ./init.lua;
   };

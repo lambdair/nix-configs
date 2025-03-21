@@ -25,6 +25,9 @@
   (lspconfig.fennel_ls.setup {:capabilities capabilities})
   (lspconfig.racket_langserver.setup {:capabilities capabilities}))
 
+(-> (require :lean)
+    (: :setup {:mappings true}))
+
 ;; options
 (local opt vim.opt)
 (set opt.number true)
