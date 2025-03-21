@@ -50,3 +50,5 @@
 (map :n "<leader>k" "<cmd>lua vim.lsp.buf.hover()<cr>" {:noremap true})
 (map :n "gd" "<cmd>FzfLua lsp_definitions<cr>" {:noremap true})
 (map :n "gr" "<cmd>FzfLua lsp_references<cr>" {:noremap true})
+
+(map :n "<C-w><C-w>" "<cmd>SmartResizeMode<cr>" {:noremap true})
