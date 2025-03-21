@@ -37,6 +37,8 @@ in
       clojure-lsp
       cljfmt
       babashka
+      fennel-ls
+      fnlfmt
       scryer-prolog
       ciao
       teyjus

@@ -58,6 +58,7 @@ in
       parinfer-rust
       vim-racket
       conjure
+      nfnl
 
       ## git
       diffview-nvim
