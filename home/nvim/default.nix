@@ -52,9 +52,17 @@ in
 
       ## completion
       nvim-cmp
+      cmp-nvim-lsp
+      cmp-buffer
+      cmp-path
+      copilot-cmp
+      cmp-conjure
 
       ## language
       nvim-lspconfig
+      nvim-treesitter-parsers.racket
+      nvim-treesitter-parsers.fennel
+      nvim-treesitter-parsers.prolog
       lean-nvim
       parinfer-rust
       vim-racket

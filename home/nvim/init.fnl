@@ -12,6 +12,19 @@
   (lspconfig.fennel_ls.setup {})
   (lspconfig.racket_langserver.setup {})
   (lspconfig.nil_ls.setup {}))
+
+(let [cmp (require :cmp)]
+  (cmp.setup {:sources [{:name "nvim_lsp"}
+                        {:name "buffer"}
+                        {:name "path"}
+                        {:name "conjure"}]}))
+
+(let [capabilities (-> (require :cmp_nvim_lsp)
+                       (: :default_capabilities))
+      lspconfig (require :lspconfig)]
+  (lspconfig.fennel_ls.setup {:capabilities capabilities})
+  (lspconfig.racket_langserver.setup {:capabilities capabilities}))
+
 ;; options
 (local opt vim.opt)
 (set opt.number true)
