@@ -48,6 +48,7 @@ in
       nvim-web-devicons
       gitsigns-nvim
       neo-tree-nvim
+      smart-splits-nvim
 
       ## completion
       nvim-cmp
@@ -59,6 +60,7 @@ in
       vim-racket
       conjure
       nfnl
+      markview-nvim
 
       ## git
       diffview-nvim
