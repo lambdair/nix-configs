@@ -48,7 +48,7 @@ with epkgs;
   # scheme
   geiser
   geiser-guile
-  geiser-racket
+  # geiser-racket
 
   # racket
   racket-mode
