@@ -85,7 +85,7 @@
             modules = [
               ./home
               ./home/linux
-              inputs.catppuccin.homeManagerModules.catppuccin
+              inputs.catppuccin.homeModules.catppuccin
               inputs.nixvim.homeManagerModules.nixvim
             ];
           };
