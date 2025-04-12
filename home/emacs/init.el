@@ -556,6 +556,11 @@ vi style of % jumping to matching brace."
     (add-hook 'emacs-lisp-mode-hook #'parinfer-rust-mode)
     (add-hook 'scheme-mode-hook #'parinfer-rust-mode))
 
+  (leaf racket-mode
+    :doc "Racket editing, REPL, and more"
+    :mode "\\.rkt\\'"
+    :hook (racket-mode . racket-xp-mode))
+
   (leaf cider
     :doc "Clojure Interactive Development Environment that Rocks")
 
