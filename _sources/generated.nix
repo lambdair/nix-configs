@@ -3,22 +3,22 @@
 {
   eglot-booster = {
     pname = "eglot-booster";
-    version = "e6daa6bcaf4aceee29c8a5a949b43eb1b89900ed";
+    version = "1260d2f7dd18619b42359aa3e1ba6871aa52fd26";
     src = fetchFromGitHub {
       owner = "jdtsmith";
       repo = "eglot-booster";
-      rev = "e6daa6bcaf4aceee29c8a5a949b43eb1b89900ed";
+      rev = "1260d2f7dd18619b42359aa3e1ba6871aa52fd26";
       fetchSubmodules = false;
-      sha256 = "sha256-PLfaXELkdX5NZcSmR1s/kgmU16ODF8bn56nfTh9g6bs=";
+      sha256 = "sha256-teAKWDDL7IrCBiZUVIVlB3W22G9H6IrWiRV/P62dFy0=";
     };
-    date = "2024-10-29";
+    date = "2025-04-28";
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.53.7";
+    version = "1.57.0";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.53.7/Heptabase-1.53.7.AppImage";
-      sha256 = "sha256-wy69dT/Iyt1jZKMh8/yCGk7+Z/NQt8R2d8jHXOZSvgQ=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.57.0/Heptabase-1.57.0.AppImage";
+      sha256 = "sha256-Uo39H2HFwpMlO5NjjJyiMrgIeGHwfODeZaNnvan5cmg=";
     };
   };
   lean4-mode = {
@@ -49,40 +49,40 @@
   };
   nordic = {
     pname = "nordic";
-    version = "8627750ece357e9670f9e69853091f7fbb8d6523";
+    version = "6afe957722fb1b0ec7ca5fbea5a651bcca55f3e1";
     src = fetchFromGitHub {
       owner = "AlexvZyl";
       repo = "nordic.nvim";
-      rev = "8627750ece357e9670f9e69853091f7fbb8d6523";
+      rev = "6afe957722fb1b0ec7ca5fbea5a651bcca55f3e1";
       fetchSubmodules = false;
-      sha256 = "sha256-2uc4PHAQuuZe1UKY49jShQ3qVzTRV6Y2DsMKSem2Qqw=";
+      sha256 = "sha256-NY4kjeq01sMTg1PZeVVa2Vle4KpLwWEv4y34cDQ6JMU=";
     };
-    date = "2025-03-18";
+    date = "2025-04-15";
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "d1fb56fcabe350c23326516bcbd591d80c8882c5";
+    version = "a37eba78438de72894bf7be42d0da797592d86bf";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "d1fb56fcabe350c23326516bcbd591d80c8882c5";
+      rev = "a37eba78438de72894bf7be42d0da797592d86bf";
       fetchSubmodules = false;
-      sha256 = "sha256-GWYU/Qxtdd2Ccma1UX2gQiN68sHExMM2kkDnHelDOQU=";
+      sha256 = "sha256-uJjkgTKQJcDjeNBgY1vhlclg5iKahNukHl0AC1v3PCk=";
     };
-    date = "2025-02-14";
+    date = "2025-05-17";
   };
   typst-ts-mode = {
     pname = "typst-ts-mode";
-    version = "e0542e3e42c55983282115a97c13c023a464ff00";
+    version = "972dc69d6b8a3f8983f6b8000654f59c8a8d05ba";
     src = fetchgit {
       url = "https://codeberg.org/meow_king/typst-ts-mode";
-      rev = "e0542e3e42c55983282115a97c13c023a464ff00";
+      rev = "972dc69d6b8a3f8983f6b8000654f59c8a8d05ba";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-P/6Z4HYwN6A7bcXEiNruv2/NHaoI7DJwYXdJ2z3VEG0=";
+      sha256 = "sha256-+x8AthOxO0vBjaKSaiDpLnf+Ph0AqWl7EMei29dr85g=";
     };
-    date = "2025-03-18";
+    date = "2025-04-24";
   };
 }
