@@ -1,4 +1,4 @@
--- [nfnl] Compiled from init.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] init.fnl
 do
   local nordic = require("nordic")
   nordic.load()
@@ -13,6 +13,7 @@ do
   lspconfig.fennel_ls.setup({})
   lspconfig.racket_langserver.setup({})
   lspconfig.nil_ls.setup({})
+  lspconfig.uiua.setup({arg = "lsp"})
 end
 do
   local cmp = require("cmp")

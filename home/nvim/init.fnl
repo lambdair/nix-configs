@@ -11,7 +11,8 @@
 (let [lspconfig (require :lspconfig)]
   (lspconfig.fennel_ls.setup {})
   (lspconfig.racket_langserver.setup {})
-  (lspconfig.nil_ls.setup {}))
+  (lspconfig.nil_ls.setup {})
+  (lspconfig.uiua.setup {:arg "lsp"}))
 
 (let [cmp (require :cmp)]
   (cmp.setup {:sources [{:name "nvim_lsp"}

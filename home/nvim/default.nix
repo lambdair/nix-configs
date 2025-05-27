@@ -71,6 +71,11 @@ in
       conjure
       nfnl
       markview-nvim
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "uiua";
+        version = sources.uiua.version;
+        src = sources.uiua.src;
+      })
 
       ## git
       diffview-nvim

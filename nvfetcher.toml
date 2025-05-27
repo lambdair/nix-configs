@@ -29,3 +29,7 @@ fetch.github = "AlexvZyl/nordic.nvim"
 [racket-langserver]
 src.git = "https://github.com/jeapostrophe/racket-langserver"
 fetch.github = "jeapostrophe/racket-langserver"
+
+[uiua]
+src.git = "https://github.com/Apeiros-46B/uiua.vim"
+fetch.github = "Apeiros-46B/uiua.vim"
