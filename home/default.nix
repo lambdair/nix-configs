@@ -23,6 +23,10 @@ in
       # language
       uiua
       tree-sitter-grammars.tree-sitter-uiua
+      # tree-sitter-grammars.tree-sitter-bqn
+      cbqn
+      (dyalog.override { acceptLicense = true; })
+
       nil
       nixfmt-rfc-style
       rust-bin.stable.latest.default

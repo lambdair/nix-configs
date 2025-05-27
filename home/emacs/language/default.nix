@@ -61,6 +61,8 @@ with epkgs;
 
   # uiua
   uiua-mode
+  bqn-mode
+  dyalog-mode
 
   # prolog
   prolog-mode
