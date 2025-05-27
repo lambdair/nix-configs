@@ -137,5 +137,26 @@
             "url": "https://codeberg.org/meow_king/typst-ts-mode"
         },
         "version": "972dc69d6b8a3f8983f6b8000654f59c8a8d05ba"
+    },
+    "uiua": {
+        "cargoLocks": null,
+        "date": "2025-01-10",
+        "extract": null,
+        "name": "uiua",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Apeiros-46B",
+            "repo": "uiua.vim",
+            "rev": "99972deb001c7e527348c190d9e5b78abf6d574b",
+            "sha256": "sha256-NfLZkyUAccVtZ0Rc0+o3PbgbI2L7ggM5VHq60cg/RXU=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "99972deb001c7e527348c190d9e5b78abf6d574b"
     }
 }

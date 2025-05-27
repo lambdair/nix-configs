@@ -85,4 +85,16 @@
     };
     date = "2025-04-24";
   };
+  uiua = {
+    pname = "uiua";
+    version = "99972deb001c7e527348c190d9e5b78abf6d574b";
+    src = fetchFromGitHub {
+      owner = "Apeiros-46B";
+      repo = "uiua.vim";
+      rev = "99972deb001c7e527348c190d9e5b78abf6d574b";
+      fetchSubmodules = false;
+      sha256 = "sha256-NfLZkyUAccVtZ0Rc0+o3PbgbI2L7ggM5VHq60cg/RXU=";
+    };
+    date = "2025-01-10";
+  };
 }
