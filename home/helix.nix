@@ -14,6 +14,7 @@
           character = "|";
           render = true;
         };
+        true-color = true;
       };
 
       keys.normal = {
