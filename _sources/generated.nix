@@ -61,15 +61,15 @@
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "a37eba78438de72894bf7be42d0da797592d86bf";
+    version = "8b39a8dfb349c75a6aa7186750178adfc5bfd426";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "a37eba78438de72894bf7be42d0da797592d86bf";
+      rev = "8b39a8dfb349c75a6aa7186750178adfc5bfd426";
       fetchSubmodules = false;
-      sha256 = "sha256-uJjkgTKQJcDjeNBgY1vhlclg5iKahNukHl0AC1v3PCk=";
+      sha256 = "sha256-51prhEnfDVCCg/l6ZKGkj/TFAX+QXb4lnbzCn/2sVpk=";
     };
-    date = "2025-05-17";
+    date = "2025-05-22";
   };
   typst-ts-mode = {
     pname = "typst-ts-mode";

@@ -99,7 +99,7 @@
     },
     "racket-langserver": {
         "cargoLocks": null,
-        "date": "2025-05-17",
+        "date": "2025-05-22",
         "extract": null,
         "name": "racket-langserver",
         "passthru": null,
@@ -111,12 +111,12 @@
             "name": null,
             "owner": "jeapostrophe",
             "repo": "racket-langserver",
-            "rev": "a37eba78438de72894bf7be42d0da797592d86bf",
-            "sha256": "sha256-uJjkgTKQJcDjeNBgY1vhlclg5iKahNukHl0AC1v3PCk=",
+            "rev": "8b39a8dfb349c75a6aa7186750178adfc5bfd426",
+            "sha256": "sha256-51prhEnfDVCCg/l6ZKGkj/TFAX+QXb4lnbzCn/2sVpk=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "a37eba78438de72894bf7be42d0da797592d86bf"
+        "version": "8b39a8dfb349c75a6aa7186750178adfc5bfd426"
     },
     "typst-ts-mode": {
         "cargoLocks": null,
