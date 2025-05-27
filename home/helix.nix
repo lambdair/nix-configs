@@ -38,17 +38,11 @@
     };
 
     languages = {
-      # Uiua
-      # probably should build grammar and copy queries
-      # e.g.
-      #   $ nix-shell -p libgcc
-      #   $ hx -g fetch & hx -g build
-      #   $ nix copy --to [Path] nixpkg#tree-sitter-grammars.tree-sitter-uiua
       grammar = [
         {
           name = "uiua";
           source.git = "https://github.com/shnarazk/tree-sitter-uiua";
-          source.rev = "942e8365d10b9b62be9f2a8b0503459d3d8f3af3";
+          source.rev = "0da15357bc1179b187018131dc20c2395e77ce71";
         }
       ];
 
