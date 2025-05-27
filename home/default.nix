@@ -32,7 +32,7 @@ in
       rust-bin.stable.latest.default
       rust-analyzer
       lean4
-      # isabelle
+      isabelle
       maude
       sbcl
       racket
