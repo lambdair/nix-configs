@@ -21,7 +21,7 @@ in
       guix
 
       # language
-      uiua
+      uiua-unstable
       tree-sitter-grammars.tree-sitter-uiua
       # tree-sitter-grammars.tree-sitter-bqn
       cbqn
