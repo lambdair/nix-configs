@@ -1,3 +1,0 @@
-{
-  dashboard.enable = true;
-}

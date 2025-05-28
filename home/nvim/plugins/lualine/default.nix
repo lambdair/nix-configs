@@ -1,3 +1,0 @@
-{
-  lualine.enable = true;
-}

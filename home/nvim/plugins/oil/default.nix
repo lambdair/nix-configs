@@ -1,3 +1,0 @@
-{
-  oil.enable = true;
-}

@@ -1,3 +1,0 @@
-{
-  web-devicons.enable = true;
-}

@@ -1,5 +1,0 @@
-{
-  which-key = {
-    enable = true;
-  };
-}

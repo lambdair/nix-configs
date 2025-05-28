@@ -1,3 +1,0 @@
-{
-  conjure.enable = false;
-}
