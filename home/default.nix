@@ -26,6 +26,7 @@ in
       # tree-sitter-grammars.tree-sitter-bqn
       cbqn
       (dyalog.override { acceptLicense = true; })
+      ride
 
       nil
       nixfmt-rfc-style
