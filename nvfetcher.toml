@@ -33,3 +33,7 @@ fetch.github = "jeapostrophe/racket-langserver"
 [uiua]
 src.git = "https://github.com/Apeiros-46B/uiua.vim"
 fetch.github = "Apeiros-46B/uiua.vim"
+
+[nvim-bqn]
+src.git = "https://git.sr.ht/~detegr/nvim-bqn"
+fetch.git = "https://git.sr.ht/~detegr/nvim-bqn"

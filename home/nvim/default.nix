@@ -47,6 +47,11 @@
         version = sources.uiua.version;
         src = sources.uiua.src;
       })
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "nvim-bqn";
+        version = sources.nvim-bqn.version;
+        src = sources.nvim-bqn.src;
+      })
 
       ## git
       diffview-nvim
