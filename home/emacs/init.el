@@ -606,7 +606,14 @@ vi style of % jumping to matching brace."
 
   (leaf uiua-mode
     :doc "Uiua integration"
-    :mode "\\.ua\\'")
+    :mode "\\.ua\\'"
+    :config
+    (add-to-list 'lsp-language-id-configuration '(uiua-mode . "uiua"))
+    (add-to-list 'lsp-language-id-configuration '(".*\\.ua$" . "uiua"))
+    (lsp-register-client (make-lsp-client
+                          :new-connection (lsp-stdio-connection '("uiua" "lsp"))
+                          :activation-fn (lsp-activate-on "uiua")
+                          :server-id 'uiua)))
 
   (leaf nix-mode
     :doc "Major mode for Nix expressions, powered by tree-sitter"
