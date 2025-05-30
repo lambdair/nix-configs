@@ -59,6 +59,20 @@
     };
     date = "2025-04-15";
   };
+  nvim-bqn = {
+    pname = "nvim-bqn";
+    version = "52d8b49f3ebc32d340e2e2b8dba1f6bbd1873b78";
+    src = fetchgit {
+      url = "https://git.sr.ht/~detegr/nvim-bqn";
+      rev = "52d8b49f3ebc32d340e2e2b8dba1f6bbd1873b78";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sparseCheckout = [ ];
+      sha256 = "sha256-5wITedTuUn9BKLqmQtPWeFNOa8dXfPIRpUvPSkNJcas=";
+    };
+    date = "2023-09-08";
+  };
   racket-langserver = {
     pname = "racket-langserver";
     version = "8b39a8dfb349c75a6aa7186750178adfc5bfd426";

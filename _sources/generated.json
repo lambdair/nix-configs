@@ -97,6 +97,26 @@
         },
         "version": "6afe957722fb1b0ec7ca5fbea5a651bcca55f3e1"
     },
+    "nvim-bqn": {
+        "cargoLocks": null,
+        "date": "2023-09-08",
+        "extract": null,
+        "name": "nvim-bqn",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "52d8b49f3ebc32d340e2e2b8dba1f6bbd1873b78",
+            "sha256": "sha256-5wITedTuUn9BKLqmQtPWeFNOa8dXfPIRpUvPSkNJcas=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://git.sr.ht/~detegr/nvim-bqn"
+        },
+        "version": "52d8b49f3ebc32d340e2e2b8dba1f6bbd1873b78"
+    },
     "racket-langserver": {
         "cargoLocks": null,
         "date": "2025-05-22",
