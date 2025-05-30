@@ -615,6 +615,16 @@ vi style of % jumping to matching brace."
                           :activation-fn (lsp-activate-on "uiua")
                           :server-id 'uiua)))
 
+  (leaf bqn-mode
+    :doc "Emacs mode for BQN"
+    :bind
+    ("C-c C-e" . bqn-comint-eval-dwim)
+    ("C-c C-b" . bqn-comint-eval-buffer)
+    ("C-c C-r" . bqn-comint-eval-region)
+    ("C-c C-M-e" . bqn-comint-send-dwim)
+    ("C-c C-M-b" . bqn-comint-send-buffer)
+    ("C-c C-M-r" . bqn-comint-send-region))
+
   (leaf nix-mode
     :doc "Major mode for Nix expressions, powered by tree-sitter"
     :mode "\\.nix\\'"))
