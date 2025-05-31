@@ -426,6 +426,8 @@ vi style of % jumping to matching brace."
 
   (leaf lsp-mode
     :hook (clojure-mode . lsp-mode)
+    :init
+    (setq lsp-keymap-prefix "C-c l")
     :config
     (defun lsp-booster--advice-json-parse (old-fn &rest args)
       "Try to parse bytecode instead of json."
