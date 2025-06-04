@@ -4,11 +4,6 @@
   sources,
 }:
 let
-  nael = pkgs.callPackage ./lean/nael.nix {
-    inherit (pkgs) fetchgit;
-    inherit (pkgs.emacsPackages) trivialBuild markdown-mode;
-    inherit sources;
-  };
   lean4-mode = pkgs.callPackage ./lean/lean4-mode.nix {
     inherit (pkgs.emacsPackages)
       trivialBuild
@@ -29,7 +24,6 @@ in
 with epkgs;
 [
   # lean
-  nael
   lean4-mode
 
   # lisp family
