@@ -19,6 +19,8 @@
           pkgs.tree-sitter-grammars.tree-sitter-graphql
           eros
 
+          dirvish
+
           magit
           magit-delta
           diff-hl
@@ -61,6 +63,7 @@
           org-modern
 
           # tool
+          rg
           pdf-tools
           vterm
 
