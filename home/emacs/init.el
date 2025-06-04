@@ -430,9 +430,6 @@ vi style of % jumping to matching brace."
   (setenv "LSP_USE_PLISTS" "true")
 
   (leaf lsp-mode
-    :hook (clojure-mode . lsp-mode)
-    :init
-    (setq lsp-keymap-prefix "C-c l")
     :config
     (defun lsp-booster--advice-json-parse (old-fn &rest args)
       "Try to parse bytecode instead of json."
@@ -497,6 +494,7 @@ vi style of % jumping to matching brace."
 
   (leaf corfu
     :doc "COmpletion in Region FUnction"
+    :after lsp-mode
     :custom
     (corfu-auto . t)
     (corfu-auto-delay . 0.3)
@@ -505,6 +503,8 @@ vi style of % jumping to matching brace."
     :config
     (global-corfu-mode 1)
     (corfu-popupinfo-mode 1)
+    ;; lsp-mode
+    (setq lsp-completion-provider :none)
     ;; nerd icons
     (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
@@ -567,6 +567,10 @@ vi style of % jumping to matching brace."
     :doc "Racket editing, REPL, and more"
     :mode "\\.rkt\\'"
     :hook (racket-mode . racket-xp-mode))
+  (leaf clojure-mode
+    :doc "Major mode for Clojure code"
+    :after lsp-mode
+    :hook (clojure-mode-hook . lsp))
 
   (leaf cider
     :doc "Clojure Interactive Development Environment that Rocks")
