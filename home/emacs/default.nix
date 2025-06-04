@@ -16,6 +16,7 @@
         ++ [
           pkgs.tree-sitter-grammars.tree-sitter-typescript
           pkgs.tree-sitter-grammars.tree-sitter-tsx
+          pkgs.tree-sitter-grammars.tree-sitter-graphql
           eros
 
           magit
@@ -43,6 +44,7 @@
 
           # lang
           tree-sitter-langs
+          graphql-ts-mode
 
           expreg
           puni
@@ -72,6 +74,8 @@
     "${pkgs.tree-sitter-grammars.tree-sitter-typescript}/parser";
   home.file.".emacs.d/tree-sitter/libtree-sitter-tsx.so".source =
     "${pkgs.tree-sitter-grammars.tree-sitter-tsx}/parser";
+  home.file.".emacs.d/tree-sitter/libtree-sitter-graphql.so".source =
+    "${pkgs.tree-sitter-grammars.tree-sitter-graphql}/parser";
   home.file.".emacs.d/tree-sitter/libtree-sitter-uiua.so" = {
     source = "${pkgs.tree-sitter-grammars.tree-sitter-uiua}/parser";
   };
