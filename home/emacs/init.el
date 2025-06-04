@@ -376,12 +376,24 @@ vi style of % jumping to matching brace."
   ;; filter buffer
   (setq consult-buffer-filter
         '("\\` "
+          "\\`\\*Help\\*\\'"
           "\\`\\*Warnings\\*\\'"
           "\\`\\*Messages\\*\\'"
+          "\\`\\*Backtrace\\*\\'"
           "\\`\\*Async-native-compile-log\\*\\'"
           "\\`\\*EGLOT .*\\*\\'"
           "\\`magit-.*\\'"
-          "\\`\\*vc\\*\\'")))
+          "\\`\\*vc\\*\\'"
+          "\\`\\*vc-diff\\*\\'"
+          "\\`\\*lsp-documentation\\*\\'"
+          "\\`\\*lsp-log\\*\\'"
+          "\\`\\*clojure-lsp.*\\*\\'"
+          "\\`\\*nrepl-server.*\\'"
+          "\\`\\*cider-doc\\*\\'"
+          "\\`\\*cider-error\\*\\'"
+          "\\`\\*diff-hl-show-hunk.*\\*\\'"
+          "\\`\\*uiua.*\\*\\'"
+          "\\`\\*Flymake.*\\*\\'")))
 
 ;; (leaf embark
 ;;   :doc "Conveniently act on minibuffer completions"
