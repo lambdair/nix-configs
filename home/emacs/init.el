@@ -80,6 +80,11 @@
     ;; (setq catppuccin-flavor 'latte)
     (load-theme 'catppuccin :no-confirm))
 
+  (leaf nord
+    :doc "An arctic, north-bluish clean and elegant theme")
+    ;; :config
+    ;; (load-theme 'nord :no-confirm))
+
   (leaf dashboard
     :doc "A startup screen extracted from Spacemacs"
     :config
