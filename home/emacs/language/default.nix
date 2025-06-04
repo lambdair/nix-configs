@@ -60,7 +60,7 @@ with epkgs;
   nix-mode
 
   # uiua
-  uiua-mode
+  uiua-ts-mode
   bqn-mode
   dyalog-mode
 

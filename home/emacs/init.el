@@ -611,11 +611,13 @@ vi style of % jumping to matching brace."
   (setq auto-mode-alist (cons '("\\.pl\\'" . prolog-mode)
                               auto-mode-alist))
 
-  (leaf uiua-mode
-    :doc "Uiua integration"
+  (leaf uiua-ts-mode
+    :doc "Uiua treesiter mode"
+    :after lsp-mode
     :mode "\\.ua\\'"
+    :hook (uiua-ts-mode-hook . lsp)
     :config
-    (add-to-list 'lsp-language-id-configuration '(uiua-mode . "uiua"))
+    (add-to-list 'lsp-language-id-configuration '(uiua-ts-mode . "uiua"))
     (add-to-list 'lsp-language-id-configuration '(".*\\.ua$" . "uiua"))
     (lsp-register-client (make-lsp-client
                           :new-connection (lsp-stdio-connection '("uiua" "lsp"))
