@@ -566,14 +566,17 @@ vi style of % jumping to matching brace."
   (leaf racket-mode
     :doc "Racket editing, REPL, and more"
     :mode "\\.rkt\\'"
-    :hook (racket-mode . racket-xp-mode))
+    :hook (racket-mode-hook . racket-xp-mode))
+
   (leaf clojure-mode
     :doc "Major mode for Clojure code"
     :after lsp-mode
     :hook (clojure-mode-hook . lsp))
 
   (leaf cider
-    :doc "Clojure Interactive Development Environment that Rocks")
+    :doc "Clojure Interactive Development Environment that Rocks"
+    :config
+    (setq cider-repl-display-help-banner nil))
 
   ;;   (leaf clojure-ts-mode
   ;;     :doc "Major mode for Clojure code")
