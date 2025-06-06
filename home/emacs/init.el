@@ -606,9 +606,8 @@ vi style of % jumping to matching brace."
 
   (leaf uiua-ts-mode
     :doc "Uiua treesiter mode"
-    :after lsp-mode
     :mode "\\.ua\\'"
-    :hook (uiua-ts-mode-hook . lsp)
+    :hook (uiua-ts-mode-hook . eglot-ensure)
     :config
     (add-to-list 'lsp-language-id-configuration '(uiua-ts-mode . "uiua"))
     (add-to-list 'lsp-language-id-configuration '(".*\\.ua$" . "uiua"))
@@ -630,8 +629,6 @@ vi style of % jumping to matching brace."
 
   (leaf nix-mode
     :doc "Major mode for Nix expressions, powered by tree-sitter"
-    :mode "\\.nix\\'"))
-
 ;; (leaf typst-ts-mode
 ;;   :doc "Tree Sitter support for Typst"
 ;;   :after eglot
@@ -641,6 +638,8 @@ vi style of % jumping to matching brace."
 ;;                          ,(eglot-alternatives `(,typst-ts-lsp-download-path
 ;;                                                 "tinymist"
 ;;                                                 "typst-lsp")))))
+    :mode "\\.nix\\'"
+    :hook (nix-mode-hook . eglot-ensure)))
 
 
 (leaf exec-path-from-shell
