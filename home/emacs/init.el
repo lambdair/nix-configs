@@ -512,11 +512,11 @@ vi style of % jumping to matching brace."
     (corfu-auto-delay . 0.3)
     (corfu-auto-prefix . 1)
     (corfu-popupinfo-delay . 0.3)
+    ;; for lsp-mode
+    (lsp-completion-provider . :none)
     :config
     (global-corfu-mode 1)
     (corfu-popupinfo-mode 1)
-    ;; lsp-mode
-    (setq lsp-completion-provider :none)
     ;; nerd icons
     (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
