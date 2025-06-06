@@ -111,6 +111,7 @@ in
         ze = "zellij";
         lg = "lazygit";
         e = "emacs";
+        ee = "emacsclient -r";
         et = "emacsclient -nw -a nvim";
         es = "emacs --daemon";
         ek = "emacsclient -e '(kill-emacs)'";
