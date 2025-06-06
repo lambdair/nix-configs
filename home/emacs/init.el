@@ -629,17 +629,20 @@ vi style of % jumping to matching brace."
 
   (leaf nix-mode
     :doc "Major mode for Nix expressions, powered by tree-sitter"
-;; (leaf typst-ts-mode
-;;   :doc "Tree Sitter support for Typst"
-;;   :after eglot
-;;   :mode "\\.typ\\'"
-;;   :config (add-to-list 'eglot-server-programs
-;;                        `((typst-ts-mode) .
-;;                          ,(eglot-alternatives `(,typst-ts-lsp-download-path
-;;                                                 "tinymist"
-;;                                                 "typst-lsp")))))
     :mode "\\.nix\\'"
     :hook (nix-mode-hook . eglot-ensure)))
+
+(leaf typst-ts-mode
+  :doc "Tree Sitter support for Typst"
+  :require t
+  :after eglot
+  :mode "\\.typ\\'"
+  :hook (typst-ts-mode . eglot-ensure)
+  :config (add-to-list 'eglot-server-programs
+                       `((typst-ts-mode) .
+                         ,(eglot-alternatives `(,typst-ts-lsp-download-path
+                                                "tinymist"
+                                                "typst-lsp")))))
 
 
 (leaf exec-path-from-shell

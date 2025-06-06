@@ -16,7 +16,6 @@ let
     inherit sources;
   };
   typst-ts-mode = pkgs.callPackage ./typst/typst-ts-mode.nix {
-    inherit (pkgs) fetchgit;
     inherit (pkgs.emacsPackages) trivialBuild;
     inherit sources;
   };
@@ -63,7 +62,7 @@ with epkgs;
   ediprolog
 
   # typst
-  # typst-ts-mode
+  typst-ts-mode
 
   # etc
   maude-mode

@@ -82,6 +82,7 @@
   home.file.".emacs.d/tree-sitter/libtree-sitter-uiua.so" = {
     source = "${pkgs.tree-sitter-grammars.tree-sitter-uiua}/parser";
   };
-  # home.file.".emacs.d/tree-sitter/libtree-sitter-typst.so".source =
-  #   "${typst-ts-mode}/share/emacs/site-lisp/tree-sitter/libtree-sitter-typst.so";
+  home.file.".emacs.d/tree-sitter/libtree-sitter-typst.so" = {
+    source = "${pkgs.tree-sitter-grammars.tree-sitter-typst}/parser";
+  };
 }
