@@ -53,11 +53,21 @@ in
       tinymist
 
       ## cui tools
+      television # Blazingly fast general purpose fuzzy finder TUI
       ripgrep # Utility that combines the usability of The Silver Searcher with the raw speed of grep
       fd # Simple, fast and user-friendly alternative to find
+      lazyjj # TUI for Jujutsu/jj
+      jjui # TUI for Jujutsu VCS
+      gitu # TUI Git client inspired by Magit
       tldr # Simplified and community-driven man pages
       tdf # Tui-based PDF viewer
+      rucola # Terminal-based markdown note manager
       nb # Command line note-taking, bookmarking, archiving, and knowledge base application
+      chawan # Lightweight and featureful terminal web browser
+      himalaya # CLI to manage emails
+      rainfrog # Database management TUI for postgres
+      spotify-player # Terminal spotify player that has feature parity with the official client
+      claude-code # Agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster
       nix-search # Nix-channel-compatible package search
       nvfetcher # Generate nix sources expr for the latest version of packages
       python312Packages.pylatexenc # Simple LaTeX parser providing latex-to-unicode and unicode-to-latex conversion
