@@ -20,7 +20,7 @@ in
     [
       guix
 
-      # language
+      ## language
       uiua-unstable
       tree-sitter-grammars.tree-sitter-uiua
       # tree-sitter-grammars.tree-sitter-bqn
@@ -45,23 +45,23 @@ in
       fennel-ls
       fnlfmt
       scryer-prolog
-      ciao
+      # ciao
       teyjus
       abella
       typst
       typstyle
       tinymist
 
-      # cui tools
-      ripgrep
-      fd
-      tldr
-      tdf
-      nb
-      nix-search
-      nvfetcher
-      python312Packages.pylatexenc
-      emacs-lsp-booster
+      ## cui tools
+      ripgrep # Utility that combines the usability of The Silver Searcher with the raw speed of grep
+      fd # Simple, fast and user-friendly alternative to find
+      tldr # Simplified and community-driven man pages
+      tdf # Tui-based PDF viewer
+      nb # Command line note-taking, bookmarking, archiving, and knowledge base application
+      nix-search # Nix-channel-compatible package search
+      nvfetcher # Generate nix sources expr for the latest version of packages
+      python312Packages.pylatexenc # Simple LaTeX parser providing latex-to-unicode and unicode-to-latex conversion
+      emacs-lsp-booster # Emacs LSP performance booster
     ]
     ++ libs;
 
