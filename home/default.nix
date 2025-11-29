@@ -1,4 +1,9 @@
-{ pkgs, lib, sources, ... }:
+{
+  pkgs,
+  lib,
+  sources,
+  ...
+}:
 let
   libs = with pkgs; [
     SDL2
@@ -11,7 +16,7 @@ let
   libPath = lib.makeLibraryPath libs;
 in
 {
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   programs.home-manager.enable = true;
 
@@ -99,12 +104,18 @@ in
 
     git = {
       enable = true;
-      userEmail = "lambdair1984@protonmail.com";
-      userName = "Lambdair";
+      settings = {
+        user = {
+          email = "lambdair1984@protonmail.com";
+          name = "Lambdair";
+        };
 
-      delta = {
-        enable = true;
       };
+    };
+
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
     };
 
     jujutsu = {
@@ -130,7 +141,7 @@ in
         nrepl = "clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version \"0.52.0\"} }}' -m nrepl.cmdline --middleware \"[cider.nrepl/cider-middleware]\"";
       };
       environmentVariables = {
-        EDITOR = "nvim";
+        EDITOR = "hx";
         LD_LIBRARY_PATH = "'${libPath}'";
       };
     };

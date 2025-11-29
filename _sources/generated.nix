@@ -3,49 +3,49 @@
 {
   eglot-booster = {
     pname = "eglot-booster";
-    version = "1260d2f7dd18619b42359aa3e1ba6871aa52fd26";
+    version = "cab7803c4f0adc7fff9da6680f90110674bb7a22";
     src = fetchFromGitHub {
       owner = "jdtsmith";
       repo = "eglot-booster";
-      rev = "1260d2f7dd18619b42359aa3e1ba6871aa52fd26";
+      rev = "cab7803c4f0adc7fff9da6680f90110674bb7a22";
       fetchSubmodules = false;
-      sha256 = "sha256-teAKWDDL7IrCBiZUVIVlB3W22G9H6IrWiRV/P62dFy0=";
+      sha256 = "sha256-xUBQrQpw+JZxcqT1fy/8C2tjKwa7sLFHXamBm45Fa4Y=";
     };
-    date = "2025-04-28";
+    date = "2025-07-16";
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.57.0";
+    version = "1.80.1";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.57.0/Heptabase-1.57.0.AppImage";
-      sha256 = "sha256-Uo39H2HFwpMlO5NjjJyiMrgIeGHwfODeZaNnvan5cmg=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.80.1/Heptabase-1.80.1.AppImage";
+      sha256 = "sha256-ktrsJuPc797bd7HYmjt/L5Ofi6AReUds5wpUvEhwMxo=";
     };
   };
   lean4-mode = {
     pname = "lean4-mode";
-    version = "76895d8939111654a472cfc617cfd43fbf5f1eb6";
+    version = "1388f9d1429e38a39ab913c6daae55f6ce799479";
     src = fetchFromGitHub {
       owner = "leanprover-community";
       repo = "lean4-mode";
-      rev = "76895d8939111654a472cfc617cfd43fbf5f1eb6";
+      rev = "1388f9d1429e38a39ab913c6daae55f6ce799479";
       fetchSubmodules = false;
-      sha256 = "sha256-DLgdxd0m3SmJ9heJ/pe5k8bZCfvWdaKAF0BDYEkwlMQ=";
+      sha256 = "sha256-6XFcyqSTx1CwNWqQvIc25cuQMwh3YXnbgr5cDiOCxBk=";
     };
-    date = "2024-12-10";
+    date = "2025-05-31";
   };
   nael = {
     pname = "nael";
-    version = "1598704f994d26388b9880f417bf7df3c1a28ea1";
+    version = "83a194c2c97b6900d9fd439cbb7f5ba4c5e79772";
     src = fetchgit {
       url = "https://codeberg.org/mekeor/nael";
-      rev = "1598704f994d26388b9880f417bf7df3c1a28ea1";
+      rev = "83a194c2c97b6900d9fd439cbb7f5ba4c5e79772";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-UTPc3IcoresXkKf5PMkVQDuwe/+hZV+FAa205vLXDTo=";
+      sha256 = "sha256-QCacCsJBXhXlBPAM6YE/H59n0QnZK6Cu7COYlB5wWus=";
     };
-    date = "2024-11-19";
+    date = "2025-11-24";
   };
   nordic = {
     pname = "nordic";
@@ -75,40 +75,40 @@
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "8b39a8dfb349c75a6aa7186750178adfc5bfd426";
+    version = "a9297eddaa3f4b7689e4d1594bf5a3e44cfaaa9a";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "8b39a8dfb349c75a6aa7186750178adfc5bfd426";
+      rev = "a9297eddaa3f4b7689e4d1594bf5a3e44cfaaa9a";
       fetchSubmodules = false;
-      sha256 = "sha256-51prhEnfDVCCg/l6ZKGkj/TFAX+QXb4lnbzCn/2sVpk=";
+      sha256 = "sha256-GfGrAxZ6e7xIJTdBjW7Rd+dJwb1uNCF1lgSr6cmrkus=";
     };
-    date = "2025-05-22";
+    date = "2025-09-08";
   };
   typst-ts-mode = {
     pname = "typst-ts-mode";
-    version = "972dc69d6b8a3f8983f6b8000654f59c8a8d05ba";
+    version = "7c2ef0d5bd2b5a8727fe6d00938c47ba562e0c94";
     src = fetchgit {
       url = "https://codeberg.org/meow_king/typst-ts-mode";
-      rev = "972dc69d6b8a3f8983f6b8000654f59c8a8d05ba";
+      rev = "7c2ef0d5bd2b5a8727fe6d00938c47ba562e0c94";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-+x8AthOxO0vBjaKSaiDpLnf+Ph0AqWl7EMei29dr85g=";
+      sha256 = "sha256-D+QEfEYlxJICcdUCleWpe7+HxePLSSmV7zAwvyTL0+Q=";
     };
-    date = "2025-04-24";
+    date = "2025-10-26";
   };
   uiua = {
     pname = "uiua";
-    version = "99972deb001c7e527348c190d9e5b78abf6d574b";
+    version = "7088832aa53258a30ec50639193af8510f621f69";
     src = fetchFromGitHub {
       owner = "Apeiros-46B";
       repo = "uiua.vim";
-      rev = "99972deb001c7e527348c190d9e5b78abf6d574b";
+      rev = "7088832aa53258a30ec50639193af8510f621f69";
       fetchSubmodules = false;
-      sha256 = "sha256-NfLZkyUAccVtZ0Rc0+o3PbgbI2L7ggM5VHq60cg/RXU=";
+      sha256 = "sha256-UERcpf+3kKKgJjWT6FSWu4BJOcKYOSzwqArJVWlocIE=";
     };
-    date = "2025-01-10";
+    date = "2025-09-16";
   };
 }

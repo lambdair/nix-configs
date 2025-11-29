@@ -86,7 +86,7 @@
               ./home
               ./home/linux
               inputs.catppuccin.homeModules.catppuccin
-              inputs.nixvim.homeManagerModules.nixvim
+              inputs.nixvim.homeModules.nixvim
             ];
           };
           MacHome = inputs.home-manager.lib.homeManagerConfiguration {
