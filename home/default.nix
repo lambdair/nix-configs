@@ -73,6 +73,7 @@ in
       rainfrog # Database management TUI for postgres
       spotify-player # Terminal spotify player that has feature parity with the official client
       claude-code # Agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster
+      discordo # Lightweight, secure, and feature-rich Discord terminal client
       nix-search # Nix-channel-compatible package search
       nvfetcher # Generate nix sources expr for the latest version of packages
       python312Packages.pylatexenc # Simple LaTeX parser providing latex-to-unicode and unicode-to-latex conversion
