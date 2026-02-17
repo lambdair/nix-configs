@@ -59,12 +59,15 @@
     :config
     (if (eq system-type 'darwin)
         (progn
-          (add-to-list 'default-frame-alist '(font . "Uiua386-16"))
-          ;; (set-frame-font "Uiua386 16" nil t)
-          (set-fontset-font "fontset-default"
-                            'han "Rounded Men+ 2m")
-          (set-fontset-font "fontset-default"
-                            'kana "Rounded Mgen+ 2m"))
+          (set-face-attribute 'default nil
+                              :family "Uiua386"
+                              :height 160)
+          (dolist (charset '(kana han cjk-misc))
+            (set-fontset-font t charset
+                              (font-spec :family "Rounded Mgen+ 2m"))))
+          ;; (setq face-font-rescale-alist
+          ;;       '(("Rounded.*" . 1.25)))
+          
       (progn
         ;; (set-frame-font "Uiua386 12" nil t)
         (add-to-list 'default-frame-alist '(font . "Uiua386-12"))
@@ -83,7 +86,8 @@
   (leaf nord
     :doc "An arctic, north-bluish clean and elegant theme")
     ;; :config
-    ;; (load-theme 'nord :no-confirm))
+    ;; (load-theme 'nord :no-confirm)
+    
 
   (leaf dashboard
     :doc "A startup screen extracted from Spacemacs"
@@ -143,8 +147,7 @@
                  (t (beep)))
               (error (beep)))))
         (message "Done.")))
-    (global-set-key (kbd "C-x w w") 'resize-window)))
-
+    (keymap-global-set "C-x w w" 'resize-window)))
 
 (leaf key-bindings
   :config
@@ -157,8 +160,11 @@ vi style of % jumping to matching brace."
       (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
             ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
             (t nil)))
-    (global-set-key (kbd "<home>") 'beginning-of-line)
-    (global-set-key (kbd "<end>") 'end-of-line))
+    (keymap-global-set "<home>" 'beginning-of-line)
+    (keymap-global-set "<end>" 'end-of-line))
+
+  (leaf avy
+    :doc "Jump to things in Emacs tree-style")
 
   (leaf meow
     :doc "Yet Another modal editing"
@@ -219,7 +225,6 @@ vi style of % jumping to matching brace."
        '("e" . meow-next-word)
        '("E" . meow-next-symbol)
        '("f" . meow-find)
-       '("g" . meow-cancel-selection)
        '("G" . meow-grab)
        '("h" . meow-left)
        '("H" . meow-left-expand)
@@ -237,7 +242,7 @@ vi style of % jumping to matching brace."
        '("O" . meow-to-block)
        '("p" . meow-yank)
        '("q" . meow-quit)
-       '("Q" . meow-goto-line)
+       '("Q" . meow-cancel-selection)
        '("r" . meow-replace)
        '("R" . meow-swap-grab)
        '("s" . meow-kill)
@@ -253,7 +258,12 @@ vi style of % jumping to matching brace."
        '("Y" . meow-sync-grab)
        '("z" . meow-pop-selection)
        '("'" . repeat)
-       '("<escape>" . ignore)))
+       '("<escape>" . ignore))
+      ;; Define "g" as a prefix key
+      (setq meow-g-keymap (make-sparse-keymap))
+      (keymap-set meow-g-keymap "g" 'consult-goto-line)
+      (keymap-set meow-g-keymap "w" 'avy-goto-word-0)
+      (keymap-set meow-normal-state-keymap "g" meow-g-keymap))
     (meow-setup)
     :global-minor-mode meow-global-mode)
 
@@ -360,8 +370,8 @@ vi style of % jumping to matching brace."
    consult-theme :preview-key '(:debounce 0.2 any)
    consult-ripgrep consult-git-grep consult-grep
    consult-bookmark consult-recent-file consult-xref
-   consult--source-bookmark consult--source-file-register
-   consult--source-recent-file consult--source-project-recent-file
+   consult-source-bookmark consult-source-file-register
+   consult-source-recent-file consult-source-project-recent-file
    ;; :preview-key "M-."
    :preview-key '(:debounce 0.4 any))
 
@@ -384,7 +394,7 @@ vi style of % jumping to matching brace."
           "\\`\\*EGLOT .*\\*\\'"
           "\\`magit-.*\\'"
           "\\`\\*vc\\*\\'"
-          "\\`\\*vc-diff\\*\\'"
+          "\\`\\*vc-diff\\*.*\\'"
           "\\`\\*lsp-documentation\\*\\'"
           "\\`\\*lsp-log\\*\\'"
           "\\`\\*clojure-lsp.*\\*\\'"
@@ -405,7 +415,7 @@ vi style of % jumping to matching brace."
 ;;   :doc "Consult integration for Embark"
 ;;   :hook (embark-collect-mode . consult-preview-at-point-mode))
 
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+(keymap-global-set "C-x C-b" 'ibuffer)
 
 (leaf finder
   :config
@@ -489,8 +499,8 @@ vi style of % jumping to matching brace."
 (leaf flymake
   :doc "A universal on-the-fly syntax checker"
   :bind (prog-mode-map
-         ("M-n" . flymake-goto-next-error)
-         ("M-p" . flymake-goto-prev-error)))
+         ("M-N" . flymake-goto-next-error)
+         ("M-P" . flymake-goto-prev-error)))
 
 
 (leaf completion
@@ -559,21 +569,22 @@ vi style of % jumping to matching brace."
     :doc "Minor mode to aggressively keep your code always indented"
     :hook (emacs-lisp-mode . aggressive-indent-mode))
 
-  ;; (leaf lispy
-  ;;   :doc "vi-like Paredit"
-  ;;   :require t
-  ;;   :config
-  ;;   (define-key lispy-mode-map (kbd "M-.") nil)
-  ;;   (add-hook 'clojure-mode-hook #'lispy-mode)
-  ;;   (add-hook 'emacs-lisp-mode-hook #'lispy-mode)
-  ;;   (add-hook 'scheme-mode-hook #'lispy-mode))
+  (leaf lispy
+    :doc "vi-like Paredit"
+    :require t
+    :config
+    (define-key lispy-mode-map (kbd "M-.") nil)
+    (add-hook 'clojure-mode-hook #'lispy-mode)
+    (add-hook 'emacs-lisp-mode-hook #'lispy-mode)
+    (add-hook 'scheme-mode-hook #'lispy-mode))
 
   (leaf parinfer-rust-mode
-    :doc "An interface for the parinfer-rust library"
-    :config
-    (add-hook 'clojure-mode-hook #'parinfer-rust-mode)
-    (add-hook 'emacs-lisp-mode-hook #'parinfer-rust-mode)
-    (add-hook 'scheme-mode-hook #'parinfer-rust-mode))
+    :doc "An interface for the parinfer-rust library")
+    ;;   :config
+    ;;   (add-hook 'clojure-mode-hook #'parinfer-rust-mode)
+    ;;   (add-hook 'emacs-lisp-mode-hook #'parinfer-rust-mode)
+    ;;   (add-hook 'scheme-mode-hook #'parinfer-rust-mode)
+    
 
   (leaf racket-mode
     :doc "Racket editing, REPL, and more"
@@ -600,6 +611,14 @@ vi style of % jumping to matching brace."
   (leaf lean4-mode
     :doc "Major mode for Lean language"
     :require t)
+
+  ;; (leaf nael
+  ;;   :doc "Major mode for Lean language"
+  ;;   :require t
+  ;;   :config
+  ;;   (keymap-set nael-mode-map "C-c ." #'highlight-symbol-at-point)
+  ;;   (add-hook 'nael-mode-hook #'abbrev-mode)
+  ;;   (add-hook 'nael-mode-hook #'eglot-ensure))
 
   (setq auto-mode-alist (cons '("\\.pl\\'" . prolog-mode)
                               auto-mode-alist))
@@ -647,8 +666,9 @@ vi style of % jumping to matching brace."
 
 (leaf exec-path-from-shell
   :doc "Get environment variables such as $PATH from the shell"
+  :require t
   :custom ((exec-path-from-shell-check-startup-files)
-           (exec-path-from-shell-variables . '("PATH" "JAVA_HOME")))
+           (exec-path-from-shell-variables . '("PATH" "JAVA_HOME" "OPENAI_API_TOKEN")))
   :config (exec-path-from-shell-initialize))
 
 
@@ -663,8 +683,14 @@ vi style of % jumping to matching brace."
 
   (leaf diff-hl
     :doc "Highlight uncommitted changes using VC"
-    :global-minor-mode global-diff-hl-mode))
+    :global-minor-mode global-diff-hl-mode
+    :bind (prog-mode-map
+           ("M-n" . diff-hl-next-hunk)
+           ("M-p" . diff-hl-previous-hunk)))
 
+  (leaf jj-mode
+    :require t
+    :doc "A jujutsu vcs mode inspired by magit"))
 
 (leaf org
   :config
@@ -691,5 +717,19 @@ vi style of % jumping to matching brace."
     :doc "An unofficial Copilot plugin for Emacs"
     :bind (copilot-completion-map
            ("<tab>" . copilot-accept-completion))
-    :config (global-copilot-mode)))
+    :config
+    (dolist (entry '((nix-mode . 2)
+                     (typst-ts-mode . 2)
+                     (uiua-ts-mode . 2)
+                     (lean4-mode . 2)
+                     (clojure-mode . 2)
+                     (emacs-lisp-mode . 2)
+                     (rust-mode . 4)
+                     (rust-ts-mode . 4)
+                     (typescript-mode . 2)
+                     (typescript-ts-mode . 2)
+                     (tsx-ts-mode . 2)))
+      (add-to-list 'copilot-indentation-alist entry))))
+    ;; (global-copilot-mode)
+    
 ;;; init.el ends here
