@@ -104,6 +104,7 @@
                 overlays = [
                   inputs.rust-overlay.overlays.default
                   inputs.emacs-overlay.overlay
+                  (import ./overlays/uiua386-fix-monospace.nix)
                 ];
               };
               extraSpecialArgs = {
