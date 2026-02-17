@@ -9,7 +9,7 @@
       extraEmacsPackages =
         epkgs:
         with epkgs;
-        (import ./ui { inherit epkgs; })
+        (import ./ui { inherit pkgs epkgs sources; })
         ++ (import ./navigation { inherit epkgs; })
         ++ (import ./language { inherit pkgs epkgs sources; })
         ++ (import ./lsp { inherit pkgs epkgs sources; })
@@ -20,6 +20,8 @@
           eros
 
           dirvish
+
+          helpful
 
           magit
           magit-delta
@@ -69,6 +71,8 @@
 
           # ai
           copilot
+          claude-code
+          # copilot-chat
         ];
 
     })

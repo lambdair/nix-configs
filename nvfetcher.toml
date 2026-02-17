@@ -3,23 +3,21 @@
 src.git = "https://github.com/leanprover-community/lean4-mode"
 fetch.github = "leanprover-community/lean4-mode"
 
-[nael]
-src.git = "https://codeberg.org/mekeor/nael"
-fetch.git = "https://codeberg.org/mekeor/nael"
-
 [typst-ts-mode]
 src.git = "https://codeberg.org/meow_king/typst-ts-mode"
 fetch.git = "https://codeberg.org/meow_king/typst-ts-mode"
+
+[nael]
+src.git = "https://codeberg.org/mekeor/nael"
+fetch.git = "https://codeberg.org/mekeor/nael"
 
 [eglot-booster]
 src.git = "https://github.com/jdtsmith/eglot-booster"
 fetch.github = "jdtsmith/eglot-booster"
 
-[heptabase]
-src.github_tag = "heptameta/project-meta"
-src.prefix = "v"
-fetch.url = "https://github.com/heptameta/project-meta/releases/download/v$ver/Heptabase-$ver.AppImage"
-
+[jj-mode]
+src.git = "https://github.com/bolivier/jj-mode.el"
+fetch.github = "bolivier/jj-mode.el"
 
 # nvim
 [nordic]
@@ -37,3 +35,13 @@ fetch.github = "Apeiros-46B/uiua.vim"
 [nvim-bqn]
 src.git = "https://git.sr.ht/~detegr/nvim-bqn"
 fetch.git = "https://git.sr.ht/~detegr/nvim-bqn"
+
+# other
+[heptabase]
+src.github_tag = "heptameta/project-meta"
+src.prefix = "v"
+fetch.url = "https://github.com/heptameta/project-meta/releases/download/v$ver/Heptabase-$ver.AppImage"
+
+[budget_tracker_tui]
+src.git = "https://github.com/Feromond/budget_tracker_tui"
+fetch.github = "Feromond/budget_tracker_tui"

@@ -17,11 +17,15 @@
     };
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    wezterm = {
+      url = "github:wez/wezterm/main?dir=nix";
+    };
+    private = {
+      url = "git+ssh://git@git.sr.ht/~lambdair/nix-private";
     };
   };
 
@@ -61,8 +65,6 @@
         };
       };
 
-      # Expose the package set, including overlays, for convenience.
-      darwinPackages = inputs.self.darwinConfigurations."simple".pkgs;
 
       homeConfigurations =
         let
@@ -89,25 +91,32 @@
               inputs.nixvim.homeModules.nixvim
             ];
           };
-          MacHome = inputs.home-manager.lib.homeManagerConfiguration {
-            pkgs = import inputs.nixpkgs {
-              system = "aarch64-darwin";
-              config.allowUnfree = true;
-              overlays = [
-                inputs.rust-overlay.overlays.default
-                inputs.emacs-overlay.overlay
+          MacHome =
+            let
+              macSources = inputs.nixpkgs.legacyPackages."aarch64-darwin".callPackage ./_sources/generated.nix { };
+            in
+            inputs.home-manager.lib.homeManagerConfiguration {
+              pkgs = import inputs.nixpkgs {
+                system = "aarch64-darwin";
+                config.allowUnfree = true;
+                config.allowUnsupportedSystem = true;
+                overlays = [
+                  inputs.rust-overlay.overlays.default
+                  inputs.emacs-overlay.overlay
+                ];
+              };
+              extraSpecialArgs = {
+                inherit inputs;
+                sources = macSources;
+              };
+              modules = [
+                ./home
+                ./home/mac
+                inputs.catppuccin.homeModules.catppuccin
+                inputs.nixvim.homeModules.nixvim
+                inputs.private.homeModules.mac
               ];
             };
-            extraSpecialArgs = {
-              inherit inputs;
-            };
-            modules = [
-              ./home
-              ./home/mac
-              inputs.catppuccin.homeManagerModules.catppuccin
-              inputs.nixvim.homeManagerModules.nixvim
-            ];
-          };
         };
 
       devShells = forAllSystems (
@@ -136,6 +145,6 @@
         }
       );
 
-      formatter = forAllSystems (system: inputs.nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = forAllSystems (system: inputs.nixpkgs.legacyPackages.${system}.nixfmt);
     };
 }

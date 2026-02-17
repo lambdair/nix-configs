@@ -5,7 +5,7 @@
 }:
 let
   lean4-mode = pkgs.callPackage ./lean/lean4-mode.nix {
-    inherit (pkgs.emacsPackages)
+    inherit (pkgs.emacs.pkgs)
       trivialBuild
       markdown-mode
       dash
@@ -16,7 +16,7 @@ let
     inherit sources;
   };
   typst-ts-mode = pkgs.callPackage ./typst/typst-ts-mode.nix {
-    inherit (pkgs.emacsPackages) trivialBuild;
+    inherit (pkgs.emacs.pkgs) trivialBuild;
     inherit sources;
   };
 in
@@ -24,6 +24,7 @@ with epkgs;
 [
   # lean
   lean4-mode
+  nael
 
   # lisp family
   lispy

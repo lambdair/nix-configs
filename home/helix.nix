@@ -14,7 +14,6 @@
           character = "|";
           render = true;
         };
-        true-color = true;
       };
 
       keys.normal = {
@@ -41,11 +40,6 @@
     languages = {
       grammar = [
         {
-          name = "uiua";
-          source.git = "https://github.com/shnarazk/tree-sitter-uiua";
-          source.rev = "0da15357bc1179b187018131dc20c2395e77ce71";
-        }
-        {
           name = "bqn";
           source.git = "https://github.com/shnarazk/tree-sitter-bqn";
           source.rev = "b4c339b771b1ecd3b6006cc99242f2e270b14abb";
@@ -58,6 +52,13 @@
       };
       language-server.bqnlsp = {
         command = "bqnlsp";
+      };
+      language-server.tailwindcss-ls = {
+        command = "tailwindcss-language-server";
+        args = [ "--stdio" ];
+      };
+      language-server.typos-lsp = {
+        command = "typos-lsp";
       };
 
       language = [
@@ -103,6 +104,22 @@
             "\"" = "\"";
             "⟨" = "⟩";
           };
+        }
+        {
+          name = "jsx";
+          language-servers = [
+            "typescript-language-server"
+            "tailwindcss-ls"
+            "typos-lsp"
+          ];
+        }
+        {
+          name = "tsx";
+          language-servers = [
+            "typescript-language-server"
+            "tailwindcss-ls"
+            "typos-lsp"
+          ];
         }
       ];
     };

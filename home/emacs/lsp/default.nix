@@ -5,7 +5,11 @@
 }:
 let
   eglot-booster = pkgs.callPackage ./eglot-booster.nix {
-    inherit (pkgs.emacsPackages) trivialBuild;
+    inherit (pkgs.emacs.pkgs) trivialBuild;
+    inherit sources;
+  };
+  lsp-proxy = pkgs.callPackage ./lsp-proxy.nix {
+    inherit (pkgs.emacs.pkgs) trivialBuild;
     inherit sources;
   };
 in
@@ -14,4 +18,5 @@ with epkgs;
   eglot
   eglot-booster
   lsp-mode
+  # lsp-proxy
 ]
