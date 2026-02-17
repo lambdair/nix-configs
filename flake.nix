@@ -66,7 +66,6 @@
         };
       };
 
-
       homeConfigurations =
         let
           system = "x86_64-linux";
@@ -94,7 +93,9 @@
           };
           MacHome =
             let
-              macSources = inputs.nixpkgs.legacyPackages."aarch64-darwin".callPackage ./_sources/generated.nix { };
+              macSources =
+                inputs.nixpkgs.legacyPackages."aarch64-darwin".callPackage ./_sources/generated.nix
+                  { };
             in
             inputs.home-manager.lib.homeManagerConfiguration {
               pkgs = import inputs.nixpkgs {

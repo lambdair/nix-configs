@@ -86,16 +86,21 @@
         {
           name = "bqn";
           language-id = "bqn";
-          file-types = ["bqn"];
+          file-types = [ "bqn" ];
           injection-regex = "bqn";
           scope = "source.bqn";
-          roots = [];
+          roots = [ ];
           comment-token = "#";
           indent = {
             tab-width = 2;
             unit = "  ";
           };
-          shebangs = ["BQN" "CBQN" "bqn" "cbqn"];
+          shebangs = [
+            "BQN"
+            "CBQN"
+            "bqn"
+            "cbqn"
+          ];
           auto-pairs = {
             "(" = ")";
             "{" = "}";
