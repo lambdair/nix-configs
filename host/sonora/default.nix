@@ -14,6 +14,11 @@
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true; # default shell on catalina
+  programs.zsh.enableGlobalCompInit = false;
+  programs.zsh.interactiveShellInit = ''
+    autoload -U compinit && compinit -u
+    autoload -U bashcompinit && bashcompinit
+  '';
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
