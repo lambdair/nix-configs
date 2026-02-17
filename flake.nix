@@ -58,6 +58,7 @@
           system = "aarch64-darwin";
           modules = [
             ./host/sonora
+            inputs.private.darwinModules.default
           ];
           specialArgs = {
             inherit inputs;
