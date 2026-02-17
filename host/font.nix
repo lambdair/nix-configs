@@ -19,6 +19,7 @@
       julia-mono
       udev-gothic
       udev-gothic-nf
+      apl386
       uiua386
       rounded-mgenplus
     ];
