@@ -1,6 +1,6 @@
 {
     "budget_tracker_tui": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2026-02-01",
         "extract": null,
         "name": "budget_tracker_tui",
@@ -21,7 +21,7 @@
         "version": "01ff2a36651b1d25d6847751466a0ca65c44637d"
     },
     "eglot-booster": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2025-07-16",
         "extract": null,
         "name": "eglot-booster",
@@ -42,7 +42,7 @@
         "version": "cab7803c4f0adc7fff9da6680f90110674bb7a22"
     },
     "heptabase": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "heptabase",
@@ -57,7 +57,7 @@
         "version": "1.83.9"
     },
     "jj-mode": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2026-02-13",
         "extract": null,
         "name": "jj-mode",
@@ -78,7 +78,7 @@
         "version": "20b7b516f9a1bcb96fc1fedbc0a43138f9fe8765"
     },
     "lean4-mode": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2025-05-31",
         "extract": null,
         "name": "lean4-mode",
@@ -99,7 +99,7 @@
         "version": "1388f9d1429e38a39ab913c6daae55f6ce799479"
     },
     "nael": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2026-01-22",
         "extract": null,
         "name": "nael",
@@ -119,7 +119,7 @@
         "version": "3ee1cf286dc1ee3c9f99357079288ce1285c10c0"
     },
     "nordic": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2026-02-07",
         "extract": null,
         "name": "nordic",
@@ -140,7 +140,7 @@
         "version": "4ce6bad95fde832f9bd10b991de846047a144628"
     },
     "nvim-bqn": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2023-09-08",
         "extract": null,
         "name": "nvim-bqn",
@@ -160,7 +160,7 @@
         "version": "52d8b49f3ebc32d340e2e2b8dba1f6bbd1873b78"
     },
     "racket-langserver": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2026-02-01",
         "extract": null,
         "name": "racket-langserver",
@@ -181,7 +181,7 @@
         "version": "cee06d687e7617cbf21b5564f7fd16a3bec3574b"
     },
     "typst-ts-mode": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2026-02-01",
         "extract": null,
         "name": "typst-ts-mode",
@@ -201,7 +201,7 @@
         "version": "1e8cc8072a22ac1dc07f1db356ca8f71c524d0c0"
     },
     "uiua": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2026-01-29",
         "extract": null,
         "name": "uiua",
