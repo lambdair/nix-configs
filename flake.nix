@@ -136,6 +136,9 @@
               delta
               git
               jujutsu
+              just
+              nvfetcher
+              home-manager
             ];
             EDITOR = "hx";
             shellHook = ''
