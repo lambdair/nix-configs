@@ -7,25 +7,24 @@ do
   local lualine = require("lualine")
   lualine.setup({options = {theme = "nordic"}})
 end
-require("gitsigns"):setup()
 do
-  local lspconfig = require("lspconfig")
-  lspconfig.fennel_ls.setup({})
-  lspconfig.racket_langserver.setup({})
-  lspconfig.nil_ls.setup({})
-  lspconfig.uiua.setup({arg = "lsp"})
+  local gitsigns = require("gitsigns")
+  gitsigns.setup({})
 end
+do
+  local cmp_lsp = require("cmp_nvim_lsp")
+  local capabilities = cmp_lsp.default_capabilities()
+  vim.lsp.config("*", {capabilities = capabilities})
+end
+vim.lsp.enable({"fennel_ls", "racket_langserver", "nil_ls", "uiua"})
 do
   local cmp = require("cmp")
   cmp.setup({sources = {{name = "nvim_lsp"}, {name = "buffer"}, {name = "path"}, {name = "conjure"}}})
 end
 do
-  local capabilities = require("cmp_nvim_lsp"):default_capabilities()
-  local lspconfig = require("lspconfig")
-  lspconfig.fennel_ls.setup({capabilities = capabilities})
-  lspconfig.racket_langserver.setup({capabilities = capabilities})
+  local lean = require("lean")
+  lean.setup({mappings = true})
 end
-require("lean"):setup({mappings = true})
 local opt = vim.opt
 opt.number = true
 opt.relativenumber = true

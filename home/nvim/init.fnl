@@ -6,13 +6,15 @@
 (let [lualine (require :lualine)]
   (lualine.setup {:options {:theme "nordic"}}))
 
-(-> (require :gitsigns)
-    (: :setup))
-(let [lspconfig (require :lspconfig)]
-  (lspconfig.fennel_ls.setup {})
-  (lspconfig.racket_langserver.setup {})
-  (lspconfig.nil_ls.setup {})
-  (lspconfig.uiua.setup {:arg "lsp"}))
+(let [gitsigns (require :gitsigns)]
+  (gitsigns.setup {}))
+
+;; LSP (nvim 0.11+ native API)
+(let [cmp_lsp (require :cmp_nvim_lsp)
+      capabilities (cmp_lsp.default_capabilities)]
+  (vim.lsp.config :* {:capabilities capabilities}))
+
+(vim.lsp.enable [:fennel_ls :racket_langserver :nil_ls :uiua])
 
 (let [cmp (require :cmp)]
   (cmp.setup {:sources [{:name "nvim_lsp"}
@@ -20,14 +22,8 @@
                         {:name "path"}
                         {:name "conjure"}]}))
 
-(let [capabilities (-> (require :cmp_nvim_lsp)
-                       (: :default_capabilities))
-      lspconfig (require :lspconfig)]
-  (lspconfig.fennel_ls.setup {:capabilities capabilities})
-  (lspconfig.racket_langserver.setup {:capabilities capabilities}))
-
-(-> (require :lean)
-    (: :setup {:mappings true}))
+(let [lean (require :lean)]
+  (lean.setup {:mappings true}))
 
 ;; options
 (local opt vim.opt)
