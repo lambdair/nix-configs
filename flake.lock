@@ -24,11 +24,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1771293823,
-        "narHash": "sha256-U3CeeAmS27uJubkEWAgpjcT2MeicXD8pOrOp2CTlkyM=",
+        "lastModified": 1771317941,
+        "narHash": "sha256-aC2hf4t+Dr1m/CwXkAnsWFutOMXblcb8wR9lFkbYp9g=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "db9335e92275fd1fe4a6c3c5fd0337afef7aed7b",
+        "rev": "daaae84b9d5068c60e4b6627f486df23b1f4c6a7",
         "type": "github"
       },
       "original": {
@@ -337,11 +337,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1771310838,
-        "narHash": "sha256-0M0rCVB7aFfM4dha+LWpUQgRVcFQFGChAqrbr/3BOSg=",
+        "lastModified": 1771316473,
+        "narHash": "sha256-CEBkPV4XM+KRr9meUj3A1D7zGy7Q96drJSMgr129WR8=",
         "ref": "refs/heads/master",
-        "rev": "276a5a2307b28ec09ec105ce8fb8c8223b80abb9",
-        "revCount": 1,
+        "rev": "f96c752b53aa6dc6d658da676616b53cfbd4a8c1",
+        "revCount": 2,
         "type": "git",
         "url": "ssh://git@git.sr.ht/~lambdair/nix-private"
       },
