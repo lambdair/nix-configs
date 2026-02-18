@@ -333,6 +333,8 @@ in
     };
   };
 
+  home.file.".claude/CLAUDE.md".source = ./CLAUDE.md;
+
   home.file.".config/helix/runtime/queries/uiua" = {
     source = "${pkgs.tree-sitter-grammars.tree-sitter-uiua}/queries";
     recursive = true;
