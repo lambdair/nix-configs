@@ -206,6 +206,8 @@ in
       github-cli # GitHub CLI
       claude-code # Agentic coding tool
       codex # OpenAI Codex CLI
+      aws-vault # AWS credential management
+      ssm-session-manager-plugin # AWS SSM Session Manager
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # GUI Applications
