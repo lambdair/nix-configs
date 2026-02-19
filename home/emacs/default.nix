@@ -60,6 +60,7 @@
           affe
 
           exec-path-from-shell
+          envrc
 
           # org
           org-modern

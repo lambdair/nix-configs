@@ -671,6 +671,11 @@ vi style of % jumping to matching brace."
            (exec-path-from-shell-variables . '("PATH" "JAVA_HOME" "OPENAI_API_TOKEN")))
   :config (exec-path-from-shell-initialize))
 
+(leaf envrc
+  :doc "Per-directory environment via direnv"
+  :require t
+  :global-minor-mode envrc-global-mode)
+
 
 (leaf vc
   :config
