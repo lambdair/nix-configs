@@ -54,7 +54,6 @@ in
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Web Development (TS/JS)
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      volta # JavaScript tool manager
       nodePackages.typescript-language-server # TypeScript/JavaScript language server
       tailwindcss-language-server # Tailwind CSS language server
 
