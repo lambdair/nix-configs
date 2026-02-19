@@ -11,6 +11,7 @@ let
     SDL2_ttf
     SDL2_image
     libffi
+    libsixel
     openssl
     ncurses
   ];
