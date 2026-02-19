@@ -226,6 +226,9 @@ in
     ++ libs;
 
   imports = [
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Editors
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     ./helix.nix
     ./nvim
     ./emacs
@@ -238,6 +241,9 @@ in
   };
 
   programs = {
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Terminal Emulators
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     wezterm = {
       enable = true;
       extraConfig = builtins.readFile ./wezterm.lua;
@@ -248,27 +254,9 @@ in
       extraConfig = builtins.readFile ./kitty.conf;
     };
 
-    git = {
-      enable = true;
-      settings = {
-        user.email = "lambdair1984@protonmail.com";
-        user.name = "Lambdair";
-      };
-    };
-
-    delta = {
-      enable = true;
-      enableGitIntegration = true;
-    };
-
-    jujutsu = {
-      enable = true;
-      settings = {
-        user.email = "lambdair1984@protonmail.com";
-        user.name = "Lambdair";
-      };
-    };
-
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Shell
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     nushell = {
       enable = true;
       shellAliases = {
@@ -290,11 +278,6 @@ in
       configFile.source = ./config.nu;
     };
 
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-
     carapace.enable = true;
     carapace.enableNushellIntegration = true;
 
@@ -302,13 +285,12 @@ in
       enable = true;
     };
 
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # File Navigation / Viewing
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     zoxide = {
       enable = true;
       enableNushellIntegration = true;
-    };
-
-    zellij = {
-      enable = true;
     };
 
     bat = {
@@ -323,6 +305,30 @@ in
       enable = true;
     };
 
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Version Control
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    git = {
+      enable = true;
+      settings = {
+        user.email = "lambdair1984@protonmail.com";
+        user.name = "Lambdair";
+      };
+    };
+
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+    };
+
+    jujutsu = {
+      enable = true;
+      settings = {
+        user.email = "lambdair1984@protonmail.com";
+        user.name = "Lambdair";
+      };
+    };
+
     lazygit = {
       enable = true;
       settings = {
@@ -330,6 +336,24 @@ in
       };
     };
 
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Development Tools
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Terminal Multiplexer
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    zellij = {
+      enable = true;
+    };
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Media
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     ncspot = {
       enable = true;
       settings = {

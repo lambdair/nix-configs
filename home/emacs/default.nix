@@ -14,22 +14,28 @@
         ++ (import ./language { inherit pkgs epkgs sources; })
         ++ (import ./lsp { inherit pkgs epkgs sources; })
         ++ [
-          pkgs.tree-sitter-grammars.tree-sitter-typescript
-          pkgs.tree-sitter-grammars.tree-sitter-tsx
-          pkgs.tree-sitter-grammars.tree-sitter-graphql
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          # Package Configuration
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          leaf
+          leaf-keywords
+          leaf-tree
           eros
 
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          # UI / Help
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           dirvish
-
           helpful
 
-          magit
-          magit-delta
-          diff-hl
-
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          # Modal Editing
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           meow
 
-          # completion
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          # Completion
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           vertico
           marginalia
           consult
@@ -40,37 +46,59 @@
           cape
           orderless
 
-          leaf
-          leaf-keywords
-          leaf-tree
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          # Version Control
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          magit
+          magit-delta
+          diff-hl
 
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          # Editing / Formatting
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          expreg
+          puni
+          aggressive-indent
           apheleia
+          unicode-math-input
 
-          # lang
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          # Search
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          ctrlf
+          affe
+          migemo
+
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          # Language Support
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          pkgs.tree-sitter-grammars.tree-sitter-typescript
+          pkgs.tree-sitter-grammars.tree-sitter-tsx
+          pkgs.tree-sitter-grammars.tree-sitter-graphql
           tree-sitter-langs
           graphql-ts-mode
 
-          expreg
-          puni
-          migemo
-          unicode-math-input
-          aggressive-indent
-
-          ctrlf
-          affe
-
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          # Environment
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           exec-path-from-shell
           envrc
 
-          # org
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          # Org
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           org-modern
 
-          # tool
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          # Tools
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           rg
           pdf-tools
           vterm
 
-          # ai
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          # AI
+          # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           copilot
           claude-code
           # copilot-chat
@@ -78,6 +106,7 @@
 
     })
   ];
+  # Tree-sitter parser binaries
   home.file.".emacs.d/tree-sitter/libtree-sitter-typescript.so".source =
     "${pkgs.tree-sitter-grammars.tree-sitter-typescript}/parser";
   home.file.".emacs.d/tree-sitter/libtree-sitter-tsx.so".source =
