@@ -123,6 +123,7 @@ in
       lazyjj # TUI for Jujutsu/jj
       jjui # TUI for Jujutsu
       gh-dash # GitHub CLI extension for PR/issue dashboard
+      git-secrets # Prevents committing secrets and credentials
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Development Tools
@@ -139,6 +140,7 @@ in
       ansifilter # ANSI escape code filter
       python312Packages.pylatexenc # LaTeX encoder for Python
       # python313Packages.uv
+      rlwrap # Readline wrapper for interactive programs
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Database
