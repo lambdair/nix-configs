@@ -216,12 +216,14 @@ in
       warp-terminal # Modern terminal with AI features
       rio # Hardware-accelerated GPU terminal emulator
       obsidian # Knowledge base
+      bitwarden-desktop # Password manager
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Fonts
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       nerd-fonts.hack
       nerd-fonts.sauce-code-pro
+      nerd-fonts.symbols-only
       julia-mono
       rounded-mgenplus
       uiua386
