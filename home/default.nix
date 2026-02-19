@@ -290,6 +290,11 @@ in
       configFile.source = ./config.nu;
     };
 
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
     carapace.enable = true;
     carapace.enableNushellIntegration = true;
 
