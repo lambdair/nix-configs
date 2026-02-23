@@ -25,6 +25,7 @@
     :doc "file input and output commands for Emacs"
     :global-minor-mode auto-save-visited-mode)
 
+  (setq shell-file-name (or (executable-find "bash") "/bin/bash"))
   (setq use-short-answers 1)
   (setq ring-bell-function 'ignore)
   (setq scroll-conservatively 1)
