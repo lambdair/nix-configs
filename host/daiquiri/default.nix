@@ -56,6 +56,12 @@
   # niri Wayland compositor
   programs.niri.enable = true;
 
+  # Electron/Chromium アプリを Wayland ネイティブで動作させる
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1"; # nixpkgs ラッパー用
+    ELECTRON_OZONE_PLATFORM_HINT = "auto"; # AppImage 内蔵 Electron 用
+  };
+
   # Display manager (greetd + tuigreet)
   services.greetd = {
     enable = true;
