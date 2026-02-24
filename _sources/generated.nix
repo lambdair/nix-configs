@@ -32,10 +32,10 @@
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.83.9";
+    version = "1.84.0";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.83.9/Heptabase-1.83.9.AppImage";
-      sha256 = "sha256-tArqlq18g+raKAI9YyoaBizC503ude1B9o+LnJqKaAw=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.84.0/Heptabase-1.84.0.AppImage";
+      sha256 = "sha256-sk9YN2vNr9jiGzVQOcst+oRLEYjEaZO4nGgD8TxdfIc=";
     };
   };
   jj-mode = {
@@ -64,17 +64,17 @@
   };
   nael = {
     pname = "nael";
-    version = "3ee1cf286dc1ee3c9f99357079288ce1285c10c0";
+    version = "fbfb6757365cbde89d7ae0b56727315db15d31e4";
     src = fetchgit {
       url = "https://codeberg.org/mekeor/nael";
-      rev = "3ee1cf286dc1ee3c9f99357079288ce1285c10c0";
+      rev = "fbfb6757365cbde89d7ae0b56727315db15d31e4";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-DZ6n2mgd/rjDy8DKdB1nkCUDRdkiUWbj1rx1MhohnFk=";
+      sha256 = "sha256-3YG1SitpT/TxK05uPHcbItHGLnP5BgpQOhDZkhA99Y4=";
     };
-    date = "2026-01-22";
+    date = "2026-02-22";
   };
   nordic = {
     pname = "nordic";

@@ -50,11 +50,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-tArqlq18g+raKAI9YyoaBizC503ude1B9o+LnJqKaAw=",
+            "sha256": "sha256-sk9YN2vNr9jiGzVQOcst+oRLEYjEaZO4nGgD8TxdfIc=",
             "type": "url",
-            "url": "https://github.com/heptameta/project-meta/releases/download/v1.83.9/Heptabase-1.83.9.AppImage"
+            "url": "https://github.com/heptameta/project-meta/releases/download/v1.84.0/Heptabase-1.84.0.AppImage"
         },
-        "version": "1.83.9"
+        "version": "1.84.0"
     },
     "jj-mode": {
         "cargoLock": null,
@@ -100,7 +100,7 @@
     },
     "nael": {
         "cargoLock": null,
-        "date": "2026-01-22",
+        "date": "2026-02-22",
         "extract": null,
         "name": "nael",
         "passthru": null,
@@ -110,13 +110,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "3ee1cf286dc1ee3c9f99357079288ce1285c10c0",
-            "sha256": "sha256-DZ6n2mgd/rjDy8DKdB1nkCUDRdkiUWbj1rx1MhohnFk=",
+            "rev": "fbfb6757365cbde89d7ae0b56727315db15d31e4",
+            "sha256": "sha256-3YG1SitpT/TxK05uPHcbItHGLnP5BgpQOhDZkhA99Y4=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://codeberg.org/mekeor/nael"
         },
-        "version": "3ee1cf286dc1ee3c9f99357079288ce1285c10c0"
+        "version": "fbfb6757365cbde89d7ae0b56727315db15d31e4"
     },
     "nordic": {
         "cargoLock": null,
