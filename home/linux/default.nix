@@ -38,4 +38,6 @@ rec {
     swaybg # 壁紙設定
     vicinae # Raycast互換ランチャー
   ];
+
+  xdg.configFile."niri/config.kdl".source = ./niri-config.kdl;
 }
