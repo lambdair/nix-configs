@@ -8,7 +8,10 @@
         "flakes"
       ];
       auto-optimise-store = true;
-      trusted-users = [ "root" "lambdair" ];
+      trusted-users = [
+        "root"
+        "lambdair"
+      ];
     };
     gc = {
       automatic = true;
