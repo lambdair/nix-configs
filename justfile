@@ -48,4 +48,4 @@ fetch:
 
 # Format nix files
 fmt:
-    nix fmt '{{ flake }}'
+    nix run nixpkgs#nixfmt-tree -- '{{ flake }}'
