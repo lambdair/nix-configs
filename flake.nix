@@ -125,7 +125,10 @@
       devShells = forAllSystems (
         system:
         let
-          pkgs = inputs.nixpkgs.legacyPackages.${system};
+          pkgs = import inputs.nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
         in
         {
           default = pkgs.mkShellNoCC {
@@ -142,6 +145,7 @@
               just
               nvfetcher
               home-manager
+              claude-code
             ];
             EDITOR = "hx";
             shellHook = ''
