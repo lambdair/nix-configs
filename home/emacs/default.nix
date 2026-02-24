@@ -3,7 +3,7 @@
 {
   home.packages = [
     (pkgs.emacsWithPackagesFromUsePackage {
-      package = pkgs.emacs-git;
+      package = if pkgs.stdenv.isLinux then pkgs.emacs-pgtk else pkgs.emacs-git;
       config = ./init.el;
       defaultInitFile = true;
       extraEmacsPackages =
