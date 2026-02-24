@@ -217,8 +217,6 @@ in
       rio # Hardware-accelerated GPU terminal emulator
       obsidian # Knowledge base
       bitwarden-desktop # Password manager
-      peek # Simple animated GIF screen recorder
-      obs-studio # Free and open source streaming/recording software
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Fonts
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -232,6 +230,8 @@ in
       bqn386
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
+      obs-studio # Free and open source streaming/recording software
+      peek # Simple animated GIF screen recorder
       pcloud # Secure cloud storage client
     ]
     ++ libs;
