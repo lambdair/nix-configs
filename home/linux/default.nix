@@ -26,5 +26,16 @@ rec {
     thunderbird
     discord
     heptabase
+
+    # Wayland desktop tools
+    waybar # ステータスバー
+    mako # 通知デーモン
+    swaylock # 画面ロック
+    swayidle # アイドル管理
+    grim # スクリーンショット
+    slurp # 領域選択
+    wl-clipboard # クリップボード (wl-copy/wl-paste)
+    swaybg # 壁紙設定
+    vicinae # Raycast互換ランチャー
   ];
 }
