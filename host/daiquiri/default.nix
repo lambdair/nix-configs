@@ -53,18 +53,22 @@
     ];
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # niri Wayland compositor
+  programs.niri.enable = true;
 
-  # Enable the Budgie Desktop environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.desktopManager.budgie.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "us,jp";
-    xkb.variant = "";
+  # Display manager (greetd + tuigreet)
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd niri-session";
+        user = "greeter";
+      };
+    };
   };
+
+  # Polkit (privilege escalation for GUI apps)
+  security.polkit.enable = true;
 
   # Configure console keymap
   console.keyMap = "us";
