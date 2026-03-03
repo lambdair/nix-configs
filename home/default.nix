@@ -374,6 +374,8 @@ in
     };
   };
 
+  home.file.".clojure/deps.edn".source = ./deps.edn;
+
   home.file.".claude/CLAUDE.md".source = ./CLAUDE.md;
 
   home.file.".config/helix/runtime/queries/uiua" = {
