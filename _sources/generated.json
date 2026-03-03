@@ -20,6 +20,27 @@
         },
         "version": "01ff2a36651b1d25d6847751466a0ca65c44637d"
     },
+    "difit": {
+        "cargoLock": null,
+        "date": "2026-03-02",
+        "extract": null,
+        "name": "difit",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "yoshiko-pg",
+            "repo": "difit",
+            "rev": "767fe56feda6a5600c44cf9bfae81cb229bf6a57",
+            "sha256": "sha256-jI/sDq8dbqYwgGfEfF+gZB0zM6MI55TGRCF7e+LUR1A=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "767fe56feda6a5600c44cf9bfae81cb229bf6a57"
+    },
     "eglot-booster": {
         "cargoLock": null,
         "date": "2025-07-16",
@@ -50,11 +71,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-sk9YN2vNr9jiGzVQOcst+oRLEYjEaZO4nGgD8TxdfIc=",
+            "sha256": "sha256-Y6gf0R0cRs88dmP5OkwmZZRRFjgzMxYcg2ruledAIDA=",
             "type": "url",
-            "url": "https://github.com/heptameta/project-meta/releases/download/v1.84.0/Heptabase-1.84.0.AppImage"
+            "url": "https://github.com/heptameta/project-meta/releases/download/v1.84.2/Heptabase-1.84.2.AppImage"
         },
-        "version": "1.84.0"
+        "version": "1.84.2"
     },
     "jj-mode": {
         "cargoLock": null,
@@ -161,7 +182,7 @@
     },
     "racket-langserver": {
         "cargoLock": null,
-        "date": "2026-02-01",
+        "date": "2026-03-03",
         "extract": null,
         "name": "racket-langserver",
         "passthru": null,
@@ -173,16 +194,16 @@
             "name": null,
             "owner": "jeapostrophe",
             "repo": "racket-langserver",
-            "rev": "cee06d687e7617cbf21b5564f7fd16a3bec3574b",
-            "sha256": "sha256-SVP0oRmJTgH0bLUIzcqwJOgPbfdZejp7pbypETIvxjE=",
+            "rev": "c88896f92a19af168818554583875b006ed3913b",
+            "sha256": "sha256-grarUFbNSBHXUywaXgN3C29W/atteFPgIJnafTEeQZM=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "cee06d687e7617cbf21b5564f7fd16a3bec3574b"
+        "version": "c88896f92a19af168818554583875b006ed3913b"
     },
     "typst-ts-mode": {
         "cargoLock": null,
-        "date": "2026-02-01",
+        "date": "2026-02-23",
         "extract": null,
         "name": "typst-ts-mode",
         "passthru": null,
@@ -192,13 +213,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "1e8cc8072a22ac1dc07f1db356ca8f71c524d0c0",
-            "sha256": "sha256-bVh2cgJmmotZteSfTPjFbZK0FKTp8qrm0T7qXSG3Scc=",
+            "rev": "af85670aa64cdf21a1b22def9b2de6e9f6eb9df7",
+            "sha256": "sha256-RAu2iPbNFdVeInnRZ/NTWJL2rSa3qlBt8SnkpjzEqUc=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://codeberg.org/meow_king/typst-ts-mode"
         },
-        "version": "1e8cc8072a22ac1dc07f1db356ca8f71c524d0c0"
+        "version": "af85670aa64cdf21a1b22def9b2de6e9f6eb9df7"
     },
     "uiua": {
         "cargoLock": null,

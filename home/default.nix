@@ -243,6 +243,7 @@ in
     ./helix.nix
     ./nvim
     ./emacs
+    ./difit.nix
   ];
 
   catppuccin = {

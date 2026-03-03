@@ -18,6 +18,18 @@
     };
     date = "2026-02-01";
   };
+  difit = {
+    pname = "difit";
+    version = "767fe56feda6a5600c44cf9bfae81cb229bf6a57";
+    src = fetchFromGitHub {
+      owner = "yoshiko-pg";
+      repo = "difit";
+      rev = "767fe56feda6a5600c44cf9bfae81cb229bf6a57";
+      fetchSubmodules = false;
+      sha256 = "sha256-jI/sDq8dbqYwgGfEfF+gZB0zM6MI55TGRCF7e+LUR1A=";
+    };
+    date = "2026-03-02";
+  };
   eglot-booster = {
     pname = "eglot-booster";
     version = "cab7803c4f0adc7fff9da6680f90110674bb7a22";
@@ -32,10 +44,10 @@
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.84.0";
+    version = "1.84.2";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.84.0/Heptabase-1.84.0.AppImage";
-      sha256 = "sha256-sk9YN2vNr9jiGzVQOcst+oRLEYjEaZO4nGgD8TxdfIc=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.84.2/Heptabase-1.84.2.AppImage";
+      sha256 = "sha256-Y6gf0R0cRs88dmP5OkwmZZRRFjgzMxYcg2ruledAIDA=";
     };
   };
   jj-mode = {
@@ -104,29 +116,29 @@
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "cee06d687e7617cbf21b5564f7fd16a3bec3574b";
+    version = "c88896f92a19af168818554583875b006ed3913b";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "cee06d687e7617cbf21b5564f7fd16a3bec3574b";
+      rev = "c88896f92a19af168818554583875b006ed3913b";
       fetchSubmodules = false;
-      sha256 = "sha256-SVP0oRmJTgH0bLUIzcqwJOgPbfdZejp7pbypETIvxjE=";
+      sha256 = "sha256-grarUFbNSBHXUywaXgN3C29W/atteFPgIJnafTEeQZM=";
     };
-    date = "2026-02-01";
+    date = "2026-03-03";
   };
   typst-ts-mode = {
     pname = "typst-ts-mode";
-    version = "1e8cc8072a22ac1dc07f1db356ca8f71c524d0c0";
+    version = "af85670aa64cdf21a1b22def9b2de6e9f6eb9df7";
     src = fetchgit {
       url = "https://codeberg.org/meow_king/typst-ts-mode";
-      rev = "1e8cc8072a22ac1dc07f1db356ca8f71c524d0c0";
+      rev = "af85670aa64cdf21a1b22def9b2de6e9f6eb9df7";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-bVh2cgJmmotZteSfTPjFbZK0FKTp8qrm0T7qXSG3Scc=";
+      sha256 = "sha256-RAu2iPbNFdVeInnRZ/NTWJL2rSa3qlBt8SnkpjzEqUc=";
     };
-    date = "2026-02-01";
+    date = "2026-02-23";
   };
   uiua = {
     pname = "uiua";
