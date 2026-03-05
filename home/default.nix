@@ -224,6 +224,7 @@ in
       nerd-fonts.symbols-only
       julia-mono
       rounded-mgenplus
+      maple-mono.NF-CN
       uiua386
       apl386
       bqn386

@@ -22,6 +22,7 @@
       apl386
       uiua386
       rounded-mgenplus
+      maple-mono.NF-CN
     ];
     fontDir.enable = true;
     fontconfig = {
