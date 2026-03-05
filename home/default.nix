@@ -204,7 +204,6 @@ in
       tuios # Network TUI for Unix sockets
       enchant # Generic spell checking library
       github-cli # GitHub CLI
-      claude-code # Agentic coding tool
       codex # OpenAI Codex CLI
       aws-vault # AWS credential management
       ssm-session-manager-plugin # AWS SSM Session Manager
@@ -244,6 +243,7 @@ in
     ./nvim
     ./emacs
     ./difit.nix
+    ./claude
   ];
 
   catppuccin = {
@@ -375,8 +375,6 @@ in
   };
 
   home.file.".clojure/deps.edn".source = ./deps.edn;
-
-  home.file.".claude/CLAUDE.md".source = ./CLAUDE.md;
 
   home.file.".config/helix/runtime/queries/uiua" = {
     source = "${pkgs.tree-sitter-grammars.tree-sitter-uiua}/queries";
