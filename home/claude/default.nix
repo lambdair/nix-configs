@@ -6,8 +6,8 @@
   };
 
   # statusline script (referenced from settings.json)
-  home.file.".claude/statusline-command.sh" = {
-    source = ./statusline-command.sh;
+  home.file.".claude/statusline-command.bb" = {
+    source = ./statusline-command.bb;
     executable = true;
   };
 }
