@@ -33,4 +33,5 @@
 
   home.file.".claude/rules/jj-workflow.md".source = ./jj-workflow.md;
   home.file.".claude/rules/coding-preferences.md".source = ./coding-preferences.md;
+  home.file.".claude/rules/revision-discipline.md".source = ./revision-discipline.md;
 }
