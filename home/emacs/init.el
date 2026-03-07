@@ -457,6 +457,7 @@ vi style of % jumping to matching brace."
   (leaf lsp-mode
     :config
     (define-key lsp-mode-map (kbd "C-c l") lsp-command-map)
+    (lsp-enable-which-key-integration t)
     (defun lsp-booster--advice-json-parse (old-fn &rest args)
       "Try to parse bytecode instead of json."
       (or
