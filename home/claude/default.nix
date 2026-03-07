@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   programs.claude-code = {
     enable = true;
@@ -20,7 +20,7 @@
       };
       statusLine = {
         type = "command";
-        command = "bb /Users/ziyuguo/.claude/statusline-command.bb";
+        command = "bb ${config.home.homeDirectory}/.claude/statusline-command.bb";
       };
       alwaysThinkingEnabled = true;
 
@@ -31,7 +31,7 @@
             hooks = [
               {
                 type = "command";
-                command = "bb /Users/ziyuguo/.claude/hooks/revision-context.bb";
+                command = "bb ${config.home.homeDirectory}/.claude/hooks/revision-context.bb";
                 timeout = 10;
               }
             ];
