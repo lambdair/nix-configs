@@ -439,6 +439,8 @@ vi style of % jumping to matching brace."
                (expand-file-name "tree-sitter" user-emacs-directory)))
 
 
+(setq lsp-keymap-prefix "C-c l")
+
 (leaf lsp
   ;; (leaf eglot
   ;;   :doc "The Emacs Client for LSP servers"
@@ -454,6 +456,7 @@ vi style of % jumping to matching brace."
 
   (leaf lsp-mode
     :config
+    (define-key lsp-mode-map (kbd "C-c l") lsp-command-map)
     (defun lsp-booster--advice-json-parse (old-fn &rest args)
       "Try to parse bytecode instead of json."
       (or
