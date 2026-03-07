@@ -54,6 +54,7 @@ in
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Web Development (TS/JS)
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      nodejs # Node.js JavaScript runtime
       nodePackages.typescript-language-server # TypeScript/JavaScript language server
       tailwindcss-language-server # Tailwind CSS language server
 
@@ -139,7 +140,7 @@ in
       jq # Command-line JSON processor
       ansifilter # ANSI escape code filter
       python312Packages.pylatexenc # LaTeX encoder for Python
-      # python313Packages.uv
+      uv # Fast Python package installer and resolver
       rlwrap # Readline wrapper for interactive programs
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
