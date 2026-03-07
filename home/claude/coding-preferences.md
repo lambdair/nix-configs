@@ -14,6 +14,7 @@
 - 修正は `jj edit` で該当リビジョンを直接編集する（明確な指示がない限り）
 - **ファイル編集前に `jj diff --stat` で現在の変更を確認し、無関係な変更を混入させない**
 - レビュアーが各リビジョンを独立して理解できるよう分割する。次のリビジョンで消すコードでも、読みやすさのために分けること
+- 絶対ホームディレクトリパスをハードコードしない。環境変数や設定変数（Nix なら `config.home.homeDirectory` 等）を使うこと
 - 詳細は `~/.claude/rules/revision-discipline.md` 参照
 
 ## Review and Correction Flow
