@@ -232,7 +232,14 @@ in
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       obs-studio # Free and open source streaming/recording software
-      peek # Simple animated GIF screen recorder
+      (pkgs.symlinkJoin {
+        name = "peek";
+        paths = [ pkgs.peek ];
+        nativeBuildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/peek --set DISPLAY :0
+        '';
+      }) # Simple animated GIF screen recorder
       pcloud # Secure cloud storage client
     ]
     ++ libs;
