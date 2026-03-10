@@ -6,7 +6,8 @@
          '[clojure.string :as str])
 
 (import '[java.time Instant ZoneId]
-        '[java.time.format DateTimeFormatter])
+        '[java.time.format DateTimeFormatter]
+        '[java.security MessageDigest])
 
 ;; === Parse stdin JSON ===
 (def input (json/parse-string (slurp *in*) true))
@@ -62,6 +63,20 @@
 ;; === Configuration ===
 (def display-tz (or (System/getenv "CLAUDE_STATUSLINE_TZ") "Asia/Tokyo"))
 
+;; === Account-aware keychain & cache ===
+(defn- sha256-prefix [s]
+  (let [md (MessageDigest/getInstance "SHA-256")
+        bytes (.digest md (.getBytes s "UTF-8"))]
+    (subs (apply str (map #(format "%02x" %) bytes)) 0 8)))
+
+(def config-dir (System/getenv "CLAUDE_CONFIG_DIR"))
+(def default-config-dir (str (System/getProperty "user.home") "/.claude"))
+
+(def keychain-service
+  (if (and config-dir (not= config-dir default-config-dir))
+    (str "Claude Code-credentials-" (sha256-prefix config-dir))
+    "Claude Code-credentials"))
+
 ;; === OAuth token retrieval ===
 (defn- parse-keychain-creds
   "Try JSON parse, then hex-decode fallback for macOS Keychain credentials."
@@ -80,9 +95,9 @@
     (if (str/includes? (System/getProperty "os.name") "Mac")
       (-> (p/shell {:out :string :err :string}
                    "security" "find-generic-password"
-                   "-s" "Claude Code-credentials" "-w")
+                   "-s" keychain-service "-w")
           :out str/trim parse-keychain-creds)
-      (-> (slurp (str (System/getProperty "user.home") "/.claude/.credentials.json"))
+      (-> (slurp (str (or config-dir default-config-dir) "/.credentials.json"))
           (json/parse-string true)
           (get-in [:claudeAiOauth :accessToken])))
     (catch Exception _ nil)))
@@ -99,7 +114,11 @@
       (catch Exception _ "?"))))
 
 ;; === Rate limit usage (cached 360s) ===
-(def cache-file (str "/tmp/claude-usage-cache-" (System/getProperty "user.name") ".json"))
+(def cache-file
+  (str "/tmp/claude-usage-cache-" (System/getProperty "user.name")
+       (when (and config-dir (not= config-dir default-config-dir))
+         (str "-" (sha256-prefix config-dir)))
+       ".json"))
 
 (defn- read-cache []
   (try (json/parse-string (slurp cache-file) true)
