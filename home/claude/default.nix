@@ -16,6 +16,7 @@ in
     settings = {
       permissions.allow = [
         "Bash(jj:*)"
+        "Bash(JJ_EDITOR=\"true\" jj split:*)"
         "Glob"
         "Grep"
         "Read"
