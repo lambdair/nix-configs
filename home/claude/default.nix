@@ -1,4 +1,14 @@
-{ config, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  link = name: {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude/${name}";
+  };
+in
 {
   programs.claude-code = {
     enable = true;
@@ -79,4 +89,13 @@
   home.file.".claude/rules/jj-workflow.md".source = ./jj-workflow.md;
   home.file.".claude/rules/coding-preferences.md".source = ./coding-preferences.md;
   home.file.".claude/rules/revision-discipline.md".source = ./revision-discipline.md;
+
+  # macOS only: symlink shared settings for secondary account
+  home.file.".claude-personal/settings.json" = lib.mkIf pkgs.stdenv.isDarwin (link "settings.json");
+  home.file.".claude-personal/CLAUDE.md" = lib.mkIf pkgs.stdenv.isDarwin (link "CLAUDE.md");
+  home.file.".claude-personal/statusline-command.bb" = lib.mkIf pkgs.stdenv.isDarwin (
+    link "statusline-command.bb"
+  );
+  home.file.".claude-personal/hooks" = lib.mkIf pkgs.stdenv.isDarwin (link "hooks");
+  home.file.".claude-personal/rules" = lib.mkIf pkgs.stdenv.isDarwin (link "rules");
 }
