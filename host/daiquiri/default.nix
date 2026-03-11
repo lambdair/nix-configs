@@ -56,6 +56,19 @@
   # niri Wayland compositor
   programs.niri.enable = true;
 
+  # XWayland support via xwayland-satellite (for X11 apps like peek)
+  programs.xwayland.enable = true;
+  systemd.user.services.xwayland-satellite = {
+    description = "Xwayland outside your Wayland compositor";
+    wantedBy = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
+      Restart = "on-failure";
+    };
+  };
+
   # Electron/Chromium アプリを Wayland ネイティブで動作させる
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # nixpkgs ラッパー用
