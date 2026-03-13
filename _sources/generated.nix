@@ -20,15 +20,15 @@
   };
   difit = {
     pname = "difit";
-    version = "767fe56feda6a5600c44cf9bfae81cb229bf6a57";
+    version = "8bafda190a17c3c98783a7159570fbc2c2ed47c2";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "767fe56feda6a5600c44cf9bfae81cb229bf6a57";
+      rev = "8bafda190a17c3c98783a7159570fbc2c2ed47c2";
       fetchSubmodules = false;
-      sha256 = "sha256-jI/sDq8dbqYwgGfEfF+gZB0zM6MI55TGRCF7e+LUR1A=";
+      sha256 = "sha256-z/xuBcA0ZD/wa8U3ihl98XX50CXjGhpXYuWnxO4AzT4=";
     };
-    date = "2026-03-02";
+    date = "2026-03-12";
   };
   eglot-booster = {
     pname = "eglot-booster";
@@ -44,23 +44,23 @@
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.84.2";
+    version = "1.85.2";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.84.2/Heptabase-1.84.2.AppImage";
-      sha256 = "sha256-Y6gf0R0cRs88dmP5OkwmZZRRFjgzMxYcg2ruledAIDA=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.85.2/Heptabase-1.85.2.AppImage";
+      sha256 = "sha256-9yl3EX6Q8SmZQDDhmqmH9Waj2mdWhGTfw1OZj91HQvs=";
     };
   };
   jj-mode = {
     pname = "jj-mode";
-    version = "20b7b516f9a1bcb96fc1fedbc0a43138f9fe8765";
+    version = "6237dca6d48deb699d30ed0c1ff32cbb62eb4fcc";
     src = fetchFromGitHub {
       owner = "bolivier";
       repo = "jj-mode.el";
-      rev = "20b7b516f9a1bcb96fc1fedbc0a43138f9fe8765";
+      rev = "6237dca6d48deb699d30ed0c1ff32cbb62eb4fcc";
       fetchSubmodules = false;
-      sha256 = "sha256-rtG+vK2x0MfMyD/HNP+IYYMmJt9mAqj74X7VDjM13F4=";
+      sha256 = "sha256-RsgAnwJ44AXA/KhgPwzJnj2+6xiCRrzFCvvJLNrqWic=";
     };
-    date = "2026-02-13";
+    date = "2026-03-06";
   };
   lean4-mode = {
     pname = "lean4-mode";
@@ -76,17 +76,17 @@
   };
   nael = {
     pname = "nael";
-    version = "fbfb6757365cbde89d7ae0b56727315db15d31e4";
+    version = "c1d349746731bbff6bf1887c51eb7a1f3bea5c4c";
     src = fetchgit {
       url = "https://codeberg.org/mekeor/nael";
-      rev = "fbfb6757365cbde89d7ae0b56727315db15d31e4";
+      rev = "c1d349746731bbff6bf1887c51eb7a1f3bea5c4c";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-3YG1SitpT/TxK05uPHcbItHGLnP5BgpQOhDZkhA99Y4=";
+      sha256 = "sha256-X3yw0pBgUN71TdPcEPznjq//U5X8P+zctik3nw11RSI=";
     };
-    date = "2026-02-22";
+    date = "2026-03-09";
   };
   nordic = {
     pname = "nordic";
@@ -116,15 +116,15 @@
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "c88896f92a19af168818554583875b006ed3913b";
+    version = "6133aaf83f0c54b0a13a666e0843df365b571f6d";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "c88896f92a19af168818554583875b006ed3913b";
+      rev = "6133aaf83f0c54b0a13a666e0843df365b571f6d";
       fetchSubmodules = false;
-      sha256 = "sha256-grarUFbNSBHXUywaXgN3C29W/atteFPgIJnafTEeQZM=";
+      sha256 = "sha256-TBPNb2VvRVqrMjRJOAbi/mD35G12iTxbQO6Kobyt0A4=";
     };
-    date = "2026-03-03";
+    date = "2026-03-07";
   };
   typst-ts-mode = {
     pname = "typst-ts-mode";

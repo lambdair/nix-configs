@@ -213,8 +213,8 @@ in
       # GUI Applications
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # ghostty
-      warp-terminal # Modern terminal with AI features
-      rio # Hardware-accelerated GPU terminal emulator
+      # warp-terminal # Modern terminal with AI features
+      # rio # Hardware-accelerated GPU terminal emulator
       obsidian # Knowledge base
       bitwarden-desktop # Password manager
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
