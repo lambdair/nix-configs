@@ -8,27 +8,27 @@
 {
   budget_tracker_tui = {
     pname = "budget_tracker_tui";
-    version = "01ff2a36651b1d25d6847751466a0ca65c44637d";
+    version = "acb18bf081e71b187809955c88a4e86ee711433c";
     src = fetchFromGitHub {
       owner = "Feromond";
       repo = "budget_tracker_tui";
-      rev = "01ff2a36651b1d25d6847751466a0ca65c44637d";
+      rev = "acb18bf081e71b187809955c88a4e86ee711433c";
       fetchSubmodules = false;
-      sha256 = "sha256-KwhvYlwAGLw8zlT+ibMhtxrovjwOGjSHwz68HfLWYf4=";
+      sha256 = "sha256-xBmRx7mm5xkKOrZBYFY321xAwHg3Hx3ZbPQ2K3RCpIo=";
     };
-    date = "2026-02-01";
+    date = "2026-03-19";
   };
   difit = {
     pname = "difit";
-    version = "8bafda190a17c3c98783a7159570fbc2c2ed47c2";
+    version = "9e2643cfdaecb161271893435acd7722ec49ea63";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "8bafda190a17c3c98783a7159570fbc2c2ed47c2";
+      rev = "9e2643cfdaecb161271893435acd7722ec49ea63";
       fetchSubmodules = false;
-      sha256 = "sha256-z/xuBcA0ZD/wa8U3ihl98XX50CXjGhpXYuWnxO4AzT4=";
+      sha256 = "sha256-N1zLePv30S+LHL4pxBqE4OAuSCagzJ3fYHY1hn1FpU4=";
     };
-    date = "2026-03-12";
+    date = "2026-03-19";
   };
   eglot-booster = {
     pname = "eglot-booster";
@@ -44,10 +44,10 @@
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.85.2";
+    version = "1.87.2";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.85.2/Heptabase-1.85.2.AppImage";
-      sha256 = "sha256-9yl3EX6Q8SmZQDDhmqmH9Waj2mdWhGTfw1OZj91HQvs=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.87.2/Heptabase-1.87.2.AppImage";
+      sha256 = "sha256-6O6ksa0mCUoAfXW8jzh1n7zAfLZTA45va9o6J2ghKgU=";
     };
   };
   jj-mode = {
@@ -116,15 +116,15 @@
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "6133aaf83f0c54b0a13a666e0843df365b571f6d";
+    version = "f1a92ef0b39488c076562f3687740ef108231ee3";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "6133aaf83f0c54b0a13a666e0843df365b571f6d";
+      rev = "f1a92ef0b39488c076562f3687740ef108231ee3";
       fetchSubmodules = false;
-      sha256 = "sha256-TBPNb2VvRVqrMjRJOAbi/mD35G12iTxbQO6Kobyt0A4=";
+      sha256 = "sha256-IzCvxaFJicyiG5I5/urHvVu0vefomLgotwNdGF9mTb4=";
     };
-    date = "2026-03-07";
+    date = "2026-03-17";
   };
   typst-ts-mode = {
     pname = "typst-ts-mode";
