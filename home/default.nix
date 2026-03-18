@@ -84,7 +84,7 @@ in
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Clojure / Fennel
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      # clojure
+      clojure # Dynamic, general-purpose programming language on the JVM
       clojure-lsp # Language Server Protocol (LSP) for Clojure
       clj-kondo # Linter for Clojure code that sparks joy
       cljfmt # Tool for formatting Clojure code
