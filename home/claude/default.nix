@@ -15,8 +15,42 @@ in
     memory.source = ./CLAUDE.md;
     settings = {
       permissions.allow = [
-        "Bash(jj:*)"
-        "Bash(JJ_EDITOR=\"true\" jj split:*)"
+        # jj: read-only
+        "Bash(jj status)"
+        "Bash(jj status *)"
+        "Bash(jj diff)"
+        "Bash(jj diff *)"
+        "Bash(jj log)"
+        "Bash(jj log *)"
+        "Bash(jj show *)"
+
+        # jj: revision operations
+        "Bash(jj new *)"
+        "Bash(jj edit *)"
+        "Bash(jj commit *)"
+        "Bash(jj describe *)"
+        "Bash(jj abandon *)"
+
+        # jj: revision management
+        "Bash(jj squash)"
+        "Bash(jj squash *)"
+        "Bash(jj rebase *)"
+        "Bash(jj absorb)"
+        "Bash(jj absorb *)"
+        "Bash(JJ_EDITOR=\"true\" jj split *)"
+
+        # jj: bookmarks & workspaces
+        "Bash(jj bookmark *)"
+        "Bash(jj workspace *)"
+
+        # jj: allow git fetch only (push excluded)
+        "Bash(jj git fetch)"
+        "Bash(jj git fetch *)"
+
+        # misc
+        "Bash(cd *)"
+        "Bash(just *)"
+        "Bash(devenv *)"
         "Glob"
         "Grep"
         "Read"
