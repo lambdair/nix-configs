@@ -56,7 +56,37 @@ let
         --set STEEL_HOME "${steel}/lib/steel"
     '';
   };
+
+  nrepl-hx = pkgs.rustPlatform.buildRustPackage {
+    pname = "nrepl-hx";
+    inherit (sources.nrepl-hx) version src;
+    cargoLock = {
+      lockFile = "${sources.nrepl-hx.src}/Cargo.lock";
+      outputHashes = {
+        "steel-core-0.7.0" = "sha256-lBKDRNaX4WMhJVc9162FEv+rXDXqt7ZL0YxNBq2oMcE=";
+      };
+    };
+
+    buildAndTestSubdir = "crates/steel-nrepl";
+  };
+
+  nreplLibName = if pkgs.stdenv.isDarwin then "libsteel_nrepl.dylib" else "libsteel_nrepl.so";
 in
 {
   programs.helix.package = helix-steel;
+
+  home.file.".steel/native/${nreplLibName}".source = nrepl-hx + "/lib/${nreplLibName}";
+
+  home.file.".config/helix/nrepl.scm".source = "${sources.nrepl-hx.src}/nrepl.scm";
+
+  home.file.".config/helix/cogs/nrepl" = {
+    source = "${sources.nrepl-hx.src}/cogs/nrepl";
+    recursive = true;
+  };
+
+  home.file.".config/helix/init.scm".text = ''
+    (require (prefix-in helix. "helix/commands.scm"))
+    (require (prefix-in helix.static. "helix/static.scm"))
+    (require "nrepl.scm")
+  '';
 }
