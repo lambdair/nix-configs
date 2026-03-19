@@ -249,6 +249,7 @@ in
     # Editors
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     ./helix.nix
+    ./helix-steel.nix
     ./nvim
     ./emacs
     ./difit.nix
