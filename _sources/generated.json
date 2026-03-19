@@ -62,6 +62,27 @@
         },
         "version": "cab7803c4f0adc7fff9da6680f90110674bb7a22"
     },
+    "helix-steel": {
+        "cargoLock": null,
+        "date": "2026-03-18",
+        "extract": null,
+        "name": "helix-steel",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mattwparas",
+            "repo": "helix",
+            "rev": "03ad8a1b026c28f9ecec80c4d67151731ec9d5fc",
+            "sha256": "sha256-ifMz83gWOfZTxahD+kafCij2Z6SBDgntM/nCdN7OZEs=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "03ad8a1b026c28f9ecec80c4d67151731ec9d5fc"
+    },
     "heptabase": {
         "cargoLock": null,
         "date": null,
@@ -160,6 +181,27 @@
         },
         "version": "4ce6bad95fde832f9bd10b991de846047a144628"
     },
+    "nrepl-hx": {
+        "cargoLock": null,
+        "date": "2026-01-19",
+        "extract": null,
+        "name": "nrepl-hx",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "waddie",
+            "repo": "nrepl.hx",
+            "rev": "f87442fcc109169209ccaefa045f31d97ca00a8c",
+            "sha256": "sha256-rjcCLLrXW0m/peY7g9K5RxKMo1I5emq9V5j3KjaTVj0=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "f87442fcc109169209ccaefa045f31d97ca00a8c"
+    },
     "nvim-bqn": {
         "cargoLock": null,
         "date": "2023-09-08",
@@ -200,6 +242,27 @@
             "type": "github"
         },
         "version": "f1a92ef0b39488c076562f3687740ef108231ee3"
+    },
+    "steel": {
+        "cargoLock": null,
+        "date": "2026-03-18",
+        "extract": null,
+        "name": "steel",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mattwparas",
+            "repo": "steel",
+            "rev": "e81c4655f44720845c52043f5e04a2f9abf998a7",
+            "sha256": "sha256-xHd82gFsfafOm/zkusiZ6tdd+gOfKkgzyk4EFQ9eNIs=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "e81c4655f44720845c52043f5e04a2f9abf998a7"
     },
     "typst-ts-mode": {
         "cargoLock": null,

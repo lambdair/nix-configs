@@ -42,6 +42,18 @@
     };
     date = "2025-07-16";
   };
+  helix-steel = {
+    pname = "helix-steel";
+    version = "03ad8a1b026c28f9ecec80c4d67151731ec9d5fc";
+    src = fetchFromGitHub {
+      owner = "mattwparas";
+      repo = "helix";
+      rev = "03ad8a1b026c28f9ecec80c4d67151731ec9d5fc";
+      fetchSubmodules = false;
+      sha256 = "sha256-ifMz83gWOfZTxahD+kafCij2Z6SBDgntM/nCdN7OZEs=";
+    };
+    date = "2026-03-18";
+  };
   heptabase = {
     pname = "heptabase";
     version = "1.87.2";
@@ -100,6 +112,18 @@
     };
     date = "2026-02-07";
   };
+  nrepl-hx = {
+    pname = "nrepl-hx";
+    version = "f87442fcc109169209ccaefa045f31d97ca00a8c";
+    src = fetchFromGitHub {
+      owner = "waddie";
+      repo = "nrepl.hx";
+      rev = "f87442fcc109169209ccaefa045f31d97ca00a8c";
+      fetchSubmodules = false;
+      sha256 = "sha256-rjcCLLrXW0m/peY7g9K5RxKMo1I5emq9V5j3KjaTVj0=";
+    };
+    date = "2026-01-19";
+  };
   nvim-bqn = {
     pname = "nvim-bqn";
     version = "52d8b49f3ebc32d340e2e2b8dba1f6bbd1873b78";
@@ -125,6 +149,18 @@
       sha256 = "sha256-IzCvxaFJicyiG5I5/urHvVu0vefomLgotwNdGF9mTb4=";
     };
     date = "2026-03-17";
+  };
+  steel = {
+    pname = "steel";
+    version = "e81c4655f44720845c52043f5e04a2f9abf998a7";
+    src = fetchFromGitHub {
+      owner = "mattwparas";
+      repo = "steel";
+      rev = "e81c4655f44720845c52043f5e04a2f9abf998a7";
+      fetchSubmodules = false;
+      sha256 = "sha256-xHd82gFsfafOm/zkusiZ6tdd+gOfKkgzyk4EFQ9eNIs=";
+    };
+    date = "2026-03-18";
   };
   typst-ts-mode = {
     pname = "typst-ts-mode";

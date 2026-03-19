@@ -51,6 +51,19 @@ fetch.url = "https://github.com/heptameta/project-meta/releases/download/v$ver/H
 src.git = "https://github.com/Feromond/budget_tracker_tui"
 fetch.github = "Feromond/budget_tracker_tui"
 
+[helix-steel]
+src.git = "https://github.com/mattwparas/helix"
+src.branch = "steel-event-system"
+fetch.github = "mattwparas/helix"
+
+[steel]
+src.git = "https://github.com/mattwparas/steel"
+fetch.github = "mattwparas/steel"
+
+[nrepl-hx]
+src.git = "https://github.com/waddie/nrepl.hx"
+fetch.github = "waddie/nrepl.hx"
+
 [difit]
 src.git = "https://github.com/yoshiko-pg/difit"
 fetch.github = "yoshiko-pg/difit"
