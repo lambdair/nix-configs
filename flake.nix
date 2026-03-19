@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-pinned.url = "github:NixOS/nixpkgs/aca4d95fce4914b3892661bcb80b8087293536c6";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
@@ -79,6 +80,7 @@
               overlays = [
                 inputs.rust-overlay.overlays.default
                 inputs.emacs-overlay.overlay
+                (import ./overlays/pin-broken-pkg.nix inputs)
               ];
             };
             extraSpecialArgs = {
@@ -106,6 +108,7 @@
                   inputs.rust-overlay.overlays.default
                   inputs.emacs-overlay.overlay
                   (import ./overlays/uiua386-fix-monospace.nix)
+                  (import ./overlays/pin-broken-pkg.nix inputs)
                 ];
               };
               extraSpecialArgs = {
