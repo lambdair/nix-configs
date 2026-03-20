@@ -45,6 +45,19 @@ let
     '';
   };
 
+  helix-runtime = pkgs.runCommand "helix-steel-runtime" { } ''
+    mkdir -p $out
+    cp -r --no-preserve=mode ${helix-steel-unwrapped}/lib/helix/runtime/* $out/
+    # nixpkgs pre-compiled grammars (writable dir for uiua addition)
+    rm -rf $out/grammars
+    mkdir -p $out/grammars
+    cp -r --no-preserve=mode ${pkgs.helix.passthru.runtime}/grammars/* $out/grammars/
+    # uiua tree-sitter grammar (not in nixpkgs helix runtime)
+    mkdir -p $out/queries/uiua
+    cp -r ${pkgs.tree-sitter-grammars.tree-sitter-uiua}/queries/* $out/queries/uiua/
+    ln -s ${pkgs.tree-sitter-grammars.tree-sitter-uiua}/parser $out/grammars/uiua.so
+  '';
+
   helix-steel = pkgs.symlinkJoin {
     name = "helix-steel";
     paths = [ helix-steel-unwrapped ];
@@ -52,7 +65,7 @@ let
     postBuild = ''
       rm $out/bin/hx
       makeBinaryWrapper ${helix-steel-unwrapped}/bin/hx $out/bin/hx \
-        --set HELIX_RUNTIME "${helix-steel-unwrapped}/lib/helix/runtime" \
+        --set HELIX_RUNTIME "${helix-runtime}" \
         --set STEEL_HOME "${steel}/lib/steel"
     '';
   };
