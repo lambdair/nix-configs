@@ -181,27 +181,6 @@
         },
         "version": "4ce6bad95fde832f9bd10b991de846047a144628"
     },
-    "nrepl-hx": {
-        "cargoLock": null,
-        "date": "2026-01-19",
-        "extract": null,
-        "name": "nrepl-hx",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "waddie",
-            "repo": "nrepl.hx",
-            "rev": "f87442fcc109169209ccaefa045f31d97ca00a8c",
-            "sha256": "sha256-rjcCLLrXW0m/peY7g9K5RxKMo1I5emq9V5j3KjaTVj0=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "f87442fcc109169209ccaefa045f31d97ca00a8c"
-    },
     "nvim-bqn": {
         "cargoLock": null,
         "date": "2023-09-08",
@@ -263,6 +242,26 @@
             "type": "github"
         },
         "version": "e81c4655f44720845c52043f5e04a2f9abf998a7"
+    },
+    "sulafat": {
+        "cargoLock": null,
+        "date": "2026-03-20",
+        "extract": null,
+        "name": "sulafat",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "5c7faca6762cc0b5320bcce17ec04216c80d1a40",
+            "sha256": "sha256-nAxMGQr7gQlCSjty8DrpXY4GtLcdbxH2aOCaeHCEa2c=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://git.sr.ht/~lambdair/sulafat"
+        },
+        "version": "5c7faca6762cc0b5320bcce17ec04216c80d1a40"
     },
     "typst-ts-mode": {
         "cargoLock": null,

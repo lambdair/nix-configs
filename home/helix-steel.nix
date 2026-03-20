@@ -57,13 +57,13 @@ let
     '';
   };
 
-  nrepl-hx = pkgs.rustPlatform.buildRustPackage {
-    pname = "nrepl-hx";
-    inherit (sources.nrepl-hx) version src;
+  sulafat = pkgs.rustPlatform.buildRustPackage {
+    pname = "sulafat";
+    inherit (sources.sulafat) version src;
     cargoLock = {
-      lockFile = "${sources.nrepl-hx.src}/Cargo.lock";
+      lockFile = "${sources.sulafat.src}/Cargo.lock";
       outputHashes = {
-        "steel-core-0.7.0" = "sha256-lBKDRNaX4WMhJVc9162FEv+rXDXqt7ZL0YxNBq2oMcE=";
+        "steel-core-0.8.2" = steelCoreHash;
       };
     };
 
@@ -75,12 +75,12 @@ in
 {
   programs.helix.package = helix-steel;
 
-  home.file.".steel/native/${nreplLibName}".source = nrepl-hx + "/lib/${nreplLibName}";
+  home.file.".steel/native/${nreplLibName}".source = sulafat + "/lib/${nreplLibName}";
 
-  home.file.".config/helix/nrepl.scm".source = "${sources.nrepl-hx.src}/nrepl.scm";
+  home.file.".config/helix/nrepl.scm".source = "${sources.sulafat.src}/nrepl.scm";
 
   home.file.".config/helix/cogs/nrepl" = {
-    source = "${sources.nrepl-hx.src}/cogs/nrepl";
+    source = "${sources.sulafat.src}/cogs/nrepl";
     recursive = true;
   };
 

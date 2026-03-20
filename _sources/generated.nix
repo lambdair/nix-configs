@@ -112,18 +112,6 @@
     };
     date = "2026-02-07";
   };
-  nrepl-hx = {
-    pname = "nrepl-hx";
-    version = "f87442fcc109169209ccaefa045f31d97ca00a8c";
-    src = fetchFromGitHub {
-      owner = "waddie";
-      repo = "nrepl.hx";
-      rev = "f87442fcc109169209ccaefa045f31d97ca00a8c";
-      fetchSubmodules = false;
-      sha256 = "sha256-rjcCLLrXW0m/peY7g9K5RxKMo1I5emq9V5j3KjaTVj0=";
-    };
-    date = "2026-01-19";
-  };
   nvim-bqn = {
     pname = "nvim-bqn";
     version = "52d8b49f3ebc32d340e2e2b8dba1f6bbd1873b78";
@@ -161,6 +149,20 @@
       sha256 = "sha256-xHd82gFsfafOm/zkusiZ6tdd+gOfKkgzyk4EFQ9eNIs=";
     };
     date = "2026-03-18";
+  };
+  sulafat = {
+    pname = "sulafat";
+    version = "5c7faca6762cc0b5320bcce17ec04216c80d1a40";
+    src = fetchgit {
+      url = "https://git.sr.ht/~lambdair/sulafat";
+      rev = "5c7faca6762cc0b5320bcce17ec04216c80d1a40";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sparseCheckout = [ ];
+      sha256 = "sha256-nAxMGQr7gQlCSjty8DrpXY4GtLcdbxH2aOCaeHCEa2c=";
+    };
+    date = "2026-03-20";
   };
   typst-ts-mode = {
     pname = "typst-ts-mode";

@@ -60,9 +60,10 @@ fetch.github = "mattwparas/helix"
 src.git = "https://github.com/mattwparas/steel"
 fetch.github = "mattwparas/steel"
 
-[nrepl-hx]
-src.git = "https://github.com/waddie/nrepl.hx"
-fetch.github = "waddie/nrepl.hx"
+[sulafat]
+src.git = "https://git.sr.ht/~lambdair/sulafat"
+src.branch = "main"
+fetch.git = "https://git.sr.ht/~lambdair/sulafat"
 
 [difit]
 src.git = "https://github.com/yoshiko-pg/difit"
