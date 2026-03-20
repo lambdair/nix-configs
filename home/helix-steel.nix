@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   sources,
   ...
 }:
@@ -66,7 +67,7 @@ let
       rm $out/bin/hx
       makeBinaryWrapper ${helix-steel-unwrapped}/bin/hx $out/bin/hx \
         --set HELIX_RUNTIME "${helix-runtime}" \
-        --set STEEL_HOME "${steel}/lib/steel"
+        --set STEEL_HOME "${config.home.homeDirectory}/.steel"
     '';
   };
 
@@ -88,6 +89,11 @@ in
 {
   programs.helix.package = helix-steel;
 
+  home.file.".steel/cogs" = {
+    source = "${steel}/lib/steel/cogs";
+    recursive = true;
+  };
+
   home.file.".steel/native/${nreplLibName}".source = sulafat + "/lib/${nreplLibName}";
 
   home.file.".config/helix/nrepl.scm".source = "${sources.sulafat.src}/nrepl.scm";
@@ -100,6 +106,7 @@ in
   home.file.".config/helix/init.scm".text = ''
     (require (prefix-in helix. "helix/commands.scm"))
     (require (prefix-in helix.static. "helix/static.scm"))
+    (require "helix/keymaps.scm")
     (require "nrepl.scm")
 
     (keymap (global)
