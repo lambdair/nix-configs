@@ -47,6 +47,16 @@ in
         "Bash(jj git fetch)"
         "Bash(jj git fetch *)"
 
+        # nix
+        "Bash(nix *)"
+        "Bash(nix-build *)"
+        "Bash(nix-store *)"
+        "Bash(nix-shell *)"
+        "Bash(nix-env *)"
+        "Bash(nix-instantiate *)"
+        "Bash(nixfmt *)"
+        "Bash(home-manager *)"
+
         # misc
         "Bash(cd *)"
         "Bash(just *)"
