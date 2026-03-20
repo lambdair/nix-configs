@@ -57,6 +57,15 @@ in
         "Bash(nixfmt *)"
         "Bash(home-manager *)"
 
+        # read-only Bash commands
+        "Bash(find *)"
+        "Bash(grep *)"
+        "Bash(ls *)"
+        "Bash(cat *)"
+        "Bash(head *)"
+        "Bash(tail *)"
+        "Bash(wc *)"
+
         # misc
         "Bash(cd *)"
         "Bash(just *)"
