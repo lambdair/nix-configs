@@ -10,6 +10,12 @@
 ;;; ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ;;; System Behavior
 ;;; ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+;; Redirect custom-set-variables to a separate file
+;; This prevents ~/.emacs from being created/used (which takes priority over init.el)
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file 'noerror)
+
 (use-package files
   :ensure nil
   :config
