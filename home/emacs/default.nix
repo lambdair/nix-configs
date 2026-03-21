@@ -4,8 +4,8 @@
   home.packages = [
     (pkgs.emacsWithPackagesFromUsePackage {
       package = if pkgs.stdenv.isLinux then pkgs.emacs-pgtk else pkgs.emacs-unstable;
-      config = ./init.el;
-      defaultInitFile = true;
+      config = ./init-config.el;
+      defaultInitFile = false;
       extraEmacsPackages =
         epkgs:
         with epkgs;
@@ -17,9 +17,6 @@
           # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           # Package Configuration
           # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          leaf
-          leaf-keywords
-          leaf-tree
           eros
 
           # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -106,6 +103,10 @@
 
     })
   ];
+  # Emacs config files
+  home.file.".emacs.d/init.el".source = ./init.el;
+  home.file.".emacs.d/init-config.el".source = ./init-config.el;
+
   # Tree-sitter parser binaries
   home.file.".emacs.d/tree-sitter/libtree-sitter-typescript.so".source =
     "${pkgs.tree-sitter-grammars.tree-sitter-typescript}/parser";
