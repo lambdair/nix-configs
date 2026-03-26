@@ -101,6 +101,28 @@ in
             ];
           }
         ];
+        WorktreeCreate = [
+          {
+            hooks = [
+              {
+                type = "command";
+                command = "bb ${config.home.homeDirectory}/.claude/hooks/jj-worktree-create.bb";
+                timeout = 30;
+              }
+            ];
+          }
+        ];
+        WorktreeRemove = [
+          {
+            hooks = [
+              {
+                type = "command";
+                command = "bb ${config.home.homeDirectory}/.claude/hooks/jj-worktree-remove.bb";
+                timeout = 30;
+              }
+            ];
+          }
+        ];
         Stop = [
           {
             hooks = [
@@ -138,6 +160,16 @@ in
 
   home.file.".claude/hooks/revision-context.bb" = {
     source = ./hooks/revision-context.bb;
+    executable = true;
+  };
+
+  home.file.".claude/hooks/jj-worktree-create.bb" = {
+    source = ./hooks/jj-worktree-create.bb;
+    executable = true;
+  };
+
+  home.file.".claude/hooks/jj-worktree-remove.bb" = {
+    source = ./hooks/jj-worktree-remove.bb;
     executable = true;
   };
 
