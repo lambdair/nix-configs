@@ -25,6 +25,10 @@
     wezterm = {
       url = "github:wez/wezterm/main?dir=nix";
     };
+    claude-code-nix = {
+      url = "github:sadjow/claude-code-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     private = {
       url = "git+ssh://git@git.sr.ht/~lambdair/nix-private";
     };
@@ -80,6 +84,7 @@
               overlays = [
                 inputs.rust-overlay.overlays.default
                 inputs.emacs-overlay.overlay
+                inputs.claude-code-nix.overlays.default
                 (import ./overlays/pin-broken-pkg.nix inputs)
               ];
             };
@@ -107,6 +112,7 @@
                 overlays = [
                   inputs.rust-overlay.overlays.default
                   inputs.emacs-overlay.overlay
+                  inputs.claude-code-nix.overlays.default
                   (import ./overlays/uiua386-fix-monospace.nix)
                   (import ./overlays/pin-broken-pkg.nix inputs)
                 ];
@@ -131,6 +137,9 @@
           pkgs = import inputs.nixpkgs {
             inherit system;
             config.allowUnfree = true;
+            overlays = [
+              inputs.claude-code-nix.overlays.default
+            ];
           };
         in
         {
