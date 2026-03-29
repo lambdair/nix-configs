@@ -8,27 +8,27 @@
 {
   budget_tracker_tui = {
     pname = "budget_tracker_tui";
-    version = "acb18bf081e71b187809955c88a4e86ee711433c";
+    version = "1506877c94e37135d34c2439bae9f0459fb354d4";
     src = fetchFromGitHub {
       owner = "Feromond";
       repo = "budget_tracker_tui";
-      rev = "acb18bf081e71b187809955c88a4e86ee711433c";
+      rev = "1506877c94e37135d34c2439bae9f0459fb354d4";
       fetchSubmodules = false;
-      sha256 = "sha256-xBmRx7mm5xkKOrZBYFY321xAwHg3Hx3ZbPQ2K3RCpIo=";
+      sha256 = "sha256-/I+X3IWMeh2GpTng/NxrWcL7n1JS5QkJwzEb7dJMsaw=";
     };
-    date = "2026-03-19";
+    date = "2026-03-23";
   };
   difit = {
     pname = "difit";
-    version = "9e2643cfdaecb161271893435acd7722ec49ea63";
+    version = "4a9f94568e86267d30ed7699cbebd02ab60b7819";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "9e2643cfdaecb161271893435acd7722ec49ea63";
+      rev = "4a9f94568e86267d30ed7699cbebd02ab60b7819";
       fetchSubmodules = false;
-      sha256 = "sha256-N1zLePv30S+LHL4pxBqE4OAuSCagzJ3fYHY1hn1FpU4=";
+      sha256 = "sha256-dt71FZhidIrCjlwYw1xauXg7l2QrlZe5ps74aAz4cE0=";
     };
-    date = "2026-03-19";
+    date = "2026-03-28";
   };
   eglot-booster = {
     pname = "eglot-booster";
@@ -128,27 +128,27 @@
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "f1a92ef0b39488c076562f3687740ef108231ee3";
+    version = "bafff8b5d5699034567301914a9d40009f4ff72f";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "f1a92ef0b39488c076562f3687740ef108231ee3";
+      rev = "bafff8b5d5699034567301914a9d40009f4ff72f";
       fetchSubmodules = false;
-      sha256 = "sha256-IzCvxaFJicyiG5I5/urHvVu0vefomLgotwNdGF9mTb4=";
+      sha256 = "sha256-zHEEm9qrPY3hxYu3gbOxf0ykUZLDvQj1P7wBMEQ12i8=";
     };
-    date = "2026-03-17";
+    date = "2026-03-27";
   };
   steel = {
     pname = "steel";
-    version = "e81c4655f44720845c52043f5e04a2f9abf998a7";
+    version = "c313c7ee3e311ac25908c856dda71473879179a1";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "steel";
-      rev = "e81c4655f44720845c52043f5e04a2f9abf998a7";
+      rev = "c313c7ee3e311ac25908c856dda71473879179a1";
       fetchSubmodules = false;
-      sha256 = "sha256-xHd82gFsfafOm/zkusiZ6tdd+gOfKkgzyk4EFQ9eNIs=";
+      sha256 = "sha256-qlGG7BWgg6mQifj80Ycm5P7T2TQUM2OppH91fKFT57A=";
     };
-    date = "2026-03-18";
+    date = "2026-03-22";
   };
   sulafat = {
     pname = "sulafat";
@@ -166,17 +166,17 @@
   };
   typst-ts-mode = {
     pname = "typst-ts-mode";
-    version = "af85670aa64cdf21a1b22def9b2de6e9f6eb9df7";
+    version = "4a850c1083e0e17098d77e51a0292d23716df004";
     src = fetchgit {
       url = "https://codeberg.org/meow_king/typst-ts-mode";
-      rev = "af85670aa64cdf21a1b22def9b2de6e9f6eb9df7";
+      rev = "4a850c1083e0e17098d77e51a0292d23716df004";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-RAu2iPbNFdVeInnRZ/NTWJL2rSa3qlBt8SnkpjzEqUc=";
+      sha256 = "sha256-nAHMUONmnbYR948WxH/VcapnhIFa+pO8Gf6s0dXOnLk=";
     };
-    date = "2026-02-23";
+    date = "2026-03-07";
   };
   uiua = {
     pname = "uiua";
