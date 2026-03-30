@@ -19,4 +19,15 @@ rec {
     macskk # Japanese SKK input method for macOS
     # awrit # Chromium-based browser for Kitty terminal
   ];
+
+  programs.nushell.extraEnv = ''
+    # Set up Nix paths for non-login contexts (e.g. Ghostty launching nushell directly)
+    if not ("__NIX_DARWIN_SET_ENVIRONMENT_DONE" in $env) {
+      $env.PATH = ($env.PATH | prepend [
+        $"($env.HOME)/.nix-profile/bin"
+        "/run/current-system/sw/bin"
+        "/nix/var/nix/profiles/default/bin"
+      ])
+    }
+  '';
 }
