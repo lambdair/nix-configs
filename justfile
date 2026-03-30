@@ -49,3 +49,13 @@ fetch:
 # Format nix files
 fmt:
     nix run nixpkgs#nixfmt-tree -- '{{ flake }}'
+
+# ── Cache ────────────────────────────────────────────────────────
+
+# Push home-manager closure to personal Cachix cache (macOS)
+cache-push-mac:
+    nix build '{{ flake }}#homeConfigurations.MacHome.activationPackage' --no-link --print-out-paths | nix run nixpkgs#cachix -- push lambdair
+
+# Push home-manager closure to personal Cachix cache (Linux)
+cache-push-linux:
+    nix build '{{ flake }}#homeConfigurations.NixHome.activationPackage' --no-link --print-out-paths | nix run nixpkgs#cachix -- push lambdair
