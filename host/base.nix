@@ -28,8 +28,8 @@
     };
     gc = {
       automatic = true;
-      dates = "wekly";
-      options = "-delete-older-then 7d";
+      dates = "weekly";
+      options = "--delete-older-than 7d";
     };
   };
 
