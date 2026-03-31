@@ -46,6 +46,8 @@ let
     '';
   };
 
+  grammarExt = if pkgs.stdenv.isDarwin then "dylib" else "so";
+
   helix-runtime = pkgs.runCommand "helix-steel-runtime" { } ''
     mkdir -p $out
     cp -r --no-preserve=mode ${helix-steel-unwrapped}/lib/helix/runtime/* $out/
@@ -53,10 +55,16 @@ let
     rm -rf $out/grammars
     mkdir -p $out/grammars
     cp -r --no-preserve=mode ${pkgs.helix.passthru.runtime}/grammars/* $out/grammars/
+    # helix master expects .dylib on macOS, but nixpkgs grammars are .so
+    ${pkgs.lib.optionalString pkgs.stdenv.isDarwin ''
+      for f in $out/grammars/*.so; do
+        mv "$f" "''${f%.so}.dylib"
+      done
+    ''}
     # uiua tree-sitter grammar (not in nixpkgs helix runtime)
     mkdir -p $out/queries/uiua
     cp -r ${pkgs.tree-sitter-grammars.tree-sitter-uiua}/queries/* $out/queries/uiua/
-    ln -s ${pkgs.tree-sitter-grammars.tree-sitter-uiua}/parser $out/grammars/uiua.so
+    ln -s ${pkgs.tree-sitter-grammars.tree-sitter-uiua}/parser $out/grammars/uiua.${grammarExt}
   '';
 
   helix-steel = pkgs.symlinkJoin {
