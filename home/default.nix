@@ -67,7 +67,6 @@ in
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Theorem Proving / Formal Verification
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      lean4 # Automatic and interactive theorem prover
       # isabelle
       maude # High-level specification language
       # teyjus # Efficient implementation of Lambda Prolog
