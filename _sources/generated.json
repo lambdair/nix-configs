@@ -1,7 +1,7 @@
 {
     "budget_tracker_tui": {
         "cargoLock": null,
-        "date": "2026-03-23",
+        "date": "2026-03-31",
         "extract": null,
         "name": "budget_tracker_tui",
         "passthru": null,
@@ -13,12 +13,12 @@
             "name": null,
             "owner": "Feromond",
             "repo": "budget_tracker_tui",
-            "rev": "1506877c94e37135d34c2439bae9f0459fb354d4",
-            "sha256": "sha256-/I+X3IWMeh2GpTng/NxrWcL7n1JS5QkJwzEb7dJMsaw=",
+            "rev": "6410a415d3ad27282a6f82f77328d194e99839e7",
+            "sha256": "sha256-jNZbFz9p8Ed1iqG5CMKq/H0ddQk/Y1th1S+FiKvTb7E=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "1506877c94e37135d34c2439bae9f0459fb354d4"
+        "version": "6410a415d3ad27282a6f82f77328d194e99839e7"
     },
     "difit": {
         "cargoLock": null,
@@ -64,7 +64,7 @@
     },
     "helix-steel": {
         "cargoLock": null,
-        "date": "2026-03-18",
+        "date": "2026-03-29",
         "extract": null,
         "name": "helix-steel",
         "passthru": null,
@@ -76,12 +76,12 @@
             "name": null,
             "owner": "mattwparas",
             "repo": "helix",
-            "rev": "03ad8a1b026c28f9ecec80c4d67151731ec9d5fc",
-            "sha256": "sha256-ifMz83gWOfZTxahD+kafCij2Z6SBDgntM/nCdN7OZEs=",
+            "rev": "912d8d8b97da21de9b44b4e24a476e193e7cc44d",
+            "sha256": "sha256-5h6eicp0+qzgiDrWc0mlTiX+jvcx8d54Fp922uQ2p0k=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "03ad8a1b026c28f9ecec80c4d67151731ec9d5fc"
+        "version": "912d8d8b97da21de9b44b4e24a476e193e7cc44d"
     },
     "heptabase": {
         "cargoLock": null,
@@ -92,11 +92,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-6O6ksa0mCUoAfXW8jzh1n7zAfLZTA45va9o6J2ghKgU=",
+            "sha256": "sha256-If0D47wEaxz9KJb0S10IUjaL4bvfSBQYBrkFOtF5o+E=",
             "type": "url",
-            "url": "https://github.com/heptameta/project-meta/releases/download/v1.87.2/Heptabase-1.87.2.AppImage"
+            "url": "https://github.com/heptameta/project-meta/releases/download/v1.88.0/Heptabase-1.88.0.AppImage"
         },
-        "version": "1.87.2"
+        "version": "1.88.0"
     },
     "jj-mode": {
         "cargoLock": null,
@@ -224,7 +224,7 @@
     },
     "steel": {
         "cargoLock": null,
-        "date": "2026-03-22",
+        "date": "2026-03-31",
         "extract": null,
         "name": "steel",
         "passthru": null,
@@ -236,12 +236,12 @@
             "name": null,
             "owner": "mattwparas",
             "repo": "steel",
-            "rev": "c313c7ee3e311ac25908c856dda71473879179a1",
-            "sha256": "sha256-qlGG7BWgg6mQifj80Ycm5P7T2TQUM2OppH91fKFT57A=",
+            "rev": "9b821a00825453b31bb22f7b18f6342cf7609eaa",
+            "sha256": "sha256-feYOJZpRLwinBbQMZtckyeabF/3YZnqygOO5fohBBG4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "c313c7ee3e311ac25908c856dda71473879179a1"
+        "version": "9b821a00825453b31bb22f7b18f6342cf7609eaa"
     },
     "sulafat": {
         "cargoLock": null,
@@ -265,7 +265,7 @@
     },
     "typst-ts-mode": {
         "cargoLock": null,
-        "date": "2026-03-07",
+        "date": "2026-03-30",
         "extract": null,
         "name": "typst-ts-mode",
         "passthru": null,
@@ -275,13 +275,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "4a850c1083e0e17098d77e51a0292d23716df004",
-            "sha256": "sha256-nAHMUONmnbYR948WxH/VcapnhIFa+pO8Gf6s0dXOnLk=",
+            "rev": "cf4d5282988068841efd51dc83f99091b41b91dd",
+            "sha256": "sha256-AOL0pIJrPyhBnFPcQHZQjFFvwgRoI+dJ51Kf3oCPplo=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://codeberg.org/meow_king/typst-ts-mode"
         },
-        "version": "4a850c1083e0e17098d77e51a0292d23716df004"
+        "version": "cf4d5282988068841efd51dc83f99091b41b91dd"
     },
     "uiua": {
         "cargoLock": null,
