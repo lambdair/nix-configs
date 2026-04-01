@@ -55,7 +55,7 @@ in
       # Web Development (TS/JS)
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       nodejs # Node.js JavaScript runtime
-      nodePackages.typescript-language-server # TypeScript/JavaScript language server
+      typescript-language-server # TypeScript/JavaScript language server
       tailwindcss-language-server # Tailwind CSS language server
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
