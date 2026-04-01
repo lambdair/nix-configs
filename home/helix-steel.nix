@@ -5,7 +5,8 @@
   ...
 }:
 let
-  steelCoreHash = "sha256-xHd82gFsfafOm/zkusiZ6tdd+gOfKkgzyk4EFQ9eNIs=";
+  steelCoreHashForHelix = "sha256-DX8QDtA1jsYJzLLQ06E9nQIFkwXVNbBL/SLAYeNiJvg=";
+  steelCoreHashForSulafat = "sha256-xHd82gFsfafOm/zkusiZ6tdd+gOfKkgzyk4EFQ9eNIs=";
 
   steel = pkgs.rustPlatform.buildRustPackage {
     pname = "steel";
@@ -27,7 +28,7 @@ let
     cargoLock = {
       lockFile = "${sources.helix-steel.src}/Cargo.lock";
       outputHashes = {
-        "steel-core-0.8.2" = steelCoreHash;
+        "steel-core-0.8.2" = steelCoreHashForHelix;
       };
     };
 
@@ -85,7 +86,7 @@ let
     cargoLock = {
       lockFile = "${sources.sulafat.src}/Cargo.lock";
       outputHashes = {
-        "steel-core-0.8.2" = steelCoreHash;
+        "steel-core-0.8.2" = steelCoreHashForSulafat;
       };
     };
 
