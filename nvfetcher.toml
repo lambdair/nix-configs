@@ -65,6 +65,11 @@ src.git = "https://git.sr.ht/~lambdair/sulafat"
 src.branch = "main"
 fetch.git = "https://git.sr.ht/~lambdair/sulafat"
 
+[lean-unicode-hx]
+src.git = "https://git.sr.ht/~lambdair/lean-unicode.hx"
+src.branch = "main"
+fetch.git = "https://git.sr.ht/~lambdair/lean-unicode.hx"
+
 [difit]
 src.git = "https://github.com/yoshiko-pg/difit"
 fetch.github = "yoshiko-pg/difit"

@@ -20,15 +20,15 @@
   };
   difit = {
     pname = "difit";
-    version = "4a9f94568e86267d30ed7699cbebd02ab60b7819";
+    version = "1c4808be731ef21895945c82da39b0aa251a30bc";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "4a9f94568e86267d30ed7699cbebd02ab60b7819";
+      rev = "1c4808be731ef21895945c82da39b0aa251a30bc";
       fetchSubmodules = false;
-      sha256 = "sha256-dt71FZhidIrCjlwYw1xauXg7l2QrlZe5ps74aAz4cE0=";
+      sha256 = "sha256-EZ8u1iDq8tU+eomSB5Cs2DR63l3+WN5+r84cpnavBb4=";
     };
-    date = "2026-03-28";
+    date = "2026-04-01";
   };
   eglot-booster = {
     pname = "eglot-booster";
@@ -44,22 +44,22 @@
   };
   helix-steel = {
     pname = "helix-steel";
-    version = "912d8d8b97da21de9b44b4e24a476e193e7cc44d";
+    version = "ed7095baf784fe4902ba1550b08ec890956f3049";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "helix";
-      rev = "912d8d8b97da21de9b44b4e24a476e193e7cc44d";
+      rev = "ed7095baf784fe4902ba1550b08ec890956f3049";
       fetchSubmodules = false;
-      sha256 = "sha256-5h6eicp0+qzgiDrWc0mlTiX+jvcx8d54Fp922uQ2p0k=";
+      sha256 = "sha256-PhH1zoTL0dVF2bqw9ankKd15tDL3Khxz77TV0v1Fnyk=";
     };
-    date = "2026-03-29";
+    date = "2026-04-02";
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.88.0";
+    version = "1.89.0";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.88.0/Heptabase-1.88.0.AppImage";
-      sha256 = "sha256-If0D47wEaxz9KJb0S10IUjaL4bvfSBQYBrkFOtF5o+E=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.89.0/Heptabase-1.89.0.AppImage";
+      sha256 = "sha256-NCQQX4j8tG8RWuvTezO/1YAPhmtWK/SKIOEypNxlKxk=";
     };
   };
   jj-mode = {
@@ -73,6 +73,20 @@
       sha256 = "sha256-RsgAnwJ44AXA/KhgPwzJnj2+6xiCRrzFCvvJLNrqWic=";
     };
     date = "2026-03-06";
+  };
+  lean-unicode-hx = {
+    pname = "lean-unicode-hx";
+    version = "6ae1a85886ceefee78f9fcf6055721b14090c23d";
+    src = fetchgit {
+      url = "https://git.sr.ht/~lambdair/lean-unicode.hx";
+      rev = "6ae1a85886ceefee78f9fcf6055721b14090c23d";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sparseCheckout = [ ];
+      sha256 = "sha256-9f0MCPwwL3z98IVh1EbRPyyB9QkSvsdWIXBwrLK2N6Q=";
+    };
+    date = "2026-04-02";
   };
   lean4-mode = {
     pname = "lean4-mode";
@@ -140,15 +154,15 @@
   };
   steel = {
     pname = "steel";
-    version = "9b821a00825453b31bb22f7b18f6342cf7609eaa";
+    version = "33ad63fe40949c6d803f5ac737427b6b79b771d4";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "steel";
-      rev = "9b821a00825453b31bb22f7b18f6342cf7609eaa";
+      rev = "33ad63fe40949c6d803f5ac737427b6b79b771d4";
       fetchSubmodules = false;
-      sha256 = "sha256-feYOJZpRLwinBbQMZtckyeabF/3YZnqygOO5fohBBG4=";
+      sha256 = "sha256-J2hkyfRXG3cFjbpHPMqJrVSLY51ZF0VBsR7zbc2Jj5M=";
     };
-    date = "2026-03-31";
+    date = "2026-04-02";
   };
   sulafat = {
     pname = "sulafat";

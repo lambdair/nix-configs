@@ -112,11 +112,17 @@ in
     recursive = true;
   };
 
+  home.file.".config/helix/lean-unicode.hx/abbreviations.scm".source = "${sources.lean-unicode-hx.src}/abbreviations.scm";
+  home.file.".config/helix/lean-unicode.hx/engine.scm".source = "${sources.lean-unicode-hx.src}/engine.scm";
+  home.file.".config/helix/lean-unicode.hx/lean-unicode.scm".source = "${sources.lean-unicode-hx.src}/lean-unicode.scm";
+  home.file.".config/helix/lean-unicode.hx/cog.scm".source = "${sources.lean-unicode-hx.src}/cog.scm";
+
   home.file.".config/helix/init.scm".text = ''
     (require (prefix-in helix. "helix/commands.scm"))
     (require (prefix-in helix.static. "helix/static.scm"))
     (require "helix/keymaps.scm")
     (require "nrepl.scm")
+    (require "lean-unicode.hx/lean-unicode.scm")
 
     (keymap (global)
             (normal (space (n (C ":nrepl-connect")
@@ -139,5 +145,8 @@ in
                               (p ":nrepl-eval-prompt")
                               (s ":nrepl-eval-selection")))
                     (A-ret ":nrepl-eval-selection")))
+
+    ;; Lean4 Unicode abbreviation: \ in insert mode on .lean files
+    (keymap (extension "lean") (insert ("\\" enter-abbrev-mode)))
   '';
 }
