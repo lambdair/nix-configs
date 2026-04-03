@@ -22,7 +22,7 @@
     },
     "difit": {
         "cargoLock": null,
-        "date": "2026-04-01",
+        "date": "2026-04-05",
         "extract": null,
         "name": "difit",
         "passthru": null,
@@ -34,12 +34,12 @@
             "name": null,
             "owner": "yoshiko-pg",
             "repo": "difit",
-            "rev": "1c4808be731ef21895945c82da39b0aa251a30bc",
-            "sha256": "sha256-EZ8u1iDq8tU+eomSB5Cs2DR63l3+WN5+r84cpnavBb4=",
+            "rev": "2a6220432699b252b3d3415a47dde3ca1572664b",
+            "sha256": "sha256-PBRB1PGTF22gkVHBwDYfQ9xeJfjjY+bJyrG38slWOEc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "1c4808be731ef21895945c82da39b0aa251a30bc"
+        "version": "2a6220432699b252b3d3415a47dde3ca1572664b"
     },
     "eglot-booster": {
         "cargoLock": null,
@@ -64,7 +64,7 @@
     },
     "helix-steel": {
         "cargoLock": null,
-        "date": "2026-04-02",
+        "date": "2026-04-03",
         "extract": null,
         "name": "helix-steel",
         "passthru": null,
@@ -76,12 +76,12 @@
             "name": null,
             "owner": "mattwparas",
             "repo": "helix",
-            "rev": "ed7095baf784fe4902ba1550b08ec890956f3049",
-            "sha256": "sha256-PhH1zoTL0dVF2bqw9ankKd15tDL3Khxz77TV0v1Fnyk=",
+            "rev": "9738d1fd84eff3fb48e29637bf28826ea64a655b",
+            "sha256": "sha256-SYie7U6/Iv+ZDiUIaISToWfGko6VqIjuE5PVOiMUutc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "ed7095baf784fe4902ba1550b08ec890956f3049"
+        "version": "9738d1fd84eff3fb48e29637bf28826ea64a655b"
     },
     "heptabase": {
         "cargoLock": null,
@@ -92,11 +92,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-NCQQX4j8tG8RWuvTezO/1YAPhmtWK/SKIOEypNxlKxk=",
+            "sha256": "sha256-6nIySfc7nBuIWpG1s2ze6arTr2OxtjNfpO6GlnMgMUg=",
             "type": "url",
-            "url": "https://github.com/heptameta/project-meta/releases/download/v1.89.0/Heptabase-1.89.0.AppImage"
+            "url": "https://github.com/heptameta/project-meta/releases/download/v1.89.2/Heptabase-1.89.2.AppImage"
         },
-        "version": "1.89.0"
+        "version": "1.89.2"
     },
     "jj-mode": {
         "cargoLock": null,
@@ -182,7 +182,7 @@
     },
     "nordic": {
         "cargoLock": null,
-        "date": "2026-02-07",
+        "date": "2026-04-05",
         "extract": null,
         "name": "nordic",
         "passthru": null,
@@ -194,12 +194,12 @@
             "name": null,
             "owner": "AlexvZyl",
             "repo": "nordic.nvim",
-            "rev": "4ce6bad95fde832f9bd10b991de846047a144628",
-            "sha256": "sha256-kjr4SsRbKfVgNjAFWybkRQ8/QDOPLm7lbysi6Gblpfg=",
+            "rev": "9f757428264ef1fcd1703e17702d3a28f307a2f7",
+            "sha256": "sha256-Becp5tPJyjgyVH3BVN6XMKdinZ7JjJ2Czj6c73p6AAk=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "4ce6bad95fde832f9bd10b991de846047a144628"
+        "version": "9f757428264ef1fcd1703e17702d3a28f307a2f7"
     },
     "nvim-bqn": {
         "cargoLock": null,

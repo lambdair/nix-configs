@@ -20,15 +20,15 @@
   };
   difit = {
     pname = "difit";
-    version = "1c4808be731ef21895945c82da39b0aa251a30bc";
+    version = "2a6220432699b252b3d3415a47dde3ca1572664b";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "1c4808be731ef21895945c82da39b0aa251a30bc";
+      rev = "2a6220432699b252b3d3415a47dde3ca1572664b";
       fetchSubmodules = false;
-      sha256 = "sha256-EZ8u1iDq8tU+eomSB5Cs2DR63l3+WN5+r84cpnavBb4=";
+      sha256 = "sha256-PBRB1PGTF22gkVHBwDYfQ9xeJfjjY+bJyrG38slWOEc=";
     };
-    date = "2026-04-01";
+    date = "2026-04-05";
   };
   eglot-booster = {
     pname = "eglot-booster";
@@ -44,22 +44,22 @@
   };
   helix-steel = {
     pname = "helix-steel";
-    version = "ed7095baf784fe4902ba1550b08ec890956f3049";
+    version = "9738d1fd84eff3fb48e29637bf28826ea64a655b";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "helix";
-      rev = "ed7095baf784fe4902ba1550b08ec890956f3049";
+      rev = "9738d1fd84eff3fb48e29637bf28826ea64a655b";
       fetchSubmodules = false;
-      sha256 = "sha256-PhH1zoTL0dVF2bqw9ankKd15tDL3Khxz77TV0v1Fnyk=";
+      sha256 = "sha256-SYie7U6/Iv+ZDiUIaISToWfGko6VqIjuE5PVOiMUutc=";
     };
-    date = "2026-04-02";
+    date = "2026-04-03";
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.89.0";
+    version = "1.89.2";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.89.0/Heptabase-1.89.0.AppImage";
-      sha256 = "sha256-NCQQX4j8tG8RWuvTezO/1YAPhmtWK/SKIOEypNxlKxk=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.89.2/Heptabase-1.89.2.AppImage";
+      sha256 = "sha256-6nIySfc7nBuIWpG1s2ze6arTr2OxtjNfpO6GlnMgMUg=";
     };
   };
   jj-mode = {
@@ -116,15 +116,15 @@
   };
   nordic = {
     pname = "nordic";
-    version = "4ce6bad95fde832f9bd10b991de846047a144628";
+    version = "9f757428264ef1fcd1703e17702d3a28f307a2f7";
     src = fetchFromGitHub {
       owner = "AlexvZyl";
       repo = "nordic.nvim";
-      rev = "4ce6bad95fde832f9bd10b991de846047a144628";
+      rev = "9f757428264ef1fcd1703e17702d3a28f307a2f7";
       fetchSubmodules = false;
-      sha256 = "sha256-kjr4SsRbKfVgNjAFWybkRQ8/QDOPLm7lbysi6Gblpfg=";
+      sha256 = "sha256-Becp5tPJyjgyVH3BVN6XMKdinZ7JjJ2Czj6c73p6AAk=";
     };
-    date = "2026-02-07";
+    date = "2026-04-05";
   };
   nvim-bqn = {
     pname = "nvim-bqn";
