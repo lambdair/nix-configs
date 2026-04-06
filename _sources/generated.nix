@@ -20,15 +20,15 @@
   };
   difit = {
     pname = "difit";
-    version = "2a6220432699b252b3d3415a47dde3ca1572664b";
+    version = "bfc5825c5ded08257b4288e98fe711c61f714568";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "2a6220432699b252b3d3415a47dde3ca1572664b";
+      rev = "bfc5825c5ded08257b4288e98fe711c61f714568";
       fetchSubmodules = false;
-      sha256 = "sha256-PBRB1PGTF22gkVHBwDYfQ9xeJfjjY+bJyrG38slWOEc=";
+      sha256 = "sha256-FXxHxujI1hM0LmWm+y9dFiQdtU9GmQmwrbDsegGlSwk=";
     };
-    date = "2026-04-05";
+    date = "2026-04-06";
   };
   eglot-booster = {
     pname = "eglot-booster";
@@ -56,10 +56,10 @@
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.89.2";
+    version = "1.90.0";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.89.2/Heptabase-1.89.2.AppImage";
-      sha256 = "sha256-6nIySfc7nBuIWpG1s2ze6arTr2OxtjNfpO6GlnMgMUg=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.90.0/Heptabase-1.90.0.AppImage";
+      sha256 = "sha256-4xcw3bJTbSvtrg6p1pcOoyQfgADZvdWh3FjBEYAcjYg=";
     };
   };
   jj-mode = {
@@ -154,15 +154,15 @@
   };
   steel = {
     pname = "steel";
-    version = "33ad63fe40949c6d803f5ac737427b6b79b771d4";
+    version = "605d490c07ae6937d532d5a994920b4dab3016ad";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "steel";
-      rev = "33ad63fe40949c6d803f5ac737427b6b79b771d4";
+      rev = "605d490c07ae6937d532d5a994920b4dab3016ad";
       fetchSubmodules = false;
-      sha256 = "sha256-J2hkyfRXG3cFjbpHPMqJrVSLY51ZF0VBsR7zbc2Jj5M=";
+      sha256 = "sha256-lqtx1q/AHntbZvF3rpWbicvxE3NGZU+VPMueECaVdSA=";
     };
-    date = "2026-04-02";
+    date = "2026-04-06";
   };
   sulafat = {
     pname = "sulafat";
