@@ -127,24 +127,9 @@ in
           {
             hooks = [
               {
-                type = "prompt";
-                prompt = ''
-                  あなたはリビジョン規律チェッカーです。jujutsu (jj) を使ったワークフローで、各リビジョンが1つの論理変更のみを含んでいるか確認してください。
-
-                  以下のトランスクリプトを確認し:
-                  $ARGUMENTS
-
-                  判断基準:
-                  - 1リビジョンに1つの論理変更のみ含まれているか
-                  - 無関係な変更（異なる機能、異なるバグ、ついでの改善）が混入していないか
-                  - レビュアーが各リビジョンを独立して理解できるか
-                  - 1リビジョンの変更行数が多すぎないか（目安150行超で分割検討）
-
-                  問題がある場合: {"decision": "block", "reason": "【リビジョン規律違反】<具体的に何が問題で、どう分割すべきか日本語で説明>"}
-                  問題がない場合: {"decision": "allow"}
-                '';
-                model = "claude-haiku-4-5-20251001";
-                timeout = 30;
+                type = "command";
+                command = "bb ${config.home.homeDirectory}/.claude/hooks/revision-discipline-check.bb";
+                timeout = 15;
               }
             ];
           }
@@ -170,6 +155,11 @@ in
 
   home.file.".claude/hooks/jj-worktree-remove.bb" = {
     source = ./hooks/jj-worktree-remove.bb;
+    executable = true;
+  };
+
+  home.file.".claude/hooks/revision-discipline-check.bb" = {
+    source = ./hooks/revision-discipline-check.bb;
     executable = true;
   };
 
