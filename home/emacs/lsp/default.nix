@@ -12,11 +12,14 @@ let
     inherit (pkgs.emacs.pkgs) trivialBuild;
     inherit sources;
   };
+  lsp-mode-plist = epkgs.lsp-mode.overrideAttrs (_: {
+    LSP_USE_PLISTS = "true";
+  });
 in
 with epkgs;
 [
   eglot
   eglot-booster
-  lsp-mode
+  lsp-mode-plist
   # lsp-proxy
 ]
