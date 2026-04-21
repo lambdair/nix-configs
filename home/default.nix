@@ -118,12 +118,13 @@ in
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Git / Version Control
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      # gitu # TUI Git client inspired by Magit
+      gitu # TUI Git client inspired by Magit
       tig # Text-mode interface for git
       lazyjj # TUI for Jujutsu/jj
       jjui # TUI for Jujutsu
       gh-dash # GitHub CLI extension for PR/issue dashboard
       git-secrets # Prevents committing secrets and credentials
+      giff # Terminal-based Git diff viewer
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Development Tools
