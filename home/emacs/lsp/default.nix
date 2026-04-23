@@ -2,6 +2,7 @@
   pkgs,
   epkgs,
   sources,
+  lsp-mode-plist,
 }:
 let
   eglot-booster = pkgs.callPackage ./eglot-booster.nix {
@@ -12,9 +13,6 @@ let
     inherit (pkgs.emacs.pkgs) trivialBuild;
     inherit sources;
   };
-  lsp-mode-plist = epkgs.lsp-mode.overrideAttrs (_: {
-    LSP_USE_PLISTS = "true";
-  });
 in
 with epkgs;
 [

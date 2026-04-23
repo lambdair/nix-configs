@@ -2,21 +2,22 @@
   pkgs,
   epkgs,
   sources,
+  lsp-mode-plist,
 }:
 let
   lean4-mode = pkgs.callPackage ./lean/lean4-mode.nix {
-    inherit (pkgs.emacs.pkgs)
+    inherit (epkgs)
       trivialBuild
       markdown-mode
       dash
-      lsp-mode
       compat
       magit-section
       ;
+    lsp-mode = lsp-mode-plist;
     inherit sources;
   };
   typst-ts-mode = pkgs.callPackage ./typst/typst-ts-mode.nix {
-    inherit (pkgs.emacs.pkgs) trivialBuild;
+    inherit (epkgs) trivialBuild;
     inherit sources;
   };
 in

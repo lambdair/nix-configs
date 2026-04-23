@@ -8,11 +8,37 @@
       defaultInitFile = false;
       extraEmacsPackages =
         epkgs:
+        let
+          # Single canonical lsp-mode build with plist support enabled at
+          # byte-compile time. Shared so every consumer (./lsp module and
+          # lean4-mode in ./language) references the same store path —
+          # otherwise lndir merges multiple lsp-mode builds and the
+          # unmodified one wins, undoing the override.
+          lsp-mode-plist = epkgs.lsp-mode.overrideAttrs (old: {
+            env = (old.env or { }) // {
+              LSP_USE_PLISTS = "true";
+            };
+          });
+        in
         with epkgs;
         (import ./ui { inherit pkgs epkgs sources; })
         ++ (import ./navigation { inherit epkgs; })
-        ++ (import ./language { inherit pkgs epkgs sources; })
-        ++ (import ./lsp { inherit pkgs epkgs sources; })
+        ++ (import ./language {
+          inherit
+            pkgs
+            epkgs
+            sources
+            lsp-mode-plist
+            ;
+        })
+        ++ (import ./lsp {
+          inherit
+            pkgs
+            epkgs
+            sources
+            lsp-mode-plist
+            ;
+        })
         ++ [
           # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           # Package Configuration
