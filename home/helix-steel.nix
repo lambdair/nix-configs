@@ -5,7 +5,7 @@
   ...
 }:
 let
-  steelCoreHashForHelix = "sha256-DX8QDtA1jsYJzLLQ06E9nQIFkwXVNbBL/SLAYeNiJvg=";
+  steelCoreHashForHelix = "sha256-lqtx1q/AHntbZvF3rpWbicvxE3NGZU+VPMueECaVdSA=";
   steelCoreHashForSulafat = "sha256-xHd82gFsfafOm/zkusiZ6tdd+gOfKkgzyk4EFQ9eNIs=";
 
   steel = pkgs.rustPlatform.buildRustPackage {

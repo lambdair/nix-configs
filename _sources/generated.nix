@@ -8,27 +8,27 @@
 {
   budget_tracker_tui = {
     pname = "budget_tracker_tui";
-    version = "6410a415d3ad27282a6f82f77328d194e99839e7";
+    version = "87c5333ddb3b3df2ee43a203ed52e4945d5171ef";
     src = fetchFromGitHub {
       owner = "Feromond";
       repo = "budget_tracker_tui";
-      rev = "6410a415d3ad27282a6f82f77328d194e99839e7";
+      rev = "87c5333ddb3b3df2ee43a203ed52e4945d5171ef";
       fetchSubmodules = false;
-      sha256 = "sha256-jNZbFz9p8Ed1iqG5CMKq/H0ddQk/Y1th1S+FiKvTb7E=";
+      sha256 = "sha256-ipYl0zQlqfxNBhBVSUPE0/WaiFGLhdwSthzxyKAGUmQ=";
     };
-    date = "2026-03-31";
+    date = "2026-04-24";
   };
   difit = {
     pname = "difit";
-    version = "bfc5825c5ded08257b4288e98fe711c61f714568";
+    version = "2d200605f25529448837602be7eaa3da2cfe4a2d";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "bfc5825c5ded08257b4288e98fe711c61f714568";
+      rev = "2d200605f25529448837602be7eaa3da2cfe4a2d";
       fetchSubmodules = false;
-      sha256 = "sha256-FXxHxujI1hM0LmWm+y9dFiQdtU9GmQmwrbDsegGlSwk=";
+      sha256 = "sha256-l7Vc9cekNtZbWIPhwxk3sFyM3P+/k+CJwoP+GE4hbbc=";
     };
-    date = "2026-04-06";
+    date = "2026-04-30";
   };
   eglot-booster = {
     pname = "eglot-booster";
@@ -44,22 +44,22 @@
   };
   helix-steel = {
     pname = "helix-steel";
-    version = "9738d1fd84eff3fb48e29637bf28826ea64a655b";
+    version = "ff73544b3d7d7c264a127a7d78944133015b285a";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "helix";
-      rev = "9738d1fd84eff3fb48e29637bf28826ea64a655b";
+      rev = "ff73544b3d7d7c264a127a7d78944133015b285a";
       fetchSubmodules = false;
-      sha256 = "sha256-SYie7U6/Iv+ZDiUIaISToWfGko6VqIjuE5PVOiMUutc=";
+      sha256 = "sha256-AkotCZTWiQ5KAUDwmHcRuA7G0y8vqJYiLSXEtT+y/po=";
     };
-    date = "2026-04-03";
+    date = "2026-05-02";
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.90.0";
+    version = "1.92.1";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.90.0/Heptabase-1.90.0.AppImage";
-      sha256 = "sha256-4xcw3bJTbSvtrg6p1pcOoyQfgADZvdWh3FjBEYAcjYg=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.92.1/Heptabase-1.92.1.AppImage";
+      sha256 = "sha256-AneDTKrYRgL4/MG8tOzcmYlLLD3BQa71xqQPhDOJg5o=";
     };
   };
   jj-mode = {
@@ -76,17 +76,17 @@
   };
   lean-unicode-hx = {
     pname = "lean-unicode-hx";
-    version = "6ae1a85886ceefee78f9fcf6055721b14090c23d";
+    version = "f76cca74d2381235c69c94915729bfb61fed0509";
     src = fetchgit {
       url = "https://git.sr.ht/~lambdair/lean-unicode.hx";
-      rev = "6ae1a85886ceefee78f9fcf6055721b14090c23d";
+      rev = "f76cca74d2381235c69c94915729bfb61fed0509";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-9f0MCPwwL3z98IVh1EbRPyyB9QkSvsdWIXBwrLK2N6Q=";
+      sha256 = "sha256-ey6ZLNibKX7ZmAyvN883Fqw+rjyc+oyz5HTPbvg94c4=";
     };
-    date = "2026-04-02";
+    date = "2026-04-09";
   };
   lean4-mode = {
     pname = "lean4-mode";
@@ -116,15 +116,15 @@
   };
   nordic = {
     pname = "nordic";
-    version = "9f757428264ef1fcd1703e17702d3a28f307a2f7";
+    version = "c38a210bdaf79e74823d88c741029cac7f6b4481";
     src = fetchFromGitHub {
       owner = "AlexvZyl";
       repo = "nordic.nvim";
-      rev = "9f757428264ef1fcd1703e17702d3a28f307a2f7";
+      rev = "c38a210bdaf79e74823d88c741029cac7f6b4481";
       fetchSubmodules = false;
-      sha256 = "sha256-Becp5tPJyjgyVH3BVN6XMKdinZ7JjJ2Czj6c73p6AAk=";
+      sha256 = "sha256-LrwpmnWvS1llClcQ+A2TjxxO1TIQxK69+B66S8kYaLM=";
     };
-    date = "2026-04-05";
+    date = "2026-04-19";
   };
   nvim-bqn = {
     pname = "nvim-bqn";
@@ -142,15 +142,15 @@
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "bafff8b5d5699034567301914a9d40009f4ff72f";
+    version = "5cbf431c8e7e62c75b64b7b3a3a672d73daaa5f4";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "bafff8b5d5699034567301914a9d40009f4ff72f";
+      rev = "5cbf431c8e7e62c75b64b7b3a3a672d73daaa5f4";
       fetchSubmodules = false;
-      sha256 = "sha256-zHEEm9qrPY3hxYu3gbOxf0ykUZLDvQj1P7wBMEQ12i8=";
+      sha256 = "sha256-79C48QcBSbcEpTYBZGQ4dGMa2h/CCmED9zEVUiQuaZ8=";
     };
-    date = "2026-03-27";
+    date = "2026-04-14";
   };
   steel = {
     pname = "steel";
@@ -180,17 +180,17 @@
   };
   typst-ts-mode = {
     pname = "typst-ts-mode";
-    version = "cf4d5282988068841efd51dc83f99091b41b91dd";
+    version = "278562d702de429f5c4369c007913ca0ef1584f3";
     src = fetchgit {
       url = "https://codeberg.org/meow_king/typst-ts-mode";
-      rev = "cf4d5282988068841efd51dc83f99091b41b91dd";
+      rev = "278562d702de429f5c4369c007913ca0ef1584f3";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-AOL0pIJrPyhBnFPcQHZQjFFvwgRoI+dJ51Kf3oCPplo=";
+      sha256 = "sha256-B1GAyYWLUipsTD7DHH7TSZjWtp1gru4YdOXqXmPeedU=";
     };
-    date = "2026-03-30";
+    date = "2026-04-15";
   };
   uiua = {
     pname = "uiua";
