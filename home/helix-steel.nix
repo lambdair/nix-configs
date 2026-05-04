@@ -112,9 +112,12 @@ in
     recursive = true;
   };
 
-  home.file.".config/helix/lean-unicode.hx/abbreviations.scm".source = "${sources.lean-unicode-hx.src}/abbreviations.scm";
-  home.file.".config/helix/lean-unicode.hx/engine.scm".source = "${sources.lean-unicode-hx.src}/engine.scm";
-  home.file.".config/helix/lean-unicode.hx/lean-unicode.scm".source = "${sources.lean-unicode-hx.src}/lean-unicode.scm";
+  home.file.".config/helix/lean-unicode.hx/abbreviations.scm".source =
+    "${sources.lean-unicode-hx.src}/abbreviations.scm";
+  home.file.".config/helix/lean-unicode.hx/engine.scm".source =
+    "${sources.lean-unicode-hx.src}/engine.scm";
+  home.file.".config/helix/lean-unicode.hx/lean-unicode.scm".source =
+    "${sources.lean-unicode-hx.src}/lean-unicode.scm";
   home.file.".config/helix/lean-unicode.hx/cog.scm".source = "${sources.lean-unicode-hx.src}/cog.scm";
 
   home.file.".config/helix/init.scm".text = ''
