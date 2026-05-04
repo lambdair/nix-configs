@@ -12,7 +12,7 @@ in
 {
   programs.claude-code = {
     enable = true;
-    memory.source = ./CLAUDE.md;
+    context = ./CLAUDE.md;
     settings = {
       permissions.allow = [
         # jj: read-only
