@@ -1,5 +1,12 @@
 spawn-at-startup "vicinae" "server"
 
+// xwayland-satellite runs as a systemd user service on display :0
+// but doesn't propagate DISPLAY back. Set it here so X11 apps
+// (e.g. Tauri AppImages that force GDK_BACKEND=x11) can connect.
+environment {
+    DISPLAY ":0"
+}
+
 // niri keybindings
 // Mod = Super key
 binds {
