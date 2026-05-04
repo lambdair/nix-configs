@@ -283,6 +283,21 @@
         },
         "version": "5c7faca6762cc0b5320bcce17ec04216c80d1a40"
     },
+    "tolaria": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "tolaria",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-uPHHT9JMtUKXWj7DjgWDcwYMe36du6xCMvTB0l57tzo=",
+            "type": "url",
+            "url": "https://github.com/refactoringhq/tolaria/releases/download/stable-v2026.5.2/Tolaria_2026.5.2_amd64.AppImage"
+        },
+        "version": "2026.5.2"
+    },
     "typst-ts-mode": {
         "cargoLock": null,
         "date": "2026-04-15",

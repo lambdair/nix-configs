@@ -178,6 +178,14 @@
     };
     date = "2026-03-20";
   };
+  tolaria = {
+    pname = "tolaria";
+    version = "2026.5.2";
+    src = fetchurl {
+      url = "https://github.com/refactoringhq/tolaria/releases/download/stable-v2026.5.2/Tolaria_2026.5.2_amd64.AppImage";
+      sha256 = "sha256-uPHHT9JMtUKXWj7DjgWDcwYMe36du6xCMvTB0l57tzo=";
+    };
+  };
   typst-ts-mode = {
     pname = "typst-ts-mode";
     version = "278562d702de429f5c4369c007913ca0ef1584f3";

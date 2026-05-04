@@ -17,6 +17,8 @@ let
   };
 in
 rec {
+  imports = [ ./tolaria.nix ];
+
   home.username = "lambdair";
   home.homeDirectory = "/home/${home.username}";
 

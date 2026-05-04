@@ -73,3 +73,8 @@ fetch.git = "https://git.sr.ht/~lambdair/lean-unicode.hx"
 [difit]
 src.git = "https://github.com/yoshiko-pg/difit"
 fetch.github = "yoshiko-pg/difit"
+
+[tolaria]
+src.github = "refactoringhq/tolaria"
+src.prefix = "stable-v"
+fetch.url = "https://github.com/refactoringhq/tolaria/releases/download/stable-v$ver/Tolaria_$ver_amd64.AppImage"
