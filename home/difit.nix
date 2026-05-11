@@ -19,7 +19,7 @@ let
     pnpmDeps = pkgs.fetchPnpmDeps {
       inherit (finalAttrs) pname version src;
       fetcherVersion = 3;
-      hash = "sha256-LTcmgPrqIQxyBP+5UhF2Dqzy8XHfUYoU6lu8J0AMH3o=";
+      hash = "sha256-4qRRkIC1dZjSgLx+MR5QgEQstC/Z6GuKLLzZVn335zw=";
     };
 
     buildPhase = ''

@@ -22,7 +22,7 @@
     },
     "difit": {
         "cargoLock": null,
-        "date": "2026-04-30",
+        "date": "2026-05-11",
         "extract": null,
         "name": "difit",
         "passthru": null,
@@ -34,12 +34,12 @@
             "name": null,
             "owner": "yoshiko-pg",
             "repo": "difit",
-            "rev": "2d200605f25529448837602be7eaa3da2cfe4a2d",
-            "sha256": "sha256-l7Vc9cekNtZbWIPhwxk3sFyM3P+/k+CJwoP+GE4hbbc=",
+            "rev": "6dd8e2f937a4854f1c2e5ce61cf62bbd9fc35519",
+            "sha256": "sha256-chmlNmUaxOjlQbjd/60fFc3lE2jwpp8Cnftl+O+6g4E=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "2d200605f25529448837602be7eaa3da2cfe4a2d"
+        "version": "6dd8e2f937a4854f1c2e5ce61cf62bbd9fc35519"
     },
     "eglot-booster": {
         "cargoLock": null,
@@ -64,7 +64,7 @@
     },
     "helix-steel": {
         "cargoLock": null,
-        "date": "2026-05-02",
+        "date": "2026-05-08",
         "extract": null,
         "name": "helix-steel",
         "passthru": null,
@@ -76,12 +76,12 @@
             "name": null,
             "owner": "mattwparas",
             "repo": "helix",
-            "rev": "ff73544b3d7d7c264a127a7d78944133015b285a",
-            "sha256": "sha256-AkotCZTWiQ5KAUDwmHcRuA7G0y8vqJYiLSXEtT+y/po=",
+            "rev": "47b4664ac868b334c9cb914d6b6bfa2045249d13",
+            "sha256": "sha256-+090DLPNNsDoYpAEgH9r5+8n0jQSbL7/5ThUJIT2yGg=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "ff73544b3d7d7c264a127a7d78944133015b285a"
+        "version": "47b4664ac868b334c9cb914d6b6bfa2045249d13"
     },
     "heptabase": {
         "cargoLock": null,
@@ -92,11 +92,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-AneDTKrYRgL4/MG8tOzcmYlLLD3BQa71xqQPhDOJg5o=",
+            "sha256": "sha256-vTGSXp2CQTDzpYovMHKzrffz42qB9ODhjJYmUs3FeAg=",
             "type": "url",
-            "url": "https://github.com/heptameta/project-meta/releases/download/v1.92.1/Heptabase-1.92.1.AppImage"
+            "url": "https://github.com/heptameta/project-meta/releases/download/v1.93.1/Heptabase-1.93.1.AppImage"
         },
-        "version": "1.92.1"
+        "version": "1.93.1"
     },
     "jj-mode": {
         "cargoLock": null,
@@ -182,7 +182,7 @@
     },
     "nordic": {
         "cargoLock": null,
-        "date": "2026-04-19",
+        "date": "2026-05-03",
         "extract": null,
         "name": "nordic",
         "passthru": null,
@@ -194,12 +194,12 @@
             "name": null,
             "owner": "AlexvZyl",
             "repo": "nordic.nvim",
-            "rev": "c38a210bdaf79e74823d88c741029cac7f6b4481",
-            "sha256": "sha256-LrwpmnWvS1llClcQ+A2TjxxO1TIQxK69+B66S8kYaLM=",
+            "rev": "9fb62116b891184049c50ca6ffb0d3bc100a1a6e",
+            "sha256": "sha256-7Wod7nybP/3i3fMBnRdcNEeIWbbzowiyjTlqax8Fn4g=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "c38a210bdaf79e74823d88c741029cac7f6b4481"
+        "version": "9fb62116b891184049c50ca6ffb0d3bc100a1a6e"
     },
     "nvim-bqn": {
         "cargoLock": null,
@@ -244,7 +244,7 @@
     },
     "steel": {
         "cargoLock": null,
-        "date": "2026-04-06",
+        "date": "2026-05-07",
         "extract": null,
         "name": "steel",
         "passthru": null,
@@ -256,12 +256,12 @@
             "name": null,
             "owner": "mattwparas",
             "repo": "steel",
-            "rev": "605d490c07ae6937d532d5a994920b4dab3016ad",
-            "sha256": "sha256-lqtx1q/AHntbZvF3rpWbicvxE3NGZU+VPMueECaVdSA=",
+            "rev": "b67efd5c262962226424148bb87abefaf4109c5a",
+            "sha256": "sha256-qPDz0ax290E7UEFTDfrmLmsn1r9dIuOxMiRmNrDkfZo=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "605d490c07ae6937d532d5a994920b4dab3016ad"
+        "version": "b67efd5c262962226424148bb87abefaf4109c5a"
     },
     "sulafat": {
         "cargoLock": null,
@@ -292,11 +292,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-uPHHT9JMtUKXWj7DjgWDcwYMe36du6xCMvTB0l57tzo=",
+            "sha256": "sha256-QBNYcOWaIT4clfcRZv3mnnW914JIsbBwX63pdEteWuk=",
             "type": "url",
-            "url": "https://github.com/refactoringhq/tolaria/releases/download/stable-v2026.5.2/Tolaria_2026.5.2_amd64.AppImage"
+            "url": "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.5.7_amd64.AppImage"
         },
-        "version": "2026.5.2"
+        "version": "2026.5.7"
     },
     "typst-ts-mode": {
         "cargoLock": null,

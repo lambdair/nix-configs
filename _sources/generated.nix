@@ -20,15 +20,15 @@
   };
   difit = {
     pname = "difit";
-    version = "2d200605f25529448837602be7eaa3da2cfe4a2d";
+    version = "6dd8e2f937a4854f1c2e5ce61cf62bbd9fc35519";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "2d200605f25529448837602be7eaa3da2cfe4a2d";
+      rev = "6dd8e2f937a4854f1c2e5ce61cf62bbd9fc35519";
       fetchSubmodules = false;
-      sha256 = "sha256-l7Vc9cekNtZbWIPhwxk3sFyM3P+/k+CJwoP+GE4hbbc=";
+      sha256 = "sha256-chmlNmUaxOjlQbjd/60fFc3lE2jwpp8Cnftl+O+6g4E=";
     };
-    date = "2026-04-30";
+    date = "2026-05-11";
   };
   eglot-booster = {
     pname = "eglot-booster";
@@ -44,22 +44,22 @@
   };
   helix-steel = {
     pname = "helix-steel";
-    version = "ff73544b3d7d7c264a127a7d78944133015b285a";
+    version = "47b4664ac868b334c9cb914d6b6bfa2045249d13";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "helix";
-      rev = "ff73544b3d7d7c264a127a7d78944133015b285a";
+      rev = "47b4664ac868b334c9cb914d6b6bfa2045249d13";
       fetchSubmodules = false;
-      sha256 = "sha256-AkotCZTWiQ5KAUDwmHcRuA7G0y8vqJYiLSXEtT+y/po=";
+      sha256 = "sha256-+090DLPNNsDoYpAEgH9r5+8n0jQSbL7/5ThUJIT2yGg=";
     };
-    date = "2026-05-02";
+    date = "2026-05-08";
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.92.1";
+    version = "1.93.1";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.92.1/Heptabase-1.92.1.AppImage";
-      sha256 = "sha256-AneDTKrYRgL4/MG8tOzcmYlLLD3BQa71xqQPhDOJg5o=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.93.1/Heptabase-1.93.1.AppImage";
+      sha256 = "sha256-vTGSXp2CQTDzpYovMHKzrffz42qB9ODhjJYmUs3FeAg=";
     };
   };
   jj-mode = {
@@ -116,15 +116,15 @@
   };
   nordic = {
     pname = "nordic";
-    version = "c38a210bdaf79e74823d88c741029cac7f6b4481";
+    version = "9fb62116b891184049c50ca6ffb0d3bc100a1a6e";
     src = fetchFromGitHub {
       owner = "AlexvZyl";
       repo = "nordic.nvim";
-      rev = "c38a210bdaf79e74823d88c741029cac7f6b4481";
+      rev = "9fb62116b891184049c50ca6ffb0d3bc100a1a6e";
       fetchSubmodules = false;
-      sha256 = "sha256-LrwpmnWvS1llClcQ+A2TjxxO1TIQxK69+B66S8kYaLM=";
+      sha256 = "sha256-7Wod7nybP/3i3fMBnRdcNEeIWbbzowiyjTlqax8Fn4g=";
     };
-    date = "2026-04-19";
+    date = "2026-05-03";
   };
   nvim-bqn = {
     pname = "nvim-bqn";
@@ -154,15 +154,15 @@
   };
   steel = {
     pname = "steel";
-    version = "605d490c07ae6937d532d5a994920b4dab3016ad";
+    version = "b67efd5c262962226424148bb87abefaf4109c5a";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "steel";
-      rev = "605d490c07ae6937d532d5a994920b4dab3016ad";
+      rev = "b67efd5c262962226424148bb87abefaf4109c5a";
       fetchSubmodules = false;
-      sha256 = "sha256-lqtx1q/AHntbZvF3rpWbicvxE3NGZU+VPMueECaVdSA=";
+      sha256 = "sha256-qPDz0ax290E7UEFTDfrmLmsn1r9dIuOxMiRmNrDkfZo=";
     };
-    date = "2026-04-06";
+    date = "2026-05-07";
   };
   sulafat = {
     pname = "sulafat";
@@ -180,10 +180,10 @@
   };
   tolaria = {
     pname = "tolaria";
-    version = "2026.5.2";
+    version = "2026.5.7";
     src = fetchurl {
-      url = "https://github.com/refactoringhq/tolaria/releases/download/stable-v2026.5.2/Tolaria_2026.5.2_amd64.AppImage";
-      sha256 = "sha256-uPHHT9JMtUKXWj7DjgWDcwYMe36du6xCMvTB0l57tzo=";
+      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.5.7_amd64.AppImage";
+      sha256 = "sha256-QBNYcOWaIT4clfcRZv3mnnW914JIsbBwX63pdEteWuk=";
     };
   };
   typst-ts-mode = {
