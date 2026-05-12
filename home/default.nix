@@ -70,7 +70,6 @@ in
       # isabelle
       maude # High-level specification language
       # teyjus # Efficient implementation of Lambda Prolog
-      abella # Interactive theorem prover
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Lisp / Scheme
@@ -229,6 +228,7 @@ in
       bqn386
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
+      abella # Interactive theorem prover (Linux only: darwin build fails on ocaml-4.12.1 thread tests)
       d2 # Modern diagram scripting language (Linux only: darwin build fails on libdrm/mesa-libgbm)
       dict # Dictionary client (Linux only: darwin build fails on dictd → flex 2.5.35 K&R C)
       obs-studio # Free and open source streaming/recording software
