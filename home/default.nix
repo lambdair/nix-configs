@@ -185,7 +185,6 @@ in
       tdf # TUI-based PDF viewer
       glow # Render markdown on the CLI
       sdcv # StarDict console version
-      dict # Dictionary client
       wordnet # Lexical database for English
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -231,6 +230,7 @@ in
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       d2 # Modern diagram scripting language (Linux only: darwin build fails on libdrm/mesa-libgbm)
+      dict # Dictionary client (Linux only: darwin build fails on dictd → flex 2.5.35 K&R C)
       obs-studio # Free and open source streaming/recording software
       (pkgs.symlinkJoin {
         name = "peek";
