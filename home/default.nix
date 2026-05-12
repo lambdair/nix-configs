@@ -124,6 +124,7 @@ in
       gh-dash # GitHub CLI extension for PR/issue dashboard
       git-secrets # Prevents committing secrets and credentials
       giff # Terminal-based Git diff viewer
+      inputs.hunk.packages.${pkgs.system}.default # Review-first terminal diff viewer for agentic coders
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Development Tools

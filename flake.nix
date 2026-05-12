@@ -29,6 +29,10 @@
       url = "github:sadjow/claude-code-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hunk = {
+      url = "github:modem-dev/hunk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     private = {
       url = "git+ssh://git@git.sr.ht/~lambdair/nix-private";
     };
