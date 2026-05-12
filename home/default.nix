@@ -132,7 +132,6 @@ in
       tldr # Simplified and community-driven man pages
       emacs-lsp-booster # Emacs LSP performance booster
       parinfer-rust-emacs # Emacs centric fork of parinfer-rust
-      d2 # Modern diagram scripting language
       typos-lsp # Source code spell checker
       zoekt # Fast trigram based code search
       graphviz # Graph visualization tools
@@ -231,6 +230,7 @@ in
       bqn386
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
+      d2 # Modern diagram scripting language (Linux only: darwin build fails on libdrm/mesa-libgbm)
       obs-studio # Free and open source streaming/recording software
       (pkgs.symlinkJoin {
         name = "peek";
