@@ -292,6 +292,7 @@ in
         ek = "emacsclient -e '(kill-emacs)'";
         vi = "nvim";
         uu = "uiua repl";
+        cl = "claude";
         nrepl = "clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version \"0.52.0\"} }}' -m nrepl.cmdline --middleware \"[cider.nrepl/cider-middleware]\"";
       };
       environmentVariables = {
