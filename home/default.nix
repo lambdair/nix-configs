@@ -206,6 +206,7 @@ in
       codex # OpenAI Codex CLI
       aws-vault # AWS credential management
       ssm-session-manager-plugin # AWS SSM Session Manager
+      bitwarden-cli # Bitwarden CLI (bw) for credential retrieval
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # GUI Applications
