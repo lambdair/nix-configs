@@ -64,6 +64,41 @@ jj workspace forget <name>     # ワークスペース削除（リビジョン�
 
 **注意**: ワークスペースは同じリポジトリを共有するため、`jj git fetch` はどちらからでも一度だけ実行すれば良い。
 
+## Megamerges (複数 branch の並行開発)
+
+進行中の複数 branch を octopus merge で束ね、その上で作業する手法。複数機能を同時に開発し、相互作用を一つの working copy で検証したい場合に有効。
+参考: https://isaaccorbrey.com/notes/jujutsu-megamerges-for-fun-and-profit
+
+### 基本フロー
+```bash
+# 各 feature branch の先端を親として megamerge を作成
+jj new feature-a feature-b feature-c -m "megamerge"
+
+# megamerge の上に空リビジョンを重ねて作業
+jj new -m "wip"
+
+# 編集後、変更を該当 branch に振り分け
+jj absorb                              # 自動振り分け（推奨）
+jj squash --into feature-a -i          # 手動で特定 branch に統合
+
+# trunk の更新に追従
+jj rebase -d trunk()                   # megamerge と子孫を最新 trunk に
+```
+
+### 使い分け
+- **2 並列まで・独立性が高い**: `jj workspace` のほうが軽量で衝突も起きにくい
+- **3 つ以上の branch を行き来する / 相互作用をテストしたい**: megamerges
+- **branch 間で共通の修正を入れたい**: megamerge 上で編集 → `jj absorb` で各 branch に配布
+
+### 重要な禁則・整合ルール
+- **megamerge リビジョン自体を push しない**。push は個別の feature branch（bookmark）に対してのみ行う:
+  ```bash
+  jj git push -b feature-a             # 個別 branch のみ push
+  ```
+- megamerge 上での編集は WIP に過ぎない。push する前に **必ず `jj absorb` または `jj squash --into` で該当の論理 branch に移す**（`revision-discipline.md` の「1リビジョン=1論理変更」原則を維持するため）。
+- push 済みの feature branch を編集する場合は、megamerge 上で編集してから配布しても、最終的な push 規律（force push 可否）は通常通り `revision-discipline.md` に従う。
+- megamerge の親が増減した場合は再作成する: `jj abandon` で古い megamerge を捨て、新しい親集合で `jj new` し直す。
+
 ## Conflict Resolution
 
 ### コンフリクトが発生した場合
