@@ -337,12 +337,13 @@ in
       settings = {
         user.email = "lambdair1984@protonmail.com";
         user.name = "Lambdair";
+        core.pager = "hunk pager";
       };
     };
 
     delta = {
       enable = true;
-      enableGitIntegration = true;
+      enableGitIntegration = false;
     };
 
     jujutsu = {
@@ -350,6 +351,11 @@ in
       settings = {
         user.email = "lambdair1984@protonmail.com";
         user.name = "Lambdair";
+        ui.pager = [
+          "hunk"
+          "pager"
+        ];
+        ui.diff-formatter = ":git";
       };
     };
 
