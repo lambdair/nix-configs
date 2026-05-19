@@ -393,4 +393,20 @@ in
   };
 
   home.file.".clojure/deps.edn".source = ./deps.edn;
+
+  xdg.configFile."jjui/config.toml".text = ''
+    [[actions]]
+    name = "show-diff-in-hunk"
+    desc = "show diff in hunk"
+    lua = ''''
+    local change_id = context.change_id()
+    if not change_id or change_id == "" then
+      flash({ text = "No revision selected", error = true })
+      return
+    end
+    exec_shell(string.format("jj diff -r %q --git --color always | hunk pager", change_id))
+    ''''
+    key = "H"
+    scope = "revisions"
+  '';
 }
