@@ -20,15 +20,15 @@
   };
   difit = {
     pname = "difit";
-    version = "6dd8e2f937a4854f1c2e5ce61cf62bbd9fc35519";
+    version = "e726bccef72d070a8cecf3d37923548a1fbe4149";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "6dd8e2f937a4854f1c2e5ce61cf62bbd9fc35519";
+      rev = "e726bccef72d070a8cecf3d37923548a1fbe4149";
       fetchSubmodules = false;
-      sha256 = "sha256-chmlNmUaxOjlQbjd/60fFc3lE2jwpp8Cnftl+O+6g4E=";
+      sha256 = "sha256-IV7SuTTLfZkS/pEpXOCMYwPLDNHdQJ71jJjYYjD1c6I=";
     };
-    date = "2026-05-11";
+    date = "2026-05-17";
   };
   eglot-booster = {
     pname = "eglot-booster";
@@ -56,10 +56,10 @@
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.93.1";
+    version = "1.95.0";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.93.1/Heptabase-1.93.1.AppImage";
-      sha256 = "sha256-vTGSXp2CQTDzpYovMHKzrffz42qB9ODhjJYmUs3FeAg=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.95.0/Heptabase-1.95.0.AppImage";
+      sha256 = "sha256-rceNDyIzZAzIXIRQqpKeAGPMwUt8txp6ocTWAZrV2P8=";
     };
   };
   jj-mode = {
@@ -154,15 +154,15 @@
   };
   steel = {
     pname = "steel";
-    version = "b67efd5c262962226424148bb87abefaf4109c5a";
+    version = "7ee5722ec5bd9b01d3d366edb5030c22faa54cce";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "steel";
-      rev = "b67efd5c262962226424148bb87abefaf4109c5a";
+      rev = "7ee5722ec5bd9b01d3d366edb5030c22faa54cce";
       fetchSubmodules = false;
-      sha256 = "sha256-qPDz0ax290E7UEFTDfrmLmsn1r9dIuOxMiRmNrDkfZo=";
+      sha256 = "sha256-k+wCCSyo1Tdi/7NJwupICq2XFLP9Lp4BFAIGy377RYM=";
     };
-    date = "2026-05-07";
+    date = "2026-05-16";
   };
   sulafat = {
     pname = "sulafat";
@@ -180,10 +180,10 @@
   };
   tolaria = {
     pname = "tolaria";
-    version = "2026.5.7";
+    version = "2026.5.18";
     src = fetchurl {
-      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.5.7_amd64.AppImage";
-      sha256 = "sha256-QBNYcOWaIT4clfcRZv3mnnW914JIsbBwX63pdEteWuk=";
+      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.5.18_amd64.AppImage";
+      sha256 = "sha256-pAy0RyY372TGKd8iNU8ZXe1NFA9gEg3g/5rKNSD+esU=";
     };
   };
   typst-ts-mode = {
@@ -211,5 +211,21 @@
       sha256 = "sha256-ppTyUS1MZbmZavluI61SsnbzyMrZNEpjVpPrunFFK84=";
     };
     date = "2026-01-29";
+  };
+  zmk-battery-center-linux = {
+    pname = "zmk-battery-center-linux";
+    version = "0.9.0";
+    src = fetchurl {
+      url = "https://github.com/kot149/zmk-battery-center/releases/download/v0.9.0/zmk-battery-center_0.9.0_amd64.AppImage";
+      sha256 = "sha256-U07LF1lKLJqFq5Cky8TbHOxf1Fl6Pnyk8wmlgxtExZU=";
+    };
+  };
+  zmk-battery-center-mac = {
+    pname = "zmk-battery-center-mac";
+    version = "0.9.0";
+    src = fetchurl {
+      url = "https://github.com/kot149/zmk-battery-center/releases/download/v0.9.0/zmk-battery-center_aarch64.app.tar.gz";
+      sha256 = "sha256-FXJ16RnGLMtlG29+VDq8EfTxKi8FNQ8Xk40btoAW2gg=";
+    };
   };
 }

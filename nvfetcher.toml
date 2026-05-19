@@ -77,3 +77,13 @@ fetch.github = "yoshiko-pg/difit"
 [tolaria]
 src.cmd = "curl -fsSL https://github.com/refactoringhq/tolaria/releases/latest/download/stable-latest.json | jq -r .version"
 fetch.url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_$ver_amd64.AppImage"
+
+[zmk-battery-center-linux]
+src.github_tag = "kot149/zmk-battery-center"
+src.prefix = "v"
+fetch.url = "https://github.com/kot149/zmk-battery-center/releases/download/v$ver/zmk-battery-center_$ver_amd64.AppImage"
+
+[zmk-battery-center-mac]
+src.github_tag = "kot149/zmk-battery-center"
+src.prefix = "v"
+fetch.url = "https://github.com/kot149/zmk-battery-center/releases/download/v$ver/zmk-battery-center_aarch64.app.tar.gz"
