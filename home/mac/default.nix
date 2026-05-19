@@ -12,6 +12,10 @@
 #   };
 # in
 rec {
+  imports = [
+    ./zmk-battery-center.nix
+  ];
+
   home.username = "lambdair";
   home.homeDirectory = "/Users/${home.username}";
 
