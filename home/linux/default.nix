@@ -4,6 +4,7 @@ rec {
   imports = [
     ./heptabase.nix
     ./tolaria.nix
+    ./zmk-battery-center.nix
   ];
 
   home.username = "lambdair";
