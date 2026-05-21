@@ -62,6 +62,18 @@
       sha256 = "sha256-rceNDyIzZAzIXIRQqpKeAGPMwUt8txp6ocTWAZrV2P8=";
     };
   };
+  heptabase-cli-skills = {
+    pname = "heptabase-cli-skills";
+    version = "fdbfbf6aa243c4089e798364687dde7553357052";
+    src = fetchFromGitHub {
+      owner = "heptameta";
+      repo = "heptabase-cli-skills";
+      rev = "fdbfbf6aa243c4089e798364687dde7553357052";
+      fetchSubmodules = false;
+      sha256 = "sha256-7HptN34UUgJmaXbwvvDjmAeSZ2ILCJ49WaBcCHcWHBA=";
+    };
+    date = "2026-05-13";
+  };
   jj-mode = {
     pname = "jj-mode";
     version = "6237dca6d48deb699d30ed0c1ff32cbb62eb4fcc";

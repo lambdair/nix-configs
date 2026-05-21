@@ -98,6 +98,27 @@
         },
         "version": "1.95.0"
     },
+    "heptabase-cli-skills": {
+        "cargoLock": null,
+        "date": "2026-05-13",
+        "extract": null,
+        "name": "heptabase-cli-skills",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "heptameta",
+            "repo": "heptabase-cli-skills",
+            "rev": "fdbfbf6aa243c4089e798364687dde7553357052",
+            "sha256": "sha256-7HptN34UUgJmaXbwvvDjmAeSZ2ILCJ49WaBcCHcWHBA=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "fdbfbf6aa243c4089e798364687dde7553357052"
+    },
     "jj-mode": {
         "cargoLock": null,
         "date": "2026-03-06",

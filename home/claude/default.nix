@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  sources,
   ...
 }:
 let
@@ -13,6 +14,9 @@ in
   programs.claude-code = {
     enable = true;
     context = ./CLAUDE.md;
+    marketplaces = {
+      heptabase-cli-skills = sources.heptabase-cli-skills.src;
+    };
     settings = {
       permissions.allow = [
         # jj: read-only
@@ -81,6 +85,7 @@ in
         "context7@claude-plugins-official" = true;
         "superpowers@claude-plugins-official" = true;
         "claude-mem@thedotmack" = true;
+        "heptabase@heptabase-cli-skills" = true;
       };
       statusLine = {
         type = "command";
