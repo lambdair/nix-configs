@@ -89,6 +89,18 @@ src.prefix = "v"
 fetch.url = "https://github.com/kot149/zmk-battery-center/releases/download/v$ver/zmk-battery-center_aarch64.app.tar.gz"
 
 # claude-code plugin marketplaces
+[claude-plugins-official]
+src.git = "https://github.com/anthropics/claude-plugins-official"
+fetch.github = "anthropics/claude-plugins-official"
+
+[claude-mem]
+src.git = "https://github.com/thedotmack/claude-mem"
+fetch.github = "thedotmack/claude-mem"
+
 [heptabase-cli-skills]
 src.git = "https://github.com/heptameta/heptabase-cli-skills"
 fetch.github = "heptameta/heptabase-cli-skills"
+
+[lean4-skills]
+src.git = "https://github.com/cameronfreer/lean4-skills"
+fetch.github = "cameronfreer/lean4-skills"

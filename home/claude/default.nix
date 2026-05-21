@@ -15,7 +15,10 @@ in
     enable = true;
     context = ./CLAUDE.md;
     marketplaces = {
+      claude-plugins-official = sources.claude-plugins-official.src;
       heptabase-cli-skills = sources.heptabase-cli-skills.src;
+      lean4-skills = sources.lean4-skills.src;
+      thedotmack = sources.claude-mem.src;
     };
     settings = {
       permissions.allow = [

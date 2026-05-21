@@ -18,6 +18,30 @@
     };
     date = "2026-04-24";
   };
+  claude-mem = {
+    pname = "claude-mem";
+    version = "37d24944af5f4afaa0de2b0bd0034bb432f2b714";
+    src = fetchFromGitHub {
+      owner = "thedotmack";
+      repo = "claude-mem";
+      rev = "37d24944af5f4afaa0de2b0bd0034bb432f2b714";
+      fetchSubmodules = false;
+      sha256 = "sha256-6p5EK3AWkgP0Q2gjKRRBKID83jE45CKopQrqpQPUos8=";
+    };
+    date = "2026-05-12";
+  };
+  claude-plugins-official = {
+    pname = "claude-plugins-official";
+    version = "6cc16f4b16e80893695da60b8b82a236be9f9546";
+    src = fetchFromGitHub {
+      owner = "anthropics";
+      repo = "claude-plugins-official";
+      rev = "6cc16f4b16e80893695da60b8b82a236be9f9546";
+      fetchSubmodules = false;
+      sha256 = "sha256-a8EXGJMxIUYsjRhst67TRBf6uuYZMjtgw5Ceh6h90cc=";
+    };
+    date = "2026-05-20";
+  };
   difit = {
     pname = "difit";
     version = "e726bccef72d070a8cecf3d37923548a1fbe4149";
@@ -111,6 +135,18 @@
       sha256 = "sha256-6XFcyqSTx1CwNWqQvIc25cuQMwh3YXnbgr5cDiOCxBk=";
     };
     date = "2025-05-31";
+  };
+  lean4-skills = {
+    pname = "lean4-skills";
+    version = "eae7b88af34173c159e3ecc26ce9c9bbd1168336";
+    src = fetchFromGitHub {
+      owner = "cameronfreer";
+      repo = "lean4-skills";
+      rev = "eae7b88af34173c159e3ecc26ce9c9bbd1168336";
+      fetchSubmodules = false;
+      sha256 = "sha256-ZVeFIIrI5PXPBnLeTlgxgZIT2Bm8KOxAy8GDDX75zYM=";
+    };
+    date = "2026-05-19";
   };
   nael = {
     pname = "nael";
