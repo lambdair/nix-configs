@@ -104,3 +104,7 @@ fetch.github = "heptameta/heptabase-cli-skills"
 [lean4-skills]
 src.git = "https://github.com/cameronfreer/lean4-skills"
 fetch.github = "cameronfreer/lean4-skills"
+
+[agent-toolkit-for-aws]
+src.git = "https://github.com/aws/agent-toolkit-for-aws"
+fetch.github = "aws/agent-toolkit-for-aws"

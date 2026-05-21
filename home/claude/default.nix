@@ -15,6 +15,7 @@ in
     enable = true;
     context = ./CLAUDE.md;
     marketplaces = {
+      agent-toolkit-for-aws = sources.agent-toolkit-for-aws.src;
       claude-plugins-official = sources.claude-plugins-official.src;
       heptabase-cli-skills = sources.heptabase-cli-skills.src;
       lean4-skills = sources.lean4-skills.src;
