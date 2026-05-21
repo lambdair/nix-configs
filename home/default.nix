@@ -257,6 +257,7 @@ in
     ./nvim
     ./emacs
     ./difit.nix
+    ./jj-megamerge.nix
     ./claude
   ];
 
