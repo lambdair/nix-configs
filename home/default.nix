@@ -412,5 +412,24 @@ in
     ''''
     key = "H"
     scope = "revisions"
+
+    [[actions]]
+    name = "megamerge-rebuild"
+    desc = "rebuild megamerge (no fetch)"
+    lua = ''''
+    exec_shell("JJ_MEGAMERGE_FETCH=0 jj-megamerge-rebuild")
+    ''''
+    key = "M"
+    scope = "revisions"
+
+    # 注: spec では Shift-F だったが jjui の key 表記は単一文字。デフォルトと衝突しない F を採用。
+    [[actions]]
+    name = "megamerge-fetch-rebuild"
+    desc = "fetch + rebuild megamerge"
+    lua = ''''
+    exec_shell("jj-megamerge-rebuild")
+    ''''
+    key = "F"
+    scope = "revisions"
   '';
 }
