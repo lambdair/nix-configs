@@ -176,6 +176,9 @@ in
   home.file.".claude/rules/coding-preferences.md".source = ./coding-preferences.md;
   home.file.".claude/rules/revision-discipline.md".source = ./revision-discipline.md;
 
+  home.file.".claude/skills/creating-heptabase-concept-card/SKILL.md".source =
+    ./skills/creating-heptabase-concept-card/SKILL.md;
+
   # macOS only: symlink shared settings for secondary account
   home.file.".claude-personal/settings.json" = lib.mkIf pkgs.stdenv.isDarwin (link "settings.json");
   home.file.".claude-personal/CLAUDE.md" = lib.mkIf pkgs.stdenv.isDarwin (link "CLAUDE.md");
@@ -184,4 +187,5 @@ in
   );
   home.file.".claude-personal/hooks" = lib.mkIf pkgs.stdenv.isDarwin (link "hooks");
   home.file.".claude-personal/rules" = lib.mkIf pkgs.stdenv.isDarwin (link "rules");
+  home.file.".claude-personal/skills" = lib.mkIf pkgs.stdenv.isDarwin (link "skills");
 }
