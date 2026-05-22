@@ -16,10 +16,18 @@ in
     context = ./CLAUDE.md;
     marketplaces = {
       agent-toolkit-for-aws = sources.agent-toolkit-for-aws.src;
-      claude-plugins-official = sources.claude-plugins-official.src;
       heptabase-cli-skills = sources.heptabase-cli-skills.src;
       lean4-skills = sources.lean4-skills.src;
+      superpowers-dev = sources.superpowers.src;
       thedotmack = sources.claude-mem.src;
+    };
+    mcpServers.context7 = {
+      type = "stdio";
+      command = "npx";
+      args = [
+        "-y"
+        "@upstash/context7-mcp"
+      ];
     };
     settings = {
       permissions.allow = [
@@ -86,8 +94,7 @@ in
         "LSP"
       ];
       enabledPlugins = {
-        "context7@claude-plugins-official" = true;
-        "superpowers@claude-plugins-official" = true;
+        "superpowers@superpowers-dev" = true;
         "claude-mem@thedotmack" = true;
         "heptabase@heptabase-cli-skills" = true;
       };

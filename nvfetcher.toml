@@ -89,10 +89,6 @@ src.prefix = "v"
 fetch.url = "https://github.com/kot149/zmk-battery-center/releases/download/v$ver/zmk-battery-center_aarch64.app.tar.gz"
 
 # claude-code plugin marketplaces
-[claude-plugins-official]
-src.git = "https://github.com/anthropics/claude-plugins-official"
-fetch.github = "anthropics/claude-plugins-official"
-
 [claude-mem]
 src.git = "https://github.com/thedotmack/claude-mem"
 fetch.github = "thedotmack/claude-mem"
@@ -108,3 +104,7 @@ fetch.github = "cameronfreer/lean4-skills"
 [agent-toolkit-for-aws]
 src.git = "https://github.com/aws/agent-toolkit-for-aws"
 fetch.github = "aws/agent-toolkit-for-aws"
+
+[superpowers]
+src.git = "https://github.com/obra/superpowers"
+fetch.github = "obra/superpowers"

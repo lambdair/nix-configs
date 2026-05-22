@@ -6,6 +6,18 @@
   dockerTools,
 }:
 {
+  agent-toolkit-for-aws = {
+    pname = "agent-toolkit-for-aws";
+    version = "ba1cc8ca4f063d88ca40c6acf3f670e6321b7a7f";
+    src = fetchFromGitHub {
+      owner = "aws";
+      repo = "agent-toolkit-for-aws";
+      rev = "ba1cc8ca4f063d88ca40c6acf3f670e6321b7a7f";
+      fetchSubmodules = false;
+      sha256 = "sha256-PnX5PX+WchwHv1UOg1p2R+Pn/1PtJbvgpwKSSiCwItQ=";
+    };
+    date = "2026-05-18";
+  };
   budget_tracker_tui = {
     pname = "budget_tracker_tui";
     version = "87c5333ddb3b3df2ee43a203ed52e4945d5171ef";
@@ -20,39 +32,27 @@
   };
   claude-mem = {
     pname = "claude-mem";
-    version = "37d24944af5f4afaa0de2b0bd0034bb432f2b714";
+    version = "c3d2af7c144b886e21e6b4721a9a5e5960482766";
     src = fetchFromGitHub {
       owner = "thedotmack";
       repo = "claude-mem";
-      rev = "37d24944af5f4afaa0de2b0bd0034bb432f2b714";
+      rev = "c3d2af7c144b886e21e6b4721a9a5e5960482766";
       fetchSubmodules = false;
-      sha256 = "sha256-6p5EK3AWkgP0Q2gjKRRBKID83jE45CKopQrqpQPUos8=";
+      sha256 = "sha256-l5F+p3BGJ3KYN5ppnMQJJGmQIrtOiUB8RSQZAgXV+60=";
     };
-    date = "2026-05-12";
-  };
-  claude-plugins-official = {
-    pname = "claude-plugins-official";
-    version = "6cc16f4b16e80893695da60b8b82a236be9f9546";
-    src = fetchFromGitHub {
-      owner = "anthropics";
-      repo = "claude-plugins-official";
-      rev = "6cc16f4b16e80893695da60b8b82a236be9f9546";
-      fetchSubmodules = false;
-      sha256 = "sha256-a8EXGJMxIUYsjRhst67TRBf6uuYZMjtgw5Ceh6h90cc=";
-    };
-    date = "2026-05-20";
+    date = "2026-05-21";
   };
   difit = {
     pname = "difit";
-    version = "e726bccef72d070a8cecf3d37923548a1fbe4149";
+    version = "14581fe9ff522dcf9ad22e10617e55bc0e0a851b";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "e726bccef72d070a8cecf3d37923548a1fbe4149";
+      rev = "14581fe9ff522dcf9ad22e10617e55bc0e0a851b";
       fetchSubmodules = false;
-      sha256 = "sha256-IV7SuTTLfZkS/pEpXOCMYwPLDNHdQJ71jJjYYjD1c6I=";
+      sha256 = "sha256-nqQuy14KJxB25TQU4Be2C7dwd0C98UNhwABOYFrFx3Y=";
     };
-    date = "2026-05-17";
+    date = "2026-05-20";
   };
   eglot-booster = {
     pname = "eglot-booster";
@@ -68,22 +68,22 @@
   };
   helix-steel = {
     pname = "helix-steel";
-    version = "47b4664ac868b334c9cb914d6b6bfa2045249d13";
+    version = "4d86612df48447088ef4190bf503fd54a7562aa9";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "helix";
-      rev = "47b4664ac868b334c9cb914d6b6bfa2045249d13";
+      rev = "4d86612df48447088ef4190bf503fd54a7562aa9";
       fetchSubmodules = false;
-      sha256 = "sha256-+090DLPNNsDoYpAEgH9r5+8n0jQSbL7/5ThUJIT2yGg=";
+      sha256 = "sha256-qAUODNxHM9K6CrRCFgfBcbqzRd+YHiWn9fEfmIzrohA=";
     };
-    date = "2026-05-08";
+    date = "2026-05-21";
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.95.0";
+    version = "1.96.0";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.95.0/Heptabase-1.95.0.AppImage";
-      sha256 = "sha256-rceNDyIzZAzIXIRQqpKeAGPMwUt8txp6ocTWAZrV2P8=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.96.0/Heptabase-1.96.0.AppImage";
+      sha256 = "sha256-bjvqzA/+sdy2EVZbBkuLgYpG8e5WzdVWtITO/iNICZI=";
     };
   };
   heptabase-cli-skills = {
@@ -226,12 +226,24 @@
     };
     date = "2026-03-20";
   };
+  superpowers = {
+    pname = "superpowers";
+    version = "f2cbfbefebbfef77321e4c9abc9e949826bea9d7";
+    src = fetchFromGitHub {
+      owner = "obra";
+      repo = "superpowers";
+      rev = "f2cbfbefebbfef77321e4c9abc9e949826bea9d7";
+      fetchSubmodules = false;
+      sha256 = "sha256-3E3rO6hR87JUfS3XV1Eaoz6SDWOftleWvN9UPNFEMjw=";
+    };
+    date = "2026-05-04";
+  };
   tolaria = {
     pname = "tolaria";
-    version = "2026.5.18";
+    version = "2026.5.21";
     src = fetchurl {
-      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.5.18_amd64.AppImage";
-      sha256 = "sha256-pAy0RyY372TGKd8iNU8ZXe1NFA9gEg3g/5rKNSD+esU=";
+      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.5.21_amd64.AppImage";
+      sha256 = "sha256-o86zsAIhIl26kLcwdvmSRPJkyl/iDz5XpurVlTOxC/4=";
     };
   };
   typst-ts-mode = {
