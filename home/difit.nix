@@ -5,21 +5,27 @@
   ...
 }:
 let
+  # Node 24's libuv aborts with a kqueue assertion (kqueue.c:279) when pnpm uses
+  # its worker thread pool on macOS. Pin pnpm (and the pnpm used internally by
+  # fetchPnpmDeps) to nodejs_22 LTS as a workaround.
+  pnpm = pkgs.pnpm.override { nodejs = pkgs.nodejs_22; };
+  fetchPnpmDeps = pkgs.fetchPnpmDeps.override { inherit pnpm; };
+
   difit = pkgs.stdenv.mkDerivation (finalAttrs: {
     pname = "difit";
     inherit (sources.difit) version src;
 
-    nativeBuildInputs = with pkgs; [
-      nodejs
+    nativeBuildInputs = [
+      pkgs.nodejs_22
       pnpm
-      pnpmConfigHook
-      makeWrapper
+      pkgs.pnpmConfigHook
+      pkgs.makeWrapper
     ];
 
-    pnpmDeps = pkgs.fetchPnpmDeps {
+    pnpmDeps = fetchPnpmDeps {
       inherit (finalAttrs) pname version src;
       fetcherVersion = 3;
-      hash = "sha256-JkgVeC1AZkBh+ljDtJ3ovwCksrJpymMdIW4QuOwlsys=";
+      hash = "sha256-JtSqmcT5Kan/12lC8DbfBkVStOz8Ra2UTMyHiwMDphY=";
     };
 
     buildPhase = ''
