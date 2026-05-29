@@ -1,5 +1,9 @@
 flake := justfile_directory()
 
+# jj's working copy is always "dirty" from git's perspective; silence the noisy
+# Nix warning so flake commands don't spam it on every invocation.
+export NIX_CONFIG := "warn-dirty = false"
+
 # List available commands
 default:
     @just --list
