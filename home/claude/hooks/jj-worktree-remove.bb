@@ -9,15 +9,19 @@
 (def input (json/parse-string (slurp *in*) true))
 
 (def worktree-path (:worktree_path input))
-(def worktree-name (:name input))
 (def cwd (:cwd input))
 
-;; Determine workspace name
-(def workspace-name (when worktree-name (str "claude-" worktree-name)))
+;; WorktreeRemove does not provide a `name` field, so derive the workspace
+;; name from the worktree directory basename. The create hook names the
+;; workspace "claude-<basename>", so this stays consistent with it.
+(def workspace-name
+  (some->> worktree-path fs/file-name str (str "claude-")))
 
-;; Use cwd to run jj root, fall back to deriving from worktree path structure
+;; repo root: prefer git_repo_path, then `jj root` from cwd, then derive
+;; from the worktree path structure (.../.claude/worktrees/<name>)
 (def repo-root
-  (or (try
+  (or (:git_repo_path input)
+      (try
         (let [result (p/shell {:out :string :err :string :dir cwd}
                               "jj" "root")]
           (when (zero? (:exit result))
