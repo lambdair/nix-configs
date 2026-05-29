@@ -44,15 +44,15 @@
   };
   difit = {
     pname = "difit";
-    version = "14581fe9ff522dcf9ad22e10617e55bc0e0a851b";
+    version = "e436a5d98230ce2f36b2ea8de440ba32e82fe929";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "14581fe9ff522dcf9ad22e10617e55bc0e0a851b";
+      rev = "e436a5d98230ce2f36b2ea8de440ba32e82fe929";
       fetchSubmodules = false;
-      sha256 = "sha256-nqQuy14KJxB25TQU4Be2C7dwd0C98UNhwABOYFrFx3Y=";
+      sha256 = "sha256-M+jUUSr3Qqz8zp6tdEZSHFZtD3Ldv+yoYj6xP0+qhKs=";
     };
-    date = "2026-05-20";
+    date = "2026-05-27";
   };
   eglot-booster = {
     pname = "eglot-booster";
@@ -80,10 +80,10 @@
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.96.0";
+    version = "1.96.3";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.96.0/Heptabase-1.96.0.AppImage";
-      sha256 = "sha256-bjvqzA/+sdy2EVZbBkuLgYpG8e5WzdVWtITO/iNICZI=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.96.3/Heptabase-1.96.3.AppImage";
+      sha256 = "sha256-qZXFqSB1o7tjxxZf1uzt/3mtTKLg1UAAcL9n0jv3Oi8=";
     };
   };
   heptabase-cli-skills = {
@@ -202,15 +202,15 @@
   };
   steel = {
     pname = "steel";
-    version = "7ee5722ec5bd9b01d3d366edb5030c22faa54cce";
+    version = "363768e23f58b7212b12b6e0e903887f9aa631cf";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "steel";
-      rev = "7ee5722ec5bd9b01d3d366edb5030c22faa54cce";
+      rev = "363768e23f58b7212b12b6e0e903887f9aa631cf";
       fetchSubmodules = false;
-      sha256 = "sha256-k+wCCSyo1Tdi/7NJwupICq2XFLP9Lp4BFAIGy377RYM=";
+      sha256 = "sha256-n4eAVKzkjzmY7BM2XWVMpKJH8/YCJkaTj+aGoS/Gm5E=";
     };
-    date = "2026-05-16";
+    date = "2026-05-22";
   };
   sulafat = {
     pname = "sulafat";
@@ -240,10 +240,10 @@
   };
   tolaria = {
     pname = "tolaria";
-    version = "2026.5.21";
+    version = "2026.5.25";
     src = fetchurl {
-      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.5.21_amd64.AppImage";
-      sha256 = "sha256-o86zsAIhIl26kLcwdvmSRPJkyl/iDz5XpurVlTOxC/4=";
+      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.5.25_amd64.AppImage";
+      sha256 = "sha256-FCU7CWuzMy/PcJfSJ45cR2lP0K1mz3Ymqx5zgxktNPA=";
     };
   };
   typst-ts-mode = {
