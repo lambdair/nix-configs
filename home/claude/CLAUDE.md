@@ -1,5 +1,14 @@
 # Personal Development Preferences
 
+## Shell Execution — nushell / babashka
+
+シェルで処理を実行する際は bash/zsh の生スクリプトを避け、nushell か babashka を使う。用途で使い分ける:
+
+- **nushell (`nu -c '...'`)**: データ処理・パイプライン・構造化データ（JSON/CSV/TOML 等）の操作・ファイル操作
+- **babashka (`bb -e '...'` または `.bb` スクリプト)**: 複雑なロジック・構造化された処理。既存のフック類・statusline は全て babashka で書かれている
+
+ただし Read / Grep / Glob など専用ツールで済むファイル読み取り・検索は従来通りそれらを優先する。nu/bb を使うのは「シェルでロジックを書く必要がある」場面に限る（単純なパイプや変数処理を生 bash で書かない、という趣旨）。
+
 ## Version Control — jujutsu (jj)
 
 I use jujutsu (jj) instead of git. Always use `jj` commands, never `git` commands.

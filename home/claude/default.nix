@@ -73,6 +73,10 @@ in
         "Bash(nixfmt *)"
         "Bash(home-manager *)"
 
+        # shell: prefer nushell / babashka
+        "Bash(nu *)"
+        "Bash(bb *)"
+
         # read-only Bash commands
         "Bash(find *)"
         "Bash(grep *)"
