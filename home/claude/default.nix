@@ -190,6 +190,11 @@ in
   home.file.".claude/skills/creating-heptabase-concept-card/SKILL.md".source =
     ./skills/creating-heptabase-concept-card/SKILL.md;
 
+  home.file.".claude/skills/checking-removable-nix-workarounds/SKILL.md".source =
+    ./skills/checking-removable-nix-workarounds/SKILL.md;
+  home.file.".claude/skills/checking-removable-nix-workarounds/check-workarounds.nu".source =
+    ./skills/checking-removable-nix-workarounds/check-workarounds.nu;
+
   # macOS only: symlink shared settings for secondary account
   home.file.".claude-personal/settings.json" = lib.mkIf pkgs.stdenv.isDarwin (link "settings.json");
   home.file.".claude-personal/CLAUDE.md" = lib.mkIf pkgs.stdenv.isDarwin (link "CLAUDE.md");
