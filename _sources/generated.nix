@@ -20,39 +20,39 @@
   };
   budget_tracker_tui = {
     pname = "budget_tracker_tui";
-    version = "87c5333ddb3b3df2ee43a203ed52e4945d5171ef";
+    version = "fa550f2c26fe8bb1611ef411946842e94b11f0b6";
     src = fetchFromGitHub {
       owner = "Feromond";
       repo = "budget_tracker_tui";
-      rev = "87c5333ddb3b3df2ee43a203ed52e4945d5171ef";
+      rev = "fa550f2c26fe8bb1611ef411946842e94b11f0b6";
       fetchSubmodules = false;
-      sha256 = "sha256-ipYl0zQlqfxNBhBVSUPE0/WaiFGLhdwSthzxyKAGUmQ=";
+      sha256 = "sha256-rVNAYMfTGYRepeNSlm+d/bJq11lRNFZjpoQjQpclSzY=";
     };
-    date = "2026-04-24";
+    date = "2026-05-29";
   };
   claude-mem = {
     pname = "claude-mem";
-    version = "c3d2af7c144b886e21e6b4721a9a5e5960482766";
+    version = "84636894740724cb424e993d2e37a5a06a2aff2e";
     src = fetchFromGitHub {
       owner = "thedotmack";
       repo = "claude-mem";
-      rev = "c3d2af7c144b886e21e6b4721a9a5e5960482766";
+      rev = "84636894740724cb424e993d2e37a5a06a2aff2e";
       fetchSubmodules = false;
-      sha256 = "sha256-l5F+p3BGJ3KYN5ppnMQJJGmQIrtOiUB8RSQZAgXV+60=";
+      sha256 = "sha256-/Os8OcFrCWcdDDN941q/JSxMgSsgg+JlWIj/ao5cv90=";
     };
-    date = "2026-05-21";
+    date = "2026-05-29";
   };
   difit = {
     pname = "difit";
-    version = "e436a5d98230ce2f36b2ea8de440ba32e82fe929";
+    version = "51016f9675517a7344b6cbcdec3a6c12c5ed7125";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "e436a5d98230ce2f36b2ea8de440ba32e82fe929";
+      rev = "51016f9675517a7344b6cbcdec3a6c12c5ed7125";
       fetchSubmodules = false;
-      sha256 = "sha256-M+jUUSr3Qqz8zp6tdEZSHFZtD3Ldv+yoYj6xP0+qhKs=";
+      sha256 = "sha256-PsvzDqgq9zLO8okRusUVHXaGKqzQIeqKzr5EuCrrWmo=";
     };
-    date = "2026-05-27";
+    date = "2026-05-30";
   };
   eglot-booster = {
     pname = "eglot-booster";
@@ -80,23 +80,23 @@
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.96.3";
+    version = "1.97.1";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.96.3/Heptabase-1.96.3.AppImage";
-      sha256 = "sha256-qZXFqSB1o7tjxxZf1uzt/3mtTKLg1UAAcL9n0jv3Oi8=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.97.1/Heptabase-1.97.1.AppImage";
+      sha256 = "sha256-c/rsbE7Qc8f9kKOp+5B2UFnxq0zDde+hZOv1T8HHGCY=";
     };
   };
   heptabase-cli-skills = {
     pname = "heptabase-cli-skills";
-    version = "fdbfbf6aa243c4089e798364687dde7553357052";
+    version = "998463ab78b3528e7a2decfab24fca5441d5f98b";
     src = fetchFromGitHub {
       owner = "heptameta";
       repo = "heptabase-cli-skills";
-      rev = "fdbfbf6aa243c4089e798364687dde7553357052";
+      rev = "998463ab78b3528e7a2decfab24fca5441d5f98b";
       fetchSubmodules = false;
-      sha256 = "sha256-7HptN34UUgJmaXbwvvDjmAeSZ2ILCJ49WaBcCHcWHBA=";
+      sha256 = "sha256-QRW/sqjyLZA0lbib0czeLisyuSBJiBnQgAicyKdaEhU=";
     };
-    date = "2026-05-13";
+    date = "2026-05-29";
   };
   jj-mode = {
     pname = "jj-mode";
@@ -228,22 +228,22 @@
   };
   superpowers = {
     pname = "superpowers";
-    version = "f2cbfbefebbfef77321e4c9abc9e949826bea9d7";
+    version = "6fd4507659784c351abbd2bc264c7162cfd386dc";
     src = fetchFromGitHub {
       owner = "obra";
       repo = "superpowers";
-      rev = "f2cbfbefebbfef77321e4c9abc9e949826bea9d7";
+      rev = "6fd4507659784c351abbd2bc264c7162cfd386dc";
       fetchSubmodules = false;
-      sha256 = "sha256-3E3rO6hR87JUfS3XV1Eaoz6SDWOftleWvN9UPNFEMjw=";
+      sha256 = "sha256-P/FD8HTQO+QzvMe3A/B2v2vjs8T6ZmIYH3MPp79dSzo=";
     };
-    date = "2026-05-04";
+    date = "2026-05-29";
   };
   tolaria = {
     pname = "tolaria";
-    version = "2026.5.25";
+    version = "2026.6.1";
     src = fetchurl {
-      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.5.25_amd64.AppImage";
-      sha256 = "sha256-FCU7CWuzMy/PcJfSJ45cR2lP0K1mz3Ymqx5zgxktNPA=";
+      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.6.1_amd64.AppImage";
+      sha256 = "sha256-e8bENWQEXidv4Ag8IVemN+1bd6xKYMxBn5Yw0ZtXhF8=";
     };
   };
   typst-ts-mode = {
