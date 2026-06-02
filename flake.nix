@@ -36,6 +36,10 @@
     private = {
       url = "git+ssh://git@git.sr.ht/~lambdair/nix-private";
     };
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -68,6 +72,7 @@
           modules = [
             ./host/sonora
             inputs.private.darwinModules.default
+            inputs.lix-module.darwinModules.lixFromNixpkgs
           ];
           specialArgs = {
             inherit inputs;
