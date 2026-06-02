@@ -215,9 +215,7 @@ in
       # warp-terminal # Modern terminal with AI features
       # rio # Hardware-accelerated GPU terminal emulator
       obsidian # Knowledge base
-      # Upstream pins llvmPackages_18 on Darwin, which is incompatible with the
-      # current libcxx 21 headers (compiler-rt fails to build). Use llvmPackages_21.
-      (bitwarden-desktop.override { llvmPackages_18 = pkgs.llvmPackages_21; })
+      bitwarden-desktop # pinned in overlays/pin-broken-pkg.nix
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Fonts
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
