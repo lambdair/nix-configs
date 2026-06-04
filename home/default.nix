@@ -21,6 +21,28 @@ let
     inherit (sources.budget_tracker_tui) pname version src;
     cargoLock.lockFile = "${sources.budget_tracker_tui.src}/Cargo.lock";
   };
+
+  # jj wrapped with a betterleaks secret-scan gate on `jj git push`.
+  # jj runs no git hooks and jjui execs `jj git push` directly, so wrapping
+  # the binary is the only place a local scan fires for every push path.
+  # See ./jj-push-guard.sh for the rationale and behaviour.
+  betterleaksGuardedJj =
+    (pkgs.symlinkJoin {
+      name = "jujutsu-betterleaks-guarded-${pkgs.jujutsu.version}";
+      paths = [ pkgs.jujutsu ];
+      postBuild = ''
+        rm $out/bin/jj
+        substitute ${./jj-push-guard.sh} $out/bin/jj \
+          --replace-fail '@jj@' ${pkgs.jujutsu}/bin/jj \
+          --replace-fail '@betterleaks@' ${pkgs.betterleaks}/bin/betterleaks
+        chmod +x $out/bin/jj
+      '';
+    })
+    // {
+      # Preserve version + meta (incl. meta.mainProgram) so the home-manager
+      # jujutsu module's version checks and `getExe` keep working.
+      inherit (pkgs.jujutsu) version meta;
+    };
 in
 {
   home.stateVersion = "26.05";
@@ -122,7 +144,8 @@ in
       lazyjj # TUI for Jujutsu/jj
       jjui # TUI for Jujutsu
       gh-dash # GitHub CLI extension for PR/issue dashboard
-      git-secrets # Prevents committing secrets and credentials
+      git-secrets # Prevents committing secrets and credentials (git only; not triggered by jj)
+      betterleaks # Secret scanner (Gitleaks successor); gates `jj git push` via betterleaksGuardedJj wrapper
       giff # Terminal-based Git diff viewer
       inputs.hunk.packages.${pkgs.stdenv.hostPlatform.system}.default # Review-first terminal diff viewer for agentic coders
 
@@ -350,6 +373,7 @@ in
 
     jujutsu = {
       enable = true;
+      package = betterleaksGuardedJj;
       settings = {
         user.email = "lambdair1984@protonmail.com";
         user.name = "Lambdair";
