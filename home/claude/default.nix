@@ -195,6 +195,9 @@ in
   home.file.".claude/skills/checking-removable-nix-workarounds/check-workarounds.nu".source =
     ./skills/checking-removable-nix-workarounds/check-workarounds.nu;
 
+  home.file.".claude/skills/pr-inline-comments/SKILL.md".source =
+    ./skills/pr-inline-comments/SKILL.md;
+
   # macOS only: symlink shared settings for secondary account
   home.file.".claude-personal/settings.json" = lib.mkIf pkgs.stdenv.isDarwin (link "settings.json");
   home.file.".claude-personal/CLAUDE.md" = lib.mkIf pkgs.stdenv.isDarwin (link "CLAUDE.md");
