@@ -33,5 +33,10 @@ rec {
         "/nix/var/nix/profiles/default/bin"
       ])
     }
+
+    # Expose tools installed outside Nix (e.g. Heptabase CLI shim in /usr/local/bin)
+    if ("/usr/local/bin" not-in $env.PATH) {
+      $env.PATH = ($env.PATH | append "/usr/local/bin")
+    }
   '';
 }
