@@ -37,11 +37,17 @@ if [ "$is_push" -eq 1 ]; then
 
   if [ -d "$repo/.git" ]; then
     # Colocated repo: scan exactly the local-only commits — those reachable
-    # from any local ref but not from a remote-tracking ref — i.e. precisely
-    # what this push would publish. Git mode ignores untracked / .gitignored
-    # files, so node_modules and friends are never scanned.
+    # from a local branch (bookmark) but not from a remote-tracking ref —
+    # i.e. precisely what this push would publish. Git mode ignores untracked
+    # / .gitignored files, so node_modules and friends are never scanned.
+    #
+    # Use --branches, NOT --all: jj keeps tens of thousands of refs/jj/ keep-
+    # refs in a colocated repo, and --all would walk every one of them
+    # (abandoned / hidden commits included), making the scan effectively never
+    # finish. --branches limits the walk to refs/heads/* — the local bookmarks
+    # jj exports — which is the real push scope.
     if ! "$betterleaks" git --no-banner --redact \
-      --log-opts="--all --not --remotes" "$repo" >&2; then
+      --log-opts="--branches --not --remotes" "$repo" >&2; then
       echo "🚫 betterleaks found potential secrets — push aborted." >&2
       echo "   Amend/remove them with jj before pushing, or run the real jj at" >&2
       echo "   ${real_jj} to bypass intentionally." >&2
