@@ -198,6 +198,10 @@ in
   home.file.".claude/skills/pr-inline-comments/SKILL.md".source =
     ./skills/pr-inline-comments/SKILL.md;
 
+  # Claude セッションが known_marketplaces.json を書き換えるため、activation 時の
+  # 衝突を強制上書きで回避する（source は claude-code モジュールが管理）
+  home.file."${config.home.homeDirectory}/.claude/plugins/known_marketplaces.json".force = true;
+
   # macOS only: symlink shared settings for secondary account
   home.file.".claude-personal/settings.json" = lib.mkIf pkgs.stdenv.isDarwin (link "settings.json");
   home.file.".claude-personal/CLAUDE.md" = lib.mkIf pkgs.stdenv.isDarwin (link "CLAUDE.md");
