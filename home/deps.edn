@@ -2,4 +2,14 @@
  {djblue/portal                      {:mvn/version "0.62.2"}
   io.github.paintparty/bling         {:mvn/version "0.9.2"}
   io.github.paintparty/fireworks     {:mvn/version "0.19.0"}
-  me.flowthing/pp                    {:mvn/version "2026-03-01.107"}}}
+  me.flowthing/pp                    {:mvn/version "2026-03-01.107"}}
+
+ :aliases
+ {;; FlowStorm (ClojureStorm) トレースデバッガ。:flowstorm を付けたときだけ
+  ;; 公式コンパイラを ClojureStorm に差し替えて実行をトレースする。
+  ;; 例: clojure -M:dev:flowstorm:repl → (require 'flow-storm.api) (flow-storm.api/local-connect)
+  :flowstorm {:classpath-overrides {org.clojure/clojure nil}
+              :extra-deps {com.github.flow-storm/clojure {:mvn/version "1.12.5"}
+                           com.github.flow-storm/flow-storm-dbg {:mvn/version "4.5.9"}}
+              :jvm-opts ["-Dclojure.storm.instrumentEnable=true"
+                         "-Dclojure.storm.instrumentAutoPrefixes=true"]}}}
