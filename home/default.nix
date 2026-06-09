@@ -318,6 +318,7 @@ in
         vi = "nvim";
         uu = "uiua repl";
         cl = "claude";
+        hr = "bb ~/.claude/skills/reviewing-jj-revisions-with-hunk/hr";
         nrepl = "clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version \"0.52.0\"} }}' -m nrepl.cmdline --middleware \"[cider.nrepl/cider-middleware]\"";
       };
       environmentVariables = {

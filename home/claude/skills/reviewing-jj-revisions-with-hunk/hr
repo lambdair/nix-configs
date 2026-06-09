@@ -1,0 +1,169 @@
+#!/usr/bin/env bb
+;; hr — hunk-based jj revision review helper
+;; jj スタックの各リビジョンを Hunk セッションで切り替え/ナビゲートし、
+;; レビューコメントを永続バックアップ/復元する。
+;; 使い方は `hr help`。詳細は skill: reviewing-jj-revisions-with-hunk
+(require '[babashka.process :as p]
+         '[babashka.fs :as fs]
+         '[cheshire.core :as json]
+         '[clojure.string :as str])
+
+(defn run
+  "shell を opts 先頭・可変長コマンドで実行し {:exit :out :err} を返す。非ゼロでも例外にしない。"
+  [opts & cmd]
+  (apply p/shell (merge {:out :string :err :string :continue true} opts) cmd))
+
+(defn die [msg] (binding [*out* *err*] (println msg)) (System/exit 1))
+
+(def repo-root
+  (let [{:keys [exit out]} (run {} "jj" "root")]
+    (if (zero? exit) (str/trim out)
+        (die "jj リポジトリ内で実行してください (jj root 失敗)"))))
+
+(def state-dir
+  (let [d (fs/path (System/getProperty "user.home") ".local" "share"
+                   "hunk-review" (str (fs/file-name repo-root)))]
+    (fs/create-dirs d)
+    (str d)))
+(def target-file (str (fs/path state-dir "target")))
+(def default-backup-dir (str (fs/path state-dir "comments")))
+
+(defn get-target []
+  (when (fs/exists? target-file) (str/trim (slurp target-file))))
+
+(defn require-target []
+  (or (get-target)
+      (die "レビュー対象が未設定です。先に: hr target <bookmark|revset>")))
+
+(defn jj-stack
+  "trunk()..target を base→tip 順の [[changeid commit desc] ...] で返す"
+  [target]
+  (let [tmpl (str "change_id.shortest(8) ++ \"\\t\" "
+                  "++ commit_id.shortest(12) ++ \"\\t\" "
+                  "++ description.first_line() ++ \"\\n\"")
+        {:keys [exit out err]} (run {} "jj" "log" "--no-graph" "--color" "never"
+                                    "-r" (str "trunk().." target) "-T" tmpl)]
+    (when-not (zero? exit) (die (str "jj log 失敗: " (str/trim err))))
+    (->> (str/split-lines out)
+         (remove str/blank?)
+         (map #(str/split % #"\t" 3))
+         reverse
+         vec)))
+
+(defn hunk-json [& args]
+  (let [{:keys [exit out err]} (apply run {} "hunk" "session" (conj (vec args) "--json"))]
+    (when-not (zero? exit)
+      (die (str "hunk 失敗 (" (str/join " " args) "): " (str/trim err)
+                "\nHunk セッションが起動しているか確認してください (別ターミナルで hunk diff など)")))
+    (json/parse-string out true)))
+
+(defn reload! [rev]
+  (let [{:keys [exit err]} (run {} "hunk" "session" "reload" "--repo" repo-root "--" "show" rev)]
+    (when-not (zero? exit) (die (str "reload 失敗 (" rev "): " (str/trim err))))))
+
+(defn comments-now []
+  (:comments (hunk-json "comment" "list" "--repo" repo-root)))
+
+(defn current-rev []
+  (let [{:keys [exit out]} (run {} "hunk" "session" "get" "--repo" repo-root "--json")]
+    (when (zero? exit)
+      (some-> (:title (json/parse-string out true))
+              str/trim (str/split #"\s+") last))))
+
+;; ---- subcommands ----
+
+(defn cmd-target [v]
+  (if v
+    (do (spit target-file v) (println (str "target = " v)))
+    (println (str "target = " (or (get-target) "(未設定)")))))
+
+(defn cmd-list []
+  (let [t (require-target)
+        rows (jj-stack t)]
+    (println (str "stack: trunk().." t "  (" (count rows) " revisions, base→tip)"))
+    (doseq [[i [cid commit desc]] (map-indexed vector rows)]
+      (printf "%2d  %-8s  %-12s  %s\n" (inc i) cid commit desc))
+    (flush)))
+
+(defn cmd-switch [arg]
+  (let [rev (if (re-matches #"\d+" arg)
+              (let [rows (jj-stack (require-target))]
+                (or (first (nth rows (dec (parse-long arg)) nil))
+                    (die (str "範囲外のインデックス: " arg " (hr list で確認)"))))
+              arg)]
+    (reload! rev)
+    (println (str "→ " rev "  (" (count (comments-now)) " comments visible)"))))
+
+(defn cmd-nav [dir]
+  (let [{:keys [exit out err]} (run {} "hunk" "session" "navigate" "--repo" repo-root
+                                    (str "--" dir "-comment"))]
+    (if (zero? exit) (print out) (die (str "navigate 失敗: " (str/trim err))))
+    (flush)))
+
+(defn cmd-backup [dir]
+  (let [t (require-target)
+        rows (jj-stack t)
+        dir (or dir default-backup-dir)
+        start (current-rev)]
+    (fs/create-dirs dir)
+    (doseq [[cid _ _] rows]
+      (reload! cid)
+      (let [prefix (str "[" cid "]")
+            mine (filter #(str/starts-with? (str (:summary %)) prefix) (comments-now))
+            items (map (fn [c]
+                         (cond-> {:filePath (:filePath c) :summary (:summary c)}
+                           (:author c) (assoc :author (:author c))
+                           true (assoc (if (= (:side c) "old") :oldLine :newLine) (:line c))))
+                       mine)]
+        (spit (str (fs/path dir (str cid ".json")))
+              (json/generate-string {:comments items} {:pretty true}))
+        (printf "%-8s  %d comments\n" cid (count mine))))
+    (when start (reload! start))
+    (flush)
+    (println (str "backup → " dir))))
+
+(defn cmd-restore [dir]
+  (let [dir (or dir default-backup-dir)
+        files (sort (map str (fs/glob dir "*.json")))]
+    (when (empty? files) (die (str "バックアップが見つかりません: " dir)))
+    ;; 既存コメントを一旦消してから復元（重複防止・冪等）
+    (run {} "hunk" "session" "comment" "clear" "--repo" repo-root "--yes")
+    (doseq [f files]
+      (let [cid (str/replace (str (fs/file-name f)) #"\.json$" "")
+            payload (slurp f)
+            n (count (:comments (json/parse-string payload true)))]
+        (when (pos? n)
+          (reload! cid)
+          (let [{:keys [exit err]} (run {:in payload}
+                                        "hunk" "session" "comment" "apply" "--repo" repo-root "--stdin")]
+            (when-not (zero? exit) (die (str "apply 失敗 (" cid "): " (str/trim err))))))
+        (printf "%-8s  %d comments\n" cid n)))
+    (flush)
+    (println (str "restored ← " dir))))
+
+(defn usage []
+  (println (str/trim "
+hr — hunk + jj リビジョンレビュー補助
+
+  hr target <bookmark|revset>  レビュー対象スタックを記憶 (trunk()..<target> を使う)
+  hr target                    現在の target を表示
+  hr list                      スタックを index/changeid/commit/要約で一覧 (base→tip)
+  hr <n>                       n 番目のリビジョンへ Hunk を切替 (hr list の番号)
+  hr <changeid|revset>         指定リビジョンへ切替
+  hr next | hr prev            ロード中 diff のコメント付き hunk 間を移動
+  hr backup [dir]              全リビジョンのコメントを退避 (混入は [changeid] で自動除去)
+  hr restore [dir]             退避先から復元 (先に clear するので冪等)
+
+  既定の保存先: ~/.local/share/hunk-review/<repo>/comments/
+  前提: 対象 repo で Hunk セッションが起動していること。")))
+
+(let [[cmd & args] *command-line-args*]
+  (case cmd
+    "target"  (cmd-target (first args))
+    "list"    (cmd-list)
+    "next"    (cmd-nav "next")
+    "prev"    (cmd-nav "prev")
+    "backup"  (cmd-backup (first args))
+    "restore" (cmd-restore (first args))
+    (nil "help" "-h" "--help") (usage)
+    (cmd-switch cmd)))
