@@ -285,6 +285,7 @@ in
   catppuccin = {
     flavor = "frappe";
     enable = true;
+    autoEnable = true;
     nvim.enable = false;
   };
 
