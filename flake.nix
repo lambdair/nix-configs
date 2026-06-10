@@ -123,7 +123,6 @@
                   inputs.emacs-overlay.overlay
                   inputs.claude-code-nix.overlays.default
                   (import ./overlays/uiua386-fix-monospace.nix)
-                  (import ./overlays/emacs-objc-std.nix)
                   (import ./overlays/pin-broken-pkg.nix inputs)
                 ];
               };
