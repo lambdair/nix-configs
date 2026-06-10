@@ -74,6 +74,10 @@ fetch.git = "https://git.sr.ht/~lambdair/lean-unicode.hx"
 src.git = "https://github.com/yoshiko-pg/difit"
 fetch.github = "yoshiko-pg/difit"
 
+[elio]
+src.github = "elio-fm/elio"
+fetch.github = "elio-fm/elio"
+
 [tolaria]
 src.cmd = "curl -fsSL https://github.com/refactoringhq/tolaria/releases/latest/download/stable-latest.json | jq -r .version"
 fetch.url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_$ver_amd64.AppImage"

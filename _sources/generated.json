@@ -104,6 +104,27 @@
         },
         "version": "cab7803c4f0adc7fff9da6680f90110674bb7a22"
     },
+    "elio": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "elio",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "elio-fm",
+            "repo": "elio",
+            "rev": "v1.8.0",
+            "sha256": "sha256-r7/LT0wGs8G9UN7H89WBBYGdKhCU6FXJx+UXNWfIZDc=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v1.8.0"
+    },
     "helix-steel": {
         "cargoLock": null,
         "date": "2026-05-21",

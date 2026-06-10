@@ -66,6 +66,17 @@
     };
     date = "2025-07-16";
   };
+  elio = {
+    pname = "elio";
+    version = "v1.8.0";
+    src = fetchFromGitHub {
+      owner = "elio-fm";
+      repo = "elio";
+      rev = "v1.8.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-r7/LT0wGs8G9UN7H89WBBYGdKhCU6FXJx+UXNWfIZDc=";
+    };
+  };
   helix-steel = {
     pname = "helix-steel";
     version = "4d86612df48447088ef4190bf503fd54a7562aa9";
