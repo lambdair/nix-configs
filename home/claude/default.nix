@@ -99,7 +99,9 @@ in
       ];
       enabledPlugins = {
         "superpowers@superpowers-dev" = true;
-        "claude-mem@thedotmack" = true;
+        # 無効化: ~/.claude に残った旧 v10.0.4 の hook が nix の v13.5.2 worker と
+        # 噛み合わず UserPromptSubmit を 7 回連続でブロックするため。
+        "claude-mem@thedotmack" = false;
         "heptabase@heptabase-cli-skills" = true;
       };
       statusLine = {
