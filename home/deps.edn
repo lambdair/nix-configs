@@ -2,6 +2,7 @@
  {djblue/portal                      {:mvn/version "0.62.2"}
   io.github.paintparty/bling         {:mvn/version "0.9.2"}
   io.github.paintparty/fireworks     {:mvn/version "0.19.0"}
+  io.github.tonsky/clj-reload        {:mvn/version "1.0.0"}
   me.flowthing/pp                    {:mvn/version "2026-03-01.107"}}
 
  :aliases
