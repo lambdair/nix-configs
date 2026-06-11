@@ -3,3 +3,9 @@ result
 # devenv
 .devenv*
 devenv.local.nix
+
+# clojure tool caches
+home/.clj-kondo/.cache/
+home/.clj-kondo/imports/
+home/.cpcache/
+home/.lsp/.cache/
