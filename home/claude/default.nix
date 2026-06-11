@@ -207,6 +207,8 @@ in
     executable = true;
   };
 
+  home.file.".claude/skills/create-pr/SKILL.md".source = ./skills/create-pr/SKILL.md;
+
   # Claude セッションが known_marketplaces.json を書き換えるため、activation 時の
   # 衝突を強制上書きで回避する（source は claude-code モジュールが管理）
   home.file."${config.home.homeDirectory}/.claude/plugins/known_marketplaces.json".force = true;
