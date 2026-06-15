@@ -444,7 +444,7 @@ in
     lua = ''''
     exec_shell("JJ_MEGAMERGE_FETCH=0 jj-megamerge-rebuild")
     ''''
-    key = "M"
+    key = "m"
     scope = "revisions"
 
     # 注: spec では Shift-F だったが jjui の key 表記は単一文字。デフォルトと衝突しない F を採用。
