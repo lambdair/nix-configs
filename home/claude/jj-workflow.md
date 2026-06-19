@@ -8,14 +8,16 @@ jj squash                    # 現在の変更を親に統合
 jj squash -r REV             # 指定リビジョンを親に統合
 jj squash --into REV         # 指定リビジョンに統合
 jj squash -i                 # インタラクティブに部分統合
+jj squash -u --into REV      # 統合先の説明を維持（--use-destination-message）
 ```
-**使い分け**: WIP コミットの整理、細かすぎるリビジョンの統合に使用。
+**使い分け**: WIP コミットの整理、細かすぎるリビジョンの統合に使用。fixup 的に既存リビジョンへ取り込むときは `-u` で統合先のメッセージを保つ。
 
 ### split — リビジョンの分割
 ```bash
 jj split                     # 現在のリビジョンをインタラクティブに分割
 jj split -r REV              # 指定リビジョンを分割
 jj split PATH                # 指定パスのファイルで分割
+jj split -p                  # 親子ではなく兄弟（並行）の2リビジョンに分割
 ```
 **使い分け**: 一つのリビジョンに複数の論理変更が入っている場合に使用。レビュー前に積極的に使うこと。
 
@@ -33,6 +35,7 @@ jj rebase -b REV -d DEST       # ブランチ全体を移動
 jj rebase -r REV -A AFTER      # AFTER の後に挿入（--insert-after）
 jj rebase -r REV -B BEFORE     # BEFORE の前に挿入（--insert-before）
 ```
+**注**: 0.42 では宛先指定の正式名は `-o/--onto`（`-d/--destination` はエイリアスとして有効）。
 
 ### describe — メッセージ編集
 ```bash
@@ -118,6 +121,24 @@ jj log                         # コンフリクトのあるリビジョンに �
 jj edit REV                    # コンフリクトリビジョンに移動
 # 解消してから次のリビジョンへ
 ```
+
+## Operation Log（操作履歴・undo / 復元）
+
+jj は全操作を operation log に記録する。誤操作はコマンド単位で巻き戻せるので、迷ったら破壊的修正の前後に確認する。
+
+```bash
+jj op log                      # 操作履歴を表示
+jj undo                        # 直前の操作を取り消す
+jj op restore <OP_ID>          # 指定した操作時点のリポジトリ状態に戻す
+jj op show <OP_ID>             # ある操作が行った変更を確認
+jj op diff --op <OP_ID>        # 操作前後の差分
+jj evolog                      # 単一 change が辿った変遷（説明・内容の履歴）
+```
+
+**使い分け**:
+- 直前操作の取り消しは `jj undo`。複数操作をまとめて戻すなら `jj op restore <OP_ID>`。
+- 「リビジョンを壊した／変更を失ったかも」というときは `jj evolog` で change の過去状態を確認し、そこから復元する。
+- `jj undo` 自体も操作として記録されるため、`jj redo` でやり直せる。
 
 ## Common Mistakes and Avoidance
 

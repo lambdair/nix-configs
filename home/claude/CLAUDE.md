@@ -39,7 +39,10 @@ Reference: https://github.com/jj-vcs/jj
 | `git checkout -b` | `jj new -m "msg"` then `jj bookmark create` | |
 | `git branch` | `jj bookmark list` | |
 | `git cherry-pick` | `jj new REV` or `jj rebase` | |
+| `git revert` | `jj revert -r REV -A @` | Apply reverse as a new commit |
 | N/A | `jj absorb` | Auto-distribute fixups to relevant revisions |
+| N/A | `jj undo` / `jj op restore <OP>` | Undo last operation / restore to an operation |
+| N/A | `jj evolog` | History of how a single change evolved |
 
 ### Revset Quick Reference
 
