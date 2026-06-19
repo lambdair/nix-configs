@@ -16,7 +16,6 @@ Reference: https://github.com/jj-vcs/jj
 
 ### Core Rules
 
-- **Never run `jj git push` without explicit user permission.** Always ask before pushing.
 - **リビジョン規律**: ファイル編集前に `jj diff --stat` で現在のリビジョンの状態を確認し、無関係な変更を混入させないこと。1リビジョン = 1論理変更。レビュアビリティを最優先で分割する。変更が概ね150行を超える場合は意味のある単位での分割を検討する。詳細は `~/.claude/rules/revision-discipline.md` 参照。
 - 修正を行う際は、明確な指示がない限り `jj edit` で過去のリビジョンを編集する形で行う。ただし、構造が大きく変わる場合は実行前に確認を取ること。
 - **push済みリビジョンの保護**: `jj log` で対象リビジョンが push 済みか確認し、push 済みかつ人間のレビュアーがいる場合は `jj edit` ではなく `jj new` で新しいリビジョンを作成して修正する。bot（copilot, devin 等）のみがレビュアーの場合は force push してよい。
@@ -35,7 +34,7 @@ Reference: https://github.com/jj-vcs/jj
 | `git rebase -i` (squash) | `jj squash` | Squash into parent |
 | `git rebase --onto` | `jj rebase -r REV -d DEST` | Move revisions |
 | `git stash` | `jj new` | Just start a new revision |
-| `git push` | `jj git push` | **Always ask first** |
+| `git push` | `jj git push` | |
 | `git pull` | `jj git fetch && jj rebase -d main@origin` | |
 | `git checkout -b` | `jj new -m "msg"` then `jj bookmark create` | |
 | `git branch` | `jj bookmark list` | |

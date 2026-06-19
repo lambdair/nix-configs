@@ -121,20 +121,17 @@ jj edit REV                    # コンフリクトリビジョンに移動
 
 ## Common Mistakes and Avoidance
 
-### 1. `jj git push` を確認なしで実行しない
-常にユーザーの明示的な許可を得ること。
-
-### 2. 空リビジョンの放置
+### 1. 空リビジョンの放置
 `jj new` で作った空リビジョンが溜まりがち。`jj abandon` で整理する。
 ```bash
 jj abandon REV                 # 不要なリビジョンを削除
 ```
 
-### 3. Working copy の変更を意図せず失う
+### 2. Working copy の変更を意図せず失う
 `jj edit` で別リビジョンに移動すると、現在の WC 変更はそのリビジョンに残る。
 移動前に `jj status` で確認すること。
 
-### 4. bookmark の付け忘れ
+### 3. bookmark の付け忘れ
 push する前に bookmark を設定する必要がある。
 ```bash
 jj bookmark create BRANCH -r REV   # ブックマーク作成
@@ -146,7 +143,7 @@ jj bookmark list                    # 一覧確認
 
 ```bash
 jj git fetch                       # リモートから取得
-jj git push                        # push（要確認）
+jj git push                        # push
 jj git push -b BOOKMARK            # 特定ブックマークのみ push
 jj git push --change REV           # リビジョンから自動的にブックマーク作成して push
 ```

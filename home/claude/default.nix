@@ -59,9 +59,11 @@ in
         "Bash(jj bookmark *)"
         "Bash(jj workspace *)"
 
-        # jj: allow git fetch only (push excluded)
+        # jj: git fetch / push
         "Bash(jj git fetch)"
         "Bash(jj git fetch *)"
+        "Bash(jj git push)"
+        "Bash(jj git push *)"
 
         # nix
         "Bash(nix *)"
