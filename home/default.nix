@@ -438,6 +438,21 @@ in
     key = "H"
     scope = "revisions"
 
+    # 選択リビジョンを difit (ブラウザ) で開いてレビューする。
+    [[actions]]
+    name = "difit-review"
+    desc = "review revision in difit"
+    lua = ''''
+    local commit_id = context.commit_id()
+    if not commit_id or commit_id == "" then
+      flash({ text = "No revision selected", error = true })
+      return
+    end
+    exec_shell(string.format("difit %q", commit_id))
+    ''''
+    key = "V"
+    scope = "revisions"
+
     [[actions]]
     name = "megamerge-rebuild"
     desc = "rebuild megamerge (no fetch)"
