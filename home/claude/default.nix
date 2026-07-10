@@ -111,6 +111,8 @@ in
         command = "bb ${config.home.homeDirectory}/.claude/statusline-command.bb";
       };
       alwaysThinkingEnabled = true;
+      tui = "fullscreen";
+      advisorModel = "fable";
 
       hooks = {
         PreToolUse = [
@@ -211,9 +213,10 @@ in
 
   home.file.".claude/skills/create-pr/SKILL.md".source = ./skills/create-pr/SKILL.md;
 
-  # Claude セッションが known_marketplaces.json を書き換えるため、activation 時の
-  # 衝突を強制上書きで回避する（source は claude-code モジュールが管理）
+  # Claude セッションが known_marketplaces.json と settings.json を書き換えるため、
+  # activation 時の衝突を強制上書きで回避する（source は claude-code モジュールが管理）
   home.file."${config.home.homeDirectory}/.claude/plugins/known_marketplaces.json".force = true;
+  home.file."${config.home.homeDirectory}/.claude/settings.json".force = true;
 
   # macOS only: symlink shared settings for secondary account
   home.file.".claude-personal/settings.json" = lib.mkIf pkgs.stdenv.isDarwin (link "settings.json");
