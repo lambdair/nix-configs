@@ -49,20 +49,19 @@ let
 
   grammarExt = if pkgs.stdenv.isDarwin then "dylib" else "so";
 
+  # Grammars from helix-steel's own languages.toml pins, kept in lockstep with its
+  # runtime queries (a revision skew silently breaks highlighting). grammars.nix
+  # emits the platform-correct extension (.dylib on macOS, .so on Linux).
+  helix-steel-grammars = pkgs.callPackage "${sources.helix-steel.src}/grammars.nix" { };
+
   helix-runtime = pkgs.runCommand "helix-steel-runtime" { } ''
     mkdir -p $out
     cp -r --no-preserve=mode ${helix-steel-unwrapped}/lib/helix/runtime/* $out/
-    # nixpkgs pre-compiled grammars (writable dir for uiua addition)
+    # grammars built from helix-steel's pins (writable dir for uiua addition)
     rm -rf $out/grammars
     mkdir -p $out/grammars
-    cp -r --no-preserve=mode ${pkgs.helix.passthru.runtime}/grammars/* $out/grammars/
-    # helix master expects .dylib on macOS, but nixpkgs grammars are .so
-    ${pkgs.lib.optionalString pkgs.stdenv.isDarwin ''
-      for f in $out/grammars/*.so; do
-        mv "$f" "''${f%.so}.dylib"
-      done
-    ''}
-    # uiua tree-sitter grammar (not in nixpkgs helix runtime)
+    cp -rL --no-preserve=mode ${helix-steel-grammars}/* $out/grammars/
+    # uiua tree-sitter grammar (not in helix-steel languages.toml)
     mkdir -p $out/queries/uiua
     cp -r ${pkgs.tree-sitter-grammars.tree-sitter-uiua}/queries/* $out/queries/uiua/
     ln -s ${pkgs.tree-sitter-grammars.tree-sitter-uiua}/parser $out/grammars/uiua.${grammarExt}
