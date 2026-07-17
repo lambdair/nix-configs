@@ -14,6 +14,15 @@
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
+  # base.nix's gc settings are NixOS-only, so darwin needs its own. nix-darwin
+  # refuses `nix.settings.auto-optimise-store` (it can corrupt the store), so
+  # dedup runs via periodic `nix.optimise`. Both default to weekly.
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 7d";
+  };
+  nix.optimise.automatic = true;
+
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true; # default shell on catalina
   programs.zsh.enableGlobalCompInit = false;
