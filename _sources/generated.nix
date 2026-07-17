@@ -293,10 +293,10 @@
   };
   zmk-battery-center-mac = {
     pname = "zmk-battery-center-mac";
-    version = "0.10.0";
+    version = "0.10.1";
     src = fetchurl {
-      url = "https://github.com/kot149/zmk-battery-center/releases/download/v0.10.0/zmk-battery-center_aarch64.app.tar.gz";
-      sha256 = "sha256-ORYU6KUgi57I7FHNolSa8yhs00FfRK35V68gy+VZ/iU=";
+      url = "https://github.com/kot149/zmk-battery-center/releases/download/v0.10.1/zmk-battery-center_0.10.1_aarch64.app.tar.gz";
+      sha256 = "sha256-GkMl10RIQojNBBXlqfsnh9h/2iV3VkRZtoNf/h+afj0=";
     };
   };
 }

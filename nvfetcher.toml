@@ -90,7 +90,7 @@ fetch.url = "https://github.com/kot149/zmk-battery-center/releases/download/v$ve
 [zmk-battery-center-mac]
 src.github_tag = "kot149/zmk-battery-center"
 src.prefix = "v"
-fetch.url = "https://github.com/kot149/zmk-battery-center/releases/download/v$ver/zmk-battery-center_aarch64.app.tar.gz"
+fetch.url = "https://github.com/kot149/zmk-battery-center/releases/download/v$ver/zmk-battery-center_$ver_aarch64.app.tar.gz"
 
 # claude-code plugin marketplaces
 [claude-mem]
