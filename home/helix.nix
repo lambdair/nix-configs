@@ -60,6 +60,12 @@
       language-server.typos-lsp = {
         command = "typos-lsp";
       };
+      # The toolchain's LSP binary is `moon-lsp`, not the `moonbit-lsp` name
+      # upstream helix's default config expects.
+      language-server.moonbit-lsp = {
+        command = "moon-lsp";
+        args = [ "--stdio" ];
+      };
 
       language = [
         {
@@ -109,6 +115,35 @@
             "\"" = "\"";
             "⟨" = "⟩";
           };
+        }
+        {
+          name = "moonbit";
+          scope = "source.moonbit";
+          injection-regex = "moonbit|mbt";
+          file-types = [
+            "mbt"
+            "mbti"
+          ];
+          # `moon new` generates `moon.mod`, but upstream helix lists only
+          # `moon.mod.json`, so without the former it finds no root.
+          roots = [
+            "moon.mod"
+            "moon.mod.json"
+          ];
+          comment-tokens = [
+            "//"
+            "///"
+          ];
+          block-comment-tokens = {
+            start = "/*";
+            end = "*/";
+          };
+          indent = {
+            tab-width = 2;
+            unit = "  ";
+          };
+          language-servers = [ "moonbit-lsp" ];
+          auto-format = true;
         }
         {
           name = "jsx";

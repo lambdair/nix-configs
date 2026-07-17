@@ -56,6 +56,15 @@ src.git = "https://github.com/mattwparas/helix"
 src.branch = "steel-event-system"
 fetch.github = "mattwparas/helix"
 
+# Upstream helix, tracked only for languages that helix-steel's fork predates
+# (currently moonbit). Both the tree-sitter grammar and the queries are taken
+# from this single pin so they can never drift out of sync with each other.
+# Removable once helix-steel's fork ships moonbit itself.
+[helix-mainline]
+src.git = "https://github.com/helix-editor/helix"
+src.branch = "master"
+fetch.github = "helix-editor/helix"
+
 [steel]
 src.git = "https://github.com/mattwparas/steel"
 fetch.github = "mattwparas/steel"

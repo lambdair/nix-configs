@@ -125,6 +125,27 @@
         },
         "version": "v1.10.0"
     },
+    "helix-mainline": {
+        "cargoLock": null,
+        "date": "2026-07-17",
+        "extract": null,
+        "name": "helix-mainline",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "helix-editor",
+            "repo": "helix",
+            "rev": "f6f3eb1fe4a73933466f30175843059a4381a985",
+            "sha256": "sha256-yfNBfV6HWAQU/xZXwrFoedsSYsDmCDIlTHRxAZI6teY=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "f6f3eb1fe4a73933466f30175843059a4381a985"
+    },
     "helix-steel": {
         "cargoLock": null,
         "date": "2026-06-21",

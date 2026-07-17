@@ -77,6 +77,18 @@
       sha256 = "sha256-/Y9KtGoqD78QHmUtAooQmmI7ZTOSNY7DdrhHYVFMj5E=";
     };
   };
+  helix-mainline = {
+    pname = "helix-mainline";
+    version = "f6f3eb1fe4a73933466f30175843059a4381a985";
+    src = fetchFromGitHub {
+      owner = "helix-editor";
+      repo = "helix";
+      rev = "f6f3eb1fe4a73933466f30175843059a4381a985";
+      fetchSubmodules = false;
+      sha256 = "sha256-yfNBfV6HWAQU/xZXwrFoedsSYsDmCDIlTHRxAZI6teY=";
+    };
+    date = "2026-07-17";
+  };
   helix-steel = {
     pname = "helix-steel";
     version = "0522d519fd5227f77ecef387a87e51b732907562";

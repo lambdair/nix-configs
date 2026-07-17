@@ -54,6 +54,15 @@ let
   # emits the platform-correct extension (.dylib on macOS, .so on Linux).
   helix-steel-grammars = pkgs.callPackage "${sources.helix-steel.src}/grammars.nix" { };
 
+  # helix-steel's fork predates upstream moonbit support, so its languages.toml
+  # has neither grammar nor queries. Build the moonbit grammar from upstream
+  # helix's grammars.nix, which pins the tree-sitter revision its queries expect;
+  # taking both from one pin keeps them in lockstep (a skew silently breaks
+  # highlighting).
+  helix-moonbit-grammars = pkgs.callPackage "${sources.helix-mainline.src}/grammars.nix" {
+    includeGrammarIf = grammar: grammar.name == "moonbit";
+  };
+
   helix-runtime = pkgs.runCommand "helix-steel-runtime" { } ''
     mkdir -p $out
     cp -r --no-preserve=mode ${helix-steel-unwrapped}/lib/helix/runtime/* $out/
@@ -65,6 +74,10 @@ let
     mkdir -p $out/queries/uiua
     cp -r ${pkgs.tree-sitter-grammars.tree-sitter-uiua}/queries/* $out/queries/uiua/
     ln -s ${pkgs.tree-sitter-grammars.tree-sitter-uiua}/parser $out/grammars/uiua.${grammarExt}
+    # moonbit grammar + queries from upstream helix (not in helix-steel)
+    mkdir -p $out/queries/moonbit
+    cp -r ${sources.helix-mainline.src}/runtime/queries/moonbit/* $out/queries/moonbit/
+    ln -s ${helix-moonbit-grammars}/moonbit.${grammarExt} $out/grammars/moonbit.${grammarExt}
   '';
 
   helix-steel = pkgs.symlinkJoin {
