@@ -33,9 +33,12 @@
       url = "github:sadjow/claude-code-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Deliberately not following nixpkgs: nixpkgs 26.11 dropped x86_64-darwin,
+    # but hunk takes its systems from nix-systems/default, which still lists it.
+    # Evaluating hunkdiff forces that system's flake-parts outputs, so following
+    # our nixpkgs makes it throw even on aarch64-darwin.
     hunk = {
       url = "github:modem-dev/hunk";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     private = {
       url = "git+ssh://git@git.sr.ht/~lambdair/nix-private";
