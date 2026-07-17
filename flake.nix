@@ -19,6 +19,10 @@
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
     };
+    moonbit-overlay = {
+      url = "github:moonbit-community/moonbit-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixvim = {
       url = "github:nix-community/nixvim";
     };
@@ -94,6 +98,7 @@
                 inputs.rust-overlay.overlays.default
                 inputs.emacs-overlay.overlay
                 inputs.claude-code-nix.overlays.default
+                inputs.moonbit-overlay.overlays.default
                 (import ./overlays/pin-broken-pkg.nix inputs)
               ];
             };
@@ -122,6 +127,7 @@
                   inputs.rust-overlay.overlays.default
                   inputs.emacs-overlay.overlay
                   inputs.claude-code-nix.overlays.default
+                  inputs.moonbit-overlay.overlays.default
                   (import ./overlays/uiua386-fix-monospace.nix)
                   (import ./overlays/pin-broken-pkg.nix inputs)
                 ];
