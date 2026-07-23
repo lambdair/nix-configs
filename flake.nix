@@ -57,6 +57,22 @@
         "aarch64-darwin"
       ];
       forAllSystems = inputs.nixpkgs.lib.genAttrs systems;
+      darwinPkgs = import inputs.nixpkgs {
+        system = "aarch64-darwin";
+        config.allowUnfree = true;
+        config.allowUnsupportedSystem = true;
+        overlays = [
+          inputs.rust-overlay.overlays.default
+          inputs.emacs-overlay.overlay
+          inputs.claude-code-nix.overlays.default
+          inputs.moonbit-overlay.overlays.default
+          (import ./overlays/uiua386-fix-monospace.nix)
+          (import ./overlays/pin-broken-pkg.nix inputs)
+        ];
+      };
+      sourcesFor =
+        system: inputs.nixpkgs.legacyPackages.${system}.callPackage ./_sources/generated.nix { };
+      darwinSources = sourcesFor "aarch64-darwin";
     in
     {
       nixosConfigurations = {
@@ -90,7 +106,7 @@
       homeConfigurations =
         let
           system = "x86_64-linux";
-          sources = inputs.nixpkgs.legacyPackages.${system}.callPackage ./_sources/generated.nix { };
+          sources = sourcesFor system;
         in
         {
           NixHome = inputs.home-manager.lib.homeManagerConfiguration {
@@ -115,38 +131,20 @@
               inputs.nixvim.homeModules.nixvim
             ];
           };
-          MacHome =
-            let
-              macSources =
-                inputs.nixpkgs.legacyPackages."aarch64-darwin".callPackage ./_sources/generated.nix
-                  { };
-            in
-            inputs.home-manager.lib.homeManagerConfiguration {
-              pkgs = import inputs.nixpkgs {
-                system = "aarch64-darwin";
-                config.allowUnfree = true;
-                config.allowUnsupportedSystem = true;
-                overlays = [
-                  inputs.rust-overlay.overlays.default
-                  inputs.emacs-overlay.overlay
-                  inputs.claude-code-nix.overlays.default
-                  inputs.moonbit-overlay.overlays.default
-                  (import ./overlays/uiua386-fix-monospace.nix)
-                  (import ./overlays/pin-broken-pkg.nix inputs)
-                ];
-              };
-              extraSpecialArgs = {
-                inherit inputs;
-                sources = macSources;
-              };
-              modules = [
-                ./home
-                ./home/mac
-                inputs.catppuccin.homeModules.catppuccin
-                inputs.nixvim.homeModules.nixvim
-                inputs.private.homeModules.mac
-              ];
+          MacHome = inputs.home-manager.lib.homeManagerConfiguration {
+            pkgs = darwinPkgs;
+            extraSpecialArgs = {
+              inherit inputs;
+              sources = darwinSources;
             };
+            modules = [
+              ./home
+              ./home/mac
+              inputs.catppuccin.homeModules.catppuccin
+              inputs.nixvim.homeModules.nixvim
+              inputs.private.homeModules.mac
+            ];
+          };
         };
 
       devShells = forAllSystems (
