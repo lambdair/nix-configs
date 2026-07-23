@@ -1,7 +1,7 @@
 {
     "agent-toolkit-for-aws": {
         "cargoLock": null,
-        "date": "2026-07-21",
+        "date": "2026-07-23",
         "extract": null,
         "name": "agent-toolkit-for-aws",
         "passthru": null,
@@ -13,12 +13,12 @@
             "name": null,
             "owner": "aws",
             "repo": "agent-toolkit-for-aws",
-            "rev": "fae975d565b6c1752e3f4795c499fb3951039777",
-            "sha256": "sha256-uTYQuH/z4Kf1jYKmMwUAhr2zs+WTIMSdd1WaYEuFC6o=",
+            "rev": "5c779cf1fd4f26fd7ae88e0598494e6a3c2adc35",
+            "sha256": "sha256-f1nwRe9brcz6SH+IollPpf+woSg/0pWAk637xV+ttRQ=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "fae975d565b6c1752e3f4795c499fb3951039777"
+        "version": "5c779cf1fd4f26fd7ae88e0598494e6a3c2adc35"
     },
     "budget_tracker_tui": {
         "cargoLock": null,
@@ -43,7 +43,7 @@
     },
     "claude-mem": {
         "cargoLock": null,
-        "date": "2026-07-22",
+        "date": "2026-07-23",
         "extract": null,
         "name": "claude-mem",
         "passthru": null,
@@ -55,12 +55,12 @@
             "name": null,
             "owner": "thedotmack",
             "repo": "claude-mem",
-            "rev": "0280d9d85c522140e4f8cbbebea1365ee326244b",
-            "sha256": "sha256-ufLZj1HuvrmGCVf2b79sEOqInFRDtk+7uOHGRurI/F8=",
+            "rev": "c9b46df8bb10c36ef4cefe16948e559bc1800896",
+            "sha256": "sha256-8qHJP3sgJnljA5mGLkZDZZJrLIfarBbJsVAu3DlNxcc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "0280d9d85c522140e4f8cbbebea1365ee326244b"
+        "version": "c9b46df8bb10c36ef4cefe16948e559bc1800896"
     },
     "difit": {
         "cargoLock": null,
@@ -391,7 +391,7 @@
     },
     "sulafat": {
         "cargoLock": null,
-        "date": "2026-07-22",
+        "date": "2026-07-23",
         "extract": null,
         "name": "sulafat",
         "passthru": null,
@@ -401,13 +401,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "d7372b30f4de06a91d17b597143fd18fd4916290",
-            "sha256": "sha256-XmQuhex7lDaqCExFlkLC5k5vPHd3LOTsTRt1WQFxYA0=",
+            "rev": "709766eed522ab73c6b48ccac3a66ddeeca9e513",
+            "sha256": "sha256-BVpZUJ7nnUNaFccKIHM8h42eIR0qRMiOUZ7RBTHT4iI=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://git.sr.ht/~lambdair/sulafat"
         },
-        "version": "d7372b30f4de06a91d17b597143fd18fd4916290"
+        "version": "709766eed522ab73c6b48ccac3a66ddeeca9e513"
     },
     "superpowers": {
         "cargoLock": null,

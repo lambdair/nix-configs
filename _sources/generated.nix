@@ -8,15 +8,15 @@
 {
   agent-toolkit-for-aws = {
     pname = "agent-toolkit-for-aws";
-    version = "fae975d565b6c1752e3f4795c499fb3951039777";
+    version = "5c779cf1fd4f26fd7ae88e0598494e6a3c2adc35";
     src = fetchFromGitHub {
       owner = "aws";
       repo = "agent-toolkit-for-aws";
-      rev = "fae975d565b6c1752e3f4795c499fb3951039777";
+      rev = "5c779cf1fd4f26fd7ae88e0598494e6a3c2adc35";
       fetchSubmodules = false;
-      sha256 = "sha256-uTYQuH/z4Kf1jYKmMwUAhr2zs+WTIMSdd1WaYEuFC6o=";
+      sha256 = "sha256-f1nwRe9brcz6SH+IollPpf+woSg/0pWAk637xV+ttRQ=";
     };
-    date = "2026-07-21";
+    date = "2026-07-23";
   };
   budget_tracker_tui = {
     pname = "budget_tracker_tui";
@@ -32,15 +32,15 @@
   };
   claude-mem = {
     pname = "claude-mem";
-    version = "0280d9d85c522140e4f8cbbebea1365ee326244b";
+    version = "c9b46df8bb10c36ef4cefe16948e559bc1800896";
     src = fetchFromGitHub {
       owner = "thedotmack";
       repo = "claude-mem";
-      rev = "0280d9d85c522140e4f8cbbebea1365ee326244b";
+      rev = "c9b46df8bb10c36ef4cefe16948e559bc1800896";
       fetchSubmodules = false;
-      sha256 = "sha256-ufLZj1HuvrmGCVf2b79sEOqInFRDtk+7uOHGRurI/F8=";
+      sha256 = "sha256-8qHJP3sgJnljA5mGLkZDZZJrLIfarBbJsVAu3DlNxcc=";
     };
-    date = "2026-07-22";
+    date = "2026-07-23";
   };
   difit = {
     pname = "difit";
@@ -237,17 +237,17 @@
   };
   sulafat = {
     pname = "sulafat";
-    version = "d7372b30f4de06a91d17b597143fd18fd4916290";
+    version = "709766eed522ab73c6b48ccac3a66ddeeca9e513";
     src = fetchgit {
       url = "https://git.sr.ht/~lambdair/sulafat";
-      rev = "d7372b30f4de06a91d17b597143fd18fd4916290";
+      rev = "709766eed522ab73c6b48ccac3a66ddeeca9e513";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-XmQuhex7lDaqCExFlkLC5k5vPHd3LOTsTRt1WQFxYA0=";
+      sha256 = "sha256-BVpZUJ7nnUNaFccKIHM8h42eIR0qRMiOUZ7RBTHT4iI=";
     };
-    date = "2026-07-22";
+    date = "2026-07-23";
   };
   superpowers = {
     pname = "superpowers";
