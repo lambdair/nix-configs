@@ -1,0 +1,25 @@
+name: mirror
+
+on:
+  push:
+    branches: [master]
+
+# GitHub is the primary; sr.ht is a downstream backup mirror that only ever
+# receives master from here, so the push force-overwrites it.
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Push to sr.ht
+        env:
+          SRHT_SSH_KEY: ${{ secrets.SRHT_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$SRHT_SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan git.sr.ht >> ~/.ssh/known_hosts 2>/dev/null
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519 -o IdentitiesOnly=yes" \
+            git push --force git@git.sr.ht:~lambdair/nix-configs.git HEAD:master
