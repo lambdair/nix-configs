@@ -64,12 +64,11 @@ fmt:
 
 # ── Remotes ──────────────────────────────────────────────────────
 
-# Push master to sr.ht (origin) and the GitHub CI mirror, which triggers the
-# build workflow. Add the mirror once with:
-#   jj git remote add github git@github.com:lambdair/nix-configs.git
+# Push master to GitHub (origin); this triggers the build workflow and, on
+# master updates, the sr.ht mirror. GitHub is primary, so a single push is
+# enough — mirror.yml keeps the sr.ht backup in sync.
 push:
     jj git push -b master
-    jj git push -b master --remote github --allow-new
 
 # ── Cache ────────────────────────────────────────────────────────
 
