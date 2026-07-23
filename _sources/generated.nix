@@ -8,51 +8,51 @@
 {
   agent-toolkit-for-aws = {
     pname = "agent-toolkit-for-aws";
-    version = "de66f53e3c6ba84f5ee62bb260c24b5ace9c2e73";
+    version = "fae975d565b6c1752e3f4795c499fb3951039777";
     src = fetchFromGitHub {
       owner = "aws";
       repo = "agent-toolkit-for-aws";
-      rev = "de66f53e3c6ba84f5ee62bb260c24b5ace9c2e73";
+      rev = "fae975d565b6c1752e3f4795c499fb3951039777";
       fetchSubmodules = false;
-      sha256 = "sha256-1lW8cRuUSIMvTI4VXLDZDiB8R/Ot0S4VovKMFi+QWGw=";
+      sha256 = "sha256-uTYQuH/z4Kf1jYKmMwUAhr2zs+WTIMSdd1WaYEuFC6o=";
     };
-    date = "2026-07-08";
+    date = "2026-07-21";
   };
   budget_tracker_tui = {
     pname = "budget_tracker_tui";
-    version = "fa550f2c26fe8bb1611ef411946842e94b11f0b6";
+    version = "6d3ea0b4a98182ea5b01b50a109a8f4f003135b3";
     src = fetchFromGitHub {
       owner = "Feromond";
       repo = "budget_tracker_tui";
-      rev = "fa550f2c26fe8bb1611ef411946842e94b11f0b6";
+      rev = "6d3ea0b4a98182ea5b01b50a109a8f4f003135b3";
       fetchSubmodules = false;
-      sha256 = "sha256-rVNAYMfTGYRepeNSlm+d/bJq11lRNFZjpoQjQpclSzY=";
+      sha256 = "sha256-Z9ZXm/onOOTPHdyECJ8GpPJdy7qVKJyBN8PsxrdZg7A=";
     };
-    date = "2026-05-29";
+    date = "2026-07-12";
   };
   claude-mem = {
     pname = "claude-mem";
-    version = "312d640b0188753acd92a1a82d95a84d5c7c43db";
+    version = "0280d9d85c522140e4f8cbbebea1365ee326244b";
     src = fetchFromGitHub {
       owner = "thedotmack";
       repo = "claude-mem";
-      rev = "312d640b0188753acd92a1a82d95a84d5c7c43db";
+      rev = "0280d9d85c522140e4f8cbbebea1365ee326244b";
       fetchSubmodules = false;
-      sha256 = "sha256-PSruEaqUkgaKUyY6fExjxh/DUPpaY2k28Di6fAtuJ6g=";
+      sha256 = "sha256-ufLZj1HuvrmGCVf2b79sEOqInFRDtk+7uOHGRurI/F8=";
     };
-    date = "2026-07-06";
+    date = "2026-07-22";
   };
   difit = {
     pname = "difit";
-    version = "9ca858d538926f1ec1692ae34a75e7c27df042a2";
+    version = "46be8dcce205b2b389dff10373811d8e62868ad9";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "9ca858d538926f1ec1692ae34a75e7c27df042a2";
+      rev = "46be8dcce205b2b389dff10373811d8e62868ad9";
       fetchSubmodules = false;
-      sha256 = "sha256-LwqfnZTo4m+B2rpMWY0SEomsVtSuCxqnM24D9bq9j40=";
+      sha256 = "sha256-uX4KeEKBLgXJ5vWpqpZ2PZ1UrtTVfnKZ3GKE+Owm8wc=";
     };
-    date = "2026-07-07";
+    date = "2026-07-11";
   };
   eglot-booster = {
     pname = "eglot-booster";
@@ -68,45 +68,45 @@
   };
   elio = {
     pname = "elio";
-    version = "v1.10.0";
+    version = "v1.11.2";
     src = fetchFromGitHub {
       owner = "elio-fm";
       repo = "elio";
-      rev = "v1.10.0";
+      rev = "v1.11.2";
       fetchSubmodules = false;
-      sha256 = "sha256-/Y9KtGoqD78QHmUtAooQmmI7ZTOSNY7DdrhHYVFMj5E=";
+      sha256 = "sha256-k+88cWiHi1a+f6oulb5MTCnWrJU4vKPEAHBwq5H9bkQ=";
     };
   };
   helix-mainline = {
     pname = "helix-mainline";
-    version = "f6f3eb1fe4a73933466f30175843059a4381a985";
+    version = "a47389402cd337aaff7327e5601b9ea3cd8409f9";
     src = fetchFromGitHub {
       owner = "helix-editor";
       repo = "helix";
-      rev = "f6f3eb1fe4a73933466f30175843059a4381a985";
+      rev = "a47389402cd337aaff7327e5601b9ea3cd8409f9";
       fetchSubmodules = false;
-      sha256 = "sha256-yfNBfV6HWAQU/xZXwrFoedsSYsDmCDIlTHRxAZI6teY=";
+      sha256 = "sha256-9YfoHElY9EZwsSri37dwNPiqHBRV45mWXejMn6JkOoE=";
     };
-    date = "2026-07-17";
+    date = "2026-07-22";
   };
   helix-steel = {
     pname = "helix-steel";
-    version = "0522d519fd5227f77ecef387a87e51b732907562";
+    version = "8d189f46e9c620baa685bdfbe39b7c95928475a0";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "helix";
-      rev = "0522d519fd5227f77ecef387a87e51b732907562";
+      rev = "8d189f46e9c620baa685bdfbe39b7c95928475a0";
       fetchSubmodules = false;
-      sha256 = "sha256-bGfByNnjuzENdvTW97s4UhwglYY7ydBk54gOZmnaM4Q=";
+      sha256 = "sha256-qYR2f+uSUNsJYbbwSo9bCB+LI7n3NzQDCHXJRmHztDg=";
     };
-    date = "2026-06-21";
+    date = "2026-07-18";
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.98.4";
+    version = "1.98.6";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.98.4/Heptabase-1.98.4.AppImage";
-      sha256 = "sha256-ql9q1HayF7NbKjFftRafbLVaN1y3pBwVQk/tArNimhg=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.98.6/Heptabase-1.98.6.AppImage";
+      sha256 = "sha256-bixJ6kgvETfBTU4CxqyUH/swotowfjU8rZBhVWJOMdQ=";
     };
   };
   heptabase-cli-skills = {
@@ -123,15 +123,15 @@
   };
   jj-mode = {
     pname = "jj-mode";
-    version = "6237dca6d48deb699d30ed0c1ff32cbb62eb4fcc";
+    version = "64a59eda9022080dcd7e86c128bb1bc3c92964df";
     src = fetchFromGitHub {
       owner = "bolivier";
       repo = "jj-mode.el";
-      rev = "6237dca6d48deb699d30ed0c1ff32cbb62eb4fcc";
+      rev = "64a59eda9022080dcd7e86c128bb1bc3c92964df";
       fetchSubmodules = false;
-      sha256 = "sha256-RsgAnwJ44AXA/KhgPwzJnj2+6xiCRrzFCvvJLNrqWic=";
+      sha256 = "sha256-yN0uUJ6MbO53GGzGRYtwbkGJYFhvK+tpkINclKVp0hs=";
     };
-    date = "2026-03-06";
+    date = "2026-07-22";
   };
   lean-unicode-hx = {
     pname = "lean-unicode-hx";
@@ -161,15 +161,15 @@
   };
   lean4-skills = {
     pname = "lean4-skills";
-    version = "e63d0723bbc9114c01ceaae1353f4c5b3148a5e8";
+    version = "7d04c97741a9e5e79e3d85acf8b52f33b9e86207";
     src = fetchFromGitHub {
       owner = "cameronfreer";
       repo = "lean4-skills";
-      rev = "e63d0723bbc9114c01ceaae1353f4c5b3148a5e8";
+      rev = "7d04c97741a9e5e79e3d85acf8b52f33b9e86207";
       fetchSubmodules = false;
-      sha256 = "sha256-/rNf+6XXVeUDn1LQ3TZi61leJGFYCHXky7AqtX60hkA=";
+      sha256 = "sha256-WNvyToFn+nocgWPOgEHW+QXWH7p79wlV+XrjXXmeUzw=";
     };
-    date = "2026-07-08";
+    date = "2026-07-22";
   };
   nael = {
     pname = "nael";
@@ -225,29 +225,29 @@
   };
   steel = {
     pname = "steel";
-    version = "dec633b908afeafeaf62bab457a92e2bf873745a";
+    version = "3a418c9ea586c1862a8c3a49d6a998436afc8957";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "steel";
-      rev = "dec633b908afeafeaf62bab457a92e2bf873745a";
+      rev = "3a418c9ea586c1862a8c3a49d6a998436afc8957";
       fetchSubmodules = false;
-      sha256 = "sha256-TP1hmlju7h7ce0dnSKuIMk7XK5kcloqiyR+sxumNsQk=";
+      sha256 = "sha256-vR2izfAXC0oidNtyIzdge04BV6C36wrg1qDDzEKAPeg=";
     };
-    date = "2026-06-20";
+    date = "2026-07-18";
   };
   sulafat = {
     pname = "sulafat";
-    version = "5c7faca6762cc0b5320bcce17ec04216c80d1a40";
+    version = "d7372b30f4de06a91d17b597143fd18fd4916290";
     src = fetchgit {
       url = "https://git.sr.ht/~lambdair/sulafat";
-      rev = "5c7faca6762cc0b5320bcce17ec04216c80d1a40";
+      rev = "d7372b30f4de06a91d17b597143fd18fd4916290";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-nAxMGQr7gQlCSjty8DrpXY4GtLcdbxH2aOCaeHCEa2c=";
+      sha256 = "sha256-XmQuhex7lDaqCExFlkLC5k5vPHd3LOTsTRt1WQFxYA0=";
     };
-    date = "2026-03-20";
+    date = "2026-07-22";
   };
   superpowers = {
     pname = "superpowers";
@@ -263,10 +263,10 @@
   };
   tolaria = {
     pname = "tolaria";
-    version = "2026.7.1";
+    version = "2026.7.22";
     src = fetchurl {
-      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.7.1_amd64.AppImage";
-      sha256 = "sha256-L6ql51KsBNZFEdiyZhMJgRr+bXGKul4iDPcKdNSTzbg=";
+      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.7.22_amd64.AppImage";
+      sha256 = "sha256-aJPUVVcrQvCVrPowQWcwBd226EhS4/Pzx8KrjV72t8E=";
     };
   };
   typst-ts-mode = {
@@ -297,10 +297,10 @@
   };
   zmk-battery-center-linux = {
     pname = "zmk-battery-center-linux";
-    version = "0.10.0";
+    version = "0.10.1";
     src = fetchurl {
-      url = "https://github.com/kot149/zmk-battery-center/releases/download/v0.10.0/zmk-battery-center_0.10.0_amd64.AppImage";
-      sha256 = "sha256-MmuI1EqpA2z/gIyNx7fKKgJU6DIUBmgDpo+xWPDBmPE=";
+      url = "https://github.com/kot149/zmk-battery-center/releases/download/v0.10.1/zmk-battery-center_0.10.1_amd64.AppImage";
+      sha256 = "sha256-NQ4xGNey4ohHLW1biLYYVoe2dTWX8dQib7+7VWQHFAo=";
     };
   };
   zmk-battery-center-mac = {
