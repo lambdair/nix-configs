@@ -15,4 +15,7 @@ in
   # ("Trace/BPT trap: 5") on its final binary. Pin to 0.22.1, which still
   # substitutes from the binary cache.
   spotify-player = pkgs-pinned.spotify-player;
+  # 1.3.4 hits the same aarch64-darwin cctools `ld` SIGTRAP as spotify-player
+  # above. Pin to 1.3.3, which still substitutes from the binary cache.
+  ncspot = pkgs-pinned.ncspot;
 }
