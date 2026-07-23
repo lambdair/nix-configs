@@ -1,0 +1,27 @@
+name: build
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  ci-heavy:
+    # macos-15 is an Apple Silicon runner, matching ci-heavy's aarch64-darwin
+    # package set. Public repo => this macOS runner is free.
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v30
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - uses: cachix/cachix-action@v15
+        with:
+          name: lambdair
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      # Build only ci-heavy, never a flake-wide command: this attribute
+      # references no private input, so the runner needs no sr.ht credentials.
+      # cachix-action pushes the newly built paths afterwards.
+      - run: nix build .#ci-heavy --print-build-logs
