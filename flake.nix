@@ -147,6 +147,47 @@
           };
         };
 
+      # Aggregate of the expensive custom builds, for CI to build and push to
+      # the binary cache. References only public-source packages, so building
+      # this output (`nix build .#ci-heavy`) never fetches the private input;
+      # flake-wide commands like `nix flake check` still resolve every locked
+      # input and need its credentials. darwinPkgs/darwinSources are shared
+      # with MacHome, keeping the derivations hash-identical so CI artifacts
+      # substitute locally.
+      packages."aarch64-darwin".ci-heavy =
+        let
+          customPkgs = import ./pkgs {
+            pkgs = darwinPkgs;
+            sources = darwinSources;
+          };
+        in
+        darwinPkgs.linkFarm "ci-heavy" [
+          {
+            name = "steel";
+            path = customPkgs.steel;
+          }
+          {
+            name = "helix-steel-unwrapped";
+            path = customPkgs.helix-steel-unwrapped;
+          }
+          {
+            name = "helix-runtime";
+            path = customPkgs.helix-runtime;
+          }
+          {
+            name = "sulafat";
+            path = customPkgs.sulafat;
+          }
+          {
+            name = "difit";
+            path = customPkgs.difit;
+          }
+          {
+            name = "hunkdiff";
+            path = inputs.hunk.packages."aarch64-darwin".default;
+          }
+        ];
+
       devShells = forAllSystems (
         system:
         let
