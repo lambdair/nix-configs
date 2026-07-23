@@ -35,7 +35,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     cp -r dist node_modules package.json $out/lib/difit/
     # Remove broken workspace symlinks (e.g. vscode extension)
     find $out/lib/difit/node_modules -xtype l -delete
-    makeWrapper ${pkgs.nodejs}/bin/node $out/bin/difit \
+    makeWrapper ${pkgs.nodejs_22}/bin/node $out/bin/difit \
       --add-flags "$out/lib/difit/dist/cli/index.js"
     runHook postInstall
   '';
