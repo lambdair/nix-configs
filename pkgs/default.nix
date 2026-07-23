@@ -2,3 +2,6 @@
 # flake's packages output, so both evaluate the exact same derivations.
 { pkgs, sources }:
 import ./helix-steel.nix { inherit pkgs sources; }
+// {
+  difit = import ./difit.nix { inherit pkgs sources; };
+}
