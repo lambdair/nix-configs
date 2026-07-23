@@ -42,6 +42,14 @@ update:
 update-input input:
     nix flake update {{ input }} --flake '{{ flake }}'
 
+# Update every flake input except `private`, which lives on sr.ht and is
+# unreachable from CI. The input list is derived from flake.lock so it needs no
+# maintenance; used by the weekly update workflow.
+update-public:
+    #!/usr/bin/env sh
+    inputs=$(nix eval --impure --raw --expr 'let l = builtins.fromJSON (builtins.readFile {{ flake }}/flake.lock); in builtins.concatStringsSep " " (builtins.filter (x: x != "private") (builtins.attrNames l.nodes.root.inputs))')
+    nix flake update $inputs --flake '{{ flake }}'
+
 # Check flake validity
 check:
     nix flake check '{{ flake }}'
