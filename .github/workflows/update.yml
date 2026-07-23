@@ -1,0 +1,44 @@
+name: update
+
+on:
+  schedule:
+    # Twice weekly, Wednesday and Sunday 00:00 UTC.
+    - cron: "0 0 * * 3,0"
+  workflow_dispatch:
+
+jobs:
+  update:
+    # flake.lock and _sources are platform-independent, so the cheap Linux
+    # runner produces them; build.yml verifies the PR on macOS.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v30
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - name: Update public inputs and sources
+        run: |
+          nix run nixpkgs#just -- update-public
+          nix run nixpkgs#nvfetcher -- -o _sources
+      # GH_PAT (not GITHUB_TOKEN) so the PR triggers build.yml; a token-authored
+      # PR from GITHUB_TOKEN cannot start other workflows.
+      - name: Create or update pull request
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GH_PAT }}
+          branch: flake-update
+          base: master
+          title: "chore(flake): update inputs and sources"
+          commit-message: "chore(flake): update inputs and sources"
+          body: |
+            Automated update of every public flake input and nvfetcher source.
+            `private` is excluded (unreachable from CI). Merges once build.yml
+            passes; a red build (e.g. a steel hash bump) leaves this open for a
+            manual fix.
+      - name: Enable auto-merge
+        if: steps.cpr.outputs.pull-request-number
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: gh pr merge --auto --squash "${{ steps.cpr.outputs.pull-request-number }}"
