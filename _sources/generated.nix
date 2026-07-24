@@ -18,6 +18,18 @@
     };
     date = "2026-07-23";
   };
+  bento = {
+    pname = "bento";
+    version = "455517a2b3a55fe655cae6842318cd86d8041915";
+    src = fetchFromGitHub {
+      owner = "nyblnet";
+      repo = "bento";
+      rev = "455517a2b3a55fe655cae6842318cd86d8041915";
+      fetchSubmodules = false;
+      sha256 = "sha256-u4Rl3nv2eOpyo1bPtr4BipTGU1IGLwZc6SoNUcgjdtk=";
+    };
+    date = "2026-07-24";
+  };
   budget_tracker_tui = {
     pname = "budget_tracker_tui";
     version = "6d3ea0b4a98182ea5b01b50a109a8f4f003135b3";

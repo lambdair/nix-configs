@@ -138,3 +138,7 @@ fetch.github = "aws/agent-toolkit-for-aws"
 [superpowers]
 src.git = "https://github.com/obra/superpowers"
 fetch.github = "obra/superpowers"
+
+[bento]
+src.git = "https://github.com/nyblnet/bento"
+fetch.github = "nyblnet/bento"

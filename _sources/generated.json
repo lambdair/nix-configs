@@ -20,6 +20,27 @@
         },
         "version": "5c779cf1fd4f26fd7ae88e0598494e6a3c2adc35"
     },
+    "bento": {
+        "cargoLock": null,
+        "date": "2026-07-24",
+        "extract": null,
+        "name": "bento",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "nyblnet",
+            "repo": "bento",
+            "rev": "455517a2b3a55fe655cae6842318cd86d8041915",
+            "sha256": "sha256-u4Rl3nv2eOpyo1bPtr4BipTGU1IGLwZc6SoNUcgjdtk=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "455517a2b3a55fe655cae6842318cd86d8041915"
+    },
     "budget_tracker_tui": {
         "cargoLock": null,
         "date": "2026-07-12",

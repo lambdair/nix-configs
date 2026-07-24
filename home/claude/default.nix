@@ -16,6 +16,7 @@ in
     context = ./CLAUDE.md;
     marketplaces = {
       agent-toolkit-for-aws = sources.agent-toolkit-for-aws.src;
+      bento = sources.bento.src;
       heptabase-cli-skills = sources.heptabase-cli-skills.src;
       lean4-skills = sources.lean4-skills.src;
       superpowers-dev = sources.superpowers.src;
@@ -100,6 +101,7 @@ in
         "LSP"
       ];
       enabledPlugins = {
+        "bento-slides@bento" = true;
         "superpowers@superpowers-dev" = true;
         # 無効化: ~/.claude に残った旧 v10.0.4 の hook が nix の v13.5.2 worker と
         # 噛み合わず UserPromptSubmit を 7 回連続でブロックするため。
