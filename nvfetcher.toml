@@ -74,6 +74,23 @@ src.git = "https://git.sr.ht/~lambdair/sulafat"
 src.branch = "main"
 fetch.git = "https://git.sr.ht/~lambdair/sulafat"
 
+# nrepl.hx (sulafat) cog dependencies. Forge would install these to
+# ~/.steel/cogs/; under Nix we vendor them explicitly. Pinned to the exact SHAs
+# sulafat's cog.scm declares so they stay in lockstep with the plugin (a newer
+# ui-utils.hx/repl-ui.hx API would break nrepl.scm's requires). Bump these
+# whenever sulafat bumps its cog.scm dependency pins.
+[ui-utils-hx]
+src.manual = "3262e80706f9d332b83d3ac0f578ffd40e2e0673"
+fetch.git = "https://github.com/waddie/ui-utils.hx"
+
+[repl-ui-hx]
+src.manual = "8d21aee4114222f0ce708d1c146598a1ce7ae621"
+fetch.git = "https://github.com/waddie/repl-ui.hx"
+
+[run-command]
+src.manual = "ed42a376c4761e10530981c34797e7dde8e5abef"
+fetch.git = "https://github.com/waddie/run-command.scm"
+
 [lean-unicode-hx]
 src.git = "https://git.sr.ht/~lambdair/lean-unicode.hx"
 src.branch = "main"

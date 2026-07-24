@@ -368,6 +368,46 @@
         },
         "version": "ab61d6b38a1d7fffd35024241433c62b38681a8c"
     },
+    "repl-ui-hx": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "repl-ui-hx",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "8d21aee4114222f0ce708d1c146598a1ce7ae621",
+            "sha256": "sha256-k+pYS0AIUrwZfxHiAMZOdn/7PSaQ2g0kI2UTPBLhkGg=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/waddie/repl-ui.hx"
+        },
+        "version": "8d21aee4114222f0ce708d1c146598a1ce7ae621"
+    },
+    "run-command": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "run-command",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "ed42a376c4761e10530981c34797e7dde8e5abef",
+            "sha256": "sha256-S6K9/3RB2SJu7eH3UlgPQ37YAF+WQLbvMYVuG7E4q+I=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/waddie/run-command.scm"
+        },
+        "version": "ed42a376c4761e10530981c34797e7dde8e5abef"
+    },
     "steel": {
         "cargoLock": null,
         "date": "2026-07-18",
@@ -464,6 +504,26 @@
             "url": "https://codeberg.org/meow_king/typst-ts-mode"
         },
         "version": "155bb36cff3afe701a0f6b57bd3fe5c9effaa314"
+    },
+    "ui-utils-hx": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "ui-utils-hx",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "3262e80706f9d332b83d3ac0f578ffd40e2e0673",
+            "sha256": "sha256-ur4qbWalj7yfLD05u8k4BRilpT47A4Jh264N6ewjhvk=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/waddie/ui-utils.hx"
+        },
+        "version": "3262e80706f9d332b83d3ac0f578ffd40e2e0673"
     },
     "uiua": {
         "cargoLock": null,

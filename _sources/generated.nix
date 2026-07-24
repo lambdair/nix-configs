@@ -223,6 +223,32 @@
     };
     date = "2026-06-30";
   };
+  repl-ui-hx = {
+    pname = "repl-ui-hx";
+    version = "8d21aee4114222f0ce708d1c146598a1ce7ae621";
+    src = fetchgit {
+      url = "https://github.com/waddie/repl-ui.hx";
+      rev = "8d21aee4114222f0ce708d1c146598a1ce7ae621";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sparseCheckout = [ ];
+      sha256 = "sha256-k+pYS0AIUrwZfxHiAMZOdn/7PSaQ2g0kI2UTPBLhkGg=";
+    };
+  };
+  run-command = {
+    pname = "run-command";
+    version = "ed42a376c4761e10530981c34797e7dde8e5abef";
+    src = fetchgit {
+      url = "https://github.com/waddie/run-command.scm";
+      rev = "ed42a376c4761e10530981c34797e7dde8e5abef";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sparseCheckout = [ ];
+      sha256 = "sha256-S6K9/3RB2SJu7eH3UlgPQ37YAF+WQLbvMYVuG7E4q+I=";
+    };
+  };
   steel = {
     pname = "steel";
     version = "3a418c9ea586c1862a8c3a49d6a998436afc8957";
@@ -282,6 +308,19 @@
       sha256 = "sha256-6QUPLiEoKD64tozOm0KBvCdwCNMxcUpCVZu9qOEVosk=";
     };
     date = "2026-06-24";
+  };
+  ui-utils-hx = {
+    pname = "ui-utils-hx";
+    version = "3262e80706f9d332b83d3ac0f578ffd40e2e0673";
+    src = fetchgit {
+      url = "https://github.com/waddie/ui-utils.hx";
+      rev = "3262e80706f9d332b83d3ac0f578ffd40e2e0673";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sparseCheckout = [ ];
+      sha256 = "sha256-ur4qbWalj7yfLD05u8k4BRilpT47A4Jh264N6ewjhvk=";
+    };
   };
   uiua = {
     pname = "uiua";
