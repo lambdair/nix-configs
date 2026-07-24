@@ -183,6 +183,18 @@
     };
     date = "2026-07-22";
   };
+  moonbit-skills = {
+    pname = "moonbit-skills";
+    version = "5caf81c57cb2ae45654b8f99c5c8f68c812beb91";
+    src = fetchFromGitHub {
+      owner = "moonbitlang";
+      repo = "skills";
+      rev = "5caf81c57cb2ae45654b8f99c5c8f68c812beb91";
+      fetchSubmodules = false;
+      sha256 = "sha256-sBP5obPF7l4gRdNV5TtCYOIDW+1gJoEmRiex4OQQKak=";
+    };
+    date = "2026-07-06";
+  };
   nael = {
     pname = "nael";
     version = "c1d349746731bbff6bf1887c51eb7a1f3bea5c4c";

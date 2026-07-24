@@ -19,6 +19,7 @@ in
       bento = sources.bento.src;
       heptabase-cli-skills = sources.heptabase-cli-skills.src;
       lean4-skills = sources.lean4-skills.src;
+      moonbit-code-plugins = sources.moonbit-skills.src;
       superpowers-dev = sources.superpowers.src;
       thedotmack = sources.claude-mem.src;
     };
@@ -102,6 +103,7 @@ in
       ];
       enabledPlugins = {
         "bento-slides@bento" = true;
+        "moonbit-skills@moonbit-code-plugins" = true;
         "superpowers@superpowers-dev" = true;
         # 無効化: ~/.claude に残った旧 v10.0.4 の hook が nix の v13.5.2 worker と
         # 噛み合わず UserPromptSubmit を 7 回連続でブロックするため。

@@ -307,6 +307,27 @@
         },
         "version": "7d04c97741a9e5e79e3d85acf8b52f33b9e86207"
     },
+    "moonbit-skills": {
+        "cargoLock": null,
+        "date": "2026-07-06",
+        "extract": null,
+        "name": "moonbit-skills",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "moonbitlang",
+            "repo": "skills",
+            "rev": "5caf81c57cb2ae45654b8f99c5c8f68c812beb91",
+            "sha256": "sha256-sBP5obPF7l4gRdNV5TtCYOIDW+1gJoEmRiex4OQQKak=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "5caf81c57cb2ae45654b8f99c5c8f68c812beb91"
+    },
     "nael": {
         "cargoLock": null,
         "date": "2026-03-09",
