@@ -1,13 +1,25 @@
 # Personal Development Preferences
 
-## Shell Execution — nushell / babashka
+## 言語の使い分け — moonbit / zig / nushell / babashka
 
-シェルで処理を実行する際は bash/zsh の生スクリプトを避け、nushell か babashka を使う。用途で使い分ける:
+処理を書くときは bash/zsh の生スクリプトを避け、下のレイヤーで選ぶ。**上から順に**当てはめて最初に合致したものを使う:
 
-- **nushell (`nu -c '...'`)**: データ処理・パイプライン・構造化データ（JSON/CSV/TOML 等）の操作・ファイル操作
-- **babashka (`bb -e '...'` または `.bb` スクリプト)**: 複雑なロジック・構造化された処理。既存のフック類・statusline は全て babashka で書かれている
+| 言語 | レイヤー | 使いどころ | 判定の問い |
+|---|---|---|---|
+| **zig** | libc / カーネル / C | syscall・exec・C ライブラリ束縛の極小 native バイナリ | 「syscall/C の薄いラッパーか?」 |
+| **nushell** (`nu -c '...'`) | シェル / パイプライン | 構造化データ（JSON/CSV/TOML）変換 + CLI 連携 + `par-each` 並列 | 「本質は "CLI を叩いて構造化出力を整形" か?」 |
+| **babashka** (`bb -e` / `.bb`) | スクリプト / ロジック glue | 分岐ロジック + データ構造 + 成熟ライブラリが要る glue | 「ロジックはあるが起動コストは許容でき、ライブラリ即戦力が欲しいか?」 |
+| **moonbit** | アプリ / 型付きロジック native | パーサ・アルゴリズム等の実ロジック。型・native 起動・検証が効く | 「型・native 起動・検証が効く実ロジックか?」 |
 
-ただし Read / Grep / Glob など専用ツールで済むファイル読み取り・検索は従来通りそれらを優先する。nu/bb を使うのは「シェルでロジックを書く必要がある」場面に限る（単純なパイプや変数処理を生 bash で書かない、という趣旨）。
+境界で迷ったときのタイブレーク（ここが実務の勝負どころ）:
+
+- **zig vs moonbit**（共に native）: ロジックが無く C・syscall が主役 → **zig**。データモデリングや分岐に型が効く実ロジック → **moonbit**
+- **nushell vs babashka**（共にスクリプト）: パイプ + 構造化変換が支配的 → **nushell**。分岐・データ構造・ライブラリ呼び出しが支配的 → **babashka**
+- **babashka vs moonbit**（共にロジック）: 次のどれかが立てば **moonbit** —（1）頻繁起動でネイティブ起動が効く（2）規模・複雑さで静的型が効く（3）検証したい。どれも立たなければ **babashka**（使い捨て・即書き・成熟ライブラリ即戦力）
+
+Read / Grep / Glob など専用ツールで済む読み取り・検索はそれらを優先する。nu/bb を使うのは「シェルでロジックを書く必要がある」場面に限る（単純なパイプや変数処理を生 bash で書かない、という趣旨）。
+
+現リポジトリの実例: `home/jj-lock.zig`（zig: flock+exec シム）、`home/claude/skills/checking-removable-nix-workarounds/check-workarounds.nu`（nushell: nix build 並列）、`home/claude/hooks/*.bb`（babashka: フック）、`home/claude/statusline/`（moonbit: 頻繁起動する statusline）。
 
 ## Version Control — jujutsu (jj)
 
