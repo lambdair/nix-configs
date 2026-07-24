@@ -14,6 +14,10 @@
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
+  # Authenticate sudo with Touch ID. sudo_local writes /etc/pam.d/sudo_local,
+  # which the base sudo PAM config includes and macOS updates leave untouched.
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   # base.nix's gc settings are NixOS-only, so darwin needs its own. nix-darwin
   # refuses `nix.settings.auto-optimise-store` (it can corrupt the store), so
   # dedup runs via periodic `nix.optimise`. Both default to weekly.
