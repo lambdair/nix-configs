@@ -43,6 +43,27 @@ let
       # jujutsu module's version checks and `getExe` keep working.
       inherit (pkgs.jujutsu) version meta;
     };
+
+  # jj additionally wrapped with a serialization lock (see ./jj-lock.zig for the
+  # mechanism), nested outside the betterleaks guard so the whole invocation is
+  # serialized against a repo-shared flock. Without it, jj processes sharing one
+  # op log can fork it into a divergent change.
+  lockSerializedJj =
+    (pkgs.symlinkJoin {
+      name = "jujutsu-serialized-${pkgs.jujutsu.version}";
+      paths = [ betterleaksGuardedJj ];
+      nativeBuildInputs = [ pkgs.zig_0_16 ];
+      postBuild = ''
+        rm $out/bin/jj
+        export ZIG_GLOBAL_CACHE_DIR="$TMPDIR/zig-cache"
+        substitute ${./jj-lock.zig} jj-lock.zig \
+          --replace-fail '@REAL_JJ@' '${betterleaksGuardedJj}/bin/jj'
+        zig build-exe -lc -O ReleaseSmall -femit-bin=$out/bin/jj jj-lock.zig
+      '';
+    })
+    // {
+      inherit (pkgs.jujutsu) version meta;
+    };
 in
 {
   home.stateVersion = "26.05";
@@ -384,7 +405,7 @@ in
 
     jujutsu = {
       enable = true;
-      package = betterleaksGuardedJj;
+      package = lockSerializedJj;
       settings = {
         user.email = "lambdair1984@protonmail.com";
         user.name = "Lambdair";
