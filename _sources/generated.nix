@@ -263,17 +263,17 @@
   };
   sulafat = {
     pname = "sulafat";
-    version = "709766eed522ab73c6b48ccac3a66ddeeca9e513";
+    version = "b8e60c090daa39e5125d7e058683bc01c360a223";
     src = fetchgit {
       url = "https://git.sr.ht/~lambdair/sulafat";
-      rev = "709766eed522ab73c6b48ccac3a66ddeeca9e513";
+      rev = "b8e60c090daa39e5125d7e058683bc01c360a223";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-BVpZUJ7nnUNaFccKIHM8h42eIR0qRMiOUZ7RBTHT4iI=";
+      sha256 = "sha256-dPPQRI7u6sVp3s2ObXW4jwF8iBTAuZki7KypRuukBqU=";
     };
-    date = "2026-07-23";
+    date = "2026-07-24";
   };
   superpowers = {
     pname = "superpowers";
