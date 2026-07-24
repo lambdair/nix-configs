@@ -1,0 +1,8 @@
+import {
+  "moonbitlang/x/crypto",
+  "moonbitlang/x/time",
+  "moonbitlang/core/encoding/utf8",
+  "moonbitlang/core/json",
+}
+
+supported_targets = "native"

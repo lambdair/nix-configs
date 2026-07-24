@@ -1,0 +1,5 @@
+# moon build artifacts (the nix derivation builds from source + vendored deps)
+_build/
+.mooncakes/
+.repos/
+target/

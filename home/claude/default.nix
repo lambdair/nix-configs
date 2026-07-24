@@ -9,6 +9,8 @@ let
   link = name: {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude/${name}";
   };
+  # Native statusline binary, compiled from MoonBit (see ./statusline.nix).
+  statusline = import ./statusline.nix { inherit pkgs; };
 in
 {
   programs.claude-code = {
@@ -112,7 +114,7 @@ in
       };
       statusLine = {
         type = "command";
-        command = "bb ${config.home.homeDirectory}/.claude/statusline-command.bb";
+        command = "${statusline}/bin/claude-statusline";
       };
       alwaysThinkingEnabled = true;
       tui = "fullscreen";
@@ -168,11 +170,6 @@ in
     };
   };
 
-  home.file.".claude/statusline-command.bb" = {
-    source = ./statusline-command.bb;
-    executable = true;
-  };
-
   home.file.".claude/hooks/revision-context.bb" = {
     source = ./hooks/revision-context.bb;
     executable = true;
@@ -225,9 +222,6 @@ in
   # macOS only: symlink shared settings for secondary account
   home.file.".claude-personal/settings.json" = lib.mkIf pkgs.stdenv.isDarwin (link "settings.json");
   home.file.".claude-personal/CLAUDE.md" = lib.mkIf pkgs.stdenv.isDarwin (link "CLAUDE.md");
-  home.file.".claude-personal/statusline-command.bb" = lib.mkIf pkgs.stdenv.isDarwin (
-    link "statusline-command.bb"
-  );
   home.file.".claude-personal/hooks" = lib.mkIf pkgs.stdenv.isDarwin (link "hooks");
   home.file.".claude-personal/rules" = lib.mkIf pkgs.stdenv.isDarwin (link "rules");
   home.file.".claude-personal/skills" = lib.mkIf pkgs.stdenv.isDarwin (link "skills");
