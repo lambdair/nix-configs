@@ -16,6 +16,10 @@
   wsl.enable = true;
   wsl.defaultUser = "lambdair";
 
+  # Also becomes /etc/wsl.conf's [network] hostname — wsl.wslConf.network.hostname
+  # defaults to config.networking.hostName.
+  networking.hostName = "sol-cubano";
+
   imports = [
     ../font.nix
     ../base.nix
