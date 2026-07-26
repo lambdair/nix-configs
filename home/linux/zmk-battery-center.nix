@@ -13,8 +13,6 @@ let
         $out/share/applications/zmk-battery-center.desktop
       install -m 444 -D ${contents}/usr/share/icons/hicolor/256x256@2/apps/zmk-battery-center.png \
         $out/share/icons/hicolor/256x256@2/apps/zmk-battery-center.png
-      substituteInPlace $out/share/applications/zmk-battery-center.desktop \
-        --replace-fail 'Exec=AppRun' 'Exec=zmk-battery-center'
     '';
   };
 in
