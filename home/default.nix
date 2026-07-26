@@ -485,8 +485,6 @@ in
     key = "m"
     scope = "revisions"
 
-    # Note: the spec said Shift-F, but jjui writes keys as a single character, so
-    # this uses F, which does not collide with the defaults.
     [[actions]]
     name = "megamerge-fetch-rebuild"
     desc = "fetch + rebuild megamerge"
