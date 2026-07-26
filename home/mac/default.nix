@@ -22,6 +22,8 @@ rec {
   home.packages = with pkgs; [
     macskk # Japanese SKK input method for macOS
     # awrit # Chromium-based browser for Kitty terminal
+    obsidian # Knowledge base
+    bitwarden-desktop # pinned in overlays/pin-broken-pkg.nix
   ];
 
   programs.nushell.extraEnv = ''

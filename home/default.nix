@@ -272,8 +272,6 @@ in
       # ghostty
       # warp-terminal # Modern terminal with AI features
       # rio # Hardware-accelerated GPU terminal emulator
-      obsidian # Knowledge base
-      bitwarden-desktop # pinned in overlays/pin-broken-pkg.nix
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Fonts
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -291,16 +289,6 @@ in
       abella # Interactive theorem prover (Linux only: darwin build fails on ocaml-4.12.1 thread tests)
       d2 # Modern diagram scripting language (Linux only: darwin build fails on libdrm/mesa-libgbm)
       dict # Dictionary client (Linux only: darwin build fails on dictd → flex 2.5.35 K&R C)
-      obs-studio # Free and open source streaming/recording software
-      (pkgs.symlinkJoin {
-        name = "peek";
-        paths = [ pkgs.peek ];
-        nativeBuildInputs = [ pkgs.makeWrapper ];
-        postBuild = ''
-          wrapProgram $out/bin/peek --set DISPLAY :0
-        '';
-      }) # Simple animated GIF screen recorder
-      pcloud # Secure cloud storage client
     ]
     ++ libs;
 

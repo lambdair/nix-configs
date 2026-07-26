@@ -15,6 +15,18 @@ rec {
     nyxt
     thunderbird
     discord
+    obsidian # Knowledge base
+    bitwarden-desktop # pinned in overlays/pin-broken-pkg.nix
+    obs-studio # Free and open source streaming/recording software
+    (symlinkJoin {
+      name = "peek";
+      paths = [ peek ];
+      nativeBuildInputs = [ makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/peek --set DISPLAY :0
+      '';
+    }) # Simple animated GIF screen recorder
+    pcloud # Secure cloud storage client
 
     # Wayland desktop tools
     waybar # ステータスバー
