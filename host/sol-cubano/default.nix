@@ -21,7 +21,6 @@
   networking.hostName = "sol-cubano";
 
   imports = [
-    ../font.nix
     ../base.nix
   ];
 
