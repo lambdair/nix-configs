@@ -8,27 +8,27 @@
 {
   agent-toolkit-for-aws = {
     pname = "agent-toolkit-for-aws";
-    version = "5c779cf1fd4f26fd7ae88e0598494e6a3c2adc35";
+    version = "76180031c0f0b4f6fd2add79e0a8690bac74b8fe";
     src = fetchFromGitHub {
       owner = "aws";
       repo = "agent-toolkit-for-aws";
-      rev = "5c779cf1fd4f26fd7ae88e0598494e6a3c2adc35";
+      rev = "76180031c0f0b4f6fd2add79e0a8690bac74b8fe";
       fetchSubmodules = false;
-      sha256 = "sha256-f1nwRe9brcz6SH+IollPpf+woSg/0pWAk637xV+ttRQ=";
+      sha256 = "sha256-5TebUOIgW1zasRocMn+xUOwEoKRw/EbZscKcIPA3/HA=";
     };
-    date = "2026-07-23";
+    date = "2026-07-24";
   };
   bento = {
     pname = "bento";
-    version = "455517a2b3a55fe655cae6842318cd86d8041915";
+    version = "5e326849043c10aa9a44d2a082a7e6efeed9bd8b";
     src = fetchFromGitHub {
       owner = "nyblnet";
       repo = "bento";
-      rev = "455517a2b3a55fe655cae6842318cd86d8041915";
+      rev = "5e326849043c10aa9a44d2a082a7e6efeed9bd8b";
       fetchSubmodules = false;
-      sha256 = "sha256-u4Rl3nv2eOpyo1bPtr4BipTGU1IGLwZc6SoNUcgjdtk=";
+      sha256 = "sha256-56bP1thS1A+v1Smz4E4sOkTQGiBork6ZQnVheAFwVn0=";
     };
-    date = "2026-07-24";
+    date = "2026-07-26";
   };
   budget_tracker_tui = {
     pname = "budget_tracker_tui";
@@ -44,27 +44,27 @@
   };
   claude-mem = {
     pname = "claude-mem";
-    version = "c9b46df8bb10c36ef4cefe16948e559bc1800896";
+    version = "132b46343e60ecf4057c427736c57b08f7615dfe";
     src = fetchFromGitHub {
       owner = "thedotmack";
       repo = "claude-mem";
-      rev = "c9b46df8bb10c36ef4cefe16948e559bc1800896";
+      rev = "132b46343e60ecf4057c427736c57b08f7615dfe";
       fetchSubmodules = false;
-      sha256 = "sha256-8qHJP3sgJnljA5mGLkZDZZJrLIfarBbJsVAu3DlNxcc=";
+      sha256 = "sha256-VbRAl4JcaVASac+iewq48H9xjh/VUnml9w1bxpF/cbw=";
     };
     date = "2026-07-23";
   };
   difit = {
     pname = "difit";
-    version = "46be8dcce205b2b389dff10373811d8e62868ad9";
+    version = "bc9ebc360c30a3020c14f1b733ceb82c1b665e48";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "46be8dcce205b2b389dff10373811d8e62868ad9";
+      rev = "bc9ebc360c30a3020c14f1b733ceb82c1b665e48";
       fetchSubmodules = false;
-      sha256 = "sha256-uX4KeEKBLgXJ5vWpqpZ2PZ1UrtTVfnKZ3GKE+Owm8wc=";
+      sha256 = "sha256-clSi3s+HsS296m/nb47I9CIAIPIDWwqPqnz8iENsd6k=";
     };
-    date = "2026-07-11";
+    date = "2026-07-25";
   };
   eglot-booster = {
     pname = "eglot-booster";
@@ -91,15 +91,15 @@
   };
   helix-mainline = {
     pname = "helix-mainline";
-    version = "a47389402cd337aaff7327e5601b9ea3cd8409f9";
+    version = "079a789e8cb08ead67f19e1971a1b7438b37354b";
     src = fetchFromGitHub {
       owner = "helix-editor";
       repo = "helix";
-      rev = "a47389402cd337aaff7327e5601b9ea3cd8409f9";
+      rev = "079a789e8cb08ead67f19e1971a1b7438b37354b";
       fetchSubmodules = false;
-      sha256 = "sha256-9YfoHElY9EZwsSri37dwNPiqHBRV45mWXejMn6JkOoE=";
+      sha256 = "sha256-IYDL6Vnf13Sa+wbeXZTAxvdLA4h8Ew5ha0spcJy/Yk0=";
     };
-    date = "2026-07-22";
+    date = "2026-07-23";
   };
   helix-steel = {
     pname = "helix-steel";
@@ -115,10 +115,10 @@
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.98.6";
+    version = "1.100.1";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.98.6/Heptabase-1.98.6.AppImage";
-      sha256 = "sha256-bixJ6kgvETfBTU4CxqyUH/swotowfjU8rZBhVWJOMdQ=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.100.1/Heptabase-1.100.1.AppImage";
+      sha256 = "sha256-JIbxPUF/FQmA+hzFoAzH4Mi8VwHa1HPYP/Fcajo7cYs=";
     };
   };
   heptabase-cli-skills = {
@@ -301,15 +301,15 @@
   };
   superpowers = {
     pname = "superpowers";
-    version = "d884ae04edebef577e82ff7c4e143debd0bbec99";
+    version = "3dcbd5c4b48e02263fbf4a3c01e3fe4f81d584d9";
     src = fetchFromGitHub {
       owner = "obra";
       repo = "superpowers";
-      rev = "d884ae04edebef577e82ff7c4e143debd0bbec99";
+      rev = "3dcbd5c4b48e02263fbf4a3c01e3fe4f81d584d9";
       fetchSubmodules = false;
-      sha256 = "sha256-kHdQ9e44doBk2yYW88tMSCqVG8ycYcvJSZlrIziXhpA=";
+      sha256 = "sha256-F5LEk0yNWbMpan1vZSFZM76XSpsFGvA7h8q6Idrvenk=";
     };
-    date = "2026-07-02";
+    date = "2026-07-23";
   };
   tolaria = {
     pname = "tolaria";
