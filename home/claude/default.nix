@@ -107,8 +107,8 @@ in
         "bento-slides@bento" = true;
         "moonbit-skills@moonbit-code-plugins" = true;
         "superpowers@superpowers-dev" = true;
-        # 無効化: ~/.claude に残った旧 v10.0.4 の hook が nix の v13.5.2 worker と
-        # 噛み合わず UserPromptSubmit を 7 回連続でブロックするため。
+        # Disabled: the stale v10.0.4 hook left in ~/.claude does not match nix's
+        # v13.5.2 worker and blocks UserPromptSubmit seven times in a row.
         "claude-mem@thedotmack" = false;
         "heptabase@heptabase-cli-skills" = true;
       };
@@ -214,8 +214,9 @@ in
 
   home.file.".claude/skills/create-pr/SKILL.md".source = ./skills/create-pr/SKILL.md;
 
-  # Claude セッションが known_marketplaces.json と settings.json を書き換えるため、
-  # activation 時の衝突を強制上書きで回避する（source は claude-code モジュールが管理）
+  # Claude sessions rewrite known_marketplaces.json and settings.json, so force
+  # the overwrite to avoid activation conflicts (the claude-code module owns the
+  # source).
   home.file."${config.home.homeDirectory}/.claude/plugins/known_marketplaces.json".force = true;
   home.file."${config.home.homeDirectory}/.claude/settings.json".force = true;
 

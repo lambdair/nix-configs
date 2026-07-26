@@ -69,10 +69,10 @@
     };
   };
 
-  # Electron/Chromium アプリを Wayland ネイティブで動作させる
+  # Run Electron/Chromium apps natively on Wayland
   environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1"; # nixpkgs ラッパー用
-    ELECTRON_OZONE_PLATFORM_HINT = "auto"; # AppImage 内蔵 Electron 用
+    NIXOS_OZONE_WL = "1"; # For the nixpkgs wrappers
+    ELECTRON_OZONE_PLATFORM_HINT = "auto"; # For Electron bundled inside AppImages
   };
 
   # Display manager (greetd + tuigreet)

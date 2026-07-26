@@ -461,7 +461,7 @@ in
     key = "H"
     scope = "revisions"
 
-    # 選択リビジョンを difit (ブラウザ) で開いてレビューする。
+    # Review the selected revision by opening it in difit (in the browser).
     [[actions]]
     name = "difit-review"
     desc = "review revision in difit"
@@ -485,7 +485,8 @@ in
     key = "m"
     scope = "revisions"
 
-    # 注: spec では Shift-F だったが jjui の key 表記は単一文字。デフォルトと衝突しない F を採用。
+    # Note: the spec said Shift-F, but jjui writes keys as a single character, so
+    # this uses F, which does not collide with the defaults.
     [[actions]]
     name = "megamerge-fetch-rebuild"
     desc = "fetch + rebuild megamerge"

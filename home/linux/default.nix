@@ -29,15 +29,15 @@ rec {
     pcloud # Secure cloud storage client
 
     # Wayland desktop tools
-    waybar # ステータスバー
-    mako # 通知デーモン
-    swaylock # 画面ロック
-    swayidle # アイドル管理
-    grim # スクリーンショット
-    slurp # 領域選択
-    wl-clipboard # クリップボード (wl-copy/wl-paste)
-    swaybg # 壁紙設定
-    vicinae # Raycast互換ランチャー
+    waybar # Status bar
+    mako # Notification daemon
+    swaylock # Screen lock
+    swayidle # Idle management
+    grim # Screenshots
+    slurp # Region selection
+    wl-clipboard # Clipboard (wl-copy/wl-paste)
+    swaybg # Wallpaper
+    vicinae # Raycast-compatible launcher
   ];
 
   xdg.configFile."niri/config.kdl".source = ./niri-config.kdl;
