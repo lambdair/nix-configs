@@ -107,30 +107,35 @@
         let
           system = "x86_64-linux";
           sources = sourcesFor system;
-        in
-        {
-          NixHome = inputs.home-manager.lib.homeManagerConfiguration {
-            pkgs = import inputs.nixpkgs {
-              system = system;
-              config.allowUnfree = true;
-              overlays = [
-                inputs.rust-overlay.overlays.default
-                inputs.emacs-overlay.overlay
-                inputs.claude-code-nix.overlays.default
-                inputs.moonbit-overlay.overlays.default
-                (import ./overlays/pin-broken-pkg.nix inputs)
-              ];
-            };
-            extraSpecialArgs = {
-              inherit inputs sources;
-            };
-            modules = [
-              ./home
-              ./home/linux
-              inputs.catppuccin.homeModules.catppuccin
-              inputs.nixvim.homeModules.nixvim
+          linuxPkgs = import inputs.nixpkgs {
+            system = system;
+            config.allowUnfree = true;
+            overlays = [
+              inputs.rust-overlay.overlays.default
+              inputs.emacs-overlay.overlay
+              inputs.claude-code-nix.overlays.default
+              inputs.moonbit-overlay.overlays.default
+              (import ./overlays/pin-broken-pkg.nix inputs)
             ];
           };
+          linuxHome =
+            platformModule:
+            inputs.home-manager.lib.homeManagerConfiguration {
+              pkgs = linuxPkgs;
+              extraSpecialArgs = {
+                inherit inputs sources;
+              };
+              modules = [
+                ./home
+                platformModule
+                inputs.catppuccin.homeModules.catppuccin
+                inputs.nixvim.homeModules.nixvim
+              ];
+            };
+        in
+        {
+          NixHome = linuxHome ./home/linux;
+          WSLHome = linuxHome ./home/wsl;
           MacHome = inputs.home-manager.lib.homeManagerConfiguration {
             pkgs = darwinPkgs;
             extraSpecialArgs = {

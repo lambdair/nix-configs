@@ -32,6 +32,10 @@ home-mac:
 home-linux:
     home-manager switch --flake '{{ flake }}#NixHome'
 
+# Apply WSL home-manager configuration
+home-wsl:
+    home-manager switch --flake '{{ flake }}#WSLHome'
+
 # ── Maintenance ──────────────────────────────────────────────────
 
 # Update all flake inputs
