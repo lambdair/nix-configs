@@ -30,7 +30,7 @@ JJ_MEGAMERGE_WIP='bookmarks(glob:"feature/*") & mine()' jj-megamerge-rebuild
 
 | key | 動作 |
 |-----|------|
-| `M` | `jj-megamerge-rebuild`（fetch なし） |
+| `m` | `jj-megamerge-rebuild`（fetch なし） |
 | `F` | `jj git fetch` + `jj-megamerge-rebuild` |
 
 ## 提供される revset-aliases
@@ -52,7 +52,7 @@ JJ_MEGAMERGE_WIP='bookmarks(glob:"feature/*") & mine()' jj-megamerge-rebuild
 2. もう一度実行 → 同じ megamerge change_id が維持される（in-place rebase）
 3. `test-3` を追加して実行 → 親が4つになり change_id は維持される
 4. `test-1` の bookmark を削除して実行 → 親が3つに減り change_id は維持される
-5. jjui を起動して `M` キー → 同じ結果になる
+5. jjui を起動して `m` キー → 同じ結果になる
 
 ## 設計メモ
 
