@@ -146,6 +146,27 @@
         },
         "version": "v1.11.2"
     },
+    "fixw": {
+        "cargoLock": null,
+        "date": "2026-06-06",
+        "extract": null,
+        "name": "fixw",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "6cdh",
+            "repo": "racket-fixw",
+            "rev": "036d0f2cd2d6e061f5acf0835662f194509f2a46",
+            "sha256": "sha256-ep1Y9YfJdZRJdJkMA9FlV1ogK+ed/mLTIRRqZ0bWzu8=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "036d0f2cd2d6e061f5acf0835662f194509f2a46"
+    },
     "helix-mainline": {
         "cargoLock": null,
         "date": "2026-07-23",
@@ -223,6 +244,21 @@
             "type": "github"
         },
         "version": "a5751bda7e50d5aa2e8fefd63179f898d575ab26"
+    },
+    "html-parsing": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "html-parsing",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-xDedPsTlTen9LEj7a3cuB7tmr+gPcZW4t6BTVib9iu8=",
+            "type": "url",
+            "url": "https://www.neilvandyke.org/racket/html-parsing--11-0.zip"
+        },
+        "version": "11-0"
     },
     "jj-mode": {
         "cargoLock": null,
@@ -307,6 +343,21 @@
         },
         "version": "7d04c97741a9e5e79e3d85acf8b52f33b9e86207"
     },
+    "mcfly": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "mcfly",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-9wOGjyjtO6GAV8PmjqO0IUD7MmGkt+v88OJ8N2nPSHg=",
+            "type": "url",
+            "url": "https://www.neilvandyke.org/racket/mcfly--2-2.zip"
+        },
+        "version": "2-2"
+    },
     "moonbit-skills": {
         "cargoLock": null,
         "date": "2026-07-06",
@@ -368,6 +419,42 @@
             "url": "https://git.sr.ht/~detegr/nvim-bqn"
         },
         "version": "52d8b49f3ebc32d340e2e2b8dba1f6bbd1873b78"
+    },
+    "overeasy": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "overeasy",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-+DjIwWv2z5bNVS24qRoLTOUnDd2JbL6XNK3wfOWtN5w=",
+            "type": "url",
+            "url": "https://www.neilvandyke.org/racket/overeasy--4-3.zip"
+        },
+        "version": "4-3"
+    },
+    "racket-langserver": {
+        "cargoLock": null,
+        "date": "2026-07-26",
+        "extract": null,
+        "name": "racket-langserver",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "jeapostrophe",
+            "repo": "racket-langserver",
+            "rev": "9867f7ff0ee118c05de67e9aa11afb04ae514be3",
+            "sha256": "sha256-44XYbK3WrIT+XPzPxpJCBY4YcufEj3QjL9IlrfsV/uw=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "9867f7ff0ee118c05de67e9aa11afb04ae514be3"
     },
     "repl-ui-hx": {
         "cargoLock": null,

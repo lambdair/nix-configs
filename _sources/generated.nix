@@ -89,6 +89,18 @@
       sha256 = "sha256-k+88cWiHi1a+f6oulb5MTCnWrJU4vKPEAHBwq5H9bkQ=";
     };
   };
+  fixw = {
+    pname = "fixw";
+    version = "036d0f2cd2d6e061f5acf0835662f194509f2a46";
+    src = fetchFromGitHub {
+      owner = "6cdh";
+      repo = "racket-fixw";
+      rev = "036d0f2cd2d6e061f5acf0835662f194509f2a46";
+      fetchSubmodules = false;
+      sha256 = "sha256-ep1Y9YfJdZRJdJkMA9FlV1ogK+ed/mLTIRRqZ0bWzu8=";
+    };
+    date = "2026-06-06";
+  };
   helix-mainline = {
     pname = "helix-mainline";
     version = "079a789e8cb08ead67f19e1971a1b7438b37354b";
@@ -132,6 +144,14 @@
       sha256 = "sha256-ydP7wBq8yLvdxP+E8kCZAFcjRSQXw4x7pCWQOyLrC9Y=";
     };
     date = "2026-06-05";
+  };
+  html-parsing = {
+    pname = "html-parsing";
+    version = "11-0";
+    src = fetchurl {
+      url = "https://www.neilvandyke.org/racket/html-parsing--11-0.zip";
+      sha256 = "sha256-xDedPsTlTen9LEj7a3cuB7tmr+gPcZW4t6BTVib9iu8=";
+    };
   };
   jj-mode = {
     pname = "jj-mode";
@@ -183,6 +203,14 @@
     };
     date = "2026-07-22";
   };
+  mcfly = {
+    pname = "mcfly";
+    version = "2-2";
+    src = fetchurl {
+      url = "https://www.neilvandyke.org/racket/mcfly--2-2.zip";
+      sha256 = "sha256-9wOGjyjtO6GAV8PmjqO0IUD7MmGkt+v88OJ8N2nPSHg=";
+    };
+  };
   moonbit-skills = {
     pname = "moonbit-skills";
     version = "5caf81c57cb2ae45654b8f99c5c8f68c812beb91";
@@ -220,6 +248,26 @@
       sha256 = "sha256-5wITedTuUn9BKLqmQtPWeFNOa8dXfPIRpUvPSkNJcas=";
     };
     date = "2023-09-08";
+  };
+  overeasy = {
+    pname = "overeasy";
+    version = "4-3";
+    src = fetchurl {
+      url = "https://www.neilvandyke.org/racket/overeasy--4-3.zip";
+      sha256 = "sha256-+DjIwWv2z5bNVS24qRoLTOUnDd2JbL6XNK3wfOWtN5w=";
+    };
+  };
+  racket-langserver = {
+    pname = "racket-langserver";
+    version = "9867f7ff0ee118c05de67e9aa11afb04ae514be3";
+    src = fetchFromGitHub {
+      owner = "jeapostrophe";
+      repo = "racket-langserver";
+      rev = "9867f7ff0ee118c05de67e9aa11afb04ae514be3";
+      fetchSubmodules = false;
+      sha256 = "sha256-44XYbK3WrIT+XPzPxpJCBY4YcufEj3QjL9IlrfsV/uw=";
+    };
+    date = "2026-07-26";
   };
   repl-ui-hx = {
     pname = "repl-ui-hx";

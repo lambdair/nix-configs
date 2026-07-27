@@ -6,7 +6,10 @@
   ...
 }:
 let
-  inherit (import ../pkgs { inherit pkgs sources; }) budget_tracker_tui;
+  inherit (import ../pkgs { inherit pkgs sources; })
+    budget_tracker_tui
+    racket-with-langserver
+    ;
 
   # jj wrapped with a betterleaks secret-scan gate on `jj git push`.
   # jj runs no git hooks and jjui execs `jj git push` directly, so wrapping
@@ -118,8 +121,7 @@ in
       # Lisp / Scheme
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # sbcl
-      # racket
-      # racket-minimal
+      racket-with-langserver # Racket, with racket-langserver on its collection path
       guile # Embeddable Scheme implementation
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

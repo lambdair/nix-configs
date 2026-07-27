@@ -24,6 +24,35 @@ fetch.github = "AlexvZyl/nordic.nvim"
 src.git = "https://github.com/Apeiros-46B/uiua.vim"
 fetch.github = "Apeiros-46B/uiua.vim"
 
+# racket-langserver plus the dependencies the Racket distribution does not
+# ship. `raco pkg install` would resolve these from the package catalog, which
+# a sandboxed build cannot reach, so they are pinned here and placed on the
+# collection path instead. html-parsing pulls in mcfly; the remaining
+# dependencies come with the full racket package.
+[racket-langserver]
+src.git = "https://github.com/jeapostrophe/racket-langserver"
+fetch.github = "jeapostrophe/racket-langserver"
+
+[fixw]
+src.git = "https://github.com/6cdh/racket-fixw"
+fetch.github = "6cdh/racket-fixw"
+
+# Distributed as versioned zips rather than from a repository, so the version
+# is pinned by hand; bump it together with the URL it expands into. overeasy is
+# only reached from html-parsing's test submodule, which compiling the module
+# still has to expand.
+[html-parsing]
+src.manual = "11-0"
+fetch.url = "https://www.neilvandyke.org/racket/html-parsing--$ver.zip"
+
+[mcfly]
+src.manual = "2-2"
+fetch.url = "https://www.neilvandyke.org/racket/mcfly--$ver.zip"
+
+[overeasy]
+src.manual = "4-3"
+fetch.url = "https://www.neilvandyke.org/racket/overeasy--$ver.zip"
+
 [nvim-bqn]
 src.git = "https://git.sr.ht/~detegr/nvim-bqn"
 fetch.git = "https://git.sr.ht/~detegr/nvim-bqn"
