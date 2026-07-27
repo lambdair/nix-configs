@@ -4,6 +4,9 @@ result
 .devenv*
 devenv.local.nix
 
+# machine-local Claude Code permissions, rewritten by the agent itself
+.claude/settings.local.json
+
 # clojure tool caches
 home/.clj-kondo/.cache/
 home/.clj-kondo/imports/
