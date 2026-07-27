@@ -70,7 +70,7 @@ After editing Nix files, run `just check` to validate. Run `just fmt` before fin
 
 ### Key Patterns
 
-- **`sources` parameter**: Custom packages in `home/default.nix` use `sources` (from `_sources/generated.nix` via nvfetcher) for upstream version tracking
+- **`sources` parameter**: Custom packages in `pkgs/` take `sources` (from `_sources/generated.nix` via nvfetcher) for upstream version tracking
 - **Platform conditionals**: `pkgs.stdenv.isLinux` / `stdenv.isDarwin` for platform-specific packages
 - **Overlays**: Applied per-platform in flake.nix (rust-overlay, emacs-overlay always; uiua386 fix on macOS only)
 - **Private module**: `inputs.private` from git.sr.ht provides sensitive configs (darwinModules, homeModules). CI never builds an attribute that references it

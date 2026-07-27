@@ -4,4 +4,6 @@
 import ./helix-steel.nix { inherit pkgs sources; }
 // {
   difit = import ./difit.nix { inherit pkgs sources; };
+  elio = import ./elio.nix { inherit pkgs sources; };
+  budget_tracker_tui = import ./budget-tracker-tui.nix { inherit pkgs sources; };
 }

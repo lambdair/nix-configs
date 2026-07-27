@@ -17,10 +17,7 @@ let
   ];
   libPath = lib.makeLibraryPath libs;
 
-  budget_tracker_tui = pkgs.rustPlatform.buildRustPackage {
-    inherit (sources.budget_tracker_tui) pname version src;
-    cargoLock.lockFile = "${sources.budget_tracker_tui.src}/Cargo.lock";
-  };
+  inherit (import ../pkgs { inherit pkgs sources; }) budget_tracker_tui;
 
   # jj wrapped with a betterleaks secret-scan gate on `jj git push`.
   # jj runs no git hooks and jjui execs `jj git push` directly, so wrapping

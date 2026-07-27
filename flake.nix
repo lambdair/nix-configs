@@ -183,6 +183,14 @@
             path = customPkgs.difit;
           }
           {
+            name = "elio";
+            path = customPkgs.elio;
+          }
+          {
+            name = "budget_tracker_tui";
+            path = customPkgs.budget_tracker_tui;
+          }
+          {
             name = "hunkdiff";
             path = inputs.hunk.packages."aarch64-darwin".default;
           }
