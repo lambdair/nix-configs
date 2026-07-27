@@ -13,7 +13,7 @@
 ;; Early exit if no file path
 (when-not file-path (System/exit 0))
 
-;; === Shell helper (same as statusline-command.bb) ===
+;; === Shell helper ===
 (defn sh [& args]
   (try
     (let [result (apply p/shell {:out :string :err :string :dir cwd} args)]
