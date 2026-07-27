@@ -13,11 +13,11 @@
 //! take LOCK_SH: they are not read-only — each still snapshots its own
 //! workspace's working copy — but they never rewrite someone else's change, so
 //! they only need to exclude rewrites, not each other. That matters because
-//! the lock is held for the whole run: `jj log` waits on its pager, and under
-//! LOCK_EX that stalled every other jj call in the repo, the per-render
-//! `jj log` behind the statusline included. Anything not recognized as an
-//! inspection falls back to LOCK_EX, so an unknown or aliased subcommand is
-//! never under-locked.
+//! the lock is held for the whole run: `jj log` waits on its pager, so an
+//! exclusive lock there holds up every other jj call in the repo, the
+//! per-render `jj log` behind the statusline included. Anything not
+//! recognized as an inspection falls back to LOCK_EX, so an unknown or
+//! aliased subcommand is never under-locked.
 //!
 //! Every workspace of a repo resolves to the same shared store, so they share
 //! one lock file. Outside a jj repo the lock is skipped and jj runs unwrapped.
