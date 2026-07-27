@@ -12,7 +12,12 @@ let
   # Grammars from helix-steel's own languages.toml pins, kept in lockstep with its
   # runtime queries (a revision skew silently breaks highlighting). grammars.nix
   # emits the platform-correct extension (.dylib on macOS, .so on Linux).
-  helix-steel-grammars = pkgs.callPackage "${sources.helix-steel.src}/grammars.nix" { };
+  helix-steel-grammars = pkgs.callPackage "${sources.helix-steel.src}/grammars.nix" {
+    # tree-sitter-proverif moved from Codeberg to GitHub, and the Codeberg URL
+    # languages.toml pins now answers 504/401, so fetching that revision fails.
+    # Removable once languages.toml points at the new location.
+    includeGrammarIf = grammar: grammar.name != "proverif";
+  };
 
   # helix-steel's fork predates upstream moonbit support, so its languages.toml
   # has neither grammar nor queries. Build the moonbit grammar from upstream
