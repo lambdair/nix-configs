@@ -328,26 +328,6 @@
         },
         "version": "5caf81c57cb2ae45654b8f99c5c8f68c812beb91"
     },
-    "nael": {
-        "cargoLock": null,
-        "date": "2026-03-09",
-        "extract": null,
-        "name": "nael",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "rev": "c1d349746731bbff6bf1887c51eb7a1f3bea5c4c",
-            "sha256": "sha256-X3yw0pBgUN71TdPcEPznjq//U5X8P+zctik3nw11RSI=",
-            "sparseCheckout": [],
-            "type": "git",
-            "url": "https://codeberg.org/mekeor/nael"
-        },
-        "version": "c1d349746731bbff6bf1887c51eb7a1f3bea5c4c"
-    },
     "nordic": {
         "cargoLock": null,
         "date": "2026-05-03",
@@ -388,27 +368,6 @@
             "url": "https://git.sr.ht/~detegr/nvim-bqn"
         },
         "version": "52d8b49f3ebc32d340e2e2b8dba1f6bbd1873b78"
-    },
-    "racket-langserver": {
-        "cargoLock": null,
-        "date": "2026-07-26",
-        "extract": null,
-        "name": "racket-langserver",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "jeapostrophe",
-            "repo": "racket-langserver",
-            "rev": "9867f7ff0ee118c05de67e9aa11afb04ae514be3",
-            "sha256": "sha256-44XYbK3WrIT+XPzPxpJCBY4YcufEj3QjL9IlrfsV/uw=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "9867f7ff0ee118c05de67e9aa11afb04ae514be3"
     },
     "repl-ui-hx": {
         "cargoLock": null,

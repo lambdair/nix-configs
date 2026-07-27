@@ -7,10 +7,6 @@ fetch.github = "leanprover-community/lean4-mode"
 src.git = "https://codeberg.org/meow_king/typst-ts-mode"
 fetch.git = "https://codeberg.org/meow_king/typst-ts-mode"
 
-[nael]
-src.git = "https://codeberg.org/mekeor/nael"
-fetch.git = "https://codeberg.org/mekeor/nael"
-
 [eglot-booster]
 src.git = "https://github.com/jdtsmith/eglot-booster"
 fetch.github = "jdtsmith/eglot-booster"
@@ -23,10 +19,6 @@ fetch.github = "bolivier/jj-mode.el"
 [nordic]
 src.git = "https://github.com/AlexvZyl/nordic.nvim"
 fetch.github = "AlexvZyl/nordic.nvim"
-
-[racket-langserver]
-src.git = "https://github.com/jeapostrophe/racket-langserver"
-fetch.github = "jeapostrophe/racket-langserver"
 
 [uiua]
 src.git = "https://github.com/Apeiros-46B/uiua.vim"

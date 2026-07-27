@@ -195,20 +195,6 @@
     };
     date = "2026-07-06";
   };
-  nael = {
-    pname = "nael";
-    version = "c1d349746731bbff6bf1887c51eb7a1f3bea5c4c";
-    src = fetchgit {
-      url = "https://codeberg.org/mekeor/nael";
-      rev = "c1d349746731bbff6bf1887c51eb7a1f3bea5c4c";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sparseCheckout = [ ];
-      sha256 = "sha256-X3yw0pBgUN71TdPcEPznjq//U5X8P+zctik3nw11RSI=";
-    };
-    date = "2026-03-09";
-  };
   nordic = {
     pname = "nordic";
     version = "9fb62116b891184049c50ca6ffb0d3bc100a1a6e";
@@ -234,18 +220,6 @@
       sha256 = "sha256-5wITedTuUn9BKLqmQtPWeFNOa8dXfPIRpUvPSkNJcas=";
     };
     date = "2023-09-08";
-  };
-  racket-langserver = {
-    pname = "racket-langserver";
-    version = "9867f7ff0ee118c05de67e9aa11afb04ae514be3";
-    src = fetchFromGitHub {
-      owner = "jeapostrophe";
-      repo = "racket-langserver";
-      rev = "9867f7ff0ee118c05de67e9aa11afb04ae514be3";
-      fetchSubmodules = false;
-      sha256 = "sha256-44XYbK3WrIT+XPzPxpJCBY4YcufEj3QjL9IlrfsV/uw=";
-    };
-    date = "2026-07-26";
   };
   repl-ui-hx = {
     pname = "repl-ui-hx";
