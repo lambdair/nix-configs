@@ -11,6 +11,30 @@ let
   };
   # Native statusline binary, compiled from MoonBit (see ./statusline.nix).
   statusline = import ./statusline.nix { inherit pkgs; };
+
+  # Paths of every file under `dir`, relative to it.
+  filesUnder =
+    dir:
+    lib.flatten (
+      lib.mapAttrsToList (
+        name: type:
+        if type == "directory" then map (sub: "${name}/${sub}") (filesUnder (dir + "/${name}")) else name
+      ) (builtins.readDir dir)
+    );
+
+  # Mirror `dir` into ~/.claude/<target>. Everything but documentation is run
+  # rather than read, so it needs the executable bit.
+  deploy =
+    target: dir:
+    lib.listToAttrs (
+      map (
+        rel:
+        lib.nameValuePair ".claude/${target}/${rel}" {
+          source = dir + "/${rel}";
+          executable = !(lib.hasSuffix ".md" rel);
+        }
+      ) (filesUnder dir)
+    );
 in
 {
   programs.claude-code = {
@@ -170,60 +194,26 @@ in
     };
   };
 
-  home.file.".claude/hooks/revision-context.bb" = {
-    source = ./hooks/revision-context.bb;
-    executable = true;
-  };
+  home.file =
+    deploy "hooks" ./hooks
+    // deploy "skills" ./skills
+    // {
+      ".claude/rules/jj-workflow.md".source = ./jj-workflow.md;
+      ".claude/rules/coding-preferences.md".source = ./coding-preferences.md;
+      ".claude/rules/revision-discipline.md".source = ./revision-discipline.md;
 
-  home.file.".claude/hooks/jj-worktree-create.bb" = {
-    source = ./hooks/jj-worktree-create.bb;
-    executable = true;
-  };
-
-  home.file.".claude/hooks/jj-worktree-remove.bb" = {
-    source = ./hooks/jj-worktree-remove.bb;
-    executable = true;
-  };
-
-  home.file.".claude/hooks/revision-discipline-check.bb" = {
-    source = ./hooks/revision-discipline-check.bb;
-    executable = true;
-  };
-
-  home.file.".claude/rules/jj-workflow.md".source = ./jj-workflow.md;
-  home.file.".claude/rules/coding-preferences.md".source = ./coding-preferences.md;
-  home.file.".claude/rules/revision-discipline.md".source = ./revision-discipline.md;
-
-  home.file.".claude/skills/creating-heptabase-concept-card/SKILL.md".source =
-    ./skills/creating-heptabase-concept-card/SKILL.md;
-
-  home.file.".claude/skills/checking-removable-nix-workarounds/SKILL.md".source =
-    ./skills/checking-removable-nix-workarounds/SKILL.md;
-  home.file.".claude/skills/checking-removable-nix-workarounds/check-workarounds.nu".source =
-    ./skills/checking-removable-nix-workarounds/check-workarounds.nu;
-
-  home.file.".claude/skills/pr-inline-comments/SKILL.md".source =
-    ./skills/pr-inline-comments/SKILL.md;
-
-  home.file.".claude/skills/reviewing-jj-revisions-with-hunk/SKILL.md".source =
-    ./skills/reviewing-jj-revisions-with-hunk/SKILL.md;
-  home.file.".claude/skills/reviewing-jj-revisions-with-hunk/hr" = {
-    source = ./skills/reviewing-jj-revisions-with-hunk/hr;
-    executable = true;
-  };
-
-  home.file.".claude/skills/create-pr/SKILL.md".source = ./skills/create-pr/SKILL.md;
-
-  # Claude sessions rewrite known_marketplaces.json and settings.json, so force
-  # the overwrite to avoid activation conflicts (the claude-code module owns the
-  # source).
-  home.file."${config.home.homeDirectory}/.claude/plugins/known_marketplaces.json".force = true;
-  home.file."${config.home.homeDirectory}/.claude/settings.json".force = true;
-
-  # macOS only: symlink shared settings for secondary account
-  home.file.".claude-personal/settings.json" = lib.mkIf pkgs.stdenv.isDarwin (link "settings.json");
-  home.file.".claude-personal/CLAUDE.md" = lib.mkIf pkgs.stdenv.isDarwin (link "CLAUDE.md");
-  home.file.".claude-personal/hooks" = lib.mkIf pkgs.stdenv.isDarwin (link "hooks");
-  home.file.".claude-personal/rules" = lib.mkIf pkgs.stdenv.isDarwin (link "rules");
-  home.file.".claude-personal/skills" = lib.mkIf pkgs.stdenv.isDarwin (link "skills");
+      # Claude sessions rewrite known_marketplaces.json and settings.json, so
+      # force the overwrite to avoid activation conflicts (the claude-code
+      # module owns the source).
+      "${config.home.homeDirectory}/.claude/plugins/known_marketplaces.json".force = true;
+      "${config.home.homeDirectory}/.claude/settings.json".force = true;
+    }
+    # macOS only: symlink shared settings for secondary account
+    // lib.optionalAttrs pkgs.stdenv.isDarwin {
+      ".claude-personal/settings.json" = link "settings.json";
+      ".claude-personal/CLAUDE.md" = link "CLAUDE.md";
+      ".claude-personal/hooks" = link "hooks";
+      ".claude-personal/rules" = link "rules";
+      ".claude-personal/skills" = link "skills";
+    };
 }
