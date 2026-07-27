@@ -69,11 +69,10 @@
     (and wc-has-changes wc-no-desc)
     (conj "現在のワーキングコピー (@) に変更がありますが、description が未設定です")))
 
-(if (seq issues)
-  (do
-    (binding [*out* *err*]
-      (println (str "【リビジョン規律チェック】\n"
-                    (str/join "\n" issues)
-                    "\n\n分割を検討してください（`jj split` または `jj new`）")))
-    (println (json/generate-string {})))
-  (println (json/generate-string {})))
+(when (seq issues)
+  (binding [*out* *err*]
+    (println (str "【リビジョン規律チェック】\n"
+                  (str/join "\n" issues)
+                  "\n\n分割を検討してください（`jj split` または `jj new`）"))))
+
+(println (json/generate-string {}))
