@@ -1,8 +1,10 @@
 #!/usr/bin/env bb
 
 (require '[cheshire.core :as json]
-         '[babashka.process :as p]
-         '[clojure.string :as str])
+         '[clojure.string :as str]
+         '[babashka.fs :as fs])
+
+(load-file (str (fs/parent *file*) "/lib.bb"))
 
 ;; === Parse stdin JSON ===
 (def input (json/parse-string (slurp *in*) true))
@@ -13,13 +15,7 @@
 ;; Early exit if no file path
 (when-not file-path (System/exit 0))
 
-;; === Shell helper ===
-(defn sh [& args]
-  (try
-    (let [result (apply p/shell {:out :string :err :string :dir cwd} args)]
-      (when (zero? (:exit result))
-        (str/trim (:out result))))
-    (catch Exception _ nil)))
+(defn sh [& args] (apply sh-in cwd args))
 
 ;; jj repo check
 (when-not (sh "jj" "root" "--quiet") (System/exit 0))
@@ -31,13 +27,7 @@
 ;; No changes yet → no context needed
 (when (str/blank? stat) (System/exit 0))
 
-;; Extract total changed lines from stat summary (last line: "N file(s) changed, X insertion(s), Y deletion(s)")
-(def total-lines
-  (let [last-line (last (str/split-lines stat))
-        nums (re-seq #"\d+" (or last-line ""))]
-    (if (and nums (>= (count nums) 2))
-      (reduce + (map #(Long/parseLong %) (rest nums)))
-      0)))
+(def total-lines (changed-lines stat))
 
 (def line-warning
   (when (> total-lines 150)

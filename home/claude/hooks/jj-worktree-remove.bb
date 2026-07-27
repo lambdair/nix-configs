@@ -5,6 +5,9 @@
          '[clojure.string :as str]
          '[babashka.fs :as fs])
 
+;; The runner below reports why a command failed — the only diagnostic left
+;; once the worktree it was operating on is gone.
+
 ;; === Parse stdin JSON ===
 (def input (json/parse-string (slurp *in*) true))
 

@@ -1,20 +1,16 @@
 #!/usr/bin/env bb
 
 (require '[cheshire.core :as json]
-         '[babashka.process :as p]
-         '[clojure.string :as str])
+         '[clojure.string :as str]
+         '[babashka.fs :as fs])
+
+(load-file (str (fs/parent *file*) "/lib.bb"))
 
 ;; === Parse stdin JSON ===
 (def input (json/parse-string (slurp *in*) true))
 (def cwd (get input :cwd "."))
 
-;; === Shell helper ===
-(defn sh [& args]
-  (try
-    (let [result (apply p/shell {:out :string :err :string :dir cwd} args)]
-      (when (zero? (:exit result))
-        (str/trim (:out result))))
-    (catch Exception _ nil)))
+(defn sh [& args] (apply sh-in cwd args))
 
 ;; Early exit if not a jj repo
 (when-not (sh "jj" "root" "--quiet")
@@ -44,12 +40,7 @@
 (def violations
   (vec
     (for [{:keys [id desc]} revisions
-          :let [stat (or (sh "jj" "diff" "--stat" "--no-pager" "-r" id) "")
-                last-line (last (str/split-lines stat))
-                nums (re-seq #"\d+" (or last-line ""))
-                total (if (and nums (>= (count nums) 2))
-                        (reduce + (map #(Long/parseLong %) (rest nums)))
-                        0)]
+          :let [total (changed-lines (sh "jj" "diff" "--stat" "--no-pager" "-r" id))]
           :when (> total 150)]
       {:id id :desc desc :lines total})))
 

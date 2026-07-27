@@ -5,6 +5,8 @@
          '[clojure.string :as str]
          '[babashka.fs :as fs])
 
+(load-file (str (fs/parent *file*) "/lib.bb"))
+
 ;; === Parse stdin JSON ===
 (def input (json/parse-string (slurp *in*) true))
 
@@ -20,13 +22,7 @@
     (println "Invalid worktree name"))
   (System/exit 1))
 
-;; === Shell helper ===
-(defn sh [& args]
-  (try
-    (let [result (apply p/shell {:out :string :err :string :dir cwd} args)]
-      (when (zero? (:exit result))
-        (str/trim (:out result))))
-    (catch Exception _ nil)))
+(defn sh [& args] (apply sh-in cwd args))
 
 ;; === Get repo root ===
 (def repo-root (sh "jj" "root"))
