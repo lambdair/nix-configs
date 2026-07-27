@@ -6,17 +6,6 @@
   ...
 }:
 let
-  libs = with pkgs; [
-    SDL2
-    SDL2_ttf
-    SDL2_image
-    libffi
-    libsixel
-    openssl
-    ncurses
-  ];
-  libPath = lib.makeLibraryPath libs;
-
   inherit (import ../pkgs { inherit pkgs sources; }) budget_tracker_tui;
 
   # jj wrapped with a betterleaks secret-scan gate on `jj git push`.
@@ -288,8 +277,7 @@ in
       abella # Interactive theorem prover (Linux only: darwin build fails on ocaml-4.12.1 thread tests)
       d2 # Modern diagram scripting language (Linux only: darwin build fails on libdrm/mesa-libgbm)
       dict # Dictionary client (Linux only: darwin build fails on dictd → flex 2.5.35 K&R C)
-    ]
-    ++ libs;
+    ];
 
   imports = [
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -347,7 +335,6 @@ in
       };
       environmentVariables = {
         EDITOR = "hx";
-        LD_LIBRARY_PATH = "'${libPath}'";
       };
       configFile.source = ./config.nu;
     };
