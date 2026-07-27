@@ -9,15 +9,10 @@ let
     inherit (pkgs.emacs.pkgs) trivialBuild;
     inherit sources;
   };
-  lsp-proxy = pkgs.callPackage ./lsp-proxy.nix {
-    inherit (pkgs.emacs.pkgs) trivialBuild;
-    inherit sources;
-  };
 in
 with epkgs;
 [
   eglot
   eglot-booster
   lsp-mode-plist
-  # lsp-proxy
 ]
