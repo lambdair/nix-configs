@@ -20,15 +20,15 @@
   };
   bento = {
     pname = "bento";
-    version = "5e326849043c10aa9a44d2a082a7e6efeed9bd8b";
+    version = "7681790c9669a3a0b8549b5c745b8f47db37cb8f";
     src = fetchFromGitHub {
       owner = "nyblnet";
       repo = "bento";
-      rev = "5e326849043c10aa9a44d2a082a7e6efeed9bd8b";
+      rev = "7681790c9669a3a0b8549b5c745b8f47db37cb8f";
       fetchSubmodules = false;
-      sha256 = "sha256-56bP1thS1A+v1Smz4E4sOkTQGiBork6ZQnVheAFwVn0=";
+      sha256 = "sha256-FavCe/RZhG4R9NHqS8Gs+HEi+M6t34gFLdtWZiDIRk8=";
     };
-    date = "2026-07-26";
+    date = "2026-07-27";
   };
   budget_tracker_tui = {
     pname = "budget_tracker_tui";
@@ -237,15 +237,15 @@
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "ab61d6b38a1d7fffd35024241433c62b38681a8c";
+    version = "9867f7ff0ee118c05de67e9aa11afb04ae514be3";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "ab61d6b38a1d7fffd35024241433c62b38681a8c";
+      rev = "9867f7ff0ee118c05de67e9aa11afb04ae514be3";
       fetchSubmodules = false;
-      sha256 = "sha256-w0ob/vW6kROQylW3ou6lhLs0Y7hVivHj3xE0wVRl1/c=";
+      sha256 = "sha256-44XYbK3WrIT+XPzPxpJCBY4YcufEj3QjL9IlrfsV/uw=";
     };
-    date = "2026-06-30";
+    date = "2026-07-26";
   };
   repl-ui-hx = {
     pname = "repl-ui-hx";
