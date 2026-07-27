@@ -23,9 +23,6 @@
       url = "github:moonbit-community/moonbit-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-    };
     wezterm = {
       url = "github:wez/wezterm/main?dir=nix";
     };
@@ -129,7 +126,6 @@
                 ./home
                 platformModule
                 inputs.catppuccin.homeModules.catppuccin
-                inputs.nixvim.homeModules.nixvim
               ];
             };
         in
@@ -146,7 +142,6 @@
               ./home
               ./home/mac
               inputs.catppuccin.homeModules.catppuccin
-              inputs.nixvim.homeModules.nixvim
               inputs.private.homeModules.mac
             ];
           };
