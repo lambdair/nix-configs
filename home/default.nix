@@ -196,6 +196,8 @@ in
       go-migrate # Database migrations
       jq # Command-line JSON processor
       ansifilter # ANSI escape code filter
+      # macOS /usr/bin/python3 is an xcrun shim that fails when DEVELOPER_DIR points at a nix SDK
+      python3 # Python interpreter
       python312Packages.pylatexenc # LaTeX encoder for Python
       uv # Fast Python package installer and resolver
       rlwrap # Readline wrapper for interactive programs
