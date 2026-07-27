@@ -36,7 +36,7 @@
           "Noto Color Emoji"
         ];
         monospace = [
-          "hackgen-nf-font"
+          "HackGen Console NF"
           "Noto Color Emoji"
         ];
         emoji = [ "Noto Color Emoji" ];
