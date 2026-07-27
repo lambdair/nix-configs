@@ -326,7 +326,7 @@ in
 
     kitty = {
       enable = true;
-      extraConfig = builtins.readFile ./kitty.conf;
+      font.name = "Uiua386";
     };
 
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
