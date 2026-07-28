@@ -13,10 +13,22 @@ let
   # runtime queries (a revision skew silently breaks highlighting). grammars.nix
   # emits the platform-correct extension (.dylib on macOS, .so on Linux).
   helix-steel-grammars = pkgs.callPackage "${sources.helix-steel.src}/grammars.nix" {
-    # tree-sitter-proverif moved from Codeberg to GitHub, and the Codeberg URL
-    # languages.toml pins now answers 504/401, so fetching that revision fails.
-    # Removable once languages.toml points at the new location.
-    includeGrammarIf = grammar: grammar.name != "proverif";
+    # proverif: tree-sitter-proverif moved from Codeberg to GitHub, and the
+    # Codeberg URL languages.toml pins now answers 504/401, so fetching that
+    # revision fails. Removable once languages.toml points at the new location.
+    #
+    # rpmspec and wikitext: their repositories carry paths differing only in
+    # case. On a case-insensitive filesystem Nix escapes the collision as
+    # ~nix~case~hack~N while Lix drops one side, so the two disagree on this
+    # derivation's hash and a Lix host stops substituting the CI-built runtime.
+    # Removable once Lix fetches such trees the way Nix does.
+    includeGrammarIf =
+      grammar:
+      !(builtins.elem grammar.name [
+        "proverif"
+        "rpmspec"
+        "wikitext"
+      ]);
   };
 
   # helix-steel's fork predates upstream moonbit support, so its languages.toml
