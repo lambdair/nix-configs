@@ -21,10 +21,21 @@ jobs:
         with:
           name: lambdair
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+          # Left to the explicit step below; see its comment.
+          skipPush: true
       # Build only ci-heavy, never a flake-wide command: this attribute
       # references no private input, so the runner needs no sr.ht credentials.
-      # cachix-action pushes the newly built paths afterwards.
-      - run: nix build .#ci-heavy --print-build-logs
+      - id: build
+        run: echo "path=$(nix build .#ci-heavy --print-out-paths --print-build-logs)" >> "$GITHUB_OUTPUT"
+      # cachix-action's own push uploads every store path the job created, and
+      # most of those are build-time intermediates no host ever substitutes.
+      # Uploading the closure alone keeps the cache within its storage quota.
+      # The pin is what protects it from the cache's garbage collection.
+      - name: Push and pin the closure
+        run: |
+          cachix push lambdair "${{ steps.build.outputs.path }}"
+          cachix pin lambdair ci-heavy-aarch64-darwin "${{ steps.build.outputs.path }}" \
+            --keep-revisions 2
 
   ci-heavy-linux:
     # The x86_64-linux half of the same aggregate: NixHome and WSLHome build
@@ -41,7 +52,14 @@ jobs:
         with:
           name: lambdair
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix build .#ci-heavy --print-build-logs
+          skipPush: true
+      - id: build
+        run: echo "path=$(nix build .#ci-heavy --print-out-paths --print-build-logs)" >> "$GITHUB_OUTPUT"
+      - name: Push and pin the closure
+        run: |
+          cachix push lambdair "${{ steps.build.outputs.path }}"
+          cachix pin lambdair ci-heavy-x86_64-linux "${{ steps.build.outputs.path }}" \
+            --keep-revisions 2
 
   configs:
     # The Linux configurations reference no private input either, so they can
@@ -65,6 +83,9 @@ jobs:
         with:
           name: lambdair
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+          # Only here to substitute, so --dry-run reports what a host would
+          # really have to build. This job produces nothing worth uploading.
+          skipPush: true
       - name: Resolve configurations
         run: |
           for attr in \
