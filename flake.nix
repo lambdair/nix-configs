@@ -53,23 +53,34 @@
         "x86_64-linux"
         "aarch64-darwin"
       ];
-      forAllSystems = inputs.nixpkgs.lib.genAttrs systems;
-      darwinPkgs = import inputs.nixpkgs {
-        system = "aarch64-darwin";
-        config.allowUnfree = true;
-        config.allowUnsupportedSystem = true;
-        overlays = [
-          inputs.rust-overlay.overlays.default
-          inputs.emacs-overlay.overlay
-          inputs.claude-code-nix.overlays.default
-          inputs.moonbit-overlay.overlays.default
-          (import ./overlays/uiua386-fix-monospace.nix)
-          (import ./overlays/pin-broken-pkg.nix inputs)
-        ];
-      };
+      inherit (inputs.nixpkgs) lib;
+      forAllSystems = lib.genAttrs systems;
+      pkgsFor =
+        system:
+        let
+          isDarwin = system == "aarch64-darwin";
+        in
+        import inputs.nixpkgs {
+          inherit system;
+          config = {
+            allowUnfree = true;
+          }
+          // lib.optionalAttrs isDarwin { allowUnsupportedSystem = true; };
+          overlays = [
+            inputs.rust-overlay.overlays.default
+            inputs.emacs-overlay.overlay
+            inputs.claude-code-nix.overlays.default
+            inputs.moonbit-overlay.overlays.default
+          ]
+          ++ lib.optional isDarwin (import ./overlays/uiua386-fix-monospace.nix)
+          ++ [ (import ./overlays/pin-broken-pkg.nix inputs) ];
+        };
       sourcesFor =
         system: inputs.nixpkgs.legacyPackages.${system}.callPackage ./_sources/generated.nix { };
+      darwinPkgs = pkgsFor "aarch64-darwin";
       darwinSources = sourcesFor "aarch64-darwin";
+      linuxPkgs = pkgsFor "x86_64-linux";
+      linuxSources = sourcesFor "x86_64-linux";
     in
     {
       nixosConfigurations = {
@@ -102,25 +113,13 @@
 
       homeConfigurations =
         let
-          system = "x86_64-linux";
-          sources = sourcesFor system;
-          linuxPkgs = import inputs.nixpkgs {
-            system = system;
-            config.allowUnfree = true;
-            overlays = [
-              inputs.rust-overlay.overlays.default
-              inputs.emacs-overlay.overlay
-              inputs.claude-code-nix.overlays.default
-              inputs.moonbit-overlay.overlays.default
-              (import ./overlays/pin-broken-pkg.nix inputs)
-            ];
-          };
           linuxHome =
             platformModule:
             inputs.home-manager.lib.homeManagerConfiguration {
               pkgs = linuxPkgs;
               extraSpecialArgs = {
-                inherit inputs sources;
+                inherit inputs;
+                sources = linuxSources;
               };
               modules = [
                 ./home
