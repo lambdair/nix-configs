@@ -9,7 +9,7 @@ on:
 jobs:
   update:
     # flake.lock and _sources are platform-independent, so the cheap Linux
-    # runner produces them; build.yml verifies the PR on macOS.
+    # runner produces them; build.yml verifies the PR on both platforms.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

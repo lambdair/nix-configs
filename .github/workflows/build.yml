@@ -26,6 +26,23 @@ jobs:
       # cachix-action pushes the newly built paths afterwards.
       - run: nix build .#ci-heavy --print-build-logs
 
+  ci-heavy-linux:
+    # The x86_64-linux half of the same aggregate: NixHome and WSLHome build
+    # from these identical derivations. Only the custom packages, not a whole
+    # configuration, whose closure does not fit a Linux runner's free disk.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v30
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - uses: cachix/cachix-action@v15
+        with:
+          name: lambdair
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - run: nix build .#ci-heavy --print-build-logs
+
   configs:
     # The Linux configurations reference no private input either, so they can
     # be resolved here. --dry-run evaluates the whole configuration and prints
