@@ -81,6 +81,52 @@
       darwinSources = sourcesFor "aarch64-darwin";
       linuxPkgs = pkgsFor "x86_64-linux";
       linuxSources = sourcesFor "x86_64-linux";
+      # Aggregate of the expensive custom builds, for CI to build and push to
+      # the binary cache. References only public-source packages, so building
+      # this output (`nix build .#ci-heavy`) never fetches the private input;
+      # flake-wide commands like `nix flake check` still resolve every locked
+      # input and need its credentials. The package set and sources are the
+      # ones the matching home configuration uses, keeping the derivations
+      # hash-identical so CI artifacts substitute locally.
+      ciHeavyFor =
+        system: pkgs: sources:
+        let
+          customPkgs = import ./pkgs { inherit pkgs sources; };
+        in
+        pkgs.linkFarm "ci-heavy" [
+          {
+            name = "steel";
+            path = customPkgs.steel;
+          }
+          {
+            name = "helix-steel-unwrapped";
+            path = customPkgs.helix-steel-unwrapped;
+          }
+          {
+            name = "helix-runtime";
+            path = customPkgs.helix-runtime;
+          }
+          {
+            name = "sulafat";
+            path = customPkgs.sulafat;
+          }
+          {
+            name = "difit";
+            path = customPkgs.difit;
+          }
+          {
+            name = "elio";
+            path = customPkgs.elio;
+          }
+          {
+            name = "budget_tracker_tui";
+            path = customPkgs.budget_tracker_tui;
+          }
+          {
+            name = "hunkdiff";
+            path = inputs.hunk.packages.${system}.default;
+          }
+        ];
     in
     {
       nixosConfigurations = {
@@ -146,54 +192,10 @@
           };
         };
 
-      # Aggregate of the expensive custom builds, for CI to build and push to
-      # the binary cache. References only public-source packages, so building
-      # this output (`nix build .#ci-heavy`) never fetches the private input;
-      # flake-wide commands like `nix flake check` still resolve every locked
-      # input and need its credentials. darwinPkgs/darwinSources are shared
-      # with MacHome, keeping the derivations hash-identical so CI artifacts
-      # substitute locally.
-      packages."aarch64-darwin".ci-heavy =
-        let
-          customPkgs = import ./pkgs {
-            pkgs = darwinPkgs;
-            sources = darwinSources;
-          };
-        in
-        darwinPkgs.linkFarm "ci-heavy" [
-          {
-            name = "steel";
-            path = customPkgs.steel;
-          }
-          {
-            name = "helix-steel-unwrapped";
-            path = customPkgs.helix-steel-unwrapped;
-          }
-          {
-            name = "helix-runtime";
-            path = customPkgs.helix-runtime;
-          }
-          {
-            name = "sulafat";
-            path = customPkgs.sulafat;
-          }
-          {
-            name = "difit";
-            path = customPkgs.difit;
-          }
-          {
-            name = "elio";
-            path = customPkgs.elio;
-          }
-          {
-            name = "budget_tracker_tui";
-            path = customPkgs.budget_tracker_tui;
-          }
-          {
-            name = "hunkdiff";
-            path = inputs.hunk.packages."aarch64-darwin".default;
-          }
-        ];
+      packages = {
+        "aarch64-darwin".ci-heavy = ciHeavyFor "aarch64-darwin" darwinPkgs darwinSources;
+        "x86_64-linux".ci-heavy = ciHeavyFor "x86_64-linux" linuxPkgs linuxSources;
+      };
 
       devShells = forAllSystems (
         system:
