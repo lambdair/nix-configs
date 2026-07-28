@@ -120,9 +120,13 @@
           name = "moonbit";
           scope = "source.moonbit";
           injection-regex = "moonbit|mbt";
+          # `moon.mod` / `moon.pkg` are MoonBit source, not JSON: the grammar
+          # parses their `name = ...` / `pkgtype(...)` forms.
           file-types = [
             "mbt"
             "mbti"
+            { glob = "moon.mod"; }
+            { glob = "moon.pkg"; }
           ];
           # `moon new` generates `moon.mod`, but upstream helix lists only
           # `moon.mod.json`, so without the former it finds no root.
