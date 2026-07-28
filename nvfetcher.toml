@@ -86,6 +86,13 @@ src.git = "https://github.com/helix-editor/helix"
 src.branch = "master"
 fetch.github = "helix-editor/helix"
 
+# Tracked only for the `.mbtp` (proof) subgrammar and its queries, which no
+# helix fork ships.
+[tree-sitter-moonbit]
+src.git = "https://github.com/moonbitlang/tree-sitter-moonbit"
+src.branch = "main"
+fetch.github = "moonbitlang/tree-sitter-moonbit"
+
 [steel]
 src.git = "https://github.com/mattwparas/steel"
 fetch.github = "mattwparas/steel"

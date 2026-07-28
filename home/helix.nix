@@ -150,6 +150,31 @@
           auto-format = true;
         }
         {
+          name = "moonbit-mbtp";
+          scope = "source.moonbit_mbtp";
+          injection-regex = "mbtp";
+          file-types = [ "mbtp" ];
+          roots = [
+            "moon.mod"
+            "moon.mod.json"
+          ];
+          comment-tokens = [
+            "//"
+            "///"
+          ];
+          block-comment-tokens = {
+            start = "/*";
+            end = "*/";
+          };
+          indent = {
+            tab-width = 2;
+            unit = "  ";
+          };
+          # moon-lsp serves proof files under the `mbtp` document selector.
+          language-id = "mbtp";
+          language-servers = [ "moonbit-lsp" ];
+        }
+        {
           name = "jsx";
           language-servers = [
             "typescript-language-server"

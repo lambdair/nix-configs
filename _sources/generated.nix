@@ -341,6 +341,18 @@
       sha256 = "sha256-aJPUVVcrQvCVrPowQWcwBd226EhS4/Pzx8KrjV72t8E=";
     };
   };
+  tree-sitter-moonbit = {
+    pname = "tree-sitter-moonbit";
+    version = "5435c307c6cf2ef0d508a99047b06f35a4308444";
+    src = fetchFromGitHub {
+      owner = "moonbitlang";
+      repo = "tree-sitter-moonbit";
+      rev = "5435c307c6cf2ef0d508a99047b06f35a4308444";
+      fetchSubmodules = false;
+      sha256 = "sha256-UUEjrF6uGwTtFGRjmjw75ky8eDwVwAHOHro48TAI+WM=";
+    };
+    date = "2026-07-22";
+  };
   typst-ts-mode = {
     pname = "typst-ts-mode";
     version = "155bb36cff3afe701a0f6b57bd3fe5c9effaa314";

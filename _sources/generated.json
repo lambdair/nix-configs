@@ -573,6 +573,27 @@
         },
         "version": "2026.7.22"
     },
+    "tree-sitter-moonbit": {
+        "cargoLock": null,
+        "date": "2026-07-22",
+        "extract": null,
+        "name": "tree-sitter-moonbit",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "moonbitlang",
+            "repo": "tree-sitter-moonbit",
+            "rev": "5435c307c6cf2ef0d508a99047b06f35a4308444",
+            "sha256": "sha256-UUEjrF6uGwTtFGRjmjw75ky8eDwVwAHOHro48TAI+WM=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "5435c307c6cf2ef0d508a99047b06f35a4308444"
+    },
     "typst-ts-mode": {
         "cargoLock": null,
         "date": "2026-06-24",

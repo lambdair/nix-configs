@@ -39,6 +39,15 @@ let
   helix-moonbit-grammars = pkgs.callPackage "${sources.helix-mainline.src}/grammars.nix" {
     includeGrammarIf = grammar: grammar.name == "moonbit";
   };
+
+  # MoonBit's proof files (`.mbtp`) parse with a subgrammar of
+  # tree-sitter-moonbit. Its queries sit beside it in the same tree, so the one
+  # pin keeps grammar and queries in lockstep.
+  moonbit-mbtp-grammar = pkgs.tree-sitter.buildGrammar {
+    language = "moonbit-mbtp";
+    inherit (sources.tree-sitter-moonbit) version src;
+    location = "grammars/mbtp";
+  };
 in
 rec {
   steel = pkgs.rustPlatform.buildRustPackage {
@@ -95,6 +104,10 @@ rec {
     mkdir -p $out/queries/moonbit
     cp -r ${sources.helix-mainline.src}/runtime/queries/moonbit/* $out/queries/moonbit/
     ln -s ${helix-moonbit-grammars}/moonbit.${grammarExt} $out/grammars/moonbit.${grammarExt}
+    # moonbit-mbtp grammar + queries from tree-sitter-moonbit
+    mkdir -p $out/queries/moonbit-mbtp
+    cp -r ${sources.tree-sitter-moonbit.src}/grammars/mbtp/queries/* $out/queries/moonbit-mbtp/
+    ln -s ${moonbit-mbtp-grammar}/parser $out/grammars/moonbit-mbtp.${grammarExt}
   '';
 
   sulafat = pkgs.rustPlatform.buildRustPackage {
