@@ -1,7 +1,7 @@
 {
     "agent-toolkit-for-aws": {
         "cargoLock": null,
-        "date": "2026-07-24",
+        "date": "2026-07-28",
         "extract": null,
         "name": "agent-toolkit-for-aws",
         "passthru": null,
@@ -13,12 +13,12 @@
             "name": null,
             "owner": "aws",
             "repo": "agent-toolkit-for-aws",
-            "rev": "76180031c0f0b4f6fd2add79e0a8690bac74b8fe",
-            "sha256": "sha256-5TebUOIgW1zasRocMn+xUOwEoKRw/EbZscKcIPA3/HA=",
+            "rev": "4f3fc9a39841fbc82a6b5e81941957864c898530",
+            "sha256": "sha256-kcqjSWC3D9onEyvwTcR9q/gemyAduVu/NPnPbp4oFq8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "76180031c0f0b4f6fd2add79e0a8690bac74b8fe"
+        "version": "4f3fc9a39841fbc82a6b5e81941957864c898530"
     },
     "bento": {
         "cargoLock": null,
@@ -34,12 +34,12 @@
             "name": null,
             "owner": "nyblnet",
             "repo": "bento",
-            "rev": "7681790c9669a3a0b8549b5c745b8f47db37cb8f",
-            "sha256": "sha256-FavCe/RZhG4R9NHqS8Gs+HEi+M6t34gFLdtWZiDIRk8=",
+            "rev": "43d1168f39fad75094f16b76434330715f813bd4",
+            "sha256": "sha256-GkQR7d0YJkJOCh5RPB+yaiWPhO/oG0ukHzO7P4eUHHc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "7681790c9669a3a0b8549b5c745b8f47db37cb8f"
+        "version": "43d1168f39fad75094f16b76434330715f813bd4"
     },
     "budget_tracker_tui": {
         "cargoLock": null,
@@ -218,11 +218,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-JIbxPUF/FQmA+hzFoAzH4Mi8VwHa1HPYP/Fcajo7cYs=",
+            "sha256": "sha256-mSGG9f5aRPtdhaofxPsEDRURqt0Vs50o1j/8d+l+XJM=",
             "type": "url",
-            "url": "https://github.com/heptameta/project-meta/releases/download/v1.100.1/Heptabase-1.100.1.AppImage"
+            "url": "https://github.com/heptameta/project-meta/releases/download/v1.101.2/Heptabase-1.101.2.AppImage"
         },
-        "version": "1.100.1"
+        "version": "1.101.2"
     },
     "heptabase-cli-skills": {
         "cargoLock": null,
@@ -324,7 +324,7 @@
     },
     "lean4-skills": {
         "cargoLock": null,
-        "date": "2026-07-22",
+        "date": "2026-07-28",
         "extract": null,
         "name": "lean4-skills",
         "passthru": null,
@@ -336,12 +336,12 @@
             "name": null,
             "owner": "cameronfreer",
             "repo": "lean4-skills",
-            "rev": "7d04c97741a9e5e79e3d85acf8b52f33b9e86207",
-            "sha256": "sha256-WNvyToFn+nocgWPOgEHW+QXWH7p79wlV+XrjXXmeUzw=",
+            "rev": "665141237d3866c8b741ddcbba85fe8c6f678665",
+            "sha256": "sha256-31g70FLvf5Z5h5aOzpn1aiOUV1Y0bMjTMNkA1NwsU1w=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "7d04c97741a9e5e79e3d85acf8b52f33b9e86207"
+        "version": "665141237d3866c8b741ddcbba85fe8c6f678665"
     },
     "mcfly": {
         "cargoLock": null,
@@ -437,7 +437,7 @@
     },
     "racket-langserver": {
         "cargoLock": null,
-        "date": "2026-07-26",
+        "date": "2026-07-28",
         "extract": null,
         "name": "racket-langserver",
         "passthru": null,
@@ -449,12 +449,12 @@
             "name": null,
             "owner": "jeapostrophe",
             "repo": "racket-langserver",
-            "rev": "9867f7ff0ee118c05de67e9aa11afb04ae514be3",
-            "sha256": "sha256-44XYbK3WrIT+XPzPxpJCBY4YcufEj3QjL9IlrfsV/uw=",
+            "rev": "8dfad0c6de2654a2bfade02f2229c90b3839b0c1",
+            "sha256": "sha256-gwyBDieHatSvtqhusqYcOOF4jyQH0KrrTitROpkC3og=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "9867f7ff0ee118c05de67e9aa11afb04ae514be3"
+        "version": "8dfad0c6de2654a2bfade02f2229c90b3839b0c1"
     },
     "repl-ui-hx": {
         "cargoLock": null,
@@ -539,7 +539,7 @@
     },
     "superpowers": {
         "cargoLock": null,
-        "date": "2026-07-23",
+        "date": "2026-07-28",
         "extract": null,
         "name": "superpowers",
         "passthru": null,
@@ -551,12 +551,12 @@
             "name": null,
             "owner": "obra",
             "repo": "superpowers",
-            "rev": "3dcbd5c4b48e02263fbf4a3c01e3fe4f81d584d9",
-            "sha256": "sha256-F5LEk0yNWbMpan1vZSFZM76XSpsFGvA7h8q6Idrvenk=",
+            "rev": "44c9b2d6e889982ac18c27d05a19fefe335194e1",
+            "sha256": "sha256-fnl+HbPL2qD5Zgz8a1NctjFJSqu6UsyHJAhQMLQNXXc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "3dcbd5c4b48e02263fbf4a3c01e3fe4f81d584d9"
+        "version": "44c9b2d6e889982ac18c27d05a19fefe335194e1"
     },
     "tolaria": {
         "cargoLock": null,
