@@ -12,6 +12,9 @@ let
   # Native statusline binary, compiled from MoonBit (see ./statusline.nix).
   statusline = import ./statusline.nix { inherit pkgs; };
 
+  # Upstream's Lightpanda plugin, repointed at the Nix-managed binary.
+  lightpanda-plugin = import ./lightpanda-plugin.nix { inherit pkgs sources; };
+
   # Paths of every file under `dir`, relative to it.
   filesUnder =
     dir:
@@ -45,6 +48,7 @@ in
       bento = sources.bento.src;
       heptabase-cli-skills = sources.heptabase-cli-skills.src;
       lean4-skills = sources.lean4-skills.src;
+      lightpanda = lightpanda-plugin;
       moonbit-code-plugins = sources.moonbit-skills.src;
       superpowers-dev = sources.superpowers.src;
       thedotmack = sources.claude-mem.src;
@@ -116,6 +120,9 @@ in
         "Bash(tail *)"
         "Bash(wc *)"
 
+        # lightpanda: one-off page reads, when the MCP session is overkill
+        "Bash(lightpanda fetch *)"
+
         # misc
         "Bash(cd *)"
         "Bash(just *)"
@@ -135,6 +142,9 @@ in
         # v13.5.2 worker and blocks UserPromptSubmit seven times in a row.
         "claude-mem@thedotmack" = false;
         "heptabase@heptabase-cli-skills" = true;
+        # Brings both the skill and lightpanda's own MCP server, so the server
+        # is not declared again under mcpServers.
+        "lightpanda@lightpanda" = true;
       };
       statusLine = {
         type = "command";

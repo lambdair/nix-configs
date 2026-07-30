@@ -373,6 +373,27 @@
         },
         "version": "0.3.6"
     },
+    "lightpanda-skill": {
+        "cargoLock": null,
+        "date": "2026-05-21",
+        "extract": null,
+        "name": "lightpanda-skill",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "lightpanda-io",
+            "repo": "agent-skill",
+            "rev": "b5e4ee6394ada2d7d53bd129c7cdfdd76082fff6",
+            "sha256": "sha256-SVO3Zl6AdWbXmzIQBva6j2v7vzr1ZRowll5obVVygQI=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "b5e4ee6394ada2d7d53bd129c7cdfdd76082fff6"
+    },
     "mcfly": {
         "cargoLock": null,
         "date": null,

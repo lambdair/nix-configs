@@ -189,3 +189,10 @@ fetch.github = "nyblnet/bento"
 [moonbit-skills]
 src.git = "https://github.com/moonbitlang/skills"
 fetch.github = "moonbitlang/skills"
+
+# The official Lightpanda skill, packaged as a marketplace. Its paths and
+# install instructions assume the nightly binary in ~/.local/bin, so
+# home/claude/lightpanda-plugin.nix rewrites them onto the one from pkgs/.
+[lightpanda-skill]
+src.git = "https://github.com/lightpanda-io/agent-skill"
+fetch.github = "lightpanda-io/agent-skill"

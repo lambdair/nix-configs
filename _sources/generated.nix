@@ -219,6 +219,18 @@
       sha256 = "sha256-M1aJNNN02vkBK5vghH/YKpndnxyy8vk7t4PMeKlsmaw=";
     };
   };
+  lightpanda-skill = {
+    pname = "lightpanda-skill";
+    version = "b5e4ee6394ada2d7d53bd129c7cdfdd76082fff6";
+    src = fetchFromGitHub {
+      owner = "lightpanda-io";
+      repo = "agent-skill";
+      rev = "b5e4ee6394ada2d7d53bd129c7cdfdd76082fff6";
+      fetchSubmodules = false;
+      sha256 = "sha256-SVO3Zl6AdWbXmzIQBva6j2v7vzr1ZRowll5obVVygQI=";
+    };
+    date = "2026-05-21";
+  };
   mcfly = {
     pname = "mcfly";
     version = "2-2";
