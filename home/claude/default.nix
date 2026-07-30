@@ -14,6 +14,7 @@ let
 
   # Upstream's Lightpanda plugin, repointed at the Nix-managed binary.
   lightpanda-plugin = import ./lightpanda-plugin.nix { inherit pkgs sources; };
+  inherit (import ../../pkgs { inherit pkgs sources; }) lightpanda;
 
   # Paths of every file under `dir`, relative to it.
   filesUnder =
@@ -60,6 +61,13 @@ in
         "-y"
         "@upstash/context7-mcp"
       ];
+    };
+    # Declared here rather than left to the plugin: Claude Code ignores the
+    # mcpServers block in a marketplace.json, so this is what actually starts.
+    mcpServers.lightpanda = {
+      type = "stdio";
+      command = lib.getExe lightpanda;
+      args = [ "mcp" ];
     };
     settings = {
       permissions.allow = [
@@ -142,8 +150,8 @@ in
         # v13.5.2 worker and blocks UserPromptSubmit seven times in a row.
         "claude-mem@thedotmack" = false;
         "heptabase@heptabase-cli-skills" = true;
-        # Brings both the skill and lightpanda's own MCP server, so the server
-        # is not declared again under mcpServers.
+        # Supplies the skill; the MCP server it declares is inert (see
+        # mcpServers.lightpanda above).
         "lightpanda@lightpanda" = true;
       };
       statusLine = {
