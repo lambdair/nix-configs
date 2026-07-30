@@ -8,6 +8,7 @@
 let
   inherit (import ../pkgs { inherit pkgs sources; })
     budget_tracker_tui
+    lightpanda
     racket-with-langserver
     ;
 
@@ -223,6 +224,7 @@ in
       himalaya # CLI to manage emails
       w3m # Text-mode web browser
       chawan # Lightweight terminal web browser
+      lightpanda # Headless browser for agents (JS, CDP, MCP)
       ngrok # Secure tunnels to localhost
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

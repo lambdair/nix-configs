@@ -343,6 +343,36 @@
         },
         "version": "665141237d3866c8b741ddcbba85fe8c6f678665"
     },
+    "lightpanda-linux": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "lightpanda-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-5DjArUTg9pFsFM8TvrADUSxgQ42P0gBzjS5ZbnP2UtY=",
+            "type": "url",
+            "url": "https://github.com/lightpanda-io/browser/releases/download/0.3.6/lightpanda-x86_64-linux"
+        },
+        "version": "0.3.6"
+    },
+    "lightpanda-mac": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "lightpanda-mac",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-M1aJNNN02vkBK5vghH/YKpndnxyy8vk7t4PMeKlsmaw=",
+            "type": "url",
+            "url": "https://github.com/lightpanda-io/browser/releases/download/0.3.6/lightpanda-aarch64-macos"
+        },
+        "version": "0.3.6"
+    },
     "mcfly": {
         "cargoLock": null,
         "date": null,

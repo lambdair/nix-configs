@@ -132,6 +132,21 @@ fetch.github = "yoshiko-pg/difit"
 src.github = "elio-fm/elio"
 fetch.github = "elio-fm/elio"
 
+# lightpanda ships one release binary per platform, so each host's binary is
+# tracked separately. The tag list mixes the rolling `nightly`/`beta`/`alpha`
+# tags with the retired `v0.2.x` scheme, and GitHub's own "latest release"
+# resolves to `nightly`, so the regex keeps this on the bare-numeric stable
+# tags.
+[lightpanda-mac]
+src.github_tag = "lightpanda-io/browser"
+src.include_regex = "[0-9]+\\.[0-9]+\\.[0-9]+"
+fetch.url = "https://github.com/lightpanda-io/browser/releases/download/$ver/lightpanda-aarch64-macos"
+
+[lightpanda-linux]
+src.github_tag = "lightpanda-io/browser"
+src.include_regex = "[0-9]+\\.[0-9]+\\.[0-9]+"
+fetch.url = "https://github.com/lightpanda-io/browser/releases/download/$ver/lightpanda-x86_64-linux"
+
 [tolaria]
 src.cmd = "curl -fsSL https://github.com/refactoringhq/tolaria/releases/latest/download/stable-latest.json | jq -r .version"
 fetch.url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_$ver_amd64.AppImage"

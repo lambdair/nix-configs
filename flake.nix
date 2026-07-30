@@ -122,6 +122,12 @@
             name = "budget_tracker_tui";
             path = customPkgs.budget_tracker_tui;
           }
+          # The only output CI builds for real on Linux, so lightpanda's
+          # autoPatchelf is exercised here.
+          {
+            name = "lightpanda";
+            path = customPkgs.lightpanda;
+          }
           {
             name = "hunkdiff";
             path = inputs.hunk.packages.${system}.default;

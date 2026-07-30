@@ -203,6 +203,22 @@
     };
     date = "2026-07-28";
   };
+  lightpanda-linux = {
+    pname = "lightpanda-linux";
+    version = "0.3.6";
+    src = fetchurl {
+      url = "https://github.com/lightpanda-io/browser/releases/download/0.3.6/lightpanda-x86_64-linux";
+      sha256 = "sha256-5DjArUTg9pFsFM8TvrADUSxgQ42P0gBzjS5ZbnP2UtY=";
+    };
+  };
+  lightpanda-mac = {
+    pname = "lightpanda-mac";
+    version = "0.3.6";
+    src = fetchurl {
+      url = "https://github.com/lightpanda-io/browser/releases/download/0.3.6/lightpanda-aarch64-macos";
+      sha256 = "sha256-M1aJNNN02vkBK5vghH/YKpndnxyy8vk7t4PMeKlsmaw=";
+    };
+  };
   mcfly = {
     pname = "mcfly";
     version = "2-2";
