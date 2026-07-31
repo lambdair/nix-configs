@@ -76,6 +76,15 @@ in
       });
       force = true;
     };
+
+    # television quotes a bare `{}` on its own, one argument per selected
+    # entry.
+    "television/cable/files.toml" = {
+      source = patchedChannel "files" (editAction {
+        command = "${helix} {}";
+      });
+      force = true;
+    };
   };
 
   programs.television = {
