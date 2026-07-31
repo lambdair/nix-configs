@@ -2,6 +2,7 @@
 
 rec {
   imports = [
+    ../ghostty.nix
     ./heptabase.nix
     ./tolaria.nix
     ./zmk-battery-center.nix

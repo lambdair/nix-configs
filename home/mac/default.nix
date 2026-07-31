@@ -13,6 +13,7 @@
 # in
 rec {
   imports = [
+    ../ghostty.nix
     ./zmk-battery-center.nix
   ];
 
