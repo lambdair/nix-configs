@@ -259,12 +259,6 @@ in
       bitwarden-cli # Bitwarden CLI (bw) for credential retrieval
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      # GUI Applications
-      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      # ghostty
-      # warp-terminal # Modern terminal with AI features
-      # rio # Hardware-accelerated GPU terminal emulator
-      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Fonts
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       nerd-fonts.hack
