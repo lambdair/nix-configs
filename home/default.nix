@@ -112,6 +112,14 @@ in
       zls # Zig language server
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      # Python Development
+      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      # macOS /usr/bin/python3 is an xcrun shim that fails when DEVELOPER_DIR points at a nix SDK
+      python3 # Python interpreter
+      uv # Fast Python package installer and resolver
+      python312Packages.pylatexenc # LaTeX encoder for Python
+
+      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Theorem Proving / Formal Verification
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # isabelle
@@ -166,6 +174,7 @@ in
       tig # Text-mode interface for git
       lazyjj # TUI for Jujutsu/jj
       jjui # TUI for Jujutsu
+      github-cli # GitHub CLI (gh)
       gh-dash # GitHub CLI extension for PR/issue dashboard
       git-secrets # Prevents committing secrets and credentials (git only; not triggered by jj)
       betterleaks # Secret scanner (Gitleaks successor); gates `jj git push` via betterleaksGuardedJj wrapper
@@ -184,11 +193,8 @@ in
       go-migrate # Database migrations
       jq # Command-line JSON processor
       ansifilter # ANSI escape code filter
-      # macOS /usr/bin/python3 is an xcrun shim that fails when DEVELOPER_DIR points at a nix SDK
-      python3 # Python interpreter
-      python312Packages.pylatexenc # LaTeX encoder for Python
-      uv # Fast Python package installer and resolver
       rlwrap # Readline wrapper for interactive programs
+      codex # OpenAI Codex CLI
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Database
@@ -212,7 +218,7 @@ in
       # Media / Music
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       spotify-player # Terminal spotify player with feature parity
-      mcat # Media file metadata viewer
+      mcat # cat for documents, images and videos
       alda # Music programming language
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -231,6 +237,7 @@ in
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       nb # Command line note-taking and knowledge base
       rucola # Terminal-based markdown note manager
+      basalt # TUI for managing Obsidian notes
       tdf # TUI-based PDF viewer
       glow # Render markdown on the CLI
       sdcv # StarDict console version
@@ -246,13 +253,10 @@ in
       # Other CLI Utilities
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       just # Command runner
-      basalt # Bash package manager
       pik # Process interactive kill
       xan # CSV toolkit
-      tuios # Network TUI for Unix sockets
+      tuios # Terminal-based window manager
       enchant # Generic spell checking library
-      github-cli # GitHub CLI
-      codex # OpenAI Codex CLI
       aws-vault # AWS credential management
       ssm-session-manager-plugin # AWS SSM Session Manager
       bitwarden-cli # Bitwarden CLI (bw) for credential retrieval
@@ -280,15 +284,27 @@ in
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     # Editors
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    ./helix.nix
-    ./helix-steel.nix
-    ./nvim
-    ./emacs
-    ./difit.nix
-    ./elio.nix
-    ./jj-megamerge.nix
-    ./television.nix
-    ./claude
+    ./helix.nix # Post-modern modal text editor (hx)
+    ./helix-steel.nix # Helix with the Steel plugin runtime
+    ./nvim # Vim fork focused on extensibility and agility
+    ./emacs # Extensible, customizable text editor
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Git / Version Control
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    ./difit.nix # Browser-based git diff viewer
+    ./jj-megamerge.nix # Rebuild helper for the jj megamerge workflow
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # File Search / File Management
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    ./elio.nix # Terminal file manager (Rust/Ratatui)
+    ./television.nix # Fuzzy finder TUI (tv)
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Development Tools
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    ./claude # AI coding assistant in the terminal
   ];
 
   catppuccin = {
@@ -302,11 +318,13 @@ in
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     # Terminal Emulators
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # GPU-accelerated terminal emulator and multiplexer
     wezterm = {
       enable = true;
       extraConfig = builtins.readFile ./wezterm.lua;
     };
 
+    # GPU-based terminal emulator
     kitty = {
       enable = true;
       font.name = "Uiua386";
@@ -315,6 +333,7 @@ in
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     # Shell
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Structured-data shell (nu)
     nushell = {
       enable = true;
       shellAliases = {
@@ -337,9 +356,11 @@ in
       configFile.source = ./config.nu;
     };
 
+    # Multi-shell command argument completer
     carapace.enable = true;
     carapace.enableNushellIntegration = true;
 
+    # Cross-shell prompt
     starship = {
       enable = true;
     };
@@ -347,26 +368,31 @@ in
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     # File Navigation / Viewing
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Directory jumper that learns your habits (z)
     zoxide = {
       enable = true;
       enableNushellIntegration = true;
     };
 
+    # cat(1) clone with syntax highlighting and git integration
     bat = {
       enable = true;
     };
 
+    # Command-line fuzzy finder
     fzf = {
       enable = true;
     };
 
+    # Terminal file manager
     yazi = {
       enable = true;
     };
 
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    # Version Control
+    # Git / Version Control
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Distributed version control system
     git = {
       enable = true;
       settings = {
@@ -376,11 +402,13 @@ in
       };
     };
 
+    # Syntax-highlighting diff pager
     delta = {
       enable = true;
       enableGitIntegration = false;
     };
 
+    # Git-compatible DVCS (jj)
     jujutsu = {
       enable = true;
       package = lockSerializedJj;
@@ -395,6 +423,7 @@ in
       };
     };
 
+    # Terminal UI for git
     lazygit = {
       enable = true;
       settings = {
@@ -405,6 +434,7 @@ in
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     # Development Tools
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Per-directory environment loader
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -413,13 +443,15 @@ in
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     # Terminal Multiplexer
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Terminal workspace and multiplexer
     zellij = {
       enable = true;
     };
 
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    # Media
+    # Media / Music
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # ncurses Spotify client
     ncspot = {
       enable = true;
       settings = {
