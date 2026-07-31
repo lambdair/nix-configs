@@ -24,6 +24,7 @@ rec {
     # awrit # Chromium-based browser for Kitty terminal
     obsidian # Knowledge base
     bitwarden-desktop # pinned in overlays/pin-broken-pkg.nix
+    cmux # Ghostty-based terminal for coding agents
   ];
 
   programs.nushell.extraEnv = ''
