@@ -28,6 +28,30 @@ rec {
     cmux # Ghostty-based terminal for coding agents
   ];
 
+  # cmux treats cmux.json as a file-managed layer: settings present here show up
+  # read-only in its UI, and anything else falls back to its internal storage.
+  xdg.configFile."cmux/cmux.json".source = (pkgs.formats.json { }).generate "cmux.json" {
+    "$schema" = "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json";
+    schemaVersion = 1;
+    shortcuts.bindings = {
+      newBrowserWorkspace.first = {
+        command = false;
+        control = false;
+        key = "";
+        option = false;
+        shift = false;
+      };
+      showHideAllWindows.first = {
+        command = true;
+        control = false;
+        key = ".";
+        keyCode = 47;
+        option = true;
+        shift = false;
+      };
+    };
+  };
+
   programs.nushell.extraEnv = ''
     # Set up Nix paths for non-login contexts (e.g. Ghostty launching nushell directly)
     if not ("__NIX_DARWIN_SET_ENVIRONMENT_DONE" in $env) {
