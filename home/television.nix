@@ -35,5 +35,29 @@ in
   # activation would otherwise refuse to replace.
   xdg.configFile."television/config.toml".force = true;
 
-  programs.television.enable = true;
+  programs.television = {
+    enable = true;
+
+    channels.tools = {
+      metadata = {
+        name = "tools";
+        description = "Installed packages and shell aliases";
+      };
+
+      source = {
+        command = "cat ${toolCatalog}/catalog.txt";
+        output = "{split: :0}";
+      };
+
+      preview.command = lib.concatStringsSep " " [
+        (lib.getExe pkgs.nushell)
+        "--no-config-file"
+        "${./television-preview.nu}"
+        "${toolCatalog}/catalog.json"
+        (lib.getExe' pkgs.coreutils "timeout")
+        (lib.getExe pkgs.tldr)
+        "'{split: :0}'"
+      ];
+    };
+  };
 }
