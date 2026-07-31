@@ -31,6 +31,9 @@ let
         --set HELIX_RUNTIME "${helix-runtime}" \
         --set STEEL_HOME "${config.home.homeDirectory}/.steel"
     '';
+    # The package name is helix-steel, but its executable is hx; without this,
+    # lib.getExe assumes a bin/helix-steel that doesn't exist.
+    meta.mainProgram = "hx";
   };
 
   nreplLibName = if pkgs.stdenv.isDarwin then "libsteel_nrepl.dylib" else "libsteel_nrepl.so";
