@@ -88,3 +88,18 @@ After editing Nix files, run `just check` to validate. Run `just fmt` before fin
 - Formatter: `nixfmt` (the official Nix formatter, not nixfmt-classic)
 - Follow existing patterns for new modules — check similar files first
 - `allowUnfree = true` is set globally
+
+### Comments in `home/default.nix`
+
+Every entry in `home.packages`, `programs.*` and `imports` carries a one-line
+description, so a missing comment never means "obvious" in one place and "not
+written down" in another.
+
+- Say what the tool **is**, not how it is wired here — the code shows the wiring
+- Add the command in parentheses only when it differs from the entry name, as in
+  `ripgrep # Fast grep alternative (rg)`
+- Base the wording on the package's `meta.description`, trimmed
+- List entries take a trailing comment; attrset entries such as `zoxide = {` take
+  it on the line above, because nixfmt moves a trailing one inside the braces
+- Category headers must match their members. Reuse a header name that already
+  appears in the file before inventing one
