@@ -154,7 +154,6 @@ in
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # File Search / File Management
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      television # Fuzzy finder TUI
       ripgrep # Fast grep alternative (rg)
       fd # Simple, fast alternative to find
       superfile # Pretty fancy and modern terminal file manager
@@ -288,6 +287,7 @@ in
     ./difit.nix
     ./elio.nix
     ./jj-megamerge.nix
+    ./television.nix
     ./claude
   ];
 
