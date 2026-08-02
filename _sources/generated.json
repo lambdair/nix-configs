@@ -1,7 +1,7 @@
 {
     "agent-toolkit-for-aws": {
         "cargoLock": null,
-        "date": "2026-07-28",
+        "date": "2026-07-31",
         "extract": null,
         "name": "agent-toolkit-for-aws",
         "passthru": null,
@@ -13,16 +13,16 @@
             "name": null,
             "owner": "aws",
             "repo": "agent-toolkit-for-aws",
-            "rev": "4f3fc9a39841fbc82a6b5e81941957864c898530",
-            "sha256": "sha256-kcqjSWC3D9onEyvwTcR9q/gemyAduVu/NPnPbp4oFq8=",
+            "rev": "395df449599f30bcce73117ad7fcd19219b52e84",
+            "sha256": "sha256-Dwb4RXld2pFizXhHvEZ7DOwVTndvsHY9JY3GpzHovEk=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "4f3fc9a39841fbc82a6b5e81941957864c898530"
+        "version": "395df449599f30bcce73117ad7fcd19219b52e84"
     },
     "bento": {
         "cargoLock": null,
-        "date": "2026-07-27",
+        "date": "2026-08-02",
         "extract": null,
         "name": "bento",
         "passthru": null,
@@ -34,12 +34,12 @@
             "name": null,
             "owner": "nyblnet",
             "repo": "bento",
-            "rev": "43d1168f39fad75094f16b76434330715f813bd4",
-            "sha256": "sha256-GkQR7d0YJkJOCh5RPB+yaiWPhO/oG0ukHzO7P4eUHHc=",
+            "rev": "aa6baef9f858c0ef31c8bebaf649dc04082464df",
+            "sha256": "sha256-ka9BpSgSI2UDpM7Z64iX2D3/lDoNahEEU29ugdX9V68=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "43d1168f39fad75094f16b76434330715f813bd4"
+        "version": "aa6baef9f858c0ef31c8bebaf649dc04082464df"
     },
     "budget_tracker_tui": {
         "cargoLock": null,
@@ -64,7 +64,7 @@
     },
     "claude-mem": {
         "cargoLock": null,
-        "date": "2026-07-23",
+        "date": "2026-07-31",
         "extract": null,
         "name": "claude-mem",
         "passthru": null,
@@ -76,12 +76,12 @@
             "name": null,
             "owner": "thedotmack",
             "repo": "claude-mem",
-            "rev": "132b46343e60ecf4057c427736c57b08f7615dfe",
-            "sha256": "sha256-VbRAl4JcaVASac+iewq48H9xjh/VUnml9w1bxpF/cbw=",
+            "rev": "a90066f9cf82cc936dd2d841319bb6b19658f7d4",
+            "sha256": "sha256-ZxiJTXwSxN8YSmlELGUDlmX5U5TLCp5JK9Gp46AegOY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "132b46343e60ecf4057c427736c57b08f7615dfe"
+        "version": "a90066f9cf82cc936dd2d841319bb6b19658f7d4"
     },
     "difit": {
         "cargoLock": null,
@@ -226,7 +226,7 @@
     },
     "heptabase-cli-skills": {
         "cargoLock": null,
-        "date": "2026-06-05",
+        "date": "2026-07-31",
         "extract": null,
         "name": "heptabase-cli-skills",
         "passthru": null,
@@ -238,12 +238,12 @@
             "name": null,
             "owner": "heptameta",
             "repo": "heptabase-cli-skills",
-            "rev": "a5751bda7e50d5aa2e8fefd63179f898d575ab26",
-            "sha256": "sha256-ydP7wBq8yLvdxP+E8kCZAFcjRSQXw4x7pCWQOyLrC9Y=",
+            "rev": "d7b117bc1303ed743bf47348285dad06b6eac9e8",
+            "sha256": "sha256-Oru0BLeGfyp8E6pKVyO+46nu/3kXYY/VnLSZGIONWdc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "a5751bda7e50d5aa2e8fefd63179f898d575ab26"
+        "version": "d7b117bc1303ed743bf47348285dad06b6eac9e8"
     },
     "html-parsing": {
         "cargoLock": null,
@@ -488,7 +488,7 @@
     },
     "racket-langserver": {
         "cargoLock": null,
-        "date": "2026-07-28",
+        "date": "2026-07-29",
         "extract": null,
         "name": "racket-langserver",
         "passthru": null,
@@ -500,12 +500,12 @@
             "name": null,
             "owner": "jeapostrophe",
             "repo": "racket-langserver",
-            "rev": "8dfad0c6de2654a2bfade02f2229c90b3839b0c1",
-            "sha256": "sha256-gwyBDieHatSvtqhusqYcOOF4jyQH0KrrTitROpkC3og=",
+            "rev": "2154a3d908c4a6943cbb9202f1ada719692f69e5",
+            "sha256": "sha256-I2CwkZuZUfQIjR0XEfqa06BeNEnO1RCdtPkm8grci6k=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "8dfad0c6de2654a2bfade02f2229c90b3839b0c1"
+        "version": "2154a3d908c4a6943cbb9202f1ada719692f69e5"
     },
     "repl-ui-hx": {
         "cargoLock": null,
@@ -618,11 +618,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-aJPUVVcrQvCVrPowQWcwBd226EhS4/Pzx8KrjV72t8E=",
+            "sha256": "sha256-rEa3Cc+zPOmy1zq4pyJkM4dnM1yhxMz9DP5DhrI/efU=",
             "type": "url",
-            "url": "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.7.22_amd64.AppImage"
+            "url": "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2027.7.31_amd64.AppImage"
         },
-        "version": "2026.7.22"
+        "version": "2027.7.31"
     },
     "tree-sitter-moonbit": {
         "cargoLock": null,
