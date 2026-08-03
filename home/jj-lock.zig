@@ -5,6 +5,9 @@
 //! flock that serializes the operation log, and a betterleaks scan that runs
 //! before `jj git push` publishes anything.
 //!
+//! The scan covers exactly the commits the push would publish, which jj itself
+//! names via `--dry-run`.
+//!
 //! The scan lives here rather than in a hook or a shell alias because jj runs
 //! no git hooks (neither pre-commit nor pre-push), and TUIs exec `jj git push`
 //! as a subprocess, so an alias would not fire for them either. Wrapping the
@@ -39,7 +42,7 @@
 //! Zig.
 const std = @import("std");
 const c = @cImport({
-    @cInclude("unistd.h"); // getcwd, execv, fork, dup2, read, close, _exit
+    @cInclude("unistd.h"); // getcwd, execv, fork, pipe, dup2, read, close, _exit
     @cInclude("sys/file.h"); // flock, LOCK_EX
     @cInclude("sys/stat.h"); // stat, S_IFMT, S_IFDIR
     @cInclude("sys/wait.h"); // waitpid
@@ -219,9 +222,134 @@ fn runOnStderr(argv: []const ?[*:0]const u8) ?u8 {
     return @intCast((status >> 8) & 0xff);
 }
 
+/// Run argv to completion, capturing its stderr into `out` while stdout passes
+/// through. jj reports "Changes to push to ..." on stderr, so that is where the
+/// dry-run answer is. Anything past `out` is drained rather than left in the
+/// pipe, so the child neither blocks on a full pipe nor dies of SIGPIPE — its
+/// exit status has to stay meaningful.
+/// Returns .{ bytes captured, exit status, output truncated }, or null if the
+/// fork failed.
+fn captureStderr(argv: []const ?[*:0]const u8, out: []u8) ?struct { usize, u8, bool } {
+    var fds: [2]c_int = undefined;
+    if (c.pipe(&fds) != 0) return null;
+
+    const pid = c.fork();
+    if (pid < 0) {
+        _ = c.close(fds[0]);
+        _ = c.close(fds[1]);
+        return null;
+    }
+    if (pid == 0) {
+        _ = c.close(fds[0]);
+        _ = c.dup2(fds[1], 2);
+        _ = c.close(fds[1]);
+        _ = c.execv(argv[0].?, @ptrCast(@constCast(argv.ptr)));
+        c._exit(127);
+    }
+    _ = c.close(fds[1]);
+
+    var n: usize = 0;
+    var truncated = false;
+    var sink: [4096]u8 = undefined;
+    while (true) {
+        if (n < out.len) {
+            const r = c.read(fds[0], out.ptr + n, out.len - n);
+            if (r <= 0) break;
+            n += @intCast(r);
+        } else {
+            const r = c.read(fds[0], &sink, sink.len);
+            if (r <= 0) break;
+            truncated = true;
+        }
+    }
+    _ = c.close(fds[0]);
+
+    var status: c_int = undefined;
+    if (c.waitpid(pid, &status, 0) < 0) return null;
+    if (status & 0x7f != 0) return .{ n, 1, truncated };
+    return .{ n, @intCast((status >> 8) & 0xff), truncated };
+}
+
+/// Append every commit id this push would publish, read off jj's dry-run
+/// report. `[add to H]` and `[move forward from A to H]` name a destination;
+/// `[delete from H]` has no " to " and is skipped, since removing a bookmark
+/// publishes no content. Returns false if `out` ran out of room, which would
+/// leave part of the push unaccounted for.
+fn appendDestinations(report: []const u8, out: []u8, len: *usize) bool {
+    var rest = report;
+    while (std.mem.indexOf(u8, rest, " to ")) |at| {
+        const tail = rest[at + 4 ..];
+        var end: usize = 0;
+        while (end < tail.len and std.ascii.isHex(tail[end])) end += 1;
+        if (end >= 12 and end < tail.len and tail[end] == ']') {
+            const written = std.fmt.bufPrint(out[len.*..], "{s} ", .{tail[0..end]}) catch return false;
+            len.* += written.len;
+        }
+        rest = tail[end..];
+    }
+    return true;
+}
+
+/// What the scan should cover.
+const Scope = union(enum) {
+    /// The push publishes no commits, so there is nothing to scan.
+    nothing,
+    /// A `--log-opts` argument bounding the walk.
+    log_opts: [:0]const u8,
+};
+
+/// Ask jj itself what this push would publish and turn it into a scan scope.
+/// `--bookmark` / `--change` / `--all` / `--tracked` and the bare default each
+/// select a different set, so jj is the only thing that knows the answer.
+fn pushScope(args: []const [*:0]const u8, out: []u8) Scope {
+    var argv: [64]?[*:0]const u8 = undefined;
+    var n: usize = 0;
+    argv[n] = real_jj;
+    n += 1;
+    for (args[1..]) |a| {
+        // jj rejects a repeated `--dry-run`, and such a push publishes nothing.
+        if (std.mem.eql(u8, std.mem.sliceTo(a, 0), "--dry-run")) return .nothing;
+        if (n + 2 >= argv.len) return .{ .log_opts = broad_log_opts };
+        argv[n] = a;
+        n += 1;
+    }
+    argv[n] = "--dry-run";
+    n += 1;
+    argv[n] = null;
+
+    var report: [1 << 16]u8 = undefined;
+    const res = captureStderr(argv[0 .. n + 1], &report) orelse
+        return .{ .log_opts = broad_log_opts };
+    // A refused dry-run (conflicted commit, failed safety check) publishes
+    // nothing; the real jj run below reports the same error to the user.
+    if (res[1] != 0) return .nothing;
+    // A truncated report can hide destinations, so widen instead of under-scanning.
+    if (res[2]) return .{ .log_opts = broad_log_opts };
+
+    const prefix = "--log-opts=";
+    @memcpy(out[0..prefix.len], prefix);
+    var len = prefix.len;
+    if (!appendDestinations(report[0..res[0]], out, &len)) return .{ .log_opts = broad_log_opts };
+    if (len == prefix.len) return .nothing;
+
+    const suffix = "--not --remotes";
+    if (len + suffix.len >= out.len) return .{ .log_opts = broad_log_opts };
+    @memcpy(out[len..][0..suffix.len], suffix);
+    len += suffix.len;
+    out[len] = 0;
+    return .{ .log_opts = out[0..len :0] };
+}
+
+/// Fallback scope: every local bookmark not yet on a remote. Wider than the
+/// push, but never narrower, so it stays safe when the push set is unknown.
+/// `--branches` bounds the walk to refs/heads/*; a colocated repo also holds
+/// tens of thousands of refs/jj/ keep-refs, and walking those (abandoned and
+/// hidden commits included) never finishes.
+const broad_log_opts: [:0]const u8 = "--log-opts=--branches --not --remotes";
+
 /// Scan for secrets before a push. Returns true only on a clean scan, so any
 /// failure to run betterleaks blocks the push rather than waving it through.
-fn scanIsClean(root: []const u8) bool {
+fn scanIsClean(root: []const u8, args: []const [*:0]const u8) bool {
     var root_z: [max_path]u8 = undefined;
     const rz = std.fmt.bufPrintZ(&root_z, "{s}", .{root}) catch return false;
 
@@ -229,6 +357,10 @@ fn scanIsClean(root: []const u8) bool {
     const git = std.fmt.bufPrintZ(&git_z, "{s}/.git", .{root}) catch return false;
     var st: c.struct_stat = undefined;
     const colocated = c.stat(git.ptr, &st) == 0 and st.st_mode & c.S_IFMT == c.S_IFDIR;
+
+    var opts_buf: [1 << 13]u8 = undefined;
+    const scope: Scope = if (colocated) pushScope(args, &opts_buf) else .{ .log_opts = "" };
+    if (scope == .nothing) return true;
 
     std.debug.print("🔍 betterleaks: scanning for secrets before push ({s}) ...\n", .{root});
 
@@ -245,11 +377,7 @@ fn scanIsClean(root: []const u8) bool {
     argv[n] = "--redact";
     n += 1;
     if (colocated) {
-        // Local-only commits: reachable from a local bookmark but not from a
-        // remote-tracking ref. Not `--all`: a colocated repo keeps tens of
-        // thousands of refs/jj/ keep-refs, and walking those (abandoned and
-        // hidden commits included) never finishes.
-        argv[n] = "--log-opts=--branches --not --remotes";
+        argv[n] = scope.log_opts.ptr;
         n += 1;
     }
     argv[n] = rz.ptr;
@@ -293,7 +421,7 @@ pub fn main(init: std.process.Init.Minimal) void {
     // and jj rejects the push on its own.
     if (isGitPush(words)) {
         if (root) |r| {
-            if (!scanIsClean(r)) std.process.exit(1);
+            if (!scanIsClean(r, init.args.vector)) std.process.exit(1);
         }
     }
 
