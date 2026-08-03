@@ -54,7 +54,7 @@ After editing Nix files, run `just check` to validate. Run `just fmt` before fin
   - `sol-cubano/` — WSL-specific config
   - `sonora/` — macOS/nix-darwin config (includes private module)
 - **`home/`** — Home-manager configurations
-  - `default.nix` — Core: 200+ packages, the layered `jj` wrappers (betterleaks guard + flock serializer), runtime libraries
+  - `default.nix` — Core: 200+ packages, the `jj` wrapper (flock serializer + betterleaks push guard), runtime libraries
   - `linux/` — Linux-specific home config (Wayland desktop apps, AppImage wrappers)
   - `mac/` — macOS-specific home config
   - `wsl/` — WSL home config (no desktop session)

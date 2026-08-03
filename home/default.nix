@@ -12,46 +12,27 @@ let
     racket-with-langserver
     ;
 
-  # jj wrapped with a betterleaks secret-scan gate on `jj git push`.
-  # jj runs no git hooks and jjui execs `jj git push` directly, so wrapping
-  # the binary is the only place a local scan fires for every push path.
-  # See ./jj-push-guard.sh for the rationale and behaviour.
-  betterleaksGuardedJj =
-    (pkgs.symlinkJoin {
-      name = "jujutsu-betterleaks-guarded-${pkgs.jujutsu.version}";
-      paths = [ pkgs.jujutsu ];
-      postBuild = ''
-        rm $out/bin/jj
-        substitute ${./jj-push-guard.sh} $out/bin/jj \
-          --replace-fail '@jj@' ${pkgs.jujutsu}/bin/jj \
-          --replace-fail '@betterleaks@' ${pkgs.betterleaks}/bin/betterleaks
-        chmod +x $out/bin/jj
-      '';
-    })
-    // {
-      # Preserve version + meta (incl. meta.mainProgram) so the home-manager
-      # jujutsu module's version checks and `getExe` keep working.
-      inherit (pkgs.jujutsu) version meta;
-    };
-
-  # jj additionally wrapped with a serialization lock (see ./jj-lock.zig for the
-  # mechanism), nested outside the betterleaks guard so the whole invocation is
-  # serialized against a repo-shared flock. Without it, jj processes sharing one
-  # op log can fork it into a divergent change.
+  # jj wrapped with a serialization lock and a betterleaks secret-scan gate on
+  # `jj git push` (see ./jj-lock.zig for both mechanisms). Wrapping the binary
+  # is the only place that covers every path, since jj runs no git hooks and
+  # jjui execs `jj git push` directly.
   lockSerializedJj =
     (pkgs.symlinkJoin {
       name = "jujutsu-serialized-${pkgs.jujutsu.version}";
-      paths = [ betterleaksGuardedJj ];
+      paths = [ pkgs.jujutsu ];
       nativeBuildInputs = [ pkgs.zig_0_16 ];
       postBuild = ''
         rm $out/bin/jj
         export ZIG_GLOBAL_CACHE_DIR="$TMPDIR/zig-cache"
         substitute ${./jj-lock.zig} jj-lock.zig \
-          --replace-fail '@REAL_JJ@' '${betterleaksGuardedJj}/bin/jj'
+          --replace-fail '@REAL_JJ@' '${pkgs.jujutsu}/bin/jj' \
+          --replace-fail '@BETTERLEAKS@' '${pkgs.betterleaks}/bin/betterleaks'
         zig build-exe -lc -O ReleaseSmall -femit-bin=$out/bin/jj jj-lock.zig
       '';
     })
     // {
+      # Preserve version + meta (incl. meta.mainProgram) so the home-manager
+      # jujutsu module's version checks and `getExe` keep working.
       inherit (pkgs.jujutsu) version meta;
     };
 in
@@ -177,7 +158,7 @@ in
       github-cli # GitHub CLI (gh)
       gh-dash # GitHub CLI extension for PR/issue dashboard
       git-secrets # Prevents committing secrets and credentials (git only; not triggered by jj)
-      betterleaks # Secret scanner (Gitleaks successor); gates `jj git push` via betterleaksGuardedJj wrapper
+      betterleaks # Secret scanner (Gitleaks successor); gates `jj git push` via lockSerializedJj wrapper
       giff # Terminal-based Git diff viewer
       inputs.hunk.packages.${pkgs.stdenv.hostPlatform.system}.default # Review-first terminal diff viewer for agentic coders
 
