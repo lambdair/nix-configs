@@ -459,6 +459,22 @@ in
     key = "H"
     scope = "revisions"
 
+    # hunk has no whitespace-ignoring option of its own, so jj drops the
+    # whitespace-only changes before the diff reaches the pager.
+    [[actions]]
+    name = "show-diff-in-hunk-ignore-whitespace"
+    desc = "show diff in hunk (ignore whitespace)"
+    lua = ''''
+    local change_id = context.change_id()
+    if not change_id or change_id == "" then
+      flash({ text = "No revision selected", error = true })
+      return
+    end
+    exec_shell(string.format("jj diff -r %q --git -w --color always | hunk pager", change_id))
+    ''''
+    key = "I"
+    scope = "revisions"
+
     # Review the selected revision by opening it in difit (in the browser).
     [[actions]]
     name = "difit-review"
