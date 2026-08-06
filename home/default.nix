@@ -161,6 +161,7 @@ in
       betterleaks # Secret scanner (Gitleaks successor); gates `jj git push` via lockSerializedJj wrapper
       giff # Terminal-based Git diff viewer
       inputs.hunk.packages.${pkgs.stdenv.hostPlatform.system}.default # Review-first terminal diff viewer for agentic coders
+      tuicr # Review diffs like a GitHub pull request from the terminal
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Development Tools
