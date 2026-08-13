@@ -73,6 +73,7 @@
             inputs.moonbit-overlay.overlays.default
           ]
           ++ lib.optional isDarwin (import ./overlays/uiua386-fix-monospace.nix)
+          ++ lib.optional isDarwin (import ./overlays/obsidian-fix-sourceroot.nix)
           ++ [ (import ./overlays/pin-broken-pkg.nix inputs) ];
         };
       sourcesFor =
