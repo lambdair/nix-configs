@@ -52,6 +52,35 @@ rec {
     };
   };
 
+  # High-performance multiplayer code editor (zeditor)
+  programs.zed-editor = {
+    enable = true;
+    # Zed downloads these at runtime; catppuccin.autoEnable adds its icon theme
+    extensions = [
+      "clojure"
+      "graphql"
+      "html"
+      "lean4"
+      "moonbit"
+      "nix"
+      "rainbow-csv"
+      "uiua"
+    ];
+    userSettings = {
+      base_keymap = "Emacs";
+      helix_mode = true;
+      agent.dock = "left";
+      collaboration_panel.dock = "right";
+      git_panel.dock = "right";
+      outline_panel.dock = "right";
+      project_panel.dock = "right";
+      terminal.font_family = "Maple Mono NF CN";
+    };
+    userKeymaps = [
+      { bindings."alt-x" = "command_palette::Toggle"; }
+    ];
+  };
+
   programs.nushell.extraEnv = ''
     # Set up Nix paths for non-login contexts (e.g. Ghostty launching nushell directly)
     if not ("__NIX_DARWIN_SET_ENVIRONMENT_DONE" in $env) {
