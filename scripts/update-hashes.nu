@@ -28,9 +28,7 @@ let
     system = builtins.currentSystem;
     config.allowUnfree = true;
   };
-  sources = import @ROOT@/_sources/generated.nix {
-    inherit (pkgs) fetchgit fetchurl fetchFromGitHub dockerTools;
-  };
+  sources = pkgs.callPackage @ROOT@/_sources/generated.nix { };
 in
 (import @ROOT@/pkgs { inherit pkgs sources; }).@ATTR@
 '
