@@ -50,11 +50,32 @@
 (def wc-has-changes (not (str/blank? wc-stat)))
 (def wc-no-desc (str/blank? wc-desc))
 
+;; Revisions still to be pushed, and which of them nobody has reviewed. The push
+;; gate catches these too, but only for work that ends in a push.
+(def unpushed
+  (->> (str/split-lines
+         (or (sh "jj" "log" "--no-pager" "-r" "remote_bookmarks()..@" "--no-graph"
+                 "-T" "concat(change_id.short(), \"\\n\")")
+             ""))
+       (remove str/blank?)
+       (map str/trim)))
+
+(def unreviewed
+  (let [record (read-record (sh "jj" "root" "--quiet"))]
+    (remove #(reviewed? record cwd %) unpushed)))
+
 (def issues
   (cond-> []
+    (seq unreviewed)
+    (conj (str "未レビューのリビジョンが " (count unreviewed) " 件あります: "
+               (str/join ", " unreviewed)
+               "\n→ /self-review で確認すること"))
+
     (seq violations)
     (into (map (fn [{:keys [id desc lines]}]
-                 (str "リビジョン " id " (\"" desc "\") は " lines " 行の変更があります（目安: 150行以下）"))
+                 (str "リビジョン " id " (\"" desc "\") は " lines
+                      " 行の変更があります（目安: 150行以下）"
+                      "\n→ 分割を検討すること（`jj split` または `jj new`）"))
                violations))
 
     (and wc-has-changes wc-no-desc)
@@ -62,8 +83,6 @@
 
 (when (seq issues)
   (binding [*out* *err*]
-    (println (str "【リビジョン規律チェック】\n"
-                  (str/join "\n" issues)
-                  "\n\n分割を検討してください（`jj split` または `jj new`）"))))
+    (println (str "【リビジョン規律チェック】\n" (str/join "\n" issues)))))
 
 (println (json/generate-string {}))
