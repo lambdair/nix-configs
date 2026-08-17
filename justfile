@@ -63,7 +63,7 @@ fetch:
     nvfetcher -o '{{ flake }}/_sources'
 
 # Recompute the dependency hashes written by hand in pkgs/ (pnpm's dependency
-# set, cargo git dependencies), which a source bump leaves stale
+# set, cargo git dependencies), which a source bump leaves stale.
 update-hashes:
     nix run nixpkgs#nushell -- '{{ flake }}/scripts/update-hashes.nu'
 

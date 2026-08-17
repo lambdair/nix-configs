@@ -22,7 +22,7 @@ jobs:
           nix run nixpkgs#just -- update-public
           nix run nixpkgs#nvfetcher -- -o _sources
       # The hand-written hashes in pkgs/ pin fetches the sources just moved
-      # dictate, so they belong to the same commit as the source bump. Both are
+      # dictate, so they belong in the same commit as the source bump. They are
       # platform-independent, so this runner's values hold for macOS too.
       - name: Refresh dependency hashes
         run: nix run nixpkgs#just -- update-hashes

@@ -19,8 +19,8 @@ const TARGETS = [
   ["pkgs/helix-steel.nix" 'steelCoreHashForSulafat = "' "sulafat.cargoDeps"]
 ]
 
-# The package set is evaluated straight from the checkout rather than through a
-# flake output, so pkgs/ needs no attribute exposed just for this script.
+# The package set is evaluated straight from the checkout, so every derivation
+# under pkgs/ is addressable by its attribute path.
 const EXPR = '
 let
   flake = builtins.getFlake "@ROOT@";
