@@ -21,6 +21,11 @@ jobs:
         run: |
           nix run nixpkgs#just -- update-public
           nix run nixpkgs#nvfetcher -- -o _sources
+      # The hand-written hashes in pkgs/ pin fetches the sources just moved
+      # dictate, so they belong to the same commit as the source bump. Both are
+      # platform-independent, so this runner's values hold for macOS too.
+      - name: Refresh dependency hashes
+        run: nix run nixpkgs#just -- update-hashes
       # GH_PAT (not GITHUB_TOKEN) so the PR triggers build.yml; a token-authored
       # PR from GITHUB_TOKEN cannot start other workflows.
       - name: Create or update pull request
@@ -33,10 +38,10 @@ jobs:
           title: "chore(flake): update inputs and sources"
           commit-message: "chore(flake): update inputs and sources"
           body: |
-            Automated update of every public flake input and nvfetcher source.
+            Automated update of every public flake input and nvfetcher source,
+            with the dependency hashes in `pkgs/` recomputed to match.
             `private` is excluded (unreachable from CI). Merges once build.yml
-            passes; a red build (e.g. a steel hash bump) leaves this open for a
-            manual fix.
+            passes; a red build leaves this open for a manual fix.
       - name: Enable auto-merge
         if: steps.cpr.outputs.pull-request-number
         env:
