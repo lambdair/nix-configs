@@ -174,6 +174,25 @@ in
               }
             ];
           }
+          {
+            # `if` keeps the gate off every other Bash call; it takes a push
+            # through jj directly and through the justfile recipe that wraps it.
+            matcher = "Bash";
+            hooks = [
+              {
+                type = "command";
+                "if" = "Bash(jj git push*)";
+                command = "bb ${config.home.homeDirectory}/.claude/hooks/self-review-gate.bb";
+                timeout = 30;
+              }
+              {
+                type = "command";
+                "if" = "Bash(just push*)";
+                command = "bb ${config.home.homeDirectory}/.claude/hooks/self-review-gate.bb";
+                timeout = 30;
+              }
+            ];
+          }
         ];
         WorktreeCreate = [
           {

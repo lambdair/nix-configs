@@ -5,6 +5,8 @@
 ;; hooks directory and no home path is baked in.
 
 (require '[babashka.process :as p]
+         '[babashka.fs :as fs]
+         '[cheshire.core :as json]
          '[clojure.string :as str])
 
 (defn sh-in
@@ -27,3 +29,44 @@
     (if (and nums (>= (count nums) 2))
       (reduce + (map #(Long/parseLong %) (rest nums)))
       0)))
+
+;; === Self-review record ===
+;; A revision counts as reviewed when the record holds the hash its diff has
+;; now, so a rebase keeps the entry while an edit to the content drops it.
+
+(def record-name "claude-self-review.json")
+
+(defn sha256 [s]
+  (->> (.getBytes (or s "") "UTF-8")
+       (.digest (java.security.MessageDigest/getInstance "SHA-256"))
+       (map #(format "%02x" %))
+       (str/join)))
+
+(defn record-path
+  "Where `root`'s record lives. `.jj/repo` is the store directory in the main
+   workspace and a file naming it, relative to `.jj`, in an added one;
+   resolving it keeps every workspace of a repo on one record."
+  [root]
+  (let [repo (fs/path root ".jj" "repo")]
+    (when (fs/exists? repo)
+      (let [store (if (fs/directory? repo)
+                    (fs/real-path repo)
+                    (fs/normalize (fs/path root ".jj" (str/trim (slurp (str repo))))))]
+        (str (fs/path store record-name))))))
+
+(defn read-record
+  "The record as a map of change id to entry, empty when there is none."
+  [root]
+  (let [path (record-path root)]
+    (if (and path (fs/exists? path))
+      (try (json/parse-string (slurp path)) (catch Exception _ {}))
+      {})))
+
+(defn diff-hash [dir change-id]
+  (some-> (sh-in dir "jj" "diff" "--no-pager" "--git" "-r" change-id) sha256))
+
+(defn reviewed?
+  "Whether `record` covers `change-id` as it currently stands."
+  [record dir change-id]
+  (and (get-in record [change-id "diff"])
+       (= (get-in record [change-id "diff"]) (diff-hash dir change-id))))
