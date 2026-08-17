@@ -20,13 +20,13 @@
   };
   bento = {
     pname = "bento";
-    version = "f89f3a0e582707ebaaf0fee8ee84d725bb9b496f";
+    version = "813c71fff72491e6898f5e55a20da44a562be586";
     src = fetchFromGitHub {
       owner = "nyblnet";
       repo = "bento";
-      rev = "f89f3a0e582707ebaaf0fee8ee84d725bb9b496f";
+      rev = "813c71fff72491e6898f5e55a20da44a562be586";
       fetchSubmodules = false;
-      sha256 = "sha256-DSIzPvXDEOIn+FPbJR1DyFasQ+C+cSkMHpT5rm5lDM0=";
+      sha256 = "sha256-jjkmWygOA+2z/AMZD2Kf2GZuSpceXWqxioqPrzHvfEA=";
     };
     date = "2026-08-16";
   };
@@ -44,15 +44,15 @@
   };
   claude-mem = {
     pname = "claude-mem";
-    version = "d768ba364302d12b76e69e4f021f0bb1d2d50ed6";
+    version = "fae697a45d107aae567d605916391ab64d8ecae1";
     src = fetchFromGitHub {
       owner = "thedotmack";
       repo = "claude-mem";
-      rev = "d768ba364302d12b76e69e4f021f0bb1d2d50ed6";
+      rev = "fae697a45d107aae567d605916391ab64d8ecae1";
       fetchSubmodules = false;
-      sha256 = "sha256-iA+9WvRHocr+i65eqQXeyRqzgmg9JVqCho0tNIIiSHA=";
+      sha256 = "sha256-SDbl3PVIgJKW5IGGudJSoy0n5UCudBUE/MAmigoNOYs=";
     };
-    date = "2026-08-10";
+    date = "2026-08-16";
   };
   difit = {
     pname = "difit";
@@ -193,30 +193,30 @@
   };
   lean4-skills = {
     pname = "lean4-skills";
-    version = "519144bf33abf19832afbae93069551b72c9b684";
+    version = "b85ed8eb8587b2852a6423f566f40aa877a3c587";
     src = fetchFromGitHub {
       owner = "cameronfreer";
       repo = "lean4-skills";
-      rev = "519144bf33abf19832afbae93069551b72c9b684";
+      rev = "b85ed8eb8587b2852a6423f566f40aa877a3c587";
       fetchSubmodules = false;
-      sha256 = "sha256-iLRCSyXVkMDLoRslE0KQzGBhmnoM81ZgEeUYAPD5ARA=";
+      sha256 = "sha256-0vs1nnvSJtLXbqbLkyb91Tl6F4OYAqx7rt1yNjPq6QY=";
     };
-    date = "2026-08-15";
+    date = "2026-08-16";
   };
   lightpanda-linux = {
     pname = "lightpanda-linux";
-    version = "0.3.6";
+    version = "0.3.7";
     src = fetchurl {
-      url = "https://github.com/lightpanda-io/browser/releases/download/0.3.6/lightpanda-x86_64-linux";
-      sha256 = "sha256-5DjArUTg9pFsFM8TvrADUSxgQ42P0gBzjS5ZbnP2UtY=";
+      url = "https://github.com/lightpanda-io/browser/releases/download/0.3.7/lightpanda-x86_64-linux";
+      sha256 = "sha256-iVM5sCIFFxoYHd50OuAGi7RWSIQHb+rISCusqcISqlo=";
     };
   };
   lightpanda-mac = {
     pname = "lightpanda-mac";
-    version = "0.3.6";
+    version = "0.3.7";
     src = fetchurl {
-      url = "https://github.com/lightpanda-io/browser/releases/download/0.3.6/lightpanda-aarch64-macos";
-      sha256 = "sha256-M1aJNNN02vkBK5vghH/YKpndnxyy8vk7t4PMeKlsmaw=";
+      url = "https://github.com/lightpanda-io/browser/releases/download/0.3.7/lightpanda-aarch64-macos";
+      sha256 = "sha256-rplULYGvIwhyluwDersNV6VwAlAvX/TBsLBd+khLebg=";
     };
   };
   lightpanda-skill = {

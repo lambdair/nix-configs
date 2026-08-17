@@ -34,12 +34,12 @@
             "name": null,
             "owner": "nyblnet",
             "repo": "bento",
-            "rev": "f89f3a0e582707ebaaf0fee8ee84d725bb9b496f",
-            "sha256": "sha256-DSIzPvXDEOIn+FPbJR1DyFasQ+C+cSkMHpT5rm5lDM0=",
+            "rev": "813c71fff72491e6898f5e55a20da44a562be586",
+            "sha256": "sha256-jjkmWygOA+2z/AMZD2Kf2GZuSpceXWqxioqPrzHvfEA=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "f89f3a0e582707ebaaf0fee8ee84d725bb9b496f"
+        "version": "813c71fff72491e6898f5e55a20da44a562be586"
     },
     "budget_tracker_tui": {
         "cargoLock": null,
@@ -64,7 +64,7 @@
     },
     "claude-mem": {
         "cargoLock": null,
-        "date": "2026-08-10",
+        "date": "2026-08-16",
         "extract": null,
         "name": "claude-mem",
         "passthru": null,
@@ -76,12 +76,12 @@
             "name": null,
             "owner": "thedotmack",
             "repo": "claude-mem",
-            "rev": "d768ba364302d12b76e69e4f021f0bb1d2d50ed6",
-            "sha256": "sha256-iA+9WvRHocr+i65eqQXeyRqzgmg9JVqCho0tNIIiSHA=",
+            "rev": "fae697a45d107aae567d605916391ab64d8ecae1",
+            "sha256": "sha256-SDbl3PVIgJKW5IGGudJSoy0n5UCudBUE/MAmigoNOYs=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "d768ba364302d12b76e69e4f021f0bb1d2d50ed6"
+        "version": "fae697a45d107aae567d605916391ab64d8ecae1"
     },
     "difit": {
         "cargoLock": null,
@@ -324,7 +324,7 @@
     },
     "lean4-skills": {
         "cargoLock": null,
-        "date": "2026-08-15",
+        "date": "2026-08-16",
         "extract": null,
         "name": "lean4-skills",
         "passthru": null,
@@ -336,12 +336,12 @@
             "name": null,
             "owner": "cameronfreer",
             "repo": "lean4-skills",
-            "rev": "519144bf33abf19832afbae93069551b72c9b684",
-            "sha256": "sha256-iLRCSyXVkMDLoRslE0KQzGBhmnoM81ZgEeUYAPD5ARA=",
+            "rev": "b85ed8eb8587b2852a6423f566f40aa877a3c587",
+            "sha256": "sha256-0vs1nnvSJtLXbqbLkyb91Tl6F4OYAqx7rt1yNjPq6QY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "519144bf33abf19832afbae93069551b72c9b684"
+        "version": "b85ed8eb8587b2852a6423f566f40aa877a3c587"
     },
     "lightpanda-linux": {
         "cargoLock": null,
@@ -352,11 +352,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-5DjArUTg9pFsFM8TvrADUSxgQ42P0gBzjS5ZbnP2UtY=",
+            "sha256": "sha256-iVM5sCIFFxoYHd50OuAGi7RWSIQHb+rISCusqcISqlo=",
             "type": "url",
-            "url": "https://github.com/lightpanda-io/browser/releases/download/0.3.6/lightpanda-x86_64-linux"
+            "url": "https://github.com/lightpanda-io/browser/releases/download/0.3.7/lightpanda-x86_64-linux"
         },
-        "version": "0.3.6"
+        "version": "0.3.7"
     },
     "lightpanda-mac": {
         "cargoLock": null,
@@ -367,11 +367,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-M1aJNNN02vkBK5vghH/YKpndnxyy8vk7t4PMeKlsmaw=",
+            "sha256": "sha256-rplULYGvIwhyluwDersNV6VwAlAvX/TBsLBd+khLebg=",
             "type": "url",
-            "url": "https://github.com/lightpanda-io/browser/releases/download/0.3.6/lightpanda-aarch64-macos"
+            "url": "https://github.com/lightpanda-io/browser/releases/download/0.3.7/lightpanda-aarch64-macos"
         },
-        "version": "0.3.6"
+        "version": "0.3.7"
     },
     "lightpanda-skill": {
         "cargoLock": null,
