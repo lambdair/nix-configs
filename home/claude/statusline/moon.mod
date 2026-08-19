@@ -9,6 +9,6 @@ preferred_target = "native"
 description = "Claude Code statusline renderer (native)"
 
 import {
-  "moonbitlang/async@0.20.3",
-  "moonbitlang/x@0.4.47",
+  "moonbitlang/async@0.20.6",
+  "moonbitlang/x@0.5.1",
 }

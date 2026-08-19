@@ -8,8 +8,8 @@
 let
   moon = pkgs.moonbit-bin.moonbit.latest;
 
-  asyncVersion = "0.20.3";
-  xVersion = "0.4.47";
+  asyncVersion = "0.20.6";
+  xVersion = "0.5.1";
 
   # Manifest listing the exact deps to fetch. Kept in sync with
   # ./statusline/moon.mod.
@@ -60,7 +60,7 @@ let
     '';
     outputHashMode = "recursive";
     outputHashAlgo = "sha256";
-    outputHash = "sha256-AzMMjR5vdM3IgwaPUKfaSSglpOjvfXZAI0jleg8XZ4I=";
+    outputHash = "sha256-/2fwktjut2YHbujFAcC84NAw/yWbK2TgFzCMveqVuUQ=";
   };
 in
 pkgs.stdenv.mkDerivation {
