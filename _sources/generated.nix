@@ -8,27 +8,27 @@
 {
   agent-toolkit-for-aws = {
     pname = "agent-toolkit-for-aws";
-    version = "957cf377ea1dffccf1f8a54ded2be8666b6db41c";
+    version = "f986ec60a09a9fbcc31e950ecb6ec3d07d7fa9ec";
     src = fetchFromGitHub {
       owner = "aws";
       repo = "agent-toolkit-for-aws";
-      rev = "957cf377ea1dffccf1f8a54ded2be8666b6db41c";
+      rev = "f986ec60a09a9fbcc31e950ecb6ec3d07d7fa9ec";
       fetchSubmodules = false;
-      sha256 = "sha256-rsYUDPeSKcEq1aswvTFIXXxJr52y+KmHuurEjVlYSJg=";
+      sha256 = "sha256-zE/4M0mgbxWRkYczNQJr0IV6/R1wCAMXSqdZRzd4O9M=";
     };
-    date = "2026-08-14";
+    date = "2026-08-18";
   };
   bento = {
     pname = "bento";
-    version = "813c71fff72491e6898f5e55a20da44a562be586";
+    version = "be89e3603095b92e7ae89b32df921cc595d9dfcd";
     src = fetchFromGitHub {
       owner = "nyblnet";
       repo = "bento";
-      rev = "813c71fff72491e6898f5e55a20da44a562be586";
+      rev = "be89e3603095b92e7ae89b32df921cc595d9dfcd";
       fetchSubmodules = false;
-      sha256 = "sha256-jjkmWygOA+2z/AMZD2Kf2GZuSpceXWqxioqPrzHvfEA=";
+      sha256 = "sha256-FElxOeolxFOeJiIN7llHrpsum2uIyxnaf26eR/uvbDA=";
     };
-    date = "2026-08-16";
+    date = "2026-08-19";
   };
   budget_tracker_tui = {
     pname = "budget_tracker_tui";
@@ -193,15 +193,15 @@
   };
   lean4-skills = {
     pname = "lean4-skills";
-    version = "b85ed8eb8587b2852a6423f566f40aa877a3c587";
+    version = "109186ff8c71a219dad6ad14cce0d16878a981e0";
     src = fetchFromGitHub {
       owner = "cameronfreer";
       repo = "lean4-skills";
-      rev = "b85ed8eb8587b2852a6423f566f40aa877a3c587";
+      rev = "109186ff8c71a219dad6ad14cce0d16878a981e0";
       fetchSubmodules = false;
-      sha256 = "sha256-0vs1nnvSJtLXbqbLkyb91Tl6F4OYAqx7rt1yNjPq6QY=";
+      sha256 = "sha256-KiTdVIPbsGX1Tf0U37hlKqA4dJbXWjRnL/1ffBu7wpc=";
     };
-    date = "2026-08-16";
+    date = "2026-08-17";
   };
   lightpanda-linux = {
     pname = "lightpanda-linux";
@@ -287,15 +287,15 @@
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "fd6c617d0b1415d4e6ea322d7a405075d39ae75b";
+    version = "49295968507da402e2fc8d73eaea3626cf02dc91";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "fd6c617d0b1415d4e6ea322d7a405075d39ae75b";
+      rev = "49295968507da402e2fc8d73eaea3626cf02dc91";
       fetchSubmodules = false;
-      sha256 = "sha256-cBR86RS7ybsFL9DYJbTLx+JcilVEDiVBvh3fE6n5GHw=";
+      sha256 = "sha256-9GIWK8/vBEwzE45akCNKMKf9boh/QzWYZrIivmKH5NM=";
     };
-    date = "2026-08-03";
+    date = "2026-08-17";
   };
   repl-ui-hx = {
     pname = "repl-ui-hx";
