@@ -12,3 +12,8 @@ home/.clj-kondo/.cache/
 home/.clj-kondo/imports/
 home/.cpcache/
 home/.lsp/.cache/
+
+# Worktrees allocated by the Claude Code WorktreeCreate hook, and the sidecar
+# records beside them. jj skips a nested working copy, but an unignored sidecar
+# is snapshotted into the main workspace's @ on the next command.
+.claude/worktrees/

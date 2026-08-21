@@ -70,3 +70,17 @@
   [record dir change-id]
   (and (get-in record [change-id "diff"])
        (= (get-in record [change-id "diff"]) (diff-hash dir change-id))))
+
+;; === Worktree hooks ===
+
+(defn worktree-config
+  "Per-repository worktree settings from `<root>/.claude/worktree.json`. A
+   missing file, a missing key or unreadable JSON means the workspace lane and
+   no symlinks, so a repository that declares nothing needs no file."
+  [root]
+  (let [path (str (fs/path root ".claude" "worktree.json"))
+        raw (if (fs/exists? path)
+              (try (json/parse-string (slurp path)) (catch Exception _ {}))
+              {})]
+    {:default-lane (if (= "clone" (get raw "defaultLane")) :clone :workspace)
+     :symlink-dirs (vec (get raw "symlinkDirectories"))}))
