@@ -78,7 +78,7 @@
 ;; === Create workspace ===
 (fs/create-dirs worktrees-dir)
 
-(let [result (p/shell {:out :string :err :string :dir repo-root}
+(let [result (p/shell {:out :string :err :string :dir repo-root :continue true}
                       "jj" "workspace" "add" worktree-path "--name" workspace-name)]
   (when-not (zero? (:exit result))
     (binding [*out* *err*]
