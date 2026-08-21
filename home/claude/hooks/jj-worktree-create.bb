@@ -36,32 +36,44 @@
 (def worktree-path (str worktrees-dir "/" worktree-name))
 (def workspace-name (str "claude-" worktree-name))
 
-;; === Cleanup stale workspaces ===
-;; The two halves are independent: a directory can outlive its workspace and a
-;; workspace can outlive its directory, and neither is visible from the other
-;; side's listing.
+;; === Clear the way for this worktree ===
+;; A directory can outlive its workspace and a workspace can outlive its
+;; directory, and either leftover makes `jj workspace add` fail. Both halves
+;; only touch the worktree being created: the other directories under
+;; .claude/worktrees belong to other jobs, and some of them are clones this
+;; hook never registered, whose commits exist nowhere else.
+
+(defn added-workspace-of-repo?
+  "Whether `dir` is an added workspace of this repo, which is the only kind of
+   directory that can be deleted without losing commits: its store is the one
+   this repo uses. `.jj/repo` is the store directory itself in a clone and a
+   file naming the store, relative to `.jj`, in an added workspace."
+  [dir]
+  (let [repo (fs/path dir ".jj" "repo")]
+    (and (fs/exists? repo)
+         (fs/regular-file? repo)
+         (= (str (fs/real-path (fs/path repo-root ".jj" "repo")))
+            (str (fs/real-path (fs/path dir ".jj" (str/trim (slurp (str repo))))))))))
+
 (let [workspace-list (or (sh "jj" "workspace" "list") "")
       active-names (->> (str/split-lines workspace-list)
                         (keep #(second (re-find #"^(\S+):" %)))
-                        set)]
-  ;; Directory whose workspace is gone → delete the directory.
-  (when (fs/exists? worktrees-dir)
-    (doseq [dir (fs/list-dir worktrees-dir)
-            :let [dir-name (str (fs/file-name dir))]
-            :when (not (contains? active-names (str "claude-" dir-name)))]
-      (binding [*out* *err*]
-        (println (str "Cleaning up stale worktree: " dir-name)))
-      (fs/delete-tree dir)))
-
-  ;; Workspace whose directory is gone → forget the workspace, so a later add
-  ;; under the same name is not rejected as already existing.
-  (doseq [ws-name active-names
-          :when (str/starts-with? ws-name "claude-")
-          :let [dir (str worktrees-dir "/" (subs ws-name (count "claude-")))]
-          :when (not (fs/exists? dir))]
+                        set)
+      registered? (contains? active-names workspace-name)]
+  ;; Directory left behind by a workspace that is no longer registered.
+  (when (and (fs/exists? worktree-path)
+             (not registered?)
+             (added-workspace-of-repo? worktree-path))
     (binding [*out* *err*]
-      (println (str "Forgetting orphaned workspace: " ws-name)))
-    (sh "jj" "workspace" "forget" ws-name)))
+      (println (str "Removing leftover workspace directory: " worktree-path)))
+    (fs/delete-tree worktree-path))
+
+  ;; Workspace registered without its directory, which would make an add under
+  ;; the same name be rejected as already existing.
+  (when (and registered? (not (fs/exists? worktree-path)))
+    (binding [*out* *err*]
+      (println (str "Forgetting orphaned workspace: " workspace-name)))
+    (sh "jj" "workspace" "forget" workspace-name)))
 
 ;; === Create workspace ===
 (fs/create-dirs worktrees-dir)
