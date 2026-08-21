@@ -119,10 +119,6 @@
             name = "elio";
             path = customPkgs.elio;
           }
-          {
-            name = "budget_tracker_tui";
-            path = customPkgs.budget_tracker_tui;
-          }
           # The only output CI builds for real on Linux, so lightpanda's
           # autoPatchelf is exercised here.
           {

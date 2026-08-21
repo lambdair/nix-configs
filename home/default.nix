@@ -7,7 +7,6 @@
 }:
 let
   inherit (import ../pkgs { inherit pkgs sources; })
-    budget_tracker_tui
     lightpanda
     racket-with-langserver
     ;
@@ -228,7 +227,7 @@ in
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Finance Management
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      budget_tracker_tui # TUI budget tracking application
+      budget-tracker-tui # TUI budget tracker (Budget_Tracker)
       bagels # TUI expense tracker
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

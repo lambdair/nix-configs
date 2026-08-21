@@ -30,18 +30,6 @@
     };
     date = "2026-08-19";
   };
-  budget_tracker_tui = {
-    pname = "budget_tracker_tui";
-    version = "6d3ea0b4a98182ea5b01b50a109a8f4f003135b3";
-    src = fetchFromGitHub {
-      owner = "Feromond";
-      repo = "budget_tracker_tui";
-      rev = "6d3ea0b4a98182ea5b01b50a109a8f4f003135b3";
-      fetchSubmodules = false;
-      sha256 = "sha256-Z9ZXm/onOOTPHdyECJ8GpPJdy7qVKJyBN8PsxrdZg7A=";
-    };
-    date = "2026-07-12";
-  };
   claude-mem = {
     pname = "claude-mem";
     version = "fae697a45d107aae567d605916391ab64d8ecae1";
