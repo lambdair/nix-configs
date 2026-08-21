@@ -44,6 +44,27 @@
         (println (str "Forgetting orphaned workspace: " workspace-name)))
       (sh-in repo-root "jj" "workspace" "forget" workspace-name))))
 
+(defn clone-worktree! [_repo-root dest] (fs/create-dirs dest))
+(defn symlink-deps! [_source _dest _dirs] nil)
+
+(defn consume-sentinel!
+  "Whether a stack sentinel is armed for `root`, deleting it as it is read so it
+   routes exactly the next job. `DC_BG_STACK` is the equivalent signal for launch
+   paths that can pass an environment variable."
+  [root]
+  (let [path (fs/path root ".claude" ".bg-stack")]
+    (if (fs/exists? path)
+      (do (fs/delete path) true)
+      (= "1" (System/getenv "DC_BG_STACK")))))
+
+(defn lane-for
+  "The lane for this job: the sentinel forces a workspace, otherwise the
+   repository's declared default."
+  [root]
+  (if (consume-sentinel! root)
+    :workspace
+    (:default-lane (worktree-config root))))
+
 (defn -main []
   (let [input (json/parse-string (slurp *in*) true)
         wt-name (:name input)
@@ -55,8 +76,12 @@
           workspace-name (str "claude-" wt-name)]
       (clear-the-way! repo-root worktree-path workspace-name)
       (fs/create-dirs (fs/parent worktree-path))
-      (sh-in! repo-root "jj" "workspace" "add" worktree-path "--name" workspace-name)
-      (write-sidecar! worktree-path {"lane" "workspace" "workspace" workspace-name})
+      (if (= :clone (lane-for repo-root))
+        (do (clone-worktree! repo-root worktree-path)
+            (write-sidecar! worktree-path {"lane" "clone"}))
+        (do (sh-in! repo-root "jj" "workspace" "add" worktree-path "--name" workspace-name)
+            (write-sidecar! worktree-path {"lane" "workspace" "workspace" workspace-name})))
+      (symlink-deps! repo-root worktree-path (:symlink-dirs (worktree-config repo-root)))
       (println worktree-path))))
 
 (when (= *file* (System/getProperty "babashka.file"))

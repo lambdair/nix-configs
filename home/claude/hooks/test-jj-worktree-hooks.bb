@@ -166,5 +166,21 @@
         (t/is (fs/exists? (fs/path path "someones-work"))
               "a sidecar is a stale claim, not proof of what the directory is now")))))
 
+(t/deftest sentinel-forces-the-workspace-lane-for-exactly-one-job
+  (fs/with-temp-dir [dir {}]
+    (let [source (make-repo! dir)]
+      (fs/create-dirs (fs/path source ".claude"))
+      (spit (str (fs/path source ".claude" "worktree.json"))
+            (json/generate-string {"defaultLane" "clone"}))
+      (spit (str (fs/path source ".claude" ".bg-stack")) "")
+      (run-hook "jj-worktree-create.bb" {:name "first" :cwd source})
+      (t/is (contains? (workspace-names source) "claude-first")
+            "the armed job takes the workspace lane")
+      (t/is (not (fs/exists? (fs/path source ".claude" ".bg-stack")))
+            "the sentinel is consumed")
+      (run-hook "jj-worktree-create.bb" {:name "second" :cwd source})
+      (t/is (not (contains? (workspace-names source) "claude-second"))
+            "the next job reverts to the repository default"))))
+
 (let [{:keys [fail error]} (t/run-tests 'user)]
   (System/exit (if (zero? (+ fail error)) 0 1)))
