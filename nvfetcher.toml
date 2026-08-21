@@ -140,6 +140,18 @@ src.github_tag = "letstri/druk"
 src.prefix = "v"
 fetch.url = "https://github.com/letstri/druk/releases/download/v$ver/druk-linux-x64.tar.gz"
 
+# terminal-browser ships one release archive per platform, so each host's
+# archive is tracked separately.
+[terminal-browser-mac]
+src.github_tag = "zenbu-labs/terminal-browser"
+src.prefix = "v"
+fetch.url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v$ver/terminal-browser-darwin-arm64.tar.gz"
+
+[terminal-browser-linux]
+src.github_tag = "zenbu-labs/terminal-browser"
+src.prefix = "v"
+fetch.url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v$ver/terminal-browser-linux-x64.tar.gz"
+
 # lightpanda ships one release binary per platform, so each host's binary is
 # tracked separately. The tag list mixes the rolling `nightly`/`beta`/`alpha`
 # tags with the retired `v0.2.x` scheme, and GitHub's own "latest release"

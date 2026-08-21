@@ -8,4 +8,5 @@ import ./helix-steel.nix { inherit pkgs sources; }
   elio = import ./elio.nix { inherit pkgs sources; };
   lightpanda = import ./lightpanda.nix { inherit pkgs sources; };
   racket-with-langserver = import ./racket-langserver.nix { inherit pkgs sources; };
+  terminal-browser = import ./terminal-browser.nix { inherit pkgs sources; };
 }

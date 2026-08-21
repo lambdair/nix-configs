@@ -365,6 +365,22 @@
     };
     date = "2026-08-12";
   };
+  terminal-browser-linux = {
+    pname = "terminal-browser-linux";
+    version = "0.5.8";
+    src = fetchurl {
+      url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.5.8/terminal-browser-linux-x64.tar.gz";
+      sha256 = "sha256-wzC+M0Hvb2yxBuT7MsHWB1Sgjhp2QRQ6empNnpRI9hc=";
+    };
+  };
+  terminal-browser-mac = {
+    pname = "terminal-browser-mac";
+    version = "0.5.8";
+    src = fetchurl {
+      url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.5.8/terminal-browser-darwin-arm64.tar.gz";
+      sha256 = "sha256-e/cKG6NyxBU905qHdvsOyy12YKnNgk9v27jlU1gApyw=";
+    };
+  };
   tolaria = {
     pname = "tolaria";
     version = "2026.8.11";

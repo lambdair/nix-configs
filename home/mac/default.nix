@@ -14,6 +14,7 @@
 rec {
   imports = [
     ../ghostty.nix
+    ../terminal-browser.nix
     ./zmk-battery-center.nix
   ];
 

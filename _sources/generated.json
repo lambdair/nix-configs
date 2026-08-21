@@ -618,6 +618,36 @@
         },
         "version": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797"
     },
+    "terminal-browser-linux": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "terminal-browser-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-wzC+M0Hvb2yxBuT7MsHWB1Sgjhp2QRQ6empNnpRI9hc=",
+            "type": "url",
+            "url": "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.5.8/terminal-browser-linux-x64.tar.gz"
+        },
+        "version": "0.5.8"
+    },
+    "terminal-browser-mac": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "terminal-browser-mac",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-e/cKG6NyxBU905qHdvsOyy12YKnNgk9v27jlU1gApyw=",
+            "type": "url",
+            "url": "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.5.8/terminal-browser-darwin-arm64.tar.gz"
+        },
+        "version": "0.5.8"
+    },
     "tolaria": {
         "cargoLock": null,
         "date": null,
