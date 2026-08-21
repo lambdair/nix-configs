@@ -269,6 +269,7 @@ in
     ./helix-steel.nix # Helix with the Steel plugin runtime
     ./nvim # Vim fork focused on extensibility and agility
     ./emacs # Extensible, customizable text editor
+    ./druk.nix # Terminal code editor with tree-sitter syntax, LSP and git
 
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     # Git / Version Control

@@ -54,6 +54,22 @@
     };
     date = "2026-08-09";
   };
+  druk-linux = {
+    pname = "druk-linux";
+    version = "1.21.1";
+    src = fetchurl {
+      url = "https://github.com/letstri/druk/releases/download/v1.21.1/druk-linux-x64.tar.gz";
+      sha256 = "sha256-bNkYU0jnitnpwROdUvqa84EtSvd/4gdBWs5NnZ6+ZF0=";
+    };
+  };
+  druk-mac = {
+    pname = "druk-mac";
+    version = "1.21.1";
+    src = fetchurl {
+      url = "https://github.com/letstri/druk/releases/download/v1.21.1/druk-darwin-arm64.zip";
+      sha256 = "sha256-rmyQlzYKKVG9MjdsoHaPTii4hzZv4q3npcnKQYMYFkY=";
+    };
+  };
   eglot-booster = {
     pname = "eglot-booster";
     version = "510f579409627c333ef0e9157db713b1004da842";

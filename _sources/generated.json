@@ -83,6 +83,36 @@
         },
         "version": "e4023997f359375cc48fcea71828a528466ac751"
     },
+    "druk-linux": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "druk-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-bNkYU0jnitnpwROdUvqa84EtSvd/4gdBWs5NnZ6+ZF0=",
+            "type": "url",
+            "url": "https://github.com/letstri/druk/releases/download/v1.21.1/druk-linux-x64.tar.gz"
+        },
+        "version": "1.21.1"
+    },
+    "druk-mac": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "druk-mac",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-rmyQlzYKKVG9MjdsoHaPTii4hzZv4q3npcnKQYMYFkY=",
+            "type": "url",
+            "url": "https://github.com/letstri/druk/releases/download/v1.21.1/druk-darwin-arm64.zip"
+        },
+        "version": "1.21.1"
+    },
     "eglot-booster": {
         "cargoLock": null,
         "date": "2026-06-30",

@@ -128,6 +128,18 @@ fetch.github = "yoshiko-pg/difit"
 src.github = "elio-fm/elio"
 fetch.github = "elio-fm/elio"
 
+# druk ships one release archive per platform, so each host's archive is
+# tracked separately.
+[druk-mac]
+src.github_tag = "letstri/druk"
+src.prefix = "v"
+fetch.url = "https://github.com/letstri/druk/releases/download/v$ver/druk-darwin-arm64.zip"
+
+[druk-linux]
+src.github_tag = "letstri/druk"
+src.prefix = "v"
+fetch.url = "https://github.com/letstri/druk/releases/download/v$ver/druk-linux-x64.tar.gz"
+
 # lightpanda ships one release binary per platform, so each host's binary is
 # tracked separately. The tag list mixes the rolling `nightly`/`beta`/`alpha`
 # tags with the retired `v0.2.x` scheme, and GitHub's own "latest release"
