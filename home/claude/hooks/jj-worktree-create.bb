@@ -44,8 +44,48 @@
         (println (str "Forgetting orphaned workspace: " workspace-name)))
       (sh-in repo-root "jj" "workspace" "forget" workspace-name))))
 
-(defn clone-worktree! [_repo-root dest] (fs/create-dirs dest))
-(defn symlink-deps! [_source _dest _dirs] nil)
+(defn trunk-bookmark
+  "The bookmark name at `trunk()` in `root`, or nil when trunk carries none.
+   Resolved in the source checkout because `trunk()` is often a revset alias in
+   the repo-scoped config, which a freshly initialized clone does not inherit.
+   A local bookmark comes first: `git clone --local` copies the source's local
+   branches into the clone's `origin/*`, so a name that is only a remote
+   bookmark here may not resolve there."
+  [root]
+  (let [out (or (sh-in root "jj" "log" "--no-graph" "-r" "trunk()"
+                       "-T" (str "local_bookmarks.map(|b| b.name()).join(\" \")"
+                                 " ++ \" \" ++ "
+                                 "remote_bookmarks.map(|b| b.name()).join(\" \")"))
+                "")]
+    (first (remove str/blank? (str/split out #"\s+")))))
+
+(defn clone-worktree!
+  "A worktree with its own store, so its operation log and its undo history are
+   nobody else's. Hardlinked from the source, so the copy is cheap."
+  [repo-root dest]
+  (let [origin (sh-in repo-root "git" "remote" "get-url" "origin")
+        ;; A name is required: the clone inherits no revset aliases, so
+        ;; `trunk()` there falls back to the builtin and resolves to root().
+        bookmark (or (trunk-bookmark repo-root)
+                     (die! (str "No bookmark at trunk() in " repo-root
+                                "\nThe clone lane starts from one; track the trunk"
+                                " bookmark or pin trunk() to a bookmarked revision.")))]
+    (sh-in! repo-root "git" "clone" "--local" repo-root dest)
+    (when origin (sh-in! dest "git" "remote" "set-url" "origin" origin))
+    (sh-in! dest "jj" "git" "init" "--colocate")
+    (sh-in! dest "jj" "new" (str bookmark "@origin"))))
+
+(defn symlink-deps!
+  "Share the source checkout's dependency directories, which a clone would
+   otherwise have to install again."
+  [source dest dirs]
+  (doseq [d dirs]
+    (let [target (fs/path source d)
+          link (fs/path dest d)]
+      (when (fs/exists? target)
+        (fs/create-dirs (fs/parent link))
+        (when (fs/exists? link) (fs/delete-tree link))
+        (fs/create-sym-link link target)))))
 
 (defn consume-sentinel!
   "Whether a stack sentinel is armed for `root`, deleting it as it is read so it

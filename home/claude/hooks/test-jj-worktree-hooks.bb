@@ -9,6 +9,7 @@
 
 (def hooks-dir (str (fs/parent *file*)))
 (load-file (str hooks-dir "/lib.bb"))
+(load-file (str hooks-dir "/jj-worktree-create.bb"))
 
 (t/deftest worktree-config-defaults-to-the-workspace-lane
   (fs/with-temp-dir [root {}]
@@ -84,6 +85,59 @@
        str/split-lines
        (keep #(second (re-find #"^(\S+):" %)))
        set))
+
+(t/deftest trunk-bookmark-is-read-without-decoration
+  (fs/with-temp-dir [dir {}]
+    (t/is (= "master" (trunk-bookmark (make-repo! dir))))))
+
+(t/deftest clone-lane-gets-its-own-store-and-the-configured-symlinks
+  (fs/with-temp-dir [dir {}]
+    (let [source (make-repo! dir)]
+      (fs/create-dirs (fs/path source ".claude"))
+      (fs/create-dirs (fs/path source "deps"))
+      (spit (str (fs/path source "deps" "marker")) "x")
+      (spit (str (fs/path source ".claude" "worktree.json"))
+            (json/generate-string {"defaultLane" "clone" "symlinkDirectories" ["deps"]}))
+      (let [{:keys [exit out]} (run-hook "jj-worktree-create.bb" {:name "job" :cwd source})]
+        (t/is (zero? exit))
+        (t/is (fs/directory? (fs/path out ".jj" "repo"))
+              "a clone owns its store, so .jj/repo is a directory")
+        (t/is (not (contains? (workspace-names source) "claude-job"))
+              "a clone registers no workspace in the source repo")
+        (t/is (fs/sym-link? (fs/path out "deps")))
+        (t/is (= {"lane" "clone"} (read-sidecar out)))
+        (t/is (str/includes? (:out (p/shell {:dir out :out :string :err :string}
+                                            "jj" "log" "--no-graph" "-r" "@-" "-T" "bookmarks"))
+                             "master")
+              "the clone starts on the source's trunk, not on root()")))))
+
+(defn forget-local-bookmark!
+  "Leave `master` as a remote-only bookmark, the shape a repo has when its trunk
+   is tracked by no local bookmark. `git clone --local` copies local branches
+   only, so the name no longer crosses into a clone."
+  [source]
+  (p/shell {:dir source :out :string :err :string} "jj" "bookmark" "forget" "master"))
+
+(t/deftest trunk-bookmark-falls-back-to-a-remote-only-bookmark
+  (fs/with-temp-dir [dir {}]
+    (let [source (make-repo! dir)]
+      (forget-local-bookmark! source)
+      (t/is (= "master" (trunk-bookmark source))
+            "a name is still read, so the failure downstream can name it"))))
+
+(t/deftest clone-lane-fails-loudly-when-trunk-does-not-cross-into-the-clone
+  (fs/with-temp-dir [dir {}]
+    (let [source (make-repo! dir)]
+      (forget-local-bookmark! source)
+      (fs/create-dirs (fs/path source ".claude"))
+      (spit (str (fs/path source ".claude" "worktree.json"))
+            (json/generate-string {"defaultLane" "clone"}))
+      (let [{:keys [exit err]} (run-hook "jj-worktree-create.bb" {:name "job" :cwd source})]
+        (t/is (pos? exit) "a start revision the clone cannot resolve fails the run")
+        (t/is (str/includes? err "master@origin")
+              "the failure names the revision, rather than silently using root()")
+        (t/is (nil? (read-sidecar (str source "/.claude/worktrees/job")))
+              "nothing records a worktree that never started on trunk")))))
 
 (t/deftest create-adds-a-jj-workspace-and-prints-its-path
   (fs/with-temp-dir [dir {}]
