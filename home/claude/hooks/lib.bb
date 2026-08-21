@@ -103,3 +103,32 @@
   (let [path (sidecar-path worktree-path)]
     (when (fs/exists? path)
       (try (json/parse-string (slurp path)) (catch Exception _ nil)))))
+
+(defn die!
+  "Report `msg` on stderr and exit non-zero, the only channel a hook has for a
+   failure the harness should surface."
+  [msg]
+  (binding [*out* *err*] (println msg))
+  (System/exit 1))
+
+(defn sh-in!
+  "`sh-in` for a command that must succeed: returns trimmed stdout, and dies
+   with the child's stderr on a non-zero exit. `:continue true` is what makes
+   that branch reachable, since babashka's `shell` throws otherwise."
+  [dir & args]
+  (let [r (apply p/shell {:dir dir :out :string :err :string :continue true} args)]
+    (when-not (zero? (:exit r))
+      (die! (str "Failed: " (str/join " " args) "\n" (str/trim (:err r)))))
+    (str/trim (:out r))))
+
+(defn added-workspace-of-repo?
+  "Whether `dir` is an added workspace of the repo at `repo-root`, the only kind
+   of directory that can be deleted without losing commits: its store is the one
+   this repo uses. `.jj/repo` is the store directory itself in a clone and a
+   file naming the store, relative to `.jj`, in an added workspace."
+  [repo-root dir]
+  (let [repo (fs/path dir ".jj" "repo")]
+    (and (fs/exists? repo)
+         (fs/regular-file? repo)
+         (= (str (fs/real-path (fs/path repo-root ".jj" "repo")))
+            (str (fs/real-path (fs/path dir ".jj" (str/trim (slurp (str repo))))))))))
