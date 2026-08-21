@@ -31,5 +31,21 @@
     (t/is (= {:default-lane :workspace :symlink-dirs []}
              (worktree-config (str root))))))
 
+(t/deftest sidecar-sits-beside-the-worktree-not-inside-it
+  (t/is (= "/r/.claude/worktrees/job.json" (sidecar-path "/r/.claude/worktrees/job"))))
+
+(t/deftest sidecar-roundtrips
+  (fs/with-temp-dir [dir {}]
+    (let [wt (str (fs/path dir "job"))]
+      (write-sidecar! wt {"lane" "workspace" "workspace" "claude-job"})
+      (t/is (= {"lane" "workspace" "workspace" "claude-job"} (read-sidecar wt))))))
+
+(t/deftest sidecar-is-nil-when-absent-or-broken
+  (fs/with-temp-dir [dir {}]
+    (let [wt (str (fs/path dir "job"))]
+      (t/is (nil? (read-sidecar wt)))
+      (spit (sidecar-path wt) "{ not json")
+      (t/is (nil? (read-sidecar wt))))))
+
 (let [{:keys [fail error]} (t/run-tests 'user)]
   (System/exit (if (zero? (+ fail error)) 0 1)))

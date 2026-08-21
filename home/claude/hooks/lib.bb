@@ -84,3 +84,22 @@
               {})]
     {:default-lane (if (= "clone" (get raw "defaultLane")) :clone :workspace)
      :symlink-dirs (vec (get raw "symlinkDirectories"))}))
+
+(defn sidecar-path
+  "Where the record for the worktree at `worktree-path` lives: a sibling of the
+   directory, so no working copy snapshots it into a revision."
+  [worktree-path]
+  (str worktree-path ".json"))
+
+(defn write-sidecar!
+  "Record what was built at `worktree-path`. `m` carries \"lane\" and, for the
+   workspace lane, the \"workspace\" name to forget on removal."
+  [worktree-path m]
+  (spit (sidecar-path worktree-path) (json/generate-string m)))
+
+(defn read-sidecar
+  "The record for `worktree-path`, or nil when there is none to trust."
+  [worktree-path]
+  (let [path (sidecar-path worktree-path)]
+    (when (fs/exists? path)
+      (try (json/parse-string (slurp path)) (catch Exception _ nil)))))
