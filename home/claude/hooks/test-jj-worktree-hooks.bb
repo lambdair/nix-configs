@@ -236,5 +236,67 @@
       (t/is (not (contains? (workspace-names source) "claude-second"))
             "the next job reverts to the repository default"))))
 
+(t/deftest remove-forgets-the-recorded-workspace-and-deletes-both-files
+  (fs/with-temp-dir [dir {}]
+    (let [source (make-repo! dir)
+          path (:out (run-hook "jj-worktree-create.bb" {:name "job" :cwd source}))]
+      (run-hook "jj-worktree-remove.bb" {:worktree_path path :cwd source})
+      (t/is (not (contains? (workspace-names source) "claude-job")))
+      (t/is (not (fs/exists? path)))
+      (t/is (not (fs/exists? (sidecar-path path)))
+            "the sidecar goes with the worktree it recorded"))))
+
+(t/deftest remove-deletes-a-clone-lane-tree-and-its-sidecar
+  (fs/with-temp-dir [dir {}]
+    (let [source (make-repo! dir)]
+      (fs/create-dirs (fs/path source ".claude"))
+      (spit (str (fs/path source ".claude" "worktree.json"))
+            (json/generate-string {"defaultLane" "clone"}))
+      (let [path (:out (run-hook "jj-worktree-create.bb" {:name "job" :cwd source}))]
+        (run-hook "jj-worktree-remove.bb" {:worktree_path path :cwd source})
+        (t/is (not (fs/exists? path)))
+        (t/is (not (fs/exists? (sidecar-path path))))))))
+
+(t/deftest remove-forgets-nothing-for-a-worktree-that-registered-no-workspace
+  (fs/with-temp-dir [dir {}]
+    (let [source (make-repo! dir)
+          other (:out (run-hook "jj-worktree-create.bb" {:name "other" :cwd source}))
+          path (str source "/.claude/worktrees/job")]
+      ;; A clone-lane directory sharing its basename with a live workspace of
+      ;; another job: deleting it must leave that workspace registered.
+      (fs/create-dirs path)
+      (write-sidecar! path {"lane" "clone"})
+      (p/shell {:dir source :out :string :err :string}
+               "jj" "workspace" "add" (str source "/.claude/worktrees/spare")
+               "--name" "claude-job")
+      (run-hook "jj-worktree-remove.bb" {:worktree_path path :cwd source})
+      (t/is (contains? (workspace-names source) "claude-job")
+            "a clone's removal never forgets a workspace of the same name")
+      (t/is (fs/exists? other) "another job's worktree is untouched"))))
+
+(t/deftest remove-refuses-a-path-that-names-no-single-worktree
+  (fs/with-temp-dir [dir {}]
+    (let [source (make-repo! dir)
+          worktrees (str source "/.claude/worktrees")]
+      (run-hook "jj-worktree-create.bb" {:name "job" :cwd source})
+      (run-hook "jj-worktree-remove.bb" {:worktree_path source :cwd source})
+      (t/is (fs/exists? source) "the repository itself is never deleted")
+      (run-hook "jj-worktree-remove.bb" {:worktree_path (str worktrees "/") :cwd source})
+      (t/is (fs/exists? (str worktrees "/job"))
+            "nor does every job's worktree go with one malformed path")
+      (run-hook "jj-worktree-remove.bb" {:worktree_path (str worktrees "/job/.jj") :cwd source})
+      (t/is (fs/exists? (str worktrees "/job/.jj"))
+            "nor a directory inside a worktree, which names no job at all"))))
+
+(t/deftest remove-cleans-up-when-the-directory-is-already-gone
+  (fs/with-temp-dir [dir {}]
+    (let [source (make-repo! dir)
+          path (:out (run-hook "jj-worktree-create.bb" {:name "job" :cwd source}))]
+      (fs/delete-tree path)
+      (run-hook "jj-worktree-remove.bb" {:worktree_path path :cwd source})
+      (t/is (not (contains? (workspace-names source) "claude-job"))
+            "the workspace is forgotten even when its directory went first")
+      (t/is (not (fs/exists? (sidecar-path path))) "no sidecar is left behind"))))
+
 (let [{:keys [fail error]} (t/run-tests 'user)]
   (System/exit (if (zero? (+ fail error)) 0 1)))

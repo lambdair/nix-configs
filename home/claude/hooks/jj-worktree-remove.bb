@@ -1,54 +1,47 @@
 #!/usr/bin/env bb
 
 (require '[cheshire.core :as json]
-         '[babashka.process :as p]
          '[clojure.string :as str]
          '[babashka.fs :as fs])
 
-;; The runner below reports why a command failed — the only diagnostic left
-;; once the worktree it was operating on is gone.
+(load-file (str (fs/parent *file*) "/lib.bb"))
 
-;; === Parse stdin JSON ===
-(def input (json/parse-string (slurp *in*) true))
+(defn ours?
+  "Whether `dest` is a worktree this hook may delete: one named directory under
+   a `.claude/worktrees/`, never the repository itself. The path test is the
+   guard against a malformed event taking more than the job it names."
+  [dest repo-root]
+  (boolean (and dest repo-root
+                (not= dest repo-root)
+                (re-find #"/\.claude/worktrees/[^/]+/?$" dest))))
 
-(def worktree-path (:worktree_path input))
-(def cwd (:cwd input))
+(defn workspace-to-forget
+  "The workspace `dest` registered, or nil when it registered none. The sidecar
+   is authoritative; the store check covers worktrees created before there were
+   sidecars."
+  [repo-root dest]
+  (if-let [record (read-sidecar dest)]
+    (get record "workspace")
+    (when (added-workspace-of-repo? repo-root dest)
+      (str "claude-" (fs/file-name dest)))))
 
-;; WorktreeRemove does not provide a `name` field, so derive the workspace
-;; name from the worktree directory basename. The create hook names the
-;; workspace "claude-<basename>", so this stays consistent with it.
-(def workspace-name
-  (some->> worktree-path fs/file-name str (str "claude-")))
-
-;; repo root: prefer git_repo_path, then `jj root` from cwd, then derive
-;; from the worktree path structure (.../.claude/worktrees/<name>)
-(def repo-root
-  (or (:git_repo_path input)
-      (try
-        (let [result (p/shell {:out :string :err :string :dir cwd}
-                              "jj" "root")]
-          (when (zero? (:exit result))
-            (str/trim (:out result))))
-        (catch Exception _ nil))
-      (some-> worktree-path fs/parent fs/parent fs/parent str)))
-
-(defn sh [& args]
-  (try
-    (let [result (apply p/shell {:out :string :err :string :dir repo-root} args)]
-      (when (zero? (:exit result))
-        (str/trim (:out result))))
-    (catch Exception e
+(defn -main []
+  (let [input (json/parse-string (slurp *in*) true)
+        dest (:worktree_path input)
+        cwd (:cwd input)
+        repo-root (or (:git_repo_path input)
+                      (sh-in cwd "jj" "root")
+                      (some-> dest fs/parent fs/parent fs/parent str))]
+    (if-not (ours? dest repo-root)
       (binding [*out* *err*]
-        (println (str "Command failed: " (.getMessage e))))
-      nil)))
+        (println (str "Not a worktree this hook allocated, leaving it alone: " dest)))
+      (do
+        (when-let [workspace (workspace-to-forget repo-root dest)]
+          (when-not (sh-in repo-root "jj" "workspace" "forget" workspace)
+            (binding [*out* *err*]
+              (println (str "Warning: failed to forget workspace " workspace)))))
+        (when (fs/exists? dest) (fs/delete-tree dest))
+        (fs/delete-if-exists (sidecar-path dest))))))
 
-;; === Forget workspace ===
-(when (and workspace-name repo-root)
-  (let [result (sh "jj" "workspace" "forget" workspace-name)]
-    (when-not result
-      (binding [*out* *err*]
-        (println (str "Warning: failed to forget workspace " workspace-name))))))
-
-;; === Remove directory ===
-(when (and worktree-path (fs/exists? worktree-path))
-  (fs/delete-tree worktree-path))
+(when (= *file* (System/getProperty "babashka.file"))
+  (-main))
