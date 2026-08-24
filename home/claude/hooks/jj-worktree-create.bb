@@ -75,6 +75,16 @@
     (sh-in! dest "jj" "git" "init" "--colocate")
     (sh-in! dest "jj" "new" (str bookmark "@origin"))))
 
+(defn workspace-start
+  "The revision a new workspace begins on, or nil to leave the choice to `jj`,
+   which branches from the parents of the source checkout's `@` and so would
+   start an unrelated job on top of whatever is in progress there. nil unless
+   `trunk()` resolves to a single revision other than the root commit, whose
+   empty tree is the worse start."
+  [root]
+  (when (= "false" (sh-in root "jj" "log" "--no-graph" "-r" "trunk()" "-T" "root"))
+    "trunk()"))
+
 (defn symlink-deps!
   "Share the source checkout's dependency directories, which a clone would
    otherwise have to install again."
@@ -119,7 +129,9 @@
       (if (= :clone (lane-for repo-root))
         (do (clone-worktree! repo-root worktree-path)
             (write-sidecar! worktree-path {"lane" "clone"}))
-        (do (sh-in! repo-root "jj" "workspace" "add" worktree-path "--name" workspace-name)
+        (do (apply sh-in! repo-root "jj" "workspace" "add" worktree-path
+                   "--name" workspace-name
+                   (if-let [rev (workspace-start repo-root)] ["-r" rev] []))
             (write-sidecar! worktree-path {"lane" "workspace" "workspace" workspace-name})))
       (symlink-deps! repo-root worktree-path (:symlink-dirs (worktree-config repo-root)))
       (println worktree-path))))

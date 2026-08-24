@@ -160,6 +160,32 @@
       (t/is (fs/directory? expected))
       (t/is (contains? (workspace-names source) "claude-job")))))
 
+(t/deftest workspace-lane-starts-on-trunk-rather-than-on-the-source-checkout
+  (fs/with-temp-dir [dir {}]
+    (let [source (make-repo! dir)]
+      (sh {:dir source :out :string :err :string} "jj" "describe" "-m" "wip")
+      (sh {:dir source :out :string :err :string} "jj" "new")
+      (let [{:keys [exit out]} (run-hook "jj-worktree-create.bb" {:name "job" :cwd source})]
+        (t/is (zero? exit))
+        (t/is (str/includes? (:out (sh {:dir out :out :string :err :string}
+                                       "jj" "log" "--no-graph" "-r" "@-" "-T" "bookmarks"))
+                             "master")
+              "the job starts on trunk, not on the work in progress beside it")))))
+
+(t/deftest workspace-lane-keeps-the-default-start-when-trunk-is-the-root-commit
+  (fs/with-temp-dir [dir {}]
+    (let [source (str (fs/path dir "solo"))]
+      (git! dir "init" "-b" "master" source)
+      (spit (str (fs/path source "README")) "fixture\n")
+      (git! source "add" "README")
+      (git! source "commit" "-m" "init")
+      (sh {:dir source :out :string :err :string} "jj" "git" "init" "--colocate")
+      (let [{:keys [exit out]} (run-hook "jj-worktree-create.bb"
+                                         {:name "job" :cwd (str (fs/real-path source))})]
+        (t/is (zero? exit) "a repo whose trunk() is root() still gets a workspace")
+        (t/is (fs/exists? (fs/path out "README"))
+              "and it starts with the files, rather than on the empty root commit")))))
+
 (t/deftest create-rejects-a-name-that-escapes-the-worktrees-directory
   (fs/with-temp-dir [dir {}]
     (let [source (make-repo! dir)]
