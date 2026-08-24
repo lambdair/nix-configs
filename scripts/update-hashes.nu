@@ -46,7 +46,9 @@ def current-hash [text: string, anchor: string]: nothing -> any {
 def build-hash [root: string, attr: string]: nothing -> any {
   let expr = ($EXPR | str replace --all "@ROOT@" $root | str replace "@ATTR@" $attr)
   let result = (do { ^nix build --impure --no-link --expr $expr } | complete)
-  let got = ($result.stderr | parse --regex 'got:\s+(?<hash>sha256-[A-Za-z0-9+/=]+)')
+  # nix colors its diagnostics even when stderr is a pipe, so escape sequences
+  # sit between the label and the hash.
+  let got = ($result.stderr | parse --regex 'got:[^\n]*?(?<hash>sha256-[A-Za-z0-9+/=]+)')
   if ($got | is-empty) { null } else { $got | first | get hash }
 }
 
