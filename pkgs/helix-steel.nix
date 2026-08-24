@@ -4,7 +4,7 @@
 # the home directory, which packages must not depend on.
 { pkgs, sources }:
 let
-  steelCoreHashForHelix = "sha256-vR2izfAXC0oidNtyIzdge04BV6C36wrg1qDDzEKAPeg=";
+  steelCoreHashForHelix = "sha256-rfifl52OXqL821l/aJBVbOXO90iPZG0UvjHJxaAIaEI=";
   steelCoreHashForSulafat = "sha256-vR2izfAXC0oidNtyIzdge04BV6C36wrg1qDDzEKAPeg=";
 
   grammarExt = if pkgs.stdenv.isDarwin then "dylib" else "so";
@@ -70,7 +70,7 @@ rec {
     cargoLock = {
       lockFile = "${sources.helix-steel.src}/Cargo.lock";
       outputHashes = {
-        "steel-core-0.8.2" = steelCoreHashForHelix;
+        "steel-core-0.8.3" = steelCoreHashForHelix;
       };
     };
 
