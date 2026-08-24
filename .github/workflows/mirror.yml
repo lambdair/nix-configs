@@ -6,6 +6,10 @@ on:
 
 # GitHub is the primary; sr.ht is a downstream backup mirror that only ever
 # receives master from here, so the push force-overwrites it.
+#
+# The URL carries no `.git`: git.sr.ht takes the suffix as part of the
+# repository name and creates whatever path is pushed to, so `nix-configs.git`
+# would be a second repository rather than this one.
 jobs:
   mirror:
     runs-on: ubuntu-latest
@@ -22,4 +26,4 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan git.sr.ht >> ~/.ssh/known_hosts 2>/dev/null
           GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519 -o IdentitiesOnly=yes" \
-            git push --force git@git.sr.ht:~lambdair/nix-configs.git HEAD:master
+            git push --force git@git.sr.ht:~lambdair/nix-configs HEAD:master
