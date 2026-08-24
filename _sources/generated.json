@@ -1,7 +1,7 @@
 {
     "agent-toolkit-for-aws": {
         "cargoLock": null,
-        "date": "2026-08-18",
+        "date": "2026-08-20",
         "extract": null,
         "name": "agent-toolkit-for-aws",
         "passthru": null,
@@ -13,16 +13,16 @@
             "name": null,
             "owner": "aws",
             "repo": "agent-toolkit-for-aws",
-            "rev": "f986ec60a09a9fbcc31e950ecb6ec3d07d7fa9ec",
-            "sha256": "sha256-zE/4M0mgbxWRkYczNQJr0IV6/R1wCAMXSqdZRzd4O9M=",
+            "rev": "d6ad2e44d5e3077b85b63f322e007c84f94f3a6c",
+            "sha256": "sha256-ZcU3e9VyPEx3e9DZq1LVimsmQobLX9pzcJy3zT2fVts=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "f986ec60a09a9fbcc31e950ecb6ec3d07d7fa9ec"
+        "version": "d6ad2e44d5e3077b85b63f322e007c84f94f3a6c"
     },
     "bento": {
         "cargoLock": null,
-        "date": "2026-08-19",
+        "date": "2026-08-23",
         "extract": null,
         "name": "bento",
         "passthru": null,
@@ -34,16 +34,16 @@
             "name": null,
             "owner": "nyblnet",
             "repo": "bento",
-            "rev": "be89e3603095b92e7ae89b32df921cc595d9dfcd",
-            "sha256": "sha256-FElxOeolxFOeJiIN7llHrpsum2uIyxnaf26eR/uvbDA=",
+            "rev": "ef2ae4102b59ba86ccfc80102883db418ec918ba",
+            "sha256": "sha256-4xAVBf+D3fbKPOTELaR/lGZK395LlhFsUfdjstnjSfQ=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "be89e3603095b92e7ae89b32df921cc595d9dfcd"
+        "version": "ef2ae4102b59ba86ccfc80102883db418ec918ba"
     },
     "claude-mem": {
         "cargoLock": null,
-        "date": "2026-08-16",
+        "date": "2026-08-19",
         "extract": null,
         "name": "claude-mem",
         "passthru": null,
@@ -55,12 +55,12 @@
             "name": null,
             "owner": "thedotmack",
             "repo": "claude-mem",
-            "rev": "fae697a45d107aae567d605916391ab64d8ecae1",
-            "sha256": "sha256-SDbl3PVIgJKW5IGGudJSoy0n5UCudBUE/MAmigoNOYs=",
+            "rev": "e2d1df569a8f04075d40e92461128ece7cf04c82",
+            "sha256": "sha256-jA1FbamnVecINXURVBp4sars7VRXMr3FTiV2Re3P4Ms=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "fae697a45d107aae567d605916391ab64d8ecae1"
+        "version": "e2d1df569a8f04075d40e92461128ece7cf04c82"
     },
     "difit": {
         "cargoLock": null,
@@ -199,7 +199,7 @@
     },
     "helix-steel": {
         "cargoLock": null,
-        "date": "2026-08-08",
+        "date": "2026-08-22",
         "extract": null,
         "name": "helix-steel",
         "passthru": null,
@@ -211,12 +211,12 @@
             "name": null,
             "owner": "mattwparas",
             "repo": "helix",
-            "rev": "bab8acd7a32e3cb85cd6aaae6281cb5de3ce0780",
-            "sha256": "sha256-1dBU2QNctYbkgkuRs9pMXNAWM276zqf3dFZhyAhSgPg=",
+            "rev": "a7959f0b3c98f929043a26ee2c115ccef508b122",
+            "sha256": "sha256-5pxrsylwxeR1+8eyGWaTrX991H9uhRl1ToXcWPQNpcc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "bab8acd7a32e3cb85cd6aaae6281cb5de3ce0780"
+        "version": "a7959f0b3c98f929043a26ee2c115ccef508b122"
     },
     "heptabase": {
         "cargoLock": null,
@@ -227,11 +227,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-hI0W8aJKV1CXewc76WUFM31Rl4peqRD3wazLy2ayhKQ=",
+            "sha256": "sha256-FhDRUrLMnAOMXsHVuUVj3uWgxpvxbLY6xnH0R74bYUI=",
             "type": "url",
-            "url": "https://github.com/heptameta/project-meta/releases/download/v1.103.0/Heptabase-1.103.0.AppImage"
+            "url": "https://github.com/heptameta/project-meta/releases/download/v1.104.0/Heptabase-1.104.0.AppImage"
         },
-        "version": "1.103.0"
+        "version": "1.104.0"
     },
     "heptabase-cli-skills": {
         "cargoLock": null,
@@ -333,7 +333,7 @@
     },
     "lean4-skills": {
         "cargoLock": null,
-        "date": "2026-08-17",
+        "date": "2026-08-20",
         "extract": null,
         "name": "lean4-skills",
         "passthru": null,
@@ -345,12 +345,12 @@
             "name": null,
             "owner": "cameronfreer",
             "repo": "lean4-skills",
-            "rev": "109186ff8c71a219dad6ad14cce0d16878a981e0",
-            "sha256": "sha256-KiTdVIPbsGX1Tf0U37hlKqA4dJbXWjRnL/1ffBu7wpc=",
+            "rev": "922c4e64a489ec89a90f24f6523a4f6b20718535",
+            "sha256": "sha256-90Ip8NRZC93Vj5F6QuzZSx2LwxYBv5u9nwwk+Rk8auY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "109186ff8c71a219dad6ad14cce0d16878a981e0"
+        "version": "922c4e64a489ec89a90f24f6523a4f6b20718535"
     },
     "lightpanda-linux": {
         "cargoLock": null,
@@ -420,7 +420,7 @@
     },
     "moonbit-skills": {
         "cargoLock": null,
-        "date": "2026-07-06",
+        "date": "2026-08-20",
         "extract": null,
         "name": "moonbit-skills",
         "passthru": null,
@@ -432,12 +432,12 @@
             "name": null,
             "owner": "moonbitlang",
             "repo": "skills",
-            "rev": "5caf81c57cb2ae45654b8f99c5c8f68c812beb91",
-            "sha256": "sha256-sBP5obPF7l4gRdNV5TtCYOIDW+1gJoEmRiex4OQQKak=",
+            "rev": "0d956f0ecd0b09ce16a0c341780998473d251db4",
+            "sha256": "sha256-EmpA7MmpvhH5VQa1IvhfgHxpM59Q40v9fVWGahft5pg=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "5caf81c57cb2ae45654b8f99c5c8f68c812beb91"
+        "version": "0d956f0ecd0b09ce16a0c341780998473d251db4"
     },
     "nordic": {
         "cargoLock": null,
@@ -558,7 +558,7 @@
     },
     "steel": {
         "cargoLock": null,
-        "date": "2026-08-15",
+        "date": "2026-08-19",
         "extract": null,
         "name": "steel",
         "passthru": null,
@@ -570,12 +570,12 @@
             "name": null,
             "owner": "mattwparas",
             "repo": "steel",
-            "rev": "2640abca12408c11b0d692b41284815c65856cf8",
-            "sha256": "sha256-D3+8XkW4nNZn45ckcvuY4WhpaUeYX3taNVgQQ1yFu6I=",
+            "rev": "11a57adcf42c22733463c59b1f44ec49eb7043bc",
+            "sha256": "sha256-rfifl52OXqL821l/aJBVbOXO90iPZG0UvjHJxaAIaEI=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "2640abca12408c11b0d692b41284815c65856cf8"
+        "version": "11a57adcf42c22733463c59b1f44ec49eb7043bc"
     },
     "sulafat": {
         "cargoLock": null,
@@ -627,11 +627,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-wzC+M0Hvb2yxBuT7MsHWB1Sgjhp2QRQ6empNnpRI9hc=",
+            "sha256": "sha256-fCN1WTYjoSEJYV7KlM6u7OamGTxMyVW6FZIV8PbAn/c=",
             "type": "url",
-            "url": "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.5.8/terminal-browser-linux-x64.tar.gz"
+            "url": "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.6.0/terminal-browser-linux-x64.tar.gz"
         },
-        "version": "0.5.8"
+        "version": "0.6.0"
     },
     "terminal-browser-mac": {
         "cargoLock": null,
@@ -642,11 +642,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-e/cKG6NyxBU905qHdvsOyy12YKnNgk9v27jlU1gApyw=",
+            "sha256": "sha256-0tGgYLYgjxyMUEoa+CXu0PsFv629iyPx4AZWGcV350k=",
             "type": "url",
-            "url": "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.5.8/terminal-browser-darwin-arm64.tar.gz"
+            "url": "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.6.0/terminal-browser-darwin-arm64.tar.gz"
         },
-        "version": "0.5.8"
+        "version": "0.6.0"
     },
     "tolaria": {
         "cargoLock": null,
@@ -657,11 +657,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ctxKE0OkaNBlJ4FsURm/nqbMxrCWSFRNILiyS4fqXo8=",
+            "sha256": "sha256-wj9HVT12kVqw/o303VpXbsFi9l6CVfEpS3t8vRgfYp8=",
             "type": "url",
-            "url": "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.8.11_amd64.AppImage"
+            "url": "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.8.19_amd64.AppImage"
         },
-        "version": "2026.8.11"
+        "version": "2026.8.19"
     },
     "tree-sitter-moonbit": {
         "cargoLock": null,

@@ -4,8 +4,26 @@
 # the home directory, which packages must not depend on.
 { pkgs, sources }:
 let
-  steelCoreHashForHelix = "sha256-vR2izfAXC0oidNtyIzdge04BV6C36wrg1qDDzEKAPeg=";
+  steelCoreHashForHelix = "sha256-rfifl52OXqL821l/aJBVbOXO90iPZG0UvjHJxaAIaEI=";
   steelCoreHashForSulafat = "sha256-vR2izfAXC0oidNtyIzdge04BV6C36wrg1qDDzEKAPeg=";
+
+  # `outputHashes` is keyed by `<crate>-<version>`, and a key naming a version
+  # the lock does not carry fails evaluation before any fetch runs. Upstream
+  # moves steel-core's version on its own schedule, so the version comes from
+  # the lock that pins it.
+  steelCoreKey =
+    lockFile:
+    let
+      lines = pkgs.lib.splitString "\n" (builtins.readFile lockFile);
+      nameAt = pkgs.lib.lists.findFirstIndex (l: l == ''name = "steel-core"'') null lines;
+    in
+    if nameAt == null then
+      throw "steel-core is not a dependency in ${lockFile}"
+    else
+      "steel-core-"
+      + pkgs.lib.removeSuffix "\"" (
+        pkgs.lib.removePrefix "version = \"" (builtins.elemAt lines (nameAt + 1))
+      );
 
   grammarExt = if pkgs.stdenv.isDarwin then "dylib" else "so";
 
@@ -70,7 +88,7 @@ rec {
     cargoLock = {
       lockFile = "${sources.helix-steel.src}/Cargo.lock";
       outputHashes = {
-        "steel-core-0.8.2" = steelCoreHashForHelix;
+        ${steelCoreKey "${sources.helix-steel.src}/Cargo.lock"} = steelCoreHashForHelix;
       };
     };
 
@@ -116,7 +134,7 @@ rec {
     cargoLock = {
       lockFile = "${sources.sulafat.src}/Cargo.lock";
       outputHashes = {
-        "steel-core-0.8.2" = steelCoreHashForSulafat;
+        ${steelCoreKey "${sources.sulafat.src}/Cargo.lock"} = steelCoreHashForSulafat;
       };
     };
 
