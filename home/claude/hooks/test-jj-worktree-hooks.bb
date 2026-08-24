@@ -11,6 +11,17 @@
 (load-file (str hooks-dir "/lib.bb"))
 (load-file (str hooks-dir "/jj-worktree-create.bb"))
 
+(def xdg-home
+  "jj keeps repo-scoped config outside the repo, under XDG_CONFIG_HOME and keyed
+   by the repo path. Every fixture repo would otherwise leave an entry in the
+   user's own config that outlives the temp directory it names."
+  (str (fs/create-temp-dir {:prefix "jj-worktree-hook-tests"})))
+
+(defn sh
+  "`babashka.process/shell` with the fixtures' own config home."
+  [opts & args]
+  (apply p/shell (update opts :extra-env merge {"XDG_CONFIG_HOME" xdg-home}) args))
+
 (t/deftest worktree-config-defaults-to-the-workspace-lane
   (fs/with-temp-dir [root {}]
     (t/is (= {:default-lane :workspace :symlink-dirs []}
@@ -51,15 +62,15 @@
 (defn run-hook
   "Drive `hook` through its real contract: `input` as stdin JSON."
   [hook input]
-  (let [r (p/shell {:in (json/generate-string input)
-                    :out :string :err :string :continue true}
-                   "bb" (str hooks-dir "/" hook))]
+  (let [r (sh {:in (json/generate-string input)
+               :out :string :err :string :continue true}
+              "bb" (str hooks-dir "/" hook))]
     {:exit (:exit r) :out (str/trim (:out r)) :err (:err r)}))
 
 (defn git! [dir & args]
-  (apply p/shell {:dir dir :out :string :err :string
-                  :extra-env {"GIT_AUTHOR_NAME" "T" "GIT_AUTHOR_EMAIL" "t@example.com"
-                              "GIT_COMMITTER_NAME" "T" "GIT_COMMITTER_EMAIL" "t@example.com"}}
+  (apply sh {:dir dir :out :string :err :string
+             :extra-env {"GIT_AUTHOR_NAME" "T" "GIT_AUTHOR_EMAIL" "t@example.com"
+                         "GIT_COMMITTER_NAME" "T" "GIT_COMMITTER_EMAIL" "t@example.com"}}
          "git" args))
 
 (defn make-repo!
@@ -75,13 +86,13 @@
     (git! source "commit" "-m" "init")
     (git! source "remote" "add" "origin" origin)
     (git! source "push" "-u" "origin" "master")
-    (p/shell {:dir source :out :string :err :string} "jj" "git" "init" "--colocate")
+    (sh {:dir source :out :string :err :string} "jj" "git" "init" "--colocate")
     ;; jj reports the root as a realpath, which on macOS differs from the temp
     ;; directory's /var symlink; canonicalize so path assertions compare equal.
     (str (fs/real-path source))))
 
 (defn workspace-names [root]
-  (->> (:out (p/shell {:dir root :out :string :err :string} "jj" "workspace" "list"))
+  (->> (:out (sh {:dir root :out :string :err :string} "jj" "workspace" "list"))
        str/split-lines
        (keep #(second (re-find #"^(\S+):" %)))
        set))
@@ -106,8 +117,8 @@
               "a clone registers no workspace in the source repo")
         (t/is (fs/sym-link? (fs/path out "deps")))
         (t/is (= {"lane" "clone"} (read-sidecar out)))
-        (t/is (str/includes? (:out (p/shell {:dir out :out :string :err :string}
-                                            "jj" "log" "--no-graph" "-r" "@-" "-T" "bookmarks"))
+        (t/is (str/includes? (:out (sh {:dir out :out :string :err :string}
+                                       "jj" "log" "--no-graph" "-r" "@-" "-T" "bookmarks"))
                              "master")
               "the clone starts on the source's trunk, not on root()")))))
 
@@ -116,7 +127,7 @@
    is tracked by no local bookmark. `git clone --local` copies local branches
    only, so the name no longer crosses into a clone."
   [source]
-  (p/shell {:dir source :out :string :err :string} "jj" "bookmark" "forget" "master"))
+  (sh {:dir source :out :string :err :string} "jj" "bookmark" "forget" "master"))
 
 (t/deftest trunk-bookmark-falls-back-to-a-remote-only-bookmark
   (fs/with-temp-dir [dir {}]
@@ -162,7 +173,7 @@
       (let [{:keys [exit out]} (run-hook "jj-worktree-create.bb" {:name "job" :cwd source})]
         (t/is (zero? exit))
         (t/is (fs/exists? (sidecar-path out)) "the sidecar was actually written")
-        (let [status (:out (p/shell {:dir source :out :string :err :string} "jj" "status"))]
+        (let [status (:out (sh {:dir source :out :string :err :string} "jj" "status"))]
           (t/is (not (str/includes? status ".claude/worktrees"))
                 "neither the worktree nor its sidecar reaches the source's @"))))))
 
@@ -170,8 +181,8 @@
   (fs/with-temp-dir [dir {}]
     (let [source (make-repo! dir)]
       (run-hook "jj-worktree-create.bb" {:name "job" :cwd source})
-      (p/shell {:dir source :out :string :err :string}
-               "jj" "workspace" "forget" "claude-job")
+      (sh {:dir source :out :string :err :string}
+          "jj" "workspace" "forget" "claude-job")
       (let [{:keys [exit]} (run-hook "jj-worktree-create.bb" {:name "job" :cwd source})]
         (t/is (zero? exit))
         (t/is (contains? (workspace-names source) "claude-job"))))))
@@ -266,9 +277,9 @@
       ;; another job: deleting it must leave that workspace registered.
       (fs/create-dirs path)
       (write-sidecar! path {"lane" "clone"})
-      (p/shell {:dir source :out :string :err :string}
-               "jj" "workspace" "add" (str source "/.claude/worktrees/spare")
-               "--name" "claude-job")
+      (sh {:dir source :out :string :err :string}
+          "jj" "workspace" "add" (str source "/.claude/worktrees/spare")
+          "--name" "claude-job")
       (run-hook "jj-worktree-remove.bb" {:worktree_path path :cwd source})
       (t/is (contains? (workspace-names source) "claude-job")
             "a clone's removal never forgets a workspace of the same name")
@@ -299,4 +310,5 @@
       (t/is (not (fs/exists? (sidecar-path path))) "no sidecar is left behind"))))
 
 (let [{:keys [fail error]} (t/run-tests 'user)]
+  (fs/delete-tree xdg-home)
   (System/exit (if (zero? (+ fail error)) 0 1)))
