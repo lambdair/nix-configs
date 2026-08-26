@@ -247,7 +247,11 @@ in
     }
     # macOS only: symlink shared settings for secondary account
     // lib.optionalAttrs pkgs.stdenv.isDarwin {
-      ".claude-personal/settings.json" = link "settings.json";
+      # Claude sessions rewrite this one too, and their atomic write replaces
+      # the symlink with a regular file, so force it back.
+      ".claude-personal/settings.json" = link "settings.json" // {
+        force = true;
+      };
       ".claude-personal/CLAUDE.md" = link "CLAUDE.md";
       ".claude-personal/hooks" = link "hooks";
       ".claude-personal/rules" = link "rules";
