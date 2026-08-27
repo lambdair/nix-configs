@@ -46,6 +46,15 @@ rec {
       );
       StandardOutPath = "${config.home.homeDirectory}/Library/Logs/nix-gc.log";
       StandardErrorPath = "${config.home.homeDirectory}/Library/Logs/nix-gc.log";
+      # home-manager's darwin schedule takes only named intervals, and its
+      # weekly one lands at Monday 00:00 — an hour this machine tends to be off.
+      StartCalendarInterval = lib.mkForce [
+        {
+          Weekday = 1;
+          Hour = 12;
+          Minute = 15;
+        }
+      ];
     };
   };
 

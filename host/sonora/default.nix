@@ -20,12 +20,25 @@
 
   # base.nix's gc settings are NixOS-only, so darwin needs its own. nix-darwin
   # refuses `nix.settings.auto-optimise-store` (it can corrupt the store), so
-  # dedup runs via periodic `nix.optimise`. Both default to weekly.
+  # dedup runs via periodic `nix.optimise`. Both run weekly at midday rather
+  # than overnight: launchd drops a calendar event missed while powered off.
   nix.gc = {
     automatic = true;
     options = "--delete-older-than 7d";
+    interval = {
+      Weekday = 7;
+      Hour = 12;
+      Minute = 15;
+    };
   };
-  nix.optimise.automatic = true;
+  nix.optimise = {
+    automatic = true;
+    interval = {
+      Weekday = 7;
+      Hour = 13;
+      Minute = 15;
+    };
+  };
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true; # default shell on catalina
