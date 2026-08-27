@@ -40,6 +40,15 @@ in
 
   programs.home-manager.enable = true;
 
+  # The system-level gc runs as root and searches /nix/var/nix/profiles, never a
+  # user's $XDG_STATE_HOME/nix/profiles, so the home-manager and `nix profile`
+  # generations living there need a collector that runs as the user.
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   home.packages =
     with pkgs;
     [

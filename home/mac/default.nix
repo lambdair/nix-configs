@@ -1,4 +1,10 @@
-{ pkgs, sources, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  sources,
+  ...
+}:
 
 # let
 #   awrit = pkgs.stdenv.mkDerivation {
@@ -11,6 +17,13 @@
 #     '';
 #   };
 # in
+let
+  # The resolution home-manager's nix-gc module makes, repeated so the agent
+  # override below cannot drift from the nix that module would have run.
+  nixPackage =
+    if config.nix.enable && config.nix.package != null then config.nix.package else pkgs.nix;
+in
+
 rec {
   imports = [
     ../ghostty.nix
@@ -20,6 +33,21 @@ rec {
 
   home.username = "lambdair";
   home.homeDirectory = "/Users/${home.username}";
+
+  # home-manager hands nix.gc.options to launchd as a single argv element, which
+  # nix-collect-garbage rejects as one unknown flag (home-manager#7211), so the
+  # arguments are split here. The log paths are this file's too: the upstream
+  # agent redirects neither stream, leaving a failing run invisible.
+  launchd.agents.nix-gc = lib.mkIf config.nix.gc.automatic {
+    config = {
+      ProgramArguments = lib.mkForce (
+        [ "${nixPackage}/bin/nix-collect-garbage" ]
+        ++ lib.optionals (config.nix.gc.options != null) (lib.splitString " " config.nix.gc.options)
+      );
+      StandardOutPath = "${config.home.homeDirectory}/Library/Logs/nix-gc.log";
+      StandardErrorPath = "${config.home.homeDirectory}/Library/Logs/nix-gc.log";
+    };
+  };
 
   home.packages = with pkgs; [
     macskk # Japanese SKK input method for macOS
