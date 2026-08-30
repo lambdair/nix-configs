@@ -4,7 +4,7 @@
 # the home directory, which packages must not depend on.
 { pkgs, sources }:
 let
-  steelCoreHashForHelix = "sha256-AMDFQcukZUFV7U5mQaHBNsGpcGoIKE4Ic+IbXBNGcFI=";
+  steelCoreHashForHelix = "sha256-6m22JrhPWG+pBypHhuCKR9cwruwMKWdFAiMllv0hiQo=";
   steelCoreHashForSulafat = "sha256-vR2izfAXC0oidNtyIzdge04BV6C36wrg1qDDzEKAPeg=";
 
   # `outputHashes` is keyed by `<crate>-<version>`, and a key naming a version
