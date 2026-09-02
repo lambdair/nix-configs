@@ -1,7 +1,7 @@
 {
     "agent-toolkit-for-aws": {
         "cargoLock": null,
-        "date": "2026-08-28",
+        "date": "2026-09-01",
         "extract": null,
         "name": "agent-toolkit-for-aws",
         "passthru": null,
@@ -13,16 +13,16 @@
             "name": null,
             "owner": "aws",
             "repo": "agent-toolkit-for-aws",
-            "rev": "ed19c44c46c9c3a12ef0ff5bbf88161b75d3efbe",
-            "sha256": "sha256-WIjuGFRwH4yDFnpPDYHNJnwbmBgV7Np/WL+azauzhuw=",
+            "rev": "9edd722f09e65e6d902323268160b0d829be7a69",
+            "sha256": "sha256-RqtQe1UiGz5DCezt1mMukbFEeDaJxwDHb1AqWhP30G0=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "ed19c44c46c9c3a12ef0ff5bbf88161b75d3efbe"
+        "version": "9edd722f09e65e6d902323268160b0d829be7a69"
     },
     "bento": {
         "cargoLock": null,
-        "date": "2026-08-29",
+        "date": "2026-09-01",
         "extract": null,
         "name": "bento",
         "passthru": null,
@@ -34,16 +34,16 @@
             "name": null,
             "owner": "nyblnet",
             "repo": "bento",
-            "rev": "2df2b9d4ac0aa9bbd22329177f122518ad85df63",
-            "sha256": "sha256-WmTJwq/gDpwaxyJlC/qQJFREq9Ew1BpCpV80QzLMefY=",
+            "rev": "0cb15389a78409a1059a941b3c2387fb8a4d8f76",
+            "sha256": "sha256-EIFCfEY83pCWfXz/wmMET8LfLj1gV0PXkanJKtZzRf8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "2df2b9d4ac0aa9bbd22329177f122518ad85df63"
+        "version": "0cb15389a78409a1059a941b3c2387fb8a4d8f76"
     },
     "claude-mem": {
         "cargoLock": null,
-        "date": "2026-08-29",
+        "date": "2026-09-01",
         "extract": null,
         "name": "claude-mem",
         "passthru": null,
@@ -55,12 +55,12 @@
             "name": null,
             "owner": "thedotmack",
             "repo": "claude-mem",
-            "rev": "fa6a1e9ec12d23f98326a9b26e243acb0819e105",
-            "sha256": "sha256-flrYtNdVrbHGD0MqVCVY3csBeFbDLfHt9EJciiUvhH8=",
+            "rev": "f92996e388a1f6ecb01123b4ad104f43c8336844",
+            "sha256": "sha256-bjMDqPfVnhvtrnz0ux4UU1wQmqOhrEoJGJAdQf5gXMo=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "fa6a1e9ec12d23f98326a9b26e243acb0819e105"
+        "version": "f92996e388a1f6ecb01123b4ad104f43c8336844"
     },
     "difit": {
         "cargoLock": null,
@@ -199,7 +199,7 @@
     },
     "helix-steel": {
         "cargoLock": null,
-        "date": "2026-08-29",
+        "date": "2026-08-31",
         "extract": null,
         "name": "helix-steel",
         "passthru": null,
@@ -211,12 +211,12 @@
             "name": null,
             "owner": "mattwparas",
             "repo": "helix",
-            "rev": "7738d6dcb12763517d277f5dbcc06677f5f0a204",
-            "sha256": "sha256-PlQAiZtyhrNtNxXtor2OFIYyE4aGkQT45YKCrsYm3eY=",
+            "rev": "ba5b022c1000a0ce28d4ce1d09acdd062a83a020",
+            "sha256": "sha256-vJ7VgxuM/Dp7vyVlu6EXjP/ES14TALy64jgzyuYZl6g=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "7738d6dcb12763517d277f5dbcc06677f5f0a204"
+        "version": "ba5b022c1000a0ce28d4ce1d09acdd062a83a020"
     },
     "heptabase": {
         "cargoLock": null,
@@ -227,11 +227,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-PuoqLign1l9FCHIuatPqZNTkgNIRi3qdc0xuWRkbpow=",
+            "sha256": "sha256-iC5mui5jeypL6+BvJ6N2uOoOXMpqQtsRAENZrTrOaAQ=",
             "type": "url",
-            "url": "https://github.com/heptameta/project-meta/releases/download/v1.106.0/Heptabase-1.106.0.AppImage"
+            "url": "https://github.com/heptameta/project-meta/releases/download/v1.107.0/Heptabase-1.107.0.AppImage"
         },
-        "version": "1.106.0"
+        "version": "1.107.0"
     },
     "heptabase-cli-skills": {
         "cargoLock": null,
@@ -271,7 +271,7 @@
     },
     "jj-mode": {
         "cargoLock": null,
-        "date": "2026-07-22",
+        "date": "2026-08-31",
         "extract": null,
         "name": "jj-mode",
         "passthru": null,
@@ -283,12 +283,12 @@
             "name": null,
             "owner": "bolivier",
             "repo": "jj-mode.el",
-            "rev": "64a59eda9022080dcd7e86c128bb1bc3c92964df",
-            "sha256": "sha256-yN0uUJ6MbO53GGzGRYtwbkGJYFhvK+tpkINclKVp0hs=",
+            "rev": "7e299b60e536d61e694f75fb7a2d1b922f09a5a5",
+            "sha256": "sha256-T48ofbMWweWkZJ1GI6DpH9VEWuTLubcO8xIlfh+Xbso=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "64a59eda9022080dcd7e86c128bb1bc3c92964df"
+        "version": "7e299b60e536d61e694f75fb7a2d1b922f09a5a5"
     },
     "lean-unicode-hx": {
         "cargoLock": null,
@@ -333,7 +333,7 @@
     },
     "lean4-skills": {
         "cargoLock": null,
-        "date": "2026-08-24",
+        "date": "2026-08-31",
         "extract": null,
         "name": "lean4-skills",
         "passthru": null,
@@ -345,12 +345,12 @@
             "name": null,
             "owner": "cameronfreer",
             "repo": "lean4-skills",
-            "rev": "74febda7679a858af666903756a191f7a0437482",
-            "sha256": "sha256-rSKxiqV4t0nVUtCHjcuvt6thaaJKwEsEgutpV7lsBus=",
+            "rev": "50d367d122de314d85216f0ebb99c942b8334b29",
+            "sha256": "sha256-qi9MJhn+32XWcV63410y6+uowWha4VZ013krgwihbRA=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "74febda7679a858af666903756a191f7a0437482"
+        "version": "50d367d122de314d85216f0ebb99c942b8334b29"
     },
     "lightpanda-linux": {
         "cargoLock": null,
@@ -361,11 +361,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-iVM5sCIFFxoYHd50OuAGi7RWSIQHb+rISCusqcISqlo=",
+            "sha256": "sha256-v8+b1+gJObhyMqoRSknY85f1GvDCYy2fxY1KbUOGYk8=",
             "type": "url",
-            "url": "https://github.com/lightpanda-io/browser/releases/download/0.3.7/lightpanda-x86_64-linux"
+            "url": "https://github.com/lightpanda-io/browser/releases/download/0.4.0/lightpanda-x86_64-linux"
         },
-        "version": "0.3.7"
+        "version": "0.4.0"
     },
     "lightpanda-mac": {
         "cargoLock": null,
@@ -376,11 +376,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-rplULYGvIwhyluwDersNV6VwAlAvX/TBsLBd+khLebg=",
+            "sha256": "sha256-hAVHu3uYdDo+MmGKTRIKxKdefDwtIn7PXOjVCN3BGLc=",
             "type": "url",
-            "url": "https://github.com/lightpanda-io/browser/releases/download/0.3.7/lightpanda-aarch64-macos"
+            "url": "https://github.com/lightpanda-io/browser/releases/download/0.4.0/lightpanda-aarch64-macos"
         },
-        "version": "0.3.7"
+        "version": "0.4.0"
     },
     "lightpanda-skill": {
         "cargoLock": null,
@@ -497,7 +497,7 @@
     },
     "racket-langserver": {
         "cargoLock": null,
-        "date": "2026-08-17",
+        "date": "2026-08-31",
         "extract": null,
         "name": "racket-langserver",
         "passthru": null,
@@ -509,12 +509,12 @@
             "name": null,
             "owner": "jeapostrophe",
             "repo": "racket-langserver",
-            "rev": "49295968507da402e2fc8d73eaea3626cf02dc91",
-            "sha256": "sha256-9GIWK8/vBEwzE45akCNKMKf9boh/QzWYZrIivmKH5NM=",
+            "rev": "8eea557ad6fd833eba361d447fd74c2bcd8a1d76",
+            "sha256": "sha256-4l5y35zSVjNCUgqKl5otPCXC6daa8aL6dCS58fjT22I=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "49295968507da402e2fc8d73eaea3626cf02dc91"
+        "version": "8eea557ad6fd833eba361d447fd74c2bcd8a1d76"
     },
     "repl-ui-hx": {
         "cargoLock": null,
@@ -627,11 +627,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Avn+xuHYppGdjWoFPVqtvP+7pfDF+PdgL3agc+D5FdU=",
+            "sha256": "sha256-vjZ+fZQsW2/jmjJxBejcPkQS2SR0riukKrBWRS7E4sQ=",
             "type": "url",
-            "url": "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.7.5/terminal-browser-linux-x64.tar.gz"
+            "url": "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.7.6/terminal-browser-linux-x64.tar.gz"
         },
-        "version": "0.7.5"
+        "version": "0.7.6"
     },
     "terminal-browser-mac": {
         "cargoLock": null,
@@ -642,11 +642,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Wnnrf3sl1BhpdfdYR0BAIw0ZnbqsNEXW8exTftrlWuc=",
+            "sha256": "sha256-hnWPfDegDzBDC1lHneAga6/DhdMZa0DXx8ZbVABk08A=",
             "type": "url",
-            "url": "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.7.5/terminal-browser-darwin-arm64.tar.gz"
+            "url": "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.7.6/terminal-browser-darwin-arm64.tar.gz"
         },
-        "version": "0.7.5"
+        "version": "0.7.6"
     },
     "tolaria": {
         "cargoLock": null,
