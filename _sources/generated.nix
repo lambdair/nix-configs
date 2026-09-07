@@ -8,39 +8,39 @@
 {
   agent-toolkit-for-aws = {
     pname = "agent-toolkit-for-aws";
-    version = "9edd722f09e65e6d902323268160b0d829be7a69";
+    version = "8ea26bdf9c8b3719e6b5488709f4efecde5a0d93";
     src = fetchFromGitHub {
       owner = "aws";
       repo = "agent-toolkit-for-aws";
-      rev = "9edd722f09e65e6d902323268160b0d829be7a69";
+      rev = "8ea26bdf9c8b3719e6b5488709f4efecde5a0d93";
       fetchSubmodules = false;
-      sha256 = "sha256-RqtQe1UiGz5DCezt1mMukbFEeDaJxwDHb1AqWhP30G0=";
+      sha256 = "sha256-G+W6u5h/5N9dpi3PsFXkgKQ4UoIYkxojPp4fxh7ZZfg=";
     };
-    date = "2026-09-01";
+    date = "2026-09-04";
   };
   bento = {
     pname = "bento";
-    version = "0cb15389a78409a1059a941b3c2387fb8a4d8f76";
+    version = "01000838496ec863ba1035eae12a8a4943020cdc";
     src = fetchFromGitHub {
       owner = "nyblnet";
       repo = "bento";
-      rev = "0cb15389a78409a1059a941b3c2387fb8a4d8f76";
+      rev = "01000838496ec863ba1035eae12a8a4943020cdc";
       fetchSubmodules = false;
-      sha256 = "sha256-EIFCfEY83pCWfXz/wmMET8LfLj1gV0PXkanJKtZzRf8=";
+      sha256 = "sha256-9OP5UzqWPVXFrk4mKGLIqtU9HUNGRGeRuVAgRTs8RNk=";
     };
-    date = "2026-09-01";
+    date = "2026-09-05";
   };
   claude-mem = {
     pname = "claude-mem";
-    version = "f92996e388a1f6ecb01123b4ad104f43c8336844";
+    version = "fd0ecf023336ce631c8a5cd7b70cdeca8f0e82e0";
     src = fetchFromGitHub {
       owner = "thedotmack";
       repo = "claude-mem";
-      rev = "f92996e388a1f6ecb01123b4ad104f43c8336844";
+      rev = "fd0ecf023336ce631c8a5cd7b70cdeca8f0e82e0";
       fetchSubmodules = false;
-      sha256 = "sha256-bjMDqPfVnhvtrnz0ux4UU1wQmqOhrEoJGJAdQf5gXMo=";
+      sha256 = "sha256-vmIGuWEY7Ieljs3fBK+T6lvO8QogZI8mvurScJu+So4=";
     };
-    date = "2026-09-01";
+    date = "2026-09-06";
   };
   difit = {
     pname = "difit";
@@ -56,18 +56,18 @@
   };
   druk-linux = {
     pname = "druk-linux";
-    version = "1.22.1";
+    version = "1.23.0";
     src = fetchurl {
-      url = "https://github.com/letstri/druk/releases/download/v1.22.1/druk-linux-x64.tar.gz";
-      sha256 = "sha256-1PdqeDvJIrfjcdzmz5BWU5Clca/x80AgvolIffedplU=";
+      url = "https://github.com/letstri/druk/releases/download/v1.23.0/druk-linux-x64.tar.gz";
+      sha256 = "sha256-DCH2osbjXQU3T37UDgTv0a2WwzjnW0KxaxI1JodIc84=";
     };
   };
   druk-mac = {
     pname = "druk-mac";
-    version = "1.22.1";
+    version = "1.23.0";
     src = fetchurl {
-      url = "https://github.com/letstri/druk/releases/download/v1.22.1/druk-darwin-arm64.zip";
-      sha256 = "sha256-L0sWorM9MqtMyZTxtCLE9E1i9JUn661mHoGlROyPxoM=";
+      url = "https://github.com/letstri/druk/releases/download/v1.23.0/druk-darwin-arm64.zip";
+      sha256 = "sha256-mL43/fTX5daq8S4rEQbn4qt5SQTg1U4HYs/ZwBuWz0I=";
     };
   };
   eglot-booster = {
@@ -131,10 +131,10 @@
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.107.0";
+    version = "1.108.2";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.107.0/Heptabase-1.107.0.AppImage";
-      sha256 = "sha256-iC5mui5jeypL6+BvJ6N2uOoOXMpqQtsRAENZrTrOaAQ=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.108.2/Heptabase-1.108.2.AppImage";
+      sha256 = "sha256-PcFGOtJ/RJeJ5WbUMT6iZ8mSxvwKOyuulyLjTgbSTa8=";
     };
   };
   heptabase-cli-skills = {
@@ -197,15 +197,15 @@
   };
   lean4-skills = {
     pname = "lean4-skills";
-    version = "50d367d122de314d85216f0ebb99c942b8334b29";
+    version = "a77a64131fe67772af463e87cd03f6e391fc9ab2";
     src = fetchFromGitHub {
       owner = "cameronfreer";
       repo = "lean4-skills";
-      rev = "50d367d122de314d85216f0ebb99c942b8334b29";
+      rev = "a77a64131fe67772af463e87cd03f6e391fc9ab2";
       fetchSubmodules = false;
-      sha256 = "sha256-qi9MJhn+32XWcV63410y6+uowWha4VZ013krgwihbRA=";
+      sha256 = "sha256-txkMZMqiy5stCNy26w0fFB6MDSaGqzzIVkUJ1oaf2Ws=";
     };
-    date = "2026-08-31";
+    date = "2026-09-06";
   };
   lightpanda-linux = {
     pname = "lightpanda-linux";
@@ -245,15 +245,15 @@
   };
   moonbit-skills = {
     pname = "moonbit-skills";
-    version = "0d956f0ecd0b09ce16a0c341780998473d251db4";
+    version = "607f93a413cac702e75d946aa53c81b40edbcb50";
     src = fetchFromGitHub {
       owner = "moonbitlang";
       repo = "skills";
-      rev = "0d956f0ecd0b09ce16a0c341780998473d251db4";
+      rev = "607f93a413cac702e75d946aa53c81b40edbcb50";
       fetchSubmodules = false;
-      sha256 = "sha256-EmpA7MmpvhH5VQa1IvhfgHxpM59Q40v9fVWGahft5pg=";
+      sha256 = "sha256-rFpPjUU+gfbY96T/y608FgeP7ShmX44Y3G9HbkCH1a0=";
     };
-    date = "2026-08-20";
+    date = "2026-09-04";
   };
   nordic = {
     pname = "nordic";
@@ -291,15 +291,15 @@
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "8eea557ad6fd833eba361d447fd74c2bcd8a1d76";
+    version = "d84878a099140c5afaaf70c9593d09e82dd8655a";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "8eea557ad6fd833eba361d447fd74c2bcd8a1d76";
+      rev = "d84878a099140c5afaaf70c9593d09e82dd8655a";
       fetchSubmodules = false;
-      sha256 = "sha256-4l5y35zSVjNCUgqKl5otPCXC6daa8aL6dCS58fjT22I=";
+      sha256 = "sha256-KlpPSdEw+G59KZ2qhgwUHhAxPA7selzn5kBn27qg0HY=";
     };
-    date = "2026-08-31";
+    date = "2026-09-05";
   };
   repl-ui-hx = {
     pname = "repl-ui-hx";
@@ -329,15 +329,15 @@
   };
   steel = {
     pname = "steel";
-    version = "118fb9f9257dd518db92c093e230c3392b8fd520";
+    version = "1bc0cc4b752bbece3e5da62c40540267d0ff7a58";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "steel";
-      rev = "118fb9f9257dd518db92c093e230c3392b8fd520";
+      rev = "1bc0cc4b752bbece3e5da62c40540267d0ff7a58";
       fetchSubmodules = false;
-      sha256 = "sha256-6m22JrhPWG+pBypHhuCKR9cwruwMKWdFAiMllv0hiQo=";
+      sha256 = "sha256-jwjPojXErU2uTf7pXlywmUwLhMMm1cst0K/jvbKRfLo=";
     };
-    date = "2026-08-29";
+    date = "2026-09-04";
   };
   sulafat = {
     pname = "sulafat";
@@ -367,18 +367,18 @@
   };
   terminal-browser-linux = {
     pname = "terminal-browser-linux";
-    version = "0.7.6";
+    version = "0.8.0";
     src = fetchurl {
-      url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.7.6/terminal-browser-linux-x64.tar.gz";
-      sha256 = "sha256-vjZ+fZQsW2/jmjJxBejcPkQS2SR0riukKrBWRS7E4sQ=";
+      url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.8.0/terminal-browser-linux-x64.tar.gz";
+      sha256 = "sha256-99VhKMCepIE/fNN0uyIAnwwLr2QWmhcLy3DapjY9MSQ=";
     };
   };
   terminal-browser-mac = {
     pname = "terminal-browser-mac";
-    version = "0.7.6";
+    version = "0.8.0";
     src = fetchurl {
-      url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.7.6/terminal-browser-darwin-arm64.tar.gz";
-      sha256 = "sha256-hnWPfDegDzBDC1lHneAga6/DhdMZa0DXx8ZbVABk08A=";
+      url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.8.0/terminal-browser-darwin-arm64.tar.gz";
+      sha256 = "sha256-nWHDNHlfeOHnZcEkrIvkPezWfIZn2uHaUynMo3jl6U4=";
     };
   };
   tolaria = {
@@ -442,18 +442,18 @@
   };
   zmk-battery-center-linux = {
     pname = "zmk-battery-center-linux";
-    version = "0.10.2";
+    version = "0.11.1";
     src = fetchurl {
-      url = "https://github.com/kot149/zmk-battery-center/releases/download/v0.10.2/zmk-battery-center_0.10.2_amd64.AppImage";
-      sha256 = "sha256-zLqkPz9xtD1+k+RnpheAqoP4Xtj2OfdG6Ixzy09HztE=";
+      url = "https://github.com/kot149/zmk-battery-center/releases/download/v0.11.1/zmk-battery-center_0.11.1_amd64.AppImage";
+      sha256 = "sha256-jbAps09ghmp80oLB6f8gC5Tov+E2VpCr8U4C1taQGlQ=";
     };
   };
   zmk-battery-center-mac = {
     pname = "zmk-battery-center-mac";
-    version = "0.10.2";
+    version = "0.11.1";
     src = fetchurl {
-      url = "https://github.com/kot149/zmk-battery-center/releases/download/v0.10.2/zmk-battery-center_0.10.2_aarch64.app.tar.gz";
-      sha256 = "sha256-ulG8+PdJbcAna1Ki6eQuXark1v2T0gMYgBauS7OxzgU=";
+      url = "https://github.com/kot149/zmk-battery-center/releases/download/v0.11.1/zmk-battery-center_0.11.1_aarch64.app.tar.gz";
+      sha256 = "sha256-A9X00v/TfXxM186dACjRZLcMNSi2hp4ZQohWESDlr70=";
     };
   };
 }
