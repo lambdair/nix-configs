@@ -58,8 +58,10 @@ src.git = "https://git.sr.ht/~detegr/nvim-bqn"
 fetch.git = "https://git.sr.ht/~detegr/nvim-bqn"
 
 # other
+# Alpha tags are cut without release assets, so the AppImage is only reachable
+# from a published release rather than from the newest tag.
 [heptabase]
-src.github_tag = "heptameta/project-meta"
+src.github = "heptameta/project-meta"
 src.prefix = "v"
 fetch.url = "https://github.com/heptameta/project-meta/releases/download/v$ver/Heptabase-$ver.AppImage"
 
