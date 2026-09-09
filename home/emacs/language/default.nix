@@ -20,6 +20,20 @@ let
     inherit (epkgs) trivialBuild;
     inherit sources;
   };
+  # MELPA's archive-contents records no dependencies for lispy, so nothing puts
+  # swiper and the rest on the load path and byte-compiling lispy.el fails. The
+  # list below is the one lispy-pkg.el declares.
+  lispy = epkgs.lispy.overrideAttrs (old: {
+    propagatedBuildInputs =
+      old.propagatedBuildInputs
+      ++ (with epkgs; [
+        ace-window
+        hydra
+        iedit
+        swiper
+        zoutline
+      ]);
+  });
 in
 with epkgs;
 [
