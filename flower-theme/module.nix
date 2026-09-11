@@ -10,6 +10,7 @@ in
     ./ports/ghostty.nix
     ./ports/kitty.nix
     ./ports/wezterm.nix
+    ./ports/starship.nix
   ];
 
   options.flowerTheme = {
