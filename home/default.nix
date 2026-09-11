@@ -296,6 +296,11 @@ in
     # Development Tools
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     ./claude # AI coding assistant in the terminal
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # Theme
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    ../flower-theme/module.nix # Colour themes after ヰ世界情緒's costumes
   ];
 
   catppuccin = {
@@ -304,6 +309,8 @@ in
     autoEnable = true;
     nvim.enable = false;
   };
+
+  flowerTheme.flower = "anemone";
 
   programs = {
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
