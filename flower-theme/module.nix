@@ -5,6 +5,8 @@ let
   flowerLib = import ./lib.nix { inherit lib; };
 in
 {
+  imports = [ ./ports/helix.nix ];
+
   options.flowerTheme = {
     flower = lib.mkOption {
       type = lib.types.nullOr (lib.types.enum flowerLib.flowers);
