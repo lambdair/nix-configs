@@ -1,0 +1,169 @@
+name = "Anemone"
+strand = "#C8202A"
+
+[dark.colors]
+crust = { hex = "#111118", label = "コートの影" }
+coat = { hex = "#1A1A22", label = "コートの黒" }
+coat-lift = { hex = "#24232D", label = "コートの黒（明）" }
+flower-shade = { hex = "#3C303F", label = "髪飾りの黒花（影）" }
+coat-seam = { hex = "#2D2934", label = "コートの縫い目" }
+hair = { hex = "#DAD6D2", label = "髪の明部" }
+hair-shade = { hex = "#BAADB1", label = "髪の影" }
+ring = { hex = "#818691", label = "銀リング" }
+ring-dim = { hex = "#5F5B68", label = "銀リング（暗）" }
+guide = { hex = "#32323A", label = "派生: ガイド" }
+strand = { hex = "#EF6661", label = "髪房・靴の赤" }
+eye = { hex = "#A9C0DE", label = "瞳のスチールブルー" }
+petal = { hex = "#C5ABD9", label = "花飾りの紫" }
+rose = { hex = "#EDB2BA", label = "派生: アネモネの薔薇色" }
+orchid = { hex = "#DC8EBB", label = "派生: アネモネの赤紫" }
+champagne = { hex = "#D5CAAE", label = "髪のシャンパン" }
+error = { hex = "#ED5350", label = "派生: エラー" }
+warning = { hex = "#EBB25F", label = "派生: 警告" }
+info = { hex = "#88BFE6", label = "派生: 情報" }
+hint = { hex = "#9CA5B8", label = "派生: ヒント" }
+added = { hex = "#7CC58C", label = "派生: 追加" }
+removed = { hex = "#E85F61", label = "派生: 削除" }
+changed = { hex = "#D9B06B", label = "派生: 変更" }
+ansi-black = { hex = "#2D2D36", label = "ANSI 黒" }
+ansi-red = { hex = "#E85854", label = "ANSI 赤" }
+ansi-green = { hex = "#78BF7B", label = "ANSI 緑" }
+ansi-yellow = { hex = "#DAC46D", label = "ANSI 黄" }
+ansi-blue = { hex = "#7EA7DC", label = "ANSI 青" }
+ansi-magenta = { hex = "#CC8BC5", label = "ANSI マゼンタ" }
+ansi-cyan = { hex = "#76C7CC", label = "ANSI シアン" }
+ansi-white = { hex = "#C8C3BF", label = "ANSI 白" }
+ansi-bright-black = { hex = "#54545E", label = "ANSI 明るい黒" }
+ansi-bright-red = { hex = "#FD736D", label = "ANSI 明るい赤" }
+ansi-bright-green = { hex = "#8BD28D", label = "ANSI 明るい緑" }
+ansi-bright-yellow = { hex = "#E8DA82", label = "ANSI 明るい黄" }
+ansi-bright-blue = { hex = "#9BC1F1", label = "ANSI 明るい青" }
+ansi-bright-magenta = { hex = "#E3A6DD", label = "ANSI 明るいマゼンタ" }
+ansi-bright-cyan = { hex = "#96DCE0", label = "ANSI 明るいシアン" }
+ansi-bright-white = { hex = "#EEEAE7", label = "ANSI 明るい白" }
+
+[dark.roles]
+crust = "crust"
+bg = "coat"
+cursorline = "coat-lift"
+selection = "flower-shade"
+statusline = "coat-seam"
+text = "hair"
+subtext = "hair-shade"
+comment = "ring"
+linenr = "ring-dim"
+guide = "guide"
+keyword = "strand"
+function = "eye"
+type = "petal"
+string = "rose"
+constant = "orchid"
+special = "champagne"
+error = "error"
+warning = "warning"
+info = "info"
+hint = "hint"
+added = "added"
+removed = "removed"
+changed = "changed"
+
+[dark.ansi]
+black = "ansi-black"
+red = "ansi-red"
+green = "ansi-green"
+yellow = "ansi-yellow"
+blue = "ansi-blue"
+magenta = "ansi-magenta"
+cyan = "ansi-cyan"
+white = "ansi-white"
+bright-black = "ansi-bright-black"
+bright-red = "ansi-bright-red"
+bright-green = "ansi-bright-green"
+bright-yellow = "ansi-bright-yellow"
+bright-blue = "ansi-bright-blue"
+bright-magenta = "ansi-bright-magenta"
+bright-cyan = "ansi-bright-cyan"
+bright-white = "ansi-bright-white"
+
+[light.colors]
+crust = { hex = "#EAEDF2", label = "袖の白（影）" }
+sleeve = { hex = "#F5F8FD", label = "袖の白バンド" }
+sleeve-shade = { hex = "#EAEAF3", label = "袖の白（灰）" }
+flower-mist = { hex = "#E4D5E7", label = "髪飾りの黒花（淡）" }
+ring-mist = { hex = "#E2E0E8", label = "銀リング（淡）" }
+coat = { hex = "#23232C", label = "コートの黒" }
+hair-shade = { hex = "#55494D", label = "髪の影（濃）" }
+ring = { hex = "#6F747F", label = "銀リング" }
+ring-light = { hex = "#8E8E98", label = "銀リング（明）" }
+guide = { hex = "#D6D7DE", label = "派生: ガイド" }
+strand = { hex = "#BE222A", label = "髪房・靴の赤" }
+eye = { hex = "#3E5F8A", label = "瞳のスチールブルー（濃）" }
+petal = { hex = "#6A4C80", label = "花飾りの紫（濃）" }
+rose = { hex = "#9B4153", label = "派生: アネモネの薔薇色（濃）" }
+orchid = { hex = "#8E2B6B", label = "派生: アネモネの赤紫（濃）" }
+champagne = { hex = "#846230", label = "髪のシャンパン（濃）" }
+warning = { hex = "#9D6304", label = "派生: 警告" }
+info = { hex = "#296898", label = "派生: 情報" }
+hint = { hex = "#697284", label = "派生: ヒント" }
+added = { hex = "#287C42", label = "派生: 追加" }
+removed = { hex = "#BA2936", label = "派生: 削除" }
+changed = { hex = "#976712", label = "派生: 変更" }
+ansi-black = { hex = "#23232C", label = "ANSI 黒" }
+ansi-red = { hex = "#BE222A", label = "ANSI 赤" }
+ansi-green = { hex = "#2E7C35", label = "ANSI 緑" }
+ansi-yellow = { hex = "#907904", label = "ANSI 黄" }
+ansi-blue = { hex = "#2E5E9A", label = "ANSI 青" }
+ansi-magenta = { hex = "#8E4088", label = "ANSI マゼンタ" }
+ansi-cyan = { hex = "#0A7E83", label = "ANSI シアン" }
+ansi-white = { hex = "#C1BDB8", label = "ANSI 白" }
+ansi-bright-black = { hex = "#54545E", label = "ANSI 明るい黒" }
+ansi-bright-red = { hex = "#CF4040", label = "ANSI 明るい赤" }
+ansi-bright-green = { hex = "#418E47", label = "ANSI 明るい緑" }
+ansi-bright-yellow = { hex = "#9D8D26", label = "ANSI 明るい黄" }
+ansi-bright-blue = { hex = "#4570A8", label = "ANSI 明るい青" }
+ansi-bright-magenta = { hex = "#9E5598", label = "ANSI 明るいマゼンタ" }
+ansi-bright-cyan = { hex = "#2B9095", label = "ANSI 明るいシアン" }
+ansi-bright-white = { hex = "#E1DDDA", label = "ANSI 明るい白" }
+
+[light.roles]
+crust = "crust"
+bg = "sleeve"
+cursorline = "sleeve-shade"
+selection = "flower-mist"
+statusline = "ring-mist"
+text = "coat"
+subtext = "hair-shade"
+comment = "ring"
+linenr = "ring-light"
+guide = "guide"
+keyword = "strand"
+function = "eye"
+type = "petal"
+string = "rose"
+constant = "orchid"
+special = "champagne"
+error = "strand"
+warning = "warning"
+info = "info"
+hint = "hint"
+added = "added"
+removed = "removed"
+changed = "changed"
+
+[light.ansi]
+black = "ansi-black"
+red = "ansi-red"
+green = "ansi-green"
+yellow = "ansi-yellow"
+blue = "ansi-blue"
+magenta = "ansi-magenta"
+cyan = "ansi-cyan"
+white = "ansi-white"
+bright-black = "ansi-bright-black"
+bright-red = "ansi-bright-red"
+bright-green = "ansi-bright-green"
+bright-yellow = "ansi-bright-yellow"
+bright-blue = "ansi-bright-blue"
+bright-magenta = "ansi-bright-magenta"
+bright-cyan = "ansi-bright-cyan"
+bright-white = "ansi-bright-white"
