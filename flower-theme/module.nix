@@ -10,13 +10,14 @@ in
     ./ports/ghostty.nix
     ./ports/kitty.nix
     ./ports/wezterm.nix
+    ./ports/starship.nix
   ];
 
   options.flowerTheme = {
     flower = lib.mkOption {
       type = lib.types.nullOr (lib.types.enum flowerLib.flowers);
       default = null;
-      description = "Flower applied to Helix and the terminals; null keeps catppuccin.";
+      description = "Flower applied to Helix, the terminals and the prompt; null keeps catppuccin.";
     };
   };
 }
