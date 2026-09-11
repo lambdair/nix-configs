@@ -8,6 +8,7 @@ in
   imports = [
     ./ports/helix.nix
     ./ports/ghostty.nix
+    ./ports/starship.nix
   ];
 
   options.flowerTheme = {
