@@ -5,7 +5,10 @@ let
   flowerLib = import ./lib.nix { inherit lib; };
 in
 {
-  imports = [ ./ports/helix.nix ];
+  imports = [
+    ./ports/helix.nix
+    ./ports/ghostty.nix
+  ];
 
   options.flowerTheme = {
     flower = lib.mkOption {

@@ -8,7 +8,8 @@
     # outside Nix and just reads the config written here.
     package = if pkgs.stdenv.isDarwin then null else pkgs.ghostty;
 
-    # The theme comes from the catppuccin module via catppuccin.autoEnable.
+    # The theme comes from flower-theme, or from the catppuccin module when no
+    # flower is selected.
     settings = {
       font-family = "Maple Mono NF CN";
       font-size = 18;
