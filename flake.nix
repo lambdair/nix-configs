@@ -198,6 +198,12 @@
       packages = {
         "aarch64-darwin".ci-heavy = ciHeavyFor "aarch64-darwin" darwinPkgs darwinSources;
         "x86_64-linux".ci-heavy = ciHeavyFor "x86_64-linux" linuxPkgs linuxSources;
+        "aarch64-darwin".flower-palette = import ./flower-theme/page.nix {
+          pkgs = inputs.nixpkgs.legacyPackages."aarch64-darwin";
+        };
+        "x86_64-linux".flower-palette = import ./flower-theme/page.nix {
+          pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux";
+        };
       };
 
       checks = forAllSystems (system: {
