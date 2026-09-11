@@ -1,0 +1,170 @@
+name = "Nemophila"
+strand = "#40BCF2"
+
+[dark.colors]
+crust = { hex = "#0D1420", label = "夜の青（影）" }
+night = { hex = "#151D2B", label = "夜のネモフィラ畑" }
+night-lift = { hex = "#1E2839", label = "夜の青（明）" }
+royal-shade = { hex = "#223B6C", label = "胸元のロイヤルブルー（影）" }
+night-band = { hex = "#212F48", label = "夜の青（帯）" }
+skirt = { hex = "#DBE1EF", label = "スカートの白" }
+hair = { hex = "#C4B7B4", label = "シャンパン色の髪" }
+ring = { hex = "#8D8D85", label = "リング刺繍" }
+linenr = { hex = "#5A6475", label = "派生: 行番号" }
+guide = { hex = "#2D3645", label = "派生: ガイド" }
+flower = { hex = "#4BC2F8", label = "髪飾りのネモフィラ" }
+periwinkle = { hex = "#B1C7F6", label = "胸元のロイヤルブルー（淡）" }
+eye = { hex = "#B4A9DA", label = "瞳のラベンダー" }
+hair-light = { hex = "#EAC4BB", label = "シャンパン色の髪（明）" }
+button = { hex = "#D9C783", label = "ボタンの金" }
+royal = { hex = "#729BE6", label = "胸元のロイヤルブルー" }
+error = { hex = "#EA696E", label = "派生: エラー" }
+warning = { hex = "#EDBB64", label = "派生: 警告" }
+info = { hex = "#60BDEB", label = "派生: 情報" }
+hint = { hex = "#9D9BB6", label = "派生: ヒント" }
+added = { hex = "#74C692", label = "派生: 追加" }
+removed = { hex = "#E66D71", label = "派生: 削除" }
+changed = { hex = "#DBB970", label = "派生: 変更" }
+ansi-black = { hex = "#2A3342", label = "ANSI 黒" }
+ansi-red = { hex = "#EA6A6A", label = "ANSI 赤" }
+ansi-green = { hex = "#76C788", label = "ANSI 緑" }
+ansi-yellow = { hex = "#DDCB74", label = "ANSI 黄" }
+ansi-blue = { hex = "#759EE9", label = "ANSI 青" }
+ansi-magenta = { hex = "#C095D3", label = "ANSI マゼンタ" }
+ansi-cyan = { hex = "#54C9E3", label = "ANSI シアン" }
+ansi-white = { hex = "#CCD1DB", label = "ANSI 白" }
+ansi-bright-black = { hex = "#525B6C", label = "ANSI 明るい黒" }
+ansi-bright-red = { hex = "#FB817F", label = "ANSI 明るい赤" }
+ansi-bright-green = { hex = "#8FD89E", label = "ANSI 明るい緑" }
+ansi-bright-yellow = { hex = "#EADD8E", label = "ANSI 明るい黄" }
+ansi-bright-blue = { hex = "#91B7FE", label = "ANSI 明るい青" }
+ansi-bright-magenta = { hex = "#D4ADE6", label = "ANSI 明るいマゼンタ" }
+ansi-bright-cyan = { hex = "#85DDF3", label = "ANSI 明るいシアン" }
+ansi-bright-white = { hex = "#EBEEF5", label = "ANSI 明るい白" }
+
+[dark.roles]
+crust = "crust"
+bg = "night"
+cursorline = "night-lift"
+selection = "royal-shade"
+statusline = "night-band"
+text = "skirt"
+subtext = "hair"
+comment = "ring"
+linenr = "linenr"
+guide = "guide"
+keyword = "flower"
+function = "periwinkle"
+type = "eye"
+string = "hair-light"
+constant = "button"
+special = "royal"
+error = "error"
+warning = "warning"
+info = "info"
+hint = "hint"
+added = "added"
+removed = "removed"
+changed = "changed"
+
+[dark.ansi]
+black = "ansi-black"
+red = "ansi-red"
+green = "ansi-green"
+yellow = "ansi-yellow"
+blue = "ansi-blue"
+magenta = "ansi-magenta"
+cyan = "ansi-cyan"
+white = "ansi-white"
+bright-black = "ansi-bright-black"
+bright-red = "ansi-bright-red"
+bright-green = "ansi-bright-green"
+bright-yellow = "ansi-bright-yellow"
+bright-blue = "ansi-bright-blue"
+bright-magenta = "ansi-bright-magenta"
+bright-cyan = "ansi-bright-cyan"
+bright-white = "ansi-bright-white"
+
+[light.colors]
+crust = { hex = "#E3EAF4", label = "スカートの青み（影）" }
+skirt = { hex = "#F7FAFE", label = "スカートの白" }
+skirt-shade = { hex = "#E8F1FB", label = "スカートの白（影）" }
+sky = { hex = "#B7E2F9", label = "胸元のスカイブルー（淡）" }
+royal-mist = { hex = "#D5E2F9", label = "胸元のロイヤルブルー（淡）" }
+ribbon = { hex = "#2E3339", label = "髪飾りの黒リボン" }
+boots = { hex = "#535461", label = "ブーツ" }
+ring = { hex = "#75756D", label = "リング刺繍" }
+linenr = { hex = "#8D929C", label = "派生: 行番号" }
+guide = { hex = "#DADEE6", label = "派生: ガイド" }
+royal = { hex = "#1E4EAC", label = "胸元のロイヤルブルー" }
+flower = { hex = "#00729B", label = "髪飾りのネモフィラ（濃）" }
+eye = { hex = "#615486", label = "瞳のラベンダー（濃）" }
+hair = { hex = "#865544", label = "シャンパン色の髪（濃）" }
+button = { hex = "#776A15", label = "ボタンの金（濃）" }
+royal-soft = { hex = "#6570A9", label = "胸元のロイヤルブルー（灰）" }
+error = { hex = "#BE2E31", label = "派生: エラー" }
+warning = { hex = "#986600", label = "派生: 警告" }
+info = { hex = "#0470A5", label = "派生: 情報" }
+hint = { hex = "#6E6B85", label = "派生: ヒント" }
+added = { hex = "#2C7F44", label = "派生: 追加" }
+removed = { hex = "#BA3535", label = "派生: 削除" }
+changed = { hex = "#93690D", label = "派生: 変更" }
+ansi-black = { hex = "#2E3339", label = "ANSI 黒" }
+ansi-red = { hex = "#BE2E31", label = "ANSI 赤" }
+ansi-green = { hex = "#34823B", label = "ANSI 緑" }
+ansi-yellow = { hex = "#907D08", label = "ANSI 黄" }
+ansi-blue = { hex = "#2552AA", label = "ANSI 青" }
+ansi-magenta = { hex = "#884797", label = "ANSI マゼンタ" }
+ansi-cyan = { hex = "#058298", label = "ANSI シアン" }
+ansi-white = { hex = "#B8BEC5", label = "ANSI 白" }
+ansi-bright-black = { hex = "#53595F", label = "ANSI 明るい黒" }
+ansi-bright-red = { hex = "#CF4946", label = "ANSI 明るい赤" }
+ansi-bright-green = { hex = "#47944C", label = "ANSI 明るい緑" }
+ansi-bright-yellow = { hex = "#9D8D26", label = "ANSI 明るい黄" }
+ansi-bright-blue = { hex = "#3F6BBF", label = "ANSI 明るい青" }
+ansi-bright-magenta = { hex = "#9C5EAA", label = "ANSI 明るいマゼンタ" }
+ansi-bright-cyan = { hex = "#2695AC", label = "ANSI 明るいシアン" }
+ansi-bright-white = { hex = "#DADEE3", label = "ANSI 明るい白" }
+
+[light.roles]
+crust = "crust"
+bg = "skirt"
+cursorline = "skirt-shade"
+selection = "sky"
+statusline = "royal-mist"
+text = "ribbon"
+subtext = "boots"
+comment = "ring"
+linenr = "linenr"
+guide = "guide"
+keyword = "royal"
+function = "flower"
+type = "eye"
+string = "hair"
+constant = "button"
+special = "royal-soft"
+error = "error"
+warning = "warning"
+info = "info"
+hint = "hint"
+added = "added"
+removed = "removed"
+changed = "changed"
+
+[light.ansi]
+black = "ansi-black"
+red = "ansi-red"
+green = "ansi-green"
+yellow = "ansi-yellow"
+blue = "ansi-blue"
+magenta = "ansi-magenta"
+cyan = "ansi-cyan"
+white = "ansi-white"
+bright-black = "ansi-bright-black"
+bright-red = "ansi-bright-red"
+bright-green = "ansi-bright-green"
+bright-yellow = "ansi-bright-yellow"
+bright-blue = "ansi-bright-blue"
+bright-magenta = "ansi-bright-magenta"
+bright-cyan = "ansi-bright-cyan"
+bright-white = "ansi-bright-white"
