@@ -200,6 +200,12 @@
         "x86_64-linux".ci-heavy = ciHeavyFor "x86_64-linux" linuxPkgs linuxSources;
       };
 
+      checks = forAllSystems (system: {
+        flower-theme = import ./flower-theme/check.nix {
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
+        };
+      });
+
       devShells = forAllSystems (
         system:
         let
