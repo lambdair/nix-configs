@@ -1,0 +1,170 @@
+name = "Sunflower"
+strand = "#DBDB45"
+
+[dark.colors]
+crust = { hex = "#17130F", label = "ひまわりの芯（影）" }
+center = { hex = "#211C17", label = "ひまわりの芯" }
+center-lift = { hex = "#2E2620", label = "ひまわりの芯（明）" }
+embroidery-shade = { hex = "#493F1B", label = "刺繍の金（影）" }
+center-band = { hex = "#372F22", label = "ひまわりの芯（帯）" }
+hair = { hex = "#E5E8EA", label = "銀白の髪" }
+hair-shade = { hex = "#C4C5BA", label = "髪の影" }
+embroidery = { hex = "#998B69", label = "金オリーブの刺繍" }
+linenr = { hex = "#6B6157", label = "派生: 行番号" }
+guide = { hex = "#3B342E", label = "派生: ガイド" }
+dress = { hex = "#DCD848", label = "ドレスの黄" }
+aqua = { hex = "#65D1D6", label = "袖裏のアクア" }
+gold = { hex = "#D1AC4E", label = "ドレスの金" }
+leaf = { hex = "#92CC93", label = "派生: 葉の緑" }
+petal-back = { hex = "#E99C70", label = "派生: 花びらの橙" }
+tights = { hex = "#B2A7CA", label = "タイツの灰紫（明）" }
+error = { hex = "#EF675A", label = "派生: エラー" }
+warning = { hex = "#FAC053", label = "派生: 警告" }
+info = { hex = "#6EC6DB", label = "派生: 情報" }
+hint = { hex = "#A6A78B", label = "派生: ヒント" }
+added = { hex = "#85CC87", label = "派生: 追加" }
+removed = { hex = "#EA6B5E", label = "派生: 削除" }
+changed = { hex = "#E4C062", label = "派生: 変更" }
+ansi-black = { hex = "#38322D", label = "ANSI 黒" }
+ansi-red = { hex = "#EF675A", label = "ANSI 赤" }
+ansi-green = { hex = "#79C77C", label = "ANSI 緑" }
+ansi-yellow = { hex = "#E0D653", label = "ANSI 黄" }
+ansi-blue = { hex = "#79A9DB", label = "ANSI 青" }
+ansi-magenta = { hex = "#CC91C6", label = "ANSI マゼンタ" }
+ansi-cyan = { hex = "#65D1D6", label = "ANSI シアン" }
+ansi-white = { hex = "#D1D1CC", label = "ANSI 白" }
+ansi-bright-black = { hex = "#605954", label = "ANSI 明るい黒" }
+ansi-bright-red = { hex = "#FF7F71", label = "ANSI 明るい赤" }
+ansi-bright-green = { hex = "#91D993", label = "ANSI 明るい緑" }
+ansi-bright-yellow = { hex = "#EBE968", label = "ANSI 明るい黄" }
+ansi-bright-blue = { hex = "#97C2F0", label = "ANSI 明るい青" }
+ansi-bright-magenta = { hex = "#DFA9DA", label = "ANSI 明るいマゼンタ" }
+ansi-bright-cyan = { hex = "#85E3E7", label = "ANSI 明るいシアン" }
+ansi-bright-white = { hex = "#EBEFF1", label = "ANSI 明るい白" }
+
+[dark.roles]
+crust = "crust"
+bg = "center"
+cursorline = "center-lift"
+selection = "embroidery-shade"
+statusline = "center-band"
+text = "hair"
+subtext = "hair-shade"
+comment = "embroidery"
+linenr = "linenr"
+guide = "guide"
+keyword = "dress"
+function = "aqua"
+type = "gold"
+string = "leaf"
+constant = "petal-back"
+special = "tights"
+error = "error"
+warning = "warning"
+info = "info"
+hint = "hint"
+added = "added"
+removed = "removed"
+changed = "changed"
+
+[dark.ansi]
+black = "ansi-black"
+red = "ansi-red"
+green = "ansi-green"
+yellow = "ansi-yellow"
+blue = "ansi-blue"
+magenta = "ansi-magenta"
+cyan = "ansi-cyan"
+white = "ansi-white"
+bright-black = "ansi-bright-black"
+bright-red = "ansi-bright-red"
+bright-green = "ansi-bright-green"
+bright-yellow = "ansi-bright-yellow"
+bright-blue = "ansi-bright-blue"
+bright-magenta = "ansi-bright-magenta"
+bright-cyan = "ansi-bright-cyan"
+bright-white = "ansi-bright-white"
+
+[light.colors]
+crust = { hex = "#EAE7D1", label = "ドレスの淡黄（影）" }
+cream = { hex = "#F9F7EA", label = "ドレスの淡黄" }
+cream-shade = { hex = "#F2F1D2", label = "ドレスの淡黄（濃）" }
+dress = { hex = "#E5E483", label = "ドレスの黄" }
+gold-mist = { hex = "#E4D8AB", label = "ドレスの金（淡）" }
+center = { hex = "#3A342F", label = "ひまわりの芯" }
+tights = { hex = "#56545A", label = "黒タイツ" }
+embroidery = { hex = "#817352", label = "金オリーブの刺繍" }
+linenr = { hex = "#98927E", label = "派生: 行番号" }
+guide = { hex = "#DEDBC9", label = "派生: ガイド" }
+gold = { hex = "#7B5F01", label = "ドレスの金（濃）" }
+aqua = { hex = "#06717A", label = "袖裏のアクア（濃）" }
+brown = { hex = "#7B4125", label = "派生: ひまわりの茶" }
+leaf = { hex = "#38763C", label = "派生: 葉の緑" }
+petal-back = { hex = "#B14A31", label = "派生: 花びらの橙（濃）" }
+tights-violet = { hex = "#61527C", label = "タイツの灰紫" }
+error = { hex = "#BA2C25", label = "派生: エラー" }
+warning = { hex = "#9D6304", label = "派生: 警告" }
+info = { hex = "#116D8A", label = "派生: 情報" }
+hint = { hex = "#707156", label = "派生: ヒント" }
+added = { hex = "#357A3A", label = "派生: 追加" }
+removed = { hex = "#B6322B", label = "派生: 削除" }
+changed = { hex = "#93690D", label = "派生: 変更" }
+ansi-black = { hex = "#3A342F", label = "ANSI 黒" }
+ansi-red = { hex = "#BA2C25", label = "ANSI 赤" }
+ansi-green = { hex = "#317F38", label = "ANSI 緑" }
+ansi-yellow = { hex = "#8E7E0B", label = "ANSI 黄" }
+ansi-blue = { hex = "#2E5E9A", label = "ANSI 青" }
+ansi-magenta = { hex = "#8E4088", label = "ANSI マゼンタ" }
+ansi-cyan = { hex = "#118186", label = "ANSI シアン" }
+ansi-white = { hex = "#BFBEB7", label = "ANSI 白" }
+ansi-bright-black = { hex = "#5D5751", label = "ANSI 明るい黒" }
+ansi-bright-red = { hex = "#CB473D", label = "ANSI 明るい赤" }
+ansi-bright-green = { hex = "#44914A", label = "ANSI 明るい緑" }
+ansi-bright-yellow = { hex = "#97902A", label = "ANSI 明るい黄" }
+ansi-bright-blue = { hex = "#4570A8", label = "ANSI 明るい青" }
+ansi-bright-magenta = { hex = "#9E5598", label = "ANSI 明るいマゼンタ" }
+ansi-bright-cyan = { hex = "#2B9095", label = "ANSI 明るいシアン" }
+ansi-bright-white = { hex = "#DFDED8", label = "ANSI 明るい白" }
+
+[light.roles]
+crust = "crust"
+bg = "cream"
+cursorline = "cream-shade"
+selection = "dress"
+statusline = "gold-mist"
+text = "center"
+subtext = "tights"
+comment = "embroidery"
+linenr = "linenr"
+guide = "guide"
+keyword = "gold"
+function = "aqua"
+type = "brown"
+string = "leaf"
+constant = "petal-back"
+special = "tights-violet"
+error = "error"
+warning = "warning"
+info = "info"
+hint = "hint"
+added = "added"
+removed = "removed"
+changed = "changed"
+
+[light.ansi]
+black = "ansi-black"
+red = "ansi-red"
+green = "ansi-green"
+yellow = "ansi-yellow"
+blue = "ansi-blue"
+magenta = "ansi-magenta"
+cyan = "ansi-cyan"
+white = "ansi-white"
+bright-black = "ansi-bright-black"
+bright-red = "ansi-bright-red"
+bright-green = "ansi-bright-green"
+bright-yellow = "ansi-bright-yellow"
+bright-blue = "ansi-bright-blue"
+bright-magenta = "ansi-bright-magenta"
+bright-cyan = "ansi-bright-cyan"
+bright-white = "ansi-bright-white"
