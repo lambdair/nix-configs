@@ -310,7 +310,10 @@ in
     nvim.enable = false;
   };
 
-  flowerTheme.flower = "anemone";
+  flowerTheme = {
+    flower = "anemone";
+    mode = "dark";
+  };
 
   programs = {
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
