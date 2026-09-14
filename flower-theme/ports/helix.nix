@@ -148,7 +148,7 @@ let
       "diagnostic.hint" = curl r.hint;
     };
 
-  name = mode: "flower-${cfg.flower}-${mode}";
+  name = mode: "flower-${cfg.flower}-${if cfg.mode == "auto" then mode else cfg.mode}";
 in
 {
   config = lib.mkIf (cfg.flower != null) {

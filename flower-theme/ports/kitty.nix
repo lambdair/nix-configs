@@ -8,7 +8,7 @@ let
   conf =
     mode:
     let
-      v = flowerLib.variant cfg.flower mode;
+      v = flowerLib.variant cfg.flower (if cfg.mode == "auto" then mode else cfg.mode);
       r = v.hex.roles;
       a = v.hex.ansi;
     in
