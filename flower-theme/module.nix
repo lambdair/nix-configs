@@ -11,5 +11,14 @@ in
       default = null;
       description = "Flower to theme the apps with; null keeps catppuccin.";
     };
+    mode = lib.mkOption {
+      type = lib.types.enum [
+        "auto"
+        "dark"
+        "light"
+      ];
+      default = "auto";
+      description = "Variant shown: auto follows the appearance, dark or light pins it.";
+    };
   };
 }
