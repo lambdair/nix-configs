@@ -4,6 +4,7 @@
 let
   cfg = config.flowerTheme;
   flowerLib = import ../lib.nix { inherit lib; };
+  name = mode: "flower-${cfg.flower}-${if cfg.mode == "auto" then mode else cfg.mode}";
 
   scheme =
     v:
@@ -32,7 +33,7 @@ in
     );
 
     xdg.configFile."wezterm/flower.lua".text = ''
-      return { dark = "flower-${cfg.flower}-dark", light = "flower-${cfg.flower}-light" }
+      return { dark = "${name "dark"}", light = "${name "light"}" }
     '';
   };
 }
