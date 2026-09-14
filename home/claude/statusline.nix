@@ -28,8 +28,8 @@ let
   # a single index line each (that version's metadata never changes). The full
   # 18M index git clone is intentionally dropped so the output hash is stable.
   #
-  # Bump outputHash whenever asyncVersion/xVersion change (nix prints the new
-  # hash on mismatch).
+  # Bump outputHash whenever asyncVersion/xVersion or the moon toolchain change
+  # (nix prints the new hash on mismatch).
   moonRegistry = pkgs.stdenv.mkDerivation {
     name = "claude-statusline-moon-registry";
     dontUnpack = true;
@@ -60,7 +60,7 @@ let
     '';
     outputHashMode = "recursive";
     outputHashAlgo = "sha256";
-    outputHash = "sha256-/2fwktjut2YHbujFAcC84NAw/yWbK2TgFzCMveqVuUQ=";
+    outputHash = "sha256-QvGxtKOAGD4oc8EP/88madZvki57d/wgyTmfxVOtnq0=";
   };
 in
 pkgs.stdenv.mkDerivation {
