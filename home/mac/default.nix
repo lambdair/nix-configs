@@ -64,6 +64,7 @@ rec {
     obsidian # Knowledge base
     bitwarden-desktop # pinned in overlays/pin-broken-pkg.nix
     cmux # Ghostty-based terminal for coding agents
+    mole-cleaner # CLI tool for cleaning and optimizing macOS systems (mo)
   ];
 
   # cmux treats cmux.json as a file-managed layer: settings present here show up
