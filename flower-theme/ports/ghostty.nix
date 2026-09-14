@@ -1,10 +1,11 @@
 # Ghostty themes for every flower variant; the selected flower follows the OS
-# appearance. cmux reads the same configuration.
+# appearance unless flowerTheme.mode pins it. cmux reads the same configuration.
 { config, lib, ... }:
 let
   cfg = config.flowerTheme;
   flowerLib = import ../lib.nix { inherit lib; };
   bare = lib.removePrefix "#";
+  name = mode: "flower-${cfg.flower}-${if cfg.mode == "auto" then mode else cfg.mode}";
 
   theme =
     v:
@@ -28,7 +29,7 @@ in
 
     programs.ghostty = {
       themes = lib.listToAttrs (map (v: lib.nameValuePair v.name (theme v)) flowerLib.variants);
-      settings.theme = "light:flower-${cfg.flower}-light,dark:flower-${cfg.flower}-dark";
+      settings.theme = "light:${name "light"},dark:${name "dark"}";
     };
   };
 }
