@@ -298,7 +298,10 @@ in
     autoEnable = true;
   };
 
-  flowerTheme.flower = "anemone";
+  flowerTheme = {
+    flower = "anemone";
+    mode = "dark";
+  };
 
   programs = {
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
