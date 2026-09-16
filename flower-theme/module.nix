@@ -15,6 +15,7 @@ in
     ./ports/hunk.nix
     ./ports/claude-code.nix
     ./ports/nushell.nix
+    ./ports/fzf.nix
   ];
 
   options.flowerTheme = {
