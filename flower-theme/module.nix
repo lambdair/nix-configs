@@ -17,6 +17,7 @@ in
     ./ports/nushell.nix
     ./ports/fzf.nix
     ./ports/television.nix
+    ./ports/delta.nix
   ];
 
   options.flowerTheme = {
