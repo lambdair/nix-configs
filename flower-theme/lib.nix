@@ -37,6 +37,30 @@ let
     "bright-white"
   ];
 
+  # Mode for a port holding a single theme: auto shows the dark variant, the
+  # choice Helix's fallback theme already makes.
+  resolve = mode: if mode == "auto" then "dark" else mode;
+
+  # sRGB blend of two hex colours, `ratio` being the weight of `b`. Diff line
+  # backgrounds are made this way, since the palettes carry diff foregrounds.
+  mix =
+    ratio: a: b:
+    let
+      channel = hex: i: lib.fromHexString (builtins.substring (1 + 2 * i) 2 hex);
+      blended =
+        i:
+        let
+          value = (1.0 - ratio) * (channel a i) + ratio * (channel b i);
+        in
+        lib.fixedWidthString 2 "0" (lib.toHexString (builtins.floor (value + 0.5)));
+    in
+    "#"
+    + lib.concatMapStrings blended [
+      0
+      1
+      2
+    ];
+
   variant =
     flower: mode:
     let
@@ -62,6 +86,8 @@ in
     modes
     ansiSlots
     variant
+    resolve
+    mix
     ;
   variants = lib.concatMap (flower: map (variant flower) modes) flowers;
 }
