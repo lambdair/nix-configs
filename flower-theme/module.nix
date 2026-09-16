@@ -12,6 +12,7 @@ in
     ./ports/jjui.nix
     ./ports/hunk.nix
     ./ports/claude-code.nix
+    ./ports/nushell.nix
   ];
 
   options.flowerTheme = {
