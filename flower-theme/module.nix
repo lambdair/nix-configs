@@ -11,6 +11,7 @@ in
     ./ports/kitty.nix
     ./ports/wezterm.nix
     ./ports/starship.nix
+    ./ports/jjui.nix
   ];
 
   options.flowerTheme = {
