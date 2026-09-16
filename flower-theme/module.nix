@@ -16,6 +16,7 @@ in
     ./ports/fzf.nix
     ./ports/television.nix
     ./ports/delta.nix
+    ./ports/yazi.nix
   ];
 
   options.flowerTheme = {
