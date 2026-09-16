@@ -16,6 +16,7 @@ in
     ./ports/claude-code.nix
     ./ports/nushell.nix
     ./ports/fzf.nix
+    ./ports/television.nix
   ];
 
   options.flowerTheme = {
