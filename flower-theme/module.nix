@@ -9,6 +9,7 @@ in
     ./ports/helix.nix
     ./ports/ghostty.nix
     ./ports/starship.nix
+    ./ports/jjui.nix
   ];
 
   options.flowerTheme = {
