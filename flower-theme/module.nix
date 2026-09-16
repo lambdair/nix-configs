@@ -11,6 +11,7 @@ in
     ./ports/starship.nix
     ./ports/jjui.nix
     ./ports/hunk.nix
+    ./ports/claude-code.nix
   ];
 
   options.flowerTheme = {
