@@ -11,8 +11,8 @@ the flower (mood) and the polarity (ambient light) can be chosen independently.
 
 The work is split in two phases. This spec covers phase 1: the palettes, an
 overview page, Helix and the three terminals (kitty, Ghostty/cmux, WezTerm).
-Phase 2 (Neovim, Emacs, bat, delta, fzf, television, …) gets its own spec once
-the palettes have been judged in daily use.
+Phase 2 covers the tools used next to them and has its own spec,
+`2026-09-16-flower-theme-phase-2.md`.
 
 ## Constraints
 
