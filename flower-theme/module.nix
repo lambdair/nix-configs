@@ -18,6 +18,7 @@ in
     ./ports/delta.nix
     ./ports/yazi.nix
     ./ports/lazygit.nix
+    ./ports/zellij.nix
   ];
 
   options.flowerTheme = {
