@@ -1,6 +1,11 @@
 # Colour themes after the costumes of ヰ世界情緒 (Anemone, Nemophila,
 # Sunflower), each in dark and light.
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.flowerTheme;
   flowerLib = import ./lib.nix { inherit lib; };
@@ -58,5 +63,13 @@ in
         }
       ) flowerLib.variants
     );
+
+    home.packages = [
+      # Named flower so the generated --help shows `flower` as the command.
+      (pkgs.writeScriptBin "flower" ''
+        #!${lib.getExe pkgs.nushell} --no-config-file
+        ${builtins.readFile ./flower.nu}
+      '')
+    ];
   };
 }
