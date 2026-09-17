@@ -1,6 +1,6 @@
 ---
 name: pr-inline-comments
-description: 'Use when writing or updating a PR description, or right after pushing/creating a PR, and some of the explanation is tied to specific lines or hunks rather than the whole change — e.g. なぜこの分岐にしたか, ついで修正の理由, 非自明な選択, ワークアラウンドの背景, 既存挙動との差, 再現手順やスクショ付きの補足. Those belong as inline review comments at the exact location, NOT buried in the PR body. Triggers: "PRの説明を書いて/直して", "PRに解説を追加", "行ごとの背景を残したい", "self-review コメント", "インラインコメントで説明", reviewing your own diff before requesting review.'
+description: 'Use when writing or updating a PR description, or right after pushing/creating a PR, and some of the explanation is tied to specific lines or hunks rather than the whole change — e.g. なぜこの分岐にしたか, ついで修正の理由, 非自明な選択, ワークアラウンドの背景, 既存挙動との差, 再現手順やスクショ付きの補足, 移動と変更が混ざった差分の要点. Those belong as inline review comments at the exact location, NOT buried in the PR body. Triggers: "PRの説明を書いて/直して", "PRに解説を追加", "行ごとの背景を残したい", "self-review コメント", "インラインコメントで説明", reviewing your own diff before requesting review.'
 ---
 
 ## 何のためのスキルか
@@ -25,6 +25,7 @@ PR の説明には2種類ある。**全体の説明**（何を・なぜ・どう
 - ワークアラウンド・暫定対応の背景と、本来あるべき姿
 - 既存挙動との差、後続 PR への布石
 - 挙動変更・バグ修正の**再現手順／スクリーンショット／動画**
+- 移動と変更を分けなかった hunk の、実質の変更点
 
 ## 短く書く
 
@@ -42,6 +43,10 @@ PR の説明には2種類ある。**全体の説明**（何を・なぜ・どう
 - この PR の外にある事情。別リポの制約、依頼の経緯、既存の運用など
 
 ソースコメントとインラインコメントで同じ文が書けてしまうなら、どちらかに寄せるサイン。コードの「今どうあるか」はソースコメント、「なぜそうしたか・何を捨てたか」はインラインコメント。
+
+**移動と変更は別リビジョンにする。** 塊を別のコンポーネントや関数へ移すと差分は削除＋追加になり、実質どこが変わったかは移動前後を突き合わせるまで分からない。移動側を挙動不変に保てば、その差分が「動かしただけ」であることを自分で示すので、注釈は要らない（[[revision-discipline]] 参照）。
+
+**分けなかったときだけ、変わった行に「ここ以外は移動前と同じ」と添える。** 差分が答えを隠しているので、これは上の「コードを見れば分かること」には当たらない。突き合わせは自分で済ませ、結論だけ書く。例:「`disabled` を足しただけで、他の props は移動前と同じ」。確かめずに書くと外れる。
 
 **重複は貼る前に目視で潰す。** アンカー行の前後をファイルで開いて読み、同じ主張がソースコメントにあればその部分を削る（全部が重複ならコメント自体を出さない）。差分だけを見ていると、すぐ上のコメントを読み飛ばす。
 
