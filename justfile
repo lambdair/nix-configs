@@ -27,6 +27,8 @@ system-wsl:
 # Apply macOS home-manager configuration
 home-mac:
     home-manager switch --flake '{{ flake }}#MacHome'
+    # Re-apply a flower picked with `flower`, which the switch above replaces.
+    if command -v flower >/dev/null; then flower --reapply; fi
 
 # Apply Linux home-manager configuration
 home-linux:
