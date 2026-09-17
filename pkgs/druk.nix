@@ -31,7 +31,7 @@ stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
     install -Dm755 druk $out/bin/druk
-    install -Dm644 -t $out/share/doc/druk THIRD_PARTY_NOTICES.md PDFIUM_LICENSE
+    install -Dm644 -t $out/share/doc/druk THIRD_PARTY_NOTICES.md
     runHook postInstall
   '';
 
