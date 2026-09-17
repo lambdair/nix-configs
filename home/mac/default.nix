@@ -34,6 +34,9 @@ rec {
   home.username = "lambdair";
   home.homeDirectory = "/Users/${home.username}";
 
+  # The `flower` command switches between these without a rebuild.
+  flowerTheme.specialisations = true;
+
   # home-manager hands nix.gc.options to launchd as a single argv element, which
   # nix-collect-garbage rejects as one unknown flag (home-manager#7211), so the
   # arguments are split here. The log paths are this file's too: the upstream
