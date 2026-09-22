@@ -80,7 +80,13 @@
 
   (elpaca-wait))
 
-;; Load shared configuration
-(load (expand-file-name "init-config" user-emacs-directory))
+;; Load shared configuration.  Resolve it next to this file rather than in
+;; `user-emacs-directory': on Windows this file is loaded from the checkout by
+;; a two-line shim in ~/.config/emacs/init.el, so that the generated state
+;; (elpaca/, eln-cache/, custom.el) stays out of this repository.  Under Nix
+;; both files sit in the same directory, so nothing changes there.
+(load (expand-file-name "init-config"
+                        (or (and load-file-name (file-name-directory load-file-name))
+                            user-emacs-directory)))
 
 ;;; init.el ends here
