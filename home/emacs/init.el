@@ -68,11 +68,9 @@
     (elpaca-use-package-mode))
   (setq use-package-always-ensure t)
 
-  ;; Custom packages not on MELPA/ELPA
-  (elpaca (jj-mode :host github :repo "bolivier/jj-mode.el"))
-  (elpaca (lean4-mode :host github :repo "leanprover-community/lean4-mode"))
-  (elpaca (typst-ts-mode :host nil :repo "https://codeberg.org/meow_king/typst-ts-mode"))
-  (elpaca (eglot-booster :host github :repo "jdtsmith/eglot-booster"))
+  ;; Packages that are not on MELPA/ELPA are declared where they are
+  ;; configured, as `use-package ... :ensure <recipe>' in init-config.el.
+  ;; Declaring them here as well queues each of them twice ("Duplicate item ID").
 
   ;; Tree-sitter grammar auto-install (Nix uses home.file symlinks instead)
   (elpaca treesit-auto

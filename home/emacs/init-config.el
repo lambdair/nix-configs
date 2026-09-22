@@ -392,6 +392,8 @@ vi style of % jumping to matching brace."
 (setq lsp-keymap-prefix "C-c l")
 
 (use-package eglot-booster
+  ;; Not on MELPA/ELPA; the recipe is ignored under Nix (`:ensure' is a no-op).
+  :ensure (eglot-booster :host github :repo "jdtsmith/eglot-booster")
   :demand t
   :after eglot
   :config (eglot-booster-mode))
@@ -536,6 +538,8 @@ vi style of % jumping to matching brace."
   (setq cider-repl-display-help-banner nil))
 
 (use-package lean4-mode
+  ;; Not on MELPA/ELPA; the recipe is ignored under Nix (`:ensure' is a no-op).
+  :ensure (lean4-mode :host github :repo "leanprover-community/lean4-mode")
   :demand t)
 
 (setq auto-mode-alist (cons '("\\.pl\\'" . prolog-mode)
@@ -567,6 +571,9 @@ vi style of % jumping to matching brace."
   :hook (nix-mode . eglot-ensure))
 
 (use-package typst-ts-mode
+  ;; Not on MELPA/ELPA; the recipe is ignored under Nix (`:ensure' is a no-op).
+  :ensure (typst-ts-mode :host nil
+                         :repo "https://codeberg.org/meow_king/typst-ts-mode")
   :demand t
   :after eglot
   :mode "\\.typ\\'"
@@ -613,6 +620,8 @@ vi style of % jumping to matching brace."
          ("M-p" . diff-hl-previous-hunk)))
 
 (use-package jj-mode
+  ;; Not on MELPA/ELPA; the recipe is ignored under Nix (`:ensure' is a no-op).
+  :ensure (jj-mode :host github :repo "bolivier/jj-mode.el")
   :demand t)
 
 
