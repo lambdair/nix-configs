@@ -31,6 +31,15 @@ let
       ) (builtins.readDir dir)
     );
 
+  # Files a skill's tooling carries for its own development: the test suite,
+  # the cards it runs against, and the ignore file. Claude never reads them, so
+  # they stay out of ~/.claude.
+  devOnly =
+    rel:
+    lib.hasSuffix "_test.mbt" rel
+    || lib.hasSuffix ".gitignore" rel
+    || lib.hasInfix "/fixtures/" "/${rel}";
+
   # Mirror `dir` into ~/.claude/<target>. Everything but documentation is run
   # rather than read, so it needs the executable bit.
   deploy =
@@ -42,7 +51,7 @@ let
           source = dir + "/${rel}";
           executable = !(lib.hasSuffix ".md" rel);
         }
-      ) (filesUnder dir)
+      ) (lib.filter (rel: !devOnly rel) (filesUnder dir))
     );
 in
 {
