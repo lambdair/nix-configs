@@ -74,6 +74,7 @@
 
   ;; Tree-sitter grammar auto-install (Nix uses home.file symlinks instead)
   (elpaca treesit-auto
+    (require 'treesit-auto)
     (setq treesit-auto-install 'prompt)
     (global-treesit-auto-mode))
 
