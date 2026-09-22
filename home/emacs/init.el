@@ -52,6 +52,10 @@
       (require 'elpaca)
       (elpaca-generate-autoloads "elpaca" repo)
       (let ((load-source-file-function nil)) (load "./elpaca-autoloads"))))
+  ;; Windows has no usable symlinks here (neomacs cannot create them at all,
+  ;; and GNU Emacs needs Developer Mode), so install build files by copying.
+  (when (memq system-type '(windows-nt ms-dos cygwin)) (elpaca-no-symlink-mode))
+
   (add-hook 'after-init-hook #'elpaca-process-queues)
   (elpaca `(,@elpaca-order))
 
