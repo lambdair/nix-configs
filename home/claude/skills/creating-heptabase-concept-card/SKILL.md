@@ -7,287 +7,229 @@ description: 'Use when the user wants to save something they have learned (a ter
 The user maintains a Japanese-language knowledge graph in Heptabase where each "concept card" captures one term, food, technology, or idea in a strict, compressed shape. This skill produces cards in exactly that shape and inlines references to related cards that already exist, so the graph stays connected.
 
 **Reference exemplars:**
-- Foreign-word notation, Latin-script origin: `バーニャ・カウダ(Bagna Cauda)` — id `2cdb488e-3c38-4922-a574-13aada502cc9`.
-- Foreign-word notation, non-Latin origin (script + romanization): `バシレウス(βασιλεύς, Basileus)` — id `fc365328-6a45-4904-b1f4-25f74ea899c1`.
+- Foreign-word notation, Latin-script origin, with an inline card mention: `バーニャ・カウダ(Bagna Cauda)` — id `2cdb488e-3c38-4922-a574-13aada502cc9`.
+- Non-Latin origin (script + romanization), and the optional `出典:` line: `バシレウス(βασιλεύς, Basileus)` — id `fc365328-6a45-4904-b1f4-25f74ea899c1`.
 - Disambiguation / category tag (uses 【】, not parens): `独ソ電撃戦【ボードゲーム】` — id `4917f759-7dd3-4814-b788-ceafcbca278b`; `ヴォイテク【熊】` — id `4db6fe3b-af9f-44ee-bbdb-9b73c2e274f0`.
+- A concrete referent (a named product) carrying its official page as `出典:`: `レモスコ(LEMOSCO)` — id `aed01510-180f-4f29-9497-d50833e54f94`.
 
 **REQUIRED SUB-SKILL:** This skill drives the Heptabase CLI. Use `heptabase:heptabase-cli` for the actual commands and their up-to-date flags.
 
 ## The format (strict)
 
-**Title:** the bracketed annotation after the Japanese head name serves **one of two distinct purposes**, and each purpose uses a **different bracket type** so they are visually unambiguous.
+### Title
+
+A head name — usually Japanese — plus at most one bracket group of each kind. The bracket type *is* the signal of which purpose it serves:
 
 | Purpose | Bracket | What goes inside |
 |---|---|---|
-| A — Foreign-word notation | `()` half-width parens | foreign script and/or romanization |
-| B — Disambiguation / category tag | `【】` lenticular brackets | short Japanese categorical word |
+| A — The other spelling of the head name | `()` half-width parens | foreign original, romanization, or kanji |
+| B — Disambiguation / category tag | `【】` lenticular brackets | short Japanese categorical noun |
 
+**Purpose A** — the parenthetical carries the head name's *other spelling*. Usually that means the head name is a Japanese rendering of a foreign term, whether a *transliteration* or a *translation*:
+- **Non-Latin original, transliterated:** include BOTH the original script AND a Latin romanization, comma-separated, script first. Real cards in this shape: `バシレウス(βασιλεύς, Basileus)`, `ネフェレー(Νεφέλη, Nephele)`, `パレーシア(παρρησία, parrhesia)`, `アウトクラトール(αὐτοκράτωρ, Autokrator)`. Preserve native diacritics. Look the script up if you don't know it offhand — romanization alone loses the very information the user wants captured. If you genuinely cannot confirm it, romanization alone is acceptable but say so in the report.
+  
+  Older cards predate this rule and carry romanization only (`ハムサ(Hamsa)`, `サンスカーラ(Saṃskāra)`).
+- **Latin-script original:** the original spelling alone. `アンチョビ(anchovy)`, `バーニャ・カウダ(Bagna Cauda)`, `ゲシュタルト崩壊(Gestaltzerfall)`.
+- **Katakana rendering of a Chinese term:** the characters alone — a Japanese reader reads them directly, so romanization adds nothing. `サンプーチャン(三不粘)`. Unlike Greek or Sanskrit, this is a case where script-plus-romanization is *not* wanted. A Chinese-origin term the user writes straight in kanji takes no parens at all (`饕餮`).
+- **Translated term, concept, or work:** the internationally recognized form, usually English. `他我問題(problem of other minds)`, `モノミス(monomyth)`, `ゴルディアスの結び目(Gordian Knot)`, `千夜一夜物語(One Thousand and One Nights)`. Including the source-language original is optional and usually omitted unless the user emphasizes it.
 
-Half-width `()` for A always, never full-width `（）`. Lenticular `【】` for B always.
+**Purpose A also covers kanji orthography.** When the head name is written in kana but has a kanji spelling worth preserving, the kanji goes in the same half-width parens: `かざぐるま(風車)`, `タガネ(鏨)`. The term is not foreign, but the parenthetical is doing the same job — carrying the other way of writing the head name. Use it when the kanji is the informative part, not for every word that happens to have one.
 
-### Purpose A — Foreign-word notation (the term is foreign-derived)
+**Purpose B** — the bare head name would be ambiguous, or a short kind-marker adds clarity. This is rare; only a handful of cards use it. `独ソ電撃戦【ボードゲーム】` (the board game, not the historical event), `ヴォイテク【熊】`, `Inner Child【バンド】`. One short Japanese noun inside: `【ボードゲーム】`, `【熊】`, `【映画】`, `【企業】`. The head name is usually Japanese but need not be. Reach for B only when the bare name genuinely collides with something.
 
-Used when the Japanese title is a transliteration, translation, or katakana rendering of a word from another language. The parenthetical shows the original.
-- **Non-Latin original script** (Greek, Arabic, Cyrillic, Hebrew, Sanskrit/Devanagari, Chinese, …) where the Japanese is a **transliteration**: include BOTH the original script AND a Latin romanization, comma-separated, script first. Examples: `バシレウス(βασιλεύς, Basileus)`, `ハムサ(خمسة, Hamsa)`, `アムリタ(अमृत, amṛta)`. Preserve native diacritics (Greek polytonic accents, Arabic shadda, etc.). Omitting the original script loses the very information the user wants captured — romanization alone is not enough for transliterations.
-- **Latin-script original** (Italian, English, French, German, Spanish, Latin, …): the original spelling alone is sufficient. Examples: `アンチョビ(anchovy)`, `バーニャ・カウダ(Bagna Cauda)`, `グレース・ホッパー(Grace Hopper)`, `alea jacta est`.
-- **Translated work / concept** (Japanese title is a *translation* of a foreign work, not a transliteration): use the internationally-recognized form, usually English. Example: `千夜一夜物語(One Thousand and One Nights)`. Including the source-language original (here, Arabic) is optional and usually omitted unless the user emphasizes it.
+**Both** — when a foreign reading AND a category are *both* needed to identify the card: `頭名(reading)【category】`, A first, no space between the groups. No card in the library needs this yet, so the illustration is constructed: `アップル(Apple)【企業】` vs `アップル(Apple)【バンド】`. Use only when neither group alone would do.
 
-When the original script is non-Latin and you don't know it offhand, look it up (Wikipedia, the source the user shared, etc.) — do not skip it just because the script is harder to type. If you genuinely cannot confirm the original script, romanization alone is acceptable, but flag this in the final report so the user can fill it in.
+**Neither** — bare head name, no brackets: `Typescript`, `Clojure`, `proton`, `四元素`, `饕餮`, `逆茂木`.
 
-### Purpose B — Disambiguation / category tag (the term is ambiguous or needs a kind-marker)
+**Half-width `()`, with no space before it** — `アンチョビ(anchovy)`, never `（anchovy）` and never `アンチョビ (anchovy)`. This is not a cosmetic preference: the bracket style is how the title announces which of the user's note formats it belongs to. Full-width `（）` marks the LaTeX definition notes (`集合の存在公理（set existence）`, `自然演繹（natural deduction）` — over fifty of them), and a space before `(` marks the older bullet-list notes (`GPT (Generative Pre-trained Transformer)`, `ダイラタンシー (Dilatancy)` — over forty). Every one of those cards was checked: not a single concept card is among them. The nearest thing to an exception is one card, `ゴディバ夫人（レディ・ゴディバ）`, which opens with a proper concept sentence and then continues into a `補足情報：` section — the user extended it afterwards. It is the only such card in the library, and it is not a licence to write full-width parens or to append sections. Match the concept-card style exactly, and leave those other cards alone — noticing an inconsistency in them is report material, not an edit.
 
-Used when the bare Japanese head name would be ambiguous (a common word that could refer to multiple things) or when a short kind-tag adds clarity. **The annotation uses lenticular brackets `【】`, not parens** — this makes it instantly distinguishable from Purpose A at a glance.
+Never put a *category* word in `()` — a kanji spelling belongs there, a kind-marker does not — and never put a reading in `【】`.
 
-Examples from the user's library:
-- `独ソ電撃戦【ボードゲーム】` — distinguishes the board game from the historical event "独ソ電撃戦."
-- `ヴォイテク【熊】` — distinguishes Wojtek the Polish military bear from any other Wojtek.
+### Body
 
-The category tag is typically one short Japanese noun: `【ボードゲーム】`, `【熊】`, `【映画】`, `【人物】`, etc.
+1. An **H1 heading whose entire text is bold**, repeating the title verbatim. Every concept card has one — though a bold H1 alone does not make a card this format; plenty of the user's bullet-list notes have one too. What identifies the format is the bold H1 *plus* the single-paragraph body below.
+1. **One** paragraph containing a **single Japanese sentence** that defines the concept. Concepts that already have their own cards appear as inline card mentions, not plain text.
+1. *Conditional:* a third paragraph `出典: ` followed by one URL as a link. Include it in either of two cases:
+   - **The card names a concrete referent** — something an entity owns and publishes a page about: a product, brand or company, product series, venue or facility, event, or named proprietary technology (`レモスコ(LEMOSCO)`, `プレック(Plek)`, `エバーチューン(EverTune)`, `レーヴ・デ・リュミエール(Rêve des Lumières)`). The user wants these cards to lead back to the thing itself, so link its **official page** (see step 2b). The discriminating question: *does someone own this and keep a page for it?* General concepts, techniques, dishes and food categories, natural features, historical or mythic subjects, and people get no link from this rule.
+   - **The user shared a source.** Cite that URL. When both cases apply, the user's source wins; mention the official page in the report. This is an established habit, not a one-off — the Greek title-term batch (`バシレウス(βασιλεύς, Basileus)`, `アナクス(ἄναξ, Anax)`, `アルコーン(ἄρχων, Archon)`, `テュランノス(τύραννος, Tyrannos)`, `アウトクラトール(αὐτοκράτωρ, Autokrator)`) all carry it.
 
-### Distinguishing the two purposes
+   Omit the line entirely when neither case applies.
 
-The bracket type itself signals which purpose:
-- `(...)` half-width parens → Purpose A (foreign-word notation). Contents are foreign script and/or romanization.
-- `【...】` lenticular brackets → Purpose B (disambiguation / category). Contents are a short Japanese categorical word.
-
-If you find yourself putting Japanese category words inside `()`, or foreign script inside `【】`, you crossed the streams — re-pick the bracket.
-
-### Purpose A + B combined (both reading and category needed)
-
-When the same head name has BOTH a foreign-word reading worth preserving AND ambiguity that needs a category tag, append both bracket groups in order: `日本語名(reading)【category】`. The reading comes first (it identifies *what the term is*), the category second (it scopes *which entity*).
-
-Examples (constructed — apply when the case arises):
-- `アップル(Apple)【企業】` vs `アップル(Apple)【バンド】` — same name, distinguished by category.
-- `アナクス(ἄναξ, Anax)` for the Greek title (no disambiguation needed if this is the primary entity); a same-named game would be `アナクス(Anax)【ゲーム】` (drop the Greek script — it's not authentic to the game).
-- `プレステージ(The Prestige)【映画】` — only if there were a non-film プレステージ requiring disambiguation.
-
-Rules for the combined form:
-- Two separate bracket groups, A then B, no space between them: `日本語名(reading)【category】`.
-- Each group follows its own rules: A uses `(原語script, romanization)` for non-Latin or `(original spelling)` for Latin; B uses `【短い日本語名詞】`.
-- Skip the combined form unless **both** are genuinely informational. If the reading alone or the category alone uniquely identifies the card, use only that one.
-
-### No parens
-- Term already written natively in Japanese context (`Typescript`, `Clojure`, `proton`): use the term alone.
-- Purely Japanese concept needing no disambiguation (`四元素`, `饕餮`, `逆茂木`): bare Japanese title.
-
-**Body — exactly two blocks, in this order:**
-1. An **H1 heading whose entire text is bold**, repeating the title verbatim.
-1. **One** paragraph containing a **single Japanese sentence** that defines the concept. Mentions of related concepts that already have their own cards must be inline card references (ProseMirror `card` nodes), not plain text.
-
-**Sentence template (dense, comma-separated, ends with `です。` or `こと。`):**
-
+**Sentence template** — dense, comma-separated, ending in `です。`. Sweeping every concept card in the library: that ending is all but universal, none ends in `こと。` (so don't reach for it), and not one has a second `。`. The single-sentence rule is not an aspiration; it is how every card is written.
 
 > `[材料・構成要素・前提となるもの]、[特徴・動作・役割]、[起源・由来・分類・カテゴリ]の[上位カテゴリ語]です。`
 
+Concrete example — the exemplar Bagna Cauda card, where `{{card 093f9041-…}}` is an inline mention of the existing `アンチョビ(anchovy)` card, not the plain text `アンチョビ`:
 
-Concrete example (the exemplar card's body):
+> にんにく、`{{card 093f9041-cec5-4509-9371-24e83c1b525a}}`、オリーブオイルを煮立たせた熱いソースに、新鮮な野菜をディップして楽しむイタリア・ピエモンテ州発祥の伝統的な郷土料理です。
 
+**The body excludes** properties, sub-headings, bullet lists, code blocks, math, and any paragraph beyond the two required blocks and the optional `出典:` line. Other note styles in the user's library — LaTeX definitions, album cards built from bullet lists, book notes — are *different* formats; do not mix them in.
 
-> にんにく、`<card:アンチョビ>`、オリーブオイルを煮立たせた熱いソースに、新鮮な野菜をディップして楽しむイタリア・ピエモンテ州発祥の伝統的な郷土料理です。
-
-
-Where `<card:アンチョビ>` is a ProseMirror `card` inline node referencing the existing `アンチョビ(anchovy)` card — not the text string `アンチョビ`.
-
-**Body itself excludes:** properties, sub-headings, bullet lists, code blocks, math, multiple paragraphs.
-
-**Tags and whiteboard placement are part of the workflow** (steps 5 and 6 below) — the bare card is not "done" until the appropriate existing tag(s) are attached and the card is placed on the most fitting existing whiteboard. The exemplar Bagna Cauda card lacks these only because the user did not get around to it; the format intent is that every concept card finds its home in the tag/whiteboard structure.
+**Tags (step 5) and whiteboard placement (step 6) are part of the card,** not optional polish. A card with no tag and no board is unfinished.
 
 ## Workflow
 
 ### 1. Compose the title
 
-Pick the Japanese head name. Then decide which parenthetical purpose (if any) applies — see the format spec for full rules:
-1. **Foreign-derived term?** → Purpose A (foreign-word notation).
-   - Non-Latin original (transliteration): `日本語名(原語script, romanization)`. Look up the script — do not skip it. Greek `βασιλεύς`, Arabic `خمسة`, Sanskrit `अमृत`, etc.
-   - Latin-script original: `日本語名(original spelling)`.
-   - Translation of a foreign work: `日本語名(international name)`.
-1. **Ambiguous Japanese term that needs a kind-marker?** → Purpose B (disambiguation). Use lenticular brackets with a short Japanese categorical word: `【ボードゲーム】`, `【熊】`, `【映画】`, etc. Not parens.
-1. **Both a foreign reading AND ambiguity with another entity?** → A + B combined: `日本語名(reading)【category】` — A's parens first, then B's lenticular brackets, no space between. Example: `アップル(Apple)【企業】`. Use sparingly — only when one alone wouldn't identify the card uniquely.
-1. **Neither?** → bare Japanese, no brackets.
-
-Sanity check: bracket type determines purpose. `()` = foreign-word reading (Purpose A). `【】` = Japanese category tag (Purpose B). If you used the wrong bracket type for the content, fix it before saving.
+Pick the Japanese head name, then:
+1. **Does the head name have another spelling worth carrying?** → Purpose A, picking the case that applies: non-Latin transliteration `頭名(原語script, romanization)` (look the script up) · Latin-script origin `頭名(original spelling)` · Chinese term in katakana `頭名(漢字)`, no romanization · translated term or work `頭名(international name)` · kana with a telling kanji spelling `かざぐるま(風車)`.
+1. **Ambiguous, or needs a kind-marker?** → Purpose B: `頭名【短い日本語名詞】`.
+1. **Both needed?** → `頭名(reading)【category】`, A first, no space. Use sparingly.
+1. **Neither?** → bare head name.
 
 ### 2. Compose the one sentence
 
-Follow the template. Compress aggressively — one sentence is the style. Identify nouns inside the sentence that name concepts likely to be other cards (ingredients, parent categories, sibling concepts). Mark them as candidates for inline linking.
+Follow the template. Compress aggressively — one sentence is the style. Identify nouns inside it that name concepts likely to have their own cards (ingredients, parent categories, sibling concepts) and mark them as link candidates.
+
+### 2b. Find the official page (concrete referents only)
+
+If the card names a concrete referent (Body item 3), find its official page now with a web search and carry the URL to step 4. Prefer, in order: the owner's page for this exact item (product page, event page) → the owner's home page → a page the owner publishes elsewhere (e.g. a Rakuten store run by the maker). A shop, news, or wiki page is a fallback only when no official page exists — say so in the report. Keep the page you researched the facts from in mind too: when it *is* the official page, that is the one to cite.
 
 ### 3. Find existing cards to inline-link
 
-For each candidate noun, search:
+For each candidate noun:
 
 ```
-heptabase card list -q "<concept name>" --limit 5
+heptabase card list -q "<concept name>" --card-types note --limit 100
 ```
 
-Only inline-link when the title match is unambiguous. If the search returns multiple plausible matches or none, leave the noun as plain text — do not invent a link, and do not create a stub card unless the user asks.
+`--card-types note` keeps PDFs and highlights out of the results.
+
+**`-q` is a fuzzy full-text filter, and results come back ordered by last edit time — not by relevance.** It matches body text (`ピエモンテ` finds `バーニャ・カウダ(Bagna Cauda)`) and it matches loosely (`ムリ` returns 70 unrelated cards), so a long result list is not evidence of anything. And the card you want is often *not* first: `-q "Typescript"` puts `bidirectional typechecking` above the actual `Typescript` card, because that one was edited more recently.
+
+So: **scan every returned `title` for one whose head name is the concept you are naming.** Raise `--limit` (max 100) rather than trusting the top of a short list, and check `total` — if it exceeds your limit the real card may be past the cutoff, so narrow the query or paginate with `--offset`.
+
+If no returned title is a clear match, leave the noun as plain text. Do not invent a card id, and do not create a stub card unless the user asks.
 
 ### 4. Create the card
 
-**Case A — no inline card references needed (no related cards found):**
+Write the markdown to a scratch file — a temp directory, never inside the user's repository — and create in one call. Use `--content-file`: it avoids shell-escaping the Japanese, and a `\n` inside a quoted `-c` string is *not* expanded by PowerShell or bash.
 
 ```
-heptabase note create -c "# **<Title>**
-
-<one Japanese sentence>"
+heptabase note create --no-created-by-ai --content-file <path>
 ```
 
-The `**bold**` markdown around the heading text produces the required bold H1.
+File contents:
 
-**Case B — at least one inline card reference is needed:**
+```markdown
+# **<Title>**
 
-`heptabase note create` accepts only markdown and cannot produce inline `card` nodes. Two-step pattern:
-1. Create the card with the plain-text version of the sentence:
-   
-   ```
-   heptabase note create -c "# **<Title>**
-   
-   <sentence with plain-text concept names>"
-   ```
-   
-   Capture the returned `id`.
-1. Replace the content with ProseMirror JSON that splices `card` nodes in place of those plain-text names:
-   
-   ```
-   heptabase note save <newCardId> --content-file <pmJsonPath>
-   ```
+<one Japanese sentence, with {{card <uuid>}} in place of each linked concept name>
 
-**ProseMirror skeleton** to splice (matches the exemplar exactly):
-
-```
-{
-  "type": "doc",
-  "content": [
-    {
-      "type": "heading",
-      "attrs": {"level": 1},
-      "content": [
-        {"type": "text", "marks": [{"type": "strong"}], "text": "<TITLE>"}
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {"type": "text", "text": "<前半テキスト>"},
-        {"type": "card", "attrs": {"cardId": "<RELATED_CARD_ID>"}},
-        {"type": "text", "text": "<中間テキスト>"},
-        {"type": "card", "attrs": {"cardId": "<RELATED_CARD_ID_2>"}},
-        {"type": "text", "text": "<後半テキスト>"}
-      ]
-    }
-  ]
-}
+出典: [<URL>](<URL>)
 ```
 
-Notes:
-- Split the paragraph's `content` array so each `card` node sits between the text fragments it replaced. Adjacent text fragments are fine; do not pre-merge them.
-- The `card` node has no `content`, only `attrs.cardId`.
-- Do not add `attrs.id` to heading/paragraph — the server fills those in.
-- Write the JSON to a temp file and pass with `--content-file` when it contains complex Japanese / quotes, to avoid shell escaping issues.
+- `**bold**` around the heading text produces the required bold H1; the card title is taken from the H1.
+- `{{card <uuid>}}` becomes an inline `card` mention — no ProseMirror JSON needed. This is tested, including the awkward case where the mention sits directly between Japanese 読点 (`にんにく、{{card …}}、オリーブ`): it parses into `text, card, text` correctly. Use only ids resolved in step 3.
+- Keep the `出典:` line only for a concrete referent's official page (step 2b) or a source the user shared (Body item 3); drop it otherwise. The URL doubles as the link text, matching the existing cards. The markdown link form is deliberate: it reproduces the link mark the バシレウス exemplar has, whereas a bare URL may or may not autolink.
+- `--no-created-by-ai` keeps the card as the user's own knowledge entry: they supply the fact and you act as scribe. The mark is settable **only at create time** and cannot be changed by a later `append`/`save`, so it has to be on this call. See the sub-skill's `references/created-by-ai.md`.
+
+If you get the create wrong in a way `save` cannot repair — the mark, or a mistyped title — `heptabase card trash <cardId>` soft-deletes it (`card restore <cardId>` undoes that) and you can create the card again. Say so in the report rather than leaving a broken card behind; do not trash anything you did not just create.
+
+Whether the mentions parsed is checked by the lint in step 7 (`mention.unparsed`). The parse is known to work, so that finding should not appear — but if it does, repair the card with the fallback below.
+
+**ProseMirror fallback** — only when the lint reports `mention.unparsed`. Run `heptabase note read <cardId>` for the current `content` and `contentMd5`. Do not author the document from scratch: take the `content` JSON the read handed you, and in the paragraph, split the text node at each literal `{{card <uuid>}}` and put a `card` node there instead. Read `references/card-content-schema.md` for the node shape, then:
+
+```
+heptabase note save <cardId> --content-md5 <md5> --content-file <path>
+```
+
+Always pass `--content-md5` so a concurrent edit is detected rather than clobbered.
 
 ### 5. Attach tag(s)
 
-Decide which of the user's existing tags best describe the concept. **Creating a new tag is allowed when nothing fits** — but the real danger is silently producing duplicates that differ only in case or separator (the user already has `book`/`Book`, `term_rewriting`/`Term Rewriting` from past slip-ups). The procedure below exists to keep that from happening again.
+**Never attach a tag you have not just looked up.** `tag list -n` is a plain case-insensitive substring match — which means **search one bare word, never a full `snake_case` name.** Case variants always surface (`-n "MATH"` finds `mathematics`), but separators are matched literally: `-n "rewriting"` finds `term_rewriting`, while `-n "term_rewriting"` could never surface a `Term Rewriting` variant, because that string has no underscore. Searching the name you were about to create is exactly how a near-duplicate stays hidden.
 
-Procedure:
-1. List candidate tag keywords from the concept. For a food, that is typically `food` plus the cuisine (`italian`, etc.). For a programming language, the language name itself. For a math concept, `math` plus the sub-area (`set_theory`, `category_theory`, etc.). For a biological organism, `biology`. For a chemical / material concept, `chemistry`.
-1. Verify each candidate exists with `heptabase tag list -n "<keyword>"`. The query is a case-insensitive substring match, so it will surface every case/separator variant.
-1. If multiple variants exist (e.g., `Term Rewriting` vs `term_rewriting`), **always prefer the canonical form** (see "Tag naming convention" below — lowercase + snake_case). If the user has more members on the non-canonical side, you may consolidate (see "Tag reorganization" below) — otherwise just attach to the canonical one and leave the duplicate to deal with later.
-1. Apply each confirmed tag:
-   
+1. Derive candidate keywords from the concept. A food → `food` plus the cuisine (`italian`, …). A programming language → the language name. A math concept → `mathematics` plus the sub-area (`set_theory`, `category_theory`, `logic`, …). Music → `music` plus instrument/sub-area (`guitar`, `drum`, `music_score`). An organism → `biology`. A chemical or material → `chemistry`. A book → `book`.
+1. Look each one up:
+
    ```
-   heptabase tag add --card-id <newCardId> --tag-name "<canonical name>"
+   heptabase tag list -n "<keyword>"
    ```
-1. **If no fitting tag exists, create one** in the canonical form before attaching:
-   
+1. **If it exists, attach it exactly as returned.** The name `tag list` gave you is known to resolve; a name you retyped is not. Do not "canonicalize" an existing one — the library legitimately holds `Zotero`, `English`, `cd_blu-ray`, `heptabase-tutorial`, and whether `tag add` would match `zotero` to `Zotero` or mint a second tag is not documented. Copy the string, don't improve it.
+
+   ```
+   heptabase tag add --card-id <newCardId> --tag-name "<name exactly as tag list returned it>"
+   ```
+1. **If nothing fits, create it explicitly first,** in canonical form for a *new* tag — lowercase ASCII, `snake_case` when multi-word (`set_theory`, `music_score`):
+
    ```
    heptabase tag create --name "<canonical name>"
    heptabase tag add --card-id <newCardId> --tag-name "<canonical name>"
    ```
-   
-   Use `tag create` explicitly — do NOT just call `tag add` with a never-before-seen name. `tag add` silently mints the tag if it doesn't exist, which is exactly how the `book`/`Book` duplicates got there. Going through `tag create` forces you to confirm intent and naming convention. Prefer broad parent tags that will accumulate siblings (`biology`, `chemistry`, `physics`, `geography`) over hyper-specific one-offs.
 
-### Tag naming convention (canonical form)
-- Lowercase ASCII only.
-- Multi-word: `snake_case` (`set_theory`, `term_rewriting`, `music_score`). Never Title Case, never hyphens, never spaces.
-- Single-word: just the word (`food`, `italian`, `music`, `biology`).
-- Programming language tags use the language's own preferred casing only when that is itself lowercase (`prolog`, `racket`, `apl`, `lisp`). When in doubt, lowercase.
-- Snapshot of canonical roots: `food`, `italian`, `music`, `music_score`, `military`, `history`, `book`, `biology`, `chemistry`, `math`, `set_theory`, `category_theory`, `logic`, `combinator_logic`, `theory_of_computation`, `prolog`, `racket`, `apl`, `lisp`, `drum`, `myth`. Re-check `tag list` for current state.
+   Go through `tag create` rather than letting a bare `tag add` mint the tag: `tag add` creates an unknown name silently, while `tag create` **fails with 409 if the name already exists** — that 409 is the duplicate guard. Prefer a broad parent that will accumulate siblings, the way `biology`, `chemistry`, and `physics` already do, over a hyper-specific one-off.
 
-### Tag reorganization (when invited)
+Do not work from a hard-coded list of tag names. The library holds over 80 tags and shifts over time, and guessing produces near-duplicates: the actual tags are `mathematics` and `combinatory_logic`, not `math` or `combinator_logic`. `tag list -n` is the only source of truth.
 
-The user has authorized reorganizing duplicate tags. The CLI exposes no rename/merge primitive, so consolidation is `tag add` (canonical) + `tag remove` (non-canonical) per card:
-1. Find both variants: `heptabase tag list -n "<keyword>"`.
-1. List the non-canonical's members: `heptabase tag cards <nonCanonicalId>`.
-1. For each member: attach the canonical, then detach the non-canonical. Note the asymmetry — `tag add` takes `--tag-name`, but `tag remove` takes `--tag-id` (the UUID, not the name):
-   
-   ```
-   heptabase tag add --card-id <cardId> --tag-name "<canonical>"
-   heptabase tag remove --card-id <cardId> --tag-id <nonCanonicalTagId>
-   ```
-1. The empty non-canonical tag will remain (no delete primitive); that is fine — it just won't pick up new members.
+Several hits for one keyword is normal and usually means several *different* tags, not variants — `-n "MATH"` returns `mathematics`, `reverse_mathematics`, and `constructive_math`, all legitimate. Pick the one that fits and move on.
 
-Do this in the same turn only when the user has explicitly invited it, or when the non-canonical has at most 1–2 members and you are already touching it. Otherwise just attach to the canonical and report the duplicate so the user can decide.
-
-Reference patterns observed in the user's library:
-
-| Concept type | Typical tags |
-|---|---|
-| Food (general) | `food` |
-| Italian food | `food`, `italian` |
-| Programming language | language name as tag if it exists (`prolog`, `racket`, `apl`, `lisp`) |
-| Math / logic | `math`, plus sub-area (`set_theory`, `category_theory`, `logic`, `combinator_logic`, `theory_of_computation`) |
-| Music | `music`, plus instrument/sub-area (`drum`, `music_score`) |
-| Book | `book` |
-| Organism / biology | `biology` |
-| Chemical / material | `chemistry` |
-| Person, history, military, etc. | matching root tag if it exists (`history`, `military`, `myth`, ...) |
-
-
-This table is a hint, not a closed list. Always re-check `tag list` for the current state.
+Genuine variants of the same tag (differing only in case or separator) are a different matter: attach to whichever has more members, since that is where the card's siblings are, and mention the duplicate in the report. Consolidating them — per card, `tag add` the surviving name, then `tag remove --card-id <id> --tag-id <otherTagId>`, over the members from `tag cards <tagId>`; note `remove` takes the id, not the name — is a separate task, done only when the user asks.
 
 ### 6. Place on the most fitting whiteboard
 
-The user organizes cards visually on topical whiteboards (there are ~48). New concept cards belong on the whiteboard that already collects the same kind of thing.
+The user organizes cards visually on topical whiteboards (50 at last count). A new concept card belongs on the board that already collects the same kind of thing.
 
-Procedure:
-1. Decide on a candidate whiteboard name based on the concept (food → `Food(食)`; an Italian dish still goes on the same `Food(食)` board, not a cuisine-specific one — the user does not split food by cuisine on whiteboards). For a programming language, the same-named whiteboard (`Clojure`, `Racket`, `APL`, `Haskell`, ...). For math/logic, `Logic & Math` or a more specific board (`Category Theory`, `Type Theory`, `Term Rewriting`, ...).
-1. Resolve the whiteboard id:
-   
+1. Pick a candidate board from the patterns and the principle below, then resolve its id:
+
    ```
    heptabase whiteboard list -n "<keyword>"
    ```
-   
-   Confirm the name matches (whiteboard names often include Japanese + parenthesized English: `Food(食)`, `歴史(History)`, `知識(Knowledge)`).
-1. If a single clear match exists, place the card:
-   
+
+   Case-insensitive substring, so a fragment is enough and is safer than typing a full name: board names mix Japanese and English (`Food(食)`, `歴史(History)`, `圏論 (Category Theory)`), and `-n "Category"`, `-n "食"`, `-n "知識"` each find theirs.
+1. Place the card:
+
    ```
    heptabase whiteboard add-card --whiteboard-id <whiteboardId> --card-id <newCardId>
    ```
-1. If multiple plausible whiteboards exist (e.g., `Logic & Math` vs `Category Theory` for a category-theory concept — usually the more specific one wins), prefer the more specific one. Confirm with `heptabase whiteboard cards <whiteboardId>` if unsure that the existing inhabitants match the new card's flavor.
-1. If no fitting whiteboard exists, **do not create one** — whiteboard creation is not supported by the CLI, and even if it were, this skill should not invent new top-level structure. Report to the user that the card was created without placement, and suggest where it might go.
 
-Reference patterns observed in the user's library:
+   It is idempotent (a card already on the board is left alone) but it does not control *where* on the canvas the card lands — fine for concept cards. The sub-skill calls `add-card` a narrow legacy command and requires reading `references/whiteboard.md` before deliberate layout work; putting one new card on a board is the case `add-card` is still for. If the position actually matters, read that reference and use the canonical placement commands instead.
+1. When several boards fit, prefer the more specific one (`圏論 (Category Theory)` over `Logic & Math`). `heptabase whiteboard cards <whiteboardId>` shows the current inhabitants if you are unsure the new card matches their flavor.
+1. If nothing fits, **do not create a board.** `heptabase whiteboard create` does exist, so this is a rule, not a limitation — and the CLI has no way to delete a whiteboard again, so a board you invent is permanent. Inventing top-level structure is the user's decision. Report the card as unplaced and suggest where it might go.
+
+Observed patterns — hints, not a closed list; re-check `whiteboard list`:
 
 | Concept type | Whiteboard |
 |---|---|
-| Any food | `Food(食)` (id `9c9baad8-d6f0-4724-a7f9-c7ba8e8a3740`) |
-| Programming language | a same-named whiteboard if one exists (`Clojure`, `Racket`, `APL`, `Haskell`, `Lean`, `Scheme`, `common lisp`, `Emacs Lisp`, `SQL`, `Uiua`) |
-| Math / logic concept | most specific existing board: `Category Theory`, `Type Theory`, `Term Rewriting`, `Semantics`, `Logic Programming`, `Combinatory Logic`, `Constructive Mathematics`, otherwise `Logic & Math` |
-| Music general | `Music`; theory → `music theory`; metal → `Metal`; score → `Score` |
+| Any food | `Food(食)` (id `9c9baad8-d6f0-4724-a7f9-c7ba8e8a3740`) — the user does not split food by cuisine |
+| Programming language | the same-named board if one exists (`Clojure`, `Racket`, `APL`, `Haskell`, `Lean`, `Scheme`, `common lisp`, `Emacs Lisp`, `SQL`, `Uiua`) |
+| Math / logic | most specific existing board — `圏論 (Category Theory)`, `Type Theory`, `Term Rewriting`, `Semantics`, `Logic Programming`, `Combinatory Logic`, `Constructive Mathematics` — otherwise `Logic & Math` |
+| Music | `Music`; theory → `music theory`; metal → `Metal`; score → `Score` |
+| Organism | `生物` (a small board — 周期ゼミ, マーモット(marmot), バタフライピー(butterfly pea) and the like) |
 | History / myth | `歴史(History)` / `神話(Myth)` |
-| Game | `Game`, or franchise-specific board if one exists (`League of Legends`, `Arknights: Endfield`) |
-| Misc factual things | `知識(Knowledge)` as fallback for general curiosity items |
+| Game | `Game`, or a franchise board if one exists (`League of Legends`, `Arknights: Endfield`) |
+| Misc factual things | `知識(Knowledge)` — the general-curiosity fallback, and the largest board in the workspace |
 
+The board follows *why the card is interesting*, not the taxonomy of its subject. `ヴォイテク【熊】` is a bear but sits on `歴史(History)`, because it is a war story; `生物` is for organisms recorded as organisms. When in doubt, `whiteboard cards <id>` and see which board's inhabitants the new card would look at home among.
 
-This table is again a hint, not a closed list — re-check `whiteboard list` for the current state. Whiteboard IDs above may have shifted.
+### 7. Lint the card
 
-### 7. Report back
+Check the finished card mechanically:
+
+```
+nu ~/.claude/skills/creating-heptabase-concept-card/scripts/lint-card.nu <newCardId> --whiteboard <whiteboardId>
+```
+
+Drop `--whiteboard` if step 6 left the card unplaced. The script prints a JSON report and exits 1 on any error-severity finding. It checks the title's brackets, the body shape, the bold H1, the one-sentence definition, the `出典` line, unparsed mentions, mentions of missing or trashed cards, that a tag is attached, and that the card is on the given board.
+
+- **`ok: true`** — go on to the report.
+- **An error** — fix the card and lint again. `mention.unparsed` → the ProseMirror fallback in step 4. `tags.none` or `whiteboard.not_placed` → steps 5 or 6. A title or body you got wrong → `card trash` and create again (step 4). Do not report success over an error.
+- **A warning** (`sentence.ending`: a noun ending, with or without `。`) — older cards are written this way and the checker tolerates it, but a new card should end in `です。`. Rewrite the sentence unless the user asked for the noun ending, and mention it in the report either way.
+
+What it cannot check is still yours: whether the sentence is a good definition, whether the original script is *correct* rather than merely present, whether a Latin-only reading needed a script at all (`ハムサ(Hamsa)` passes), and whether the tag and board were the right choices.
+
+The checker itself lives in `scripts/hepta-lint/` (MoonBit, compiled to wasm on first run; `moon test --target wasm` there runs its tests against real-card fixtures).
+
+### 8. Report back
 
 Print, in order:
 1. The new card's `id` and `title`.
-1. Each tag that was added (canonical name).
-1. The whiteboard the card was placed on (name + id), or a note explaining why placement was skipped.
-1. Each inline card reference that was inserted (related card title → its id).
+1. Each tag attached (exact name).
+1. The whiteboard the card landed on (name + id), or why placement was skipped.
+1. Each inline card mention inserted (related card title → id).
+1. The lint result: clean, or which warnings remain.
+1. The `出典:` link and why it is there (official page / user's source), or that the card has none because it names a general concept.
+1. Anything you could not confirm — an original script you had to omit, a duplicate tag you noticed and left alone.
 
 Stop there. Do not chain into creating linked stub cards, setting tag database properties, or further organization unless the user asks.
 
@@ -295,47 +237,49 @@ Stop there. Do not chain into creating linked stub cards, setting tag database p
 
 | Step | Command |
 |---|---|
-| Find related card | `heptabase card list -q "<name>" --limit 5` |
-| Create card (no inline refs) | `heptabase note create -c "# **<Title>**\n\n<sentence>"` |
-| Read current content + md5 | `heptabase note read <cardId>` |
-| Replace content with ProseMirror | `heptabase note save <cardId> --content-file <path>` |
-| Find existing tag (canonical name) | `heptabase tag list -n "<keyword>"` |
+| Find related card | `heptabase card list -q "<name>" --card-types note --limit 100` (edit-time order — scan all titles) |
+| Create card | `heptabase note create --no-created-by-ai --content-file <path>` |
+| Lint the finished card | `nu ~/.claude/skills/creating-heptabase-concept-card/scripts/lint-card.nu <cardId> --whiteboard <wbId>` |
+| Read content + contentMd5 (fallback only) | `heptabase note read <cardId>` |
+| Replace content (fallback only) | `heptabase note save <cardId> --content-md5 <md5> --content-file <path>` |
+| Look up a tag | `heptabase tag list -n "<one bare word>"` (substring; separators matched literally) |
 | Inspect a tag's members | `heptabase tag cards <tagId>` |
-| Create new canonical tag | `heptabase tag create --name "<canonical name>"` |
-| Attach tag | `heptabase tag add --card-id <cardId> --tag-name "<canonical name>"` |
-| Detach tag (for consolidation) | `heptabase tag remove --card-id <cardId> --tag-id <tagId>` (note: id, not name) |
+| Create a new tag | `heptabase tag create --name "<canonical name>"` (409 if it exists) |
+| Attach tag | `heptabase tag add --card-id <cardId> --tag-name "<exact name>"` |
+| Detach tag | `heptabase tag remove --card-id <cardId> --tag-id <tagId>` (id, not name) |
 | Find whiteboard | `heptabase whiteboard list -n "<keyword>"` |
-| Inspect a whiteboard's contents | `heptabase whiteboard cards <whiteboardId>` |
+| Inspect a whiteboard | `heptabase whiteboard cards <whiteboardId>` |
 | Place card on whiteboard | `heptabase whiteboard add-card --whiteboard-id <wbId> --card-id <cardId>` |
 
-
 ## Common mistakes
-- **Plain-text mention where a card exists.** If `アンチョビ` already has a card and you write the word `アンチョビ` as plain text, you broke the graph. Re-do step 3 and splice the `card` node.
-- **Romanization-only title for a non-Latin original.** `バシレウス(Basileus)` without `βασιλεύς`, `ハムサ(Hamsa)` without `خمسة`, `アムリタ(amṛta)` without `अमृत` — all incomplete. The user wants the original script visible. Format is `日本語名(原語script, romanization)` with the script first.
-- **Wrong bracket type for the purpose.** `()` half-width parens = Purpose A (foreign-word reading). `【】` lenticular brackets = Purpose B (Japanese category tag). Writing `独ソ電撃戦(ボードゲーム)` (parens around a Japanese category) or `バシレウス【βασιλεύς, Basileus】` (lenticular around a foreign reading) breaks the convention. Match bracket to purpose: `独ソ電撃戦【ボードゲーム】`, `バシレウス(βασιλεύς, Basileus)`.
-- **Full-width parentheses** `（）` in the title. Always half-width `()`.
-- **Multi-sentence body.** Compression is the style. Merge with commas.
-- **Bullet lists, code blocks, math, sub-headings, extra paragraphs.** Not part of this format. Other note styles the user uses (definitions with LaTeX, book notes) are *different* formats — do not mix.
-- **Unbolded H1.** The body H1 must be bold and identical to the title. Use `# **Title**` in markdown create.
-- **Inventing related cards.** If `card list -q` does not return a clean match, leave the noun as plain text. Do not auto-create stubs.
-- **Driving via ProseMirror from scratch instead of markdown-then-save.** When there are no inline refs, `note create` with markdown is enough — do not over-engineer.
-- **Minting a tag via `tag add` instead of `tag create`.** `tag add` silently mints a tag if the name doesn't exist — which is fine in itself, except it bypasses the canonical-form check and is how duplicates like `book`/`Book` got created. When no existing tag fits, go through `heptabase tag create --name "<canonical>"` first, then `tag add`.
-- **Creating a near-duplicate of an existing tag.** Before any tag operation, `tag list -n "<keyword>"` (case-insensitive substring) to see every variant. If `Term Rewriting` exists and you want `term_rewriting`, that's a reorganization opportunity, not "I'll just add the lowercase one too".
-- **Skipping tags or whiteboard placement.** A bare card with no tag and no whiteboard is not finished — the exemplar's lack of them was an oversight, not the format. Always run steps 5 and 6.
-- **Picking a too-broad whiteboard when a specific one exists.** If `Category Theory` exists, a category-theory concept goes there, not on the general `Logic & Math` board.
-- **Setting tag database properties.** The skill does not touch property values; only tag attachment. Property editing is a separate task.
+- **Plain-text mention where a card exists.** If `アンチョビ` has a card and you write the bare word, you broke the graph. Redo step 3 and use `{{card <uuid>}}`.
+- **Romanization-only title for a non-Latin original.** Writing `バシレウス(Basileus)` where the card says `バシレウス(βασιλεύς, Basileus)`. Script first, then romanization. (Older cards that lack the script stay as they are — see Purpose A.)
+- **Wrong bracket for the purpose.** `独ソ電撃戦(ボードゲーム)` and `バシレウス【βασιλεύς, Basileus】` both cross the streams. `()` = the head name's other spelling (foreign original, romanization, kanji), `【】` = a Japanese category word.
+- **Retitling or rewriting an existing card.** This skill creates. Older cards break several of these rules — full-width parens, a space before `(`, a missing original script — because they predate them or belong to another format. They are neither models to copy nor yours to fix; an inconsistency you notice goes in the report, not into an edit.
+- **Full-width `（）`, or a space before `(`.** Both belong to the user's *other* note formats. Concept cards use `頭名(reading)` tight and half-width.
+- **Multi-sentence body, bullet lists, code blocks, math, sub-headings.** Compression is the style; merge with commas. The only permitted extra block is the optional `出典:` line.
+- **Unbolded H1.** `# **Title**`.
+- **Forgetting `--no-created-by-ai`.** A later `append`/`save` will not clear the mark, and it is not a tag-database property that `card set-property` can reach. The reliable fix is `card trash` plus a fresh create. These cards are the user's own.
+- **Attaching a tag without `tag list -n` first**, or rewriting an existing tag's casing instead of using it verbatim — both produce duplicates.
+- **Minting a tag through `tag add`** instead of `tag create` when the name is new.
+- **Reaching for ProseMirror JSON** when `{{card <uuid>}}` in markdown already does the job.
+- **Inventing related cards or stub cards.** No clean match → plain text.
+- **Skipping tags or whiteboard placement.** Steps 5 and 6 are part of the format.
+- **No `出典:` on a card for a named product, brand, venue, event, or proprietary technology.** Find the official page (step 2b).
+- **Linking a shop, news, or wiki page when an official page exists.** The official page comes first.
+- **Adding an official link to a general concept.** Techniques, dishes, natural features, and people have no owner's page; leave the line off.
+- **Picking a too-broad whiteboard** when a specific one exists.
+- **Setting tag database properties.** Out of scope; attachment only.
 
 ## Red flags — stop and re-check
-- About to write the body in two sentences → merge to one.
-- About to leave a known related concept as plain text → search and inline-link.
-- About to call `tag add` with a tag name you have not verified with `tag list -n` → stop, look it up first.
-- About to coin a new tag (e.g., `Italian`, `Food`) when a canonical version (`italian`, `food`) already exists → use the existing one.
-- About to mint a tag through `tag add` instead of `tag create` → switch to `tag create` so the naming convention is an explicit decision, not a side effect.
-- About to attach a tag in `TitleCase`, `Title Case`, or `kebab-case` → re-canonicalize to lowercase `snake_case`.
-- Finishing without attaching any tag or placing on a whiteboard → revisit steps 5 and 6.
-- Title uses `（）` → fix to `()`.
-- Title for a non-Latin-origin term has only romanization, no original script → look up the original and prepend it: `バシレウス(βασιλεύς, Basileus)`, `ハムサ(خمسة, Hamsa)`.
-- About to wrap a Japanese category tag in `()` instead of `【】` → switch brackets. `独ソ電撃戦(ボードゲーム)` is wrong; `独ソ電撃戦【ボードゲーム】` is right.
-- About to wrap a foreign reading in `【】` instead of `()` → switch brackets. `バシレウス【βασιλεύς, Basileus】` is wrong; `バシレウス(βασιλεύς, Basileus)` is right.
-- Combined case uses two `()` groups → second group should be `【】`. `アップル(Apple)(企業)` is wrong; `アップル(Apple)【企業】` is right.
-- Heading is not bold → fix to `# **Title**`.
+- Body is two sentences → merge to one.
+- A known related concept sits in the sentence as plain text → search and link it.
+- About to report success without a lint run that came back `ok: true` → run step 7.
+- About to name a tag you have not seen in `tag list -n` output → look it up first, searching one bare word rather than the full name.
+- About to lowercase an existing tag's name to "fix" it → attach it verbatim instead.
+- `note create` without `--no-created-by-ai` → add it; this is irreversible.
+- Title for a non-Latin-origin term carries only romanization → look up the script and prepend it.
+- Title uses `（）`, a space before `(`, a category *word* in `()` (a kanji spelling there is fine), or a reading in `【】` → fix the brackets.
+- Combined form written as `アップル(Apple)(企業)` → the second group is `【企業】`.
+- Finishing with no tag or no whiteboard → steps 5 and 6.
+- About to create a card for a named product, brand, venue, event, or proprietary technology with no `出典:` → step 2b.
