@@ -1,0 +1,7 @@
+# Keep line endings LF everywhere, in the repository and in the working tree.
+#
+# Without this, a Windows checkout with core.autocrlf=true writes CRLF into the
+# working tree.  Git hides that again on commit, but jj does not convert line
+# endings, so it sees every file in the tree as modified and any jj commit
+# would rewrite all of them.
+* text=auto eol=lf
