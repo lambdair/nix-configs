@@ -234,11 +234,8 @@ in
   home.file =
     deploy "hooks" ./hooks
     // deploy "skills" ./skills
+    // deploy "rules" ./rules
     // {
-      ".claude/rules/jj-workflow.md".source = ./jj-workflow.md;
-      ".claude/rules/coding-preferences.md".source = ./coding-preferences.md;
-      ".claude/rules/revision-discipline.md".source = ./revision-discipline.md;
-
       # Claude sessions rewrite known_marketplaces.json and settings.json, so
       # force the overwrite to avoid activation conflicts (the claude-code
       # module owns the source).
