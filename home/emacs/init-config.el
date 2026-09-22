@@ -67,8 +67,12 @@
     (set-fontset-font t charset
                       (font-spec :family "Rounded Mgen+ 2m"))))
  ((eq system-type 'windows-nt)
-  ;; TODO: Configure Windows fonts
-  nil)
+  ;; Maple Mono NF CN: the font the rest of the Windows setup uses (Windows
+  ;; Terminal, Zed), installed through scoop's nerd-fonts bucket.  It covers
+  ;; CJK itself, so no per-charset fontset is needed.  :height is 1/10 pt.
+  (set-face-attribute 'default nil
+                      :family "Maple Mono NF CN"
+                      :height 120))
  (t
   (add-to-list 'default-frame-alist '(font . "Uiua386-12"))
   (set-fontset-font "fontset-default"
