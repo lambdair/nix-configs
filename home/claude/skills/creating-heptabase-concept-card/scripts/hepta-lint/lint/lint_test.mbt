@@ -34,6 +34,21 @@ test "inline mentions are collected" {
 }
 
 ///|
+test "解説: a card pointer to the explainer note passes, and is collected too" {
+  let report = fixture("pass_kaisetsu")
+  assert_eq(rules(report), [])
+  assert_eq(report.mentions, [
+    "093f9041-cec5-4509-9371-24e83c1b525a", "11111111-1111-4111-8111-111111111111",
+  ])
+}
+
+// Either order passes: a card that already had 出典 gains its 解説 line
+// through `note append`, which can only add at the end.
+test "解説 after 出典 is fine too" {
+  assert_eq(rules(fixture("pass_kaisetsu_after_source")), [])
+}
+
+///|
 test "ゴディバ夫人: full-width parens and appended sections" {
   assert_eq(rules(fixture("fail_godiva")), [
     "title.fullwidth_paren", "body.shape",
@@ -41,9 +56,12 @@ test "ゴディバ夫人: full-width parens and appended sections" {
 }
 
 ///|
-test "KATANA:GO: spaced paren, product memo shape" {
+// Its body is heading + three paragraphs, which the 解説 line made a legal
+// shape, so the memo is now caught by what those trailing paragraphs hold
+// rather than by their number. Still rejected.
+test "KATANA:GO: spaced paren, product memo in the trailing paragraphs" {
   assert_eq(rules(fixture("fail_katana")), [
-    "title.space_before_paren", "body.shape", "sentence.ending",
+    "title.space_before_paren", "sentence.ending", "trailing.format", "trailing.format",
   ])
 }
 
@@ -214,10 +232,15 @@ test "出典 paragraph must be a labelled link" {
   assert_eq(check("X", [h, d, para([text("出典: https://example.com")])]), [
     "source.no_link",
   ])
+  // An unrecognized label is caught as a trailing paragraph, not as a
+  // malformed 出典 — the label is what picks the rule.
   assert_eq(
     check("X", [h, d, para([text("Source: "), link("https://example.com")])]),
-    ["source.format"],
+    ["trailing.format"],
   )
+  assert_eq(check("X", [h, d, para([text("出典:https://example.com")])]), [
+    "source.format", "source.no_link",
+  ])
 }
 
 ///|

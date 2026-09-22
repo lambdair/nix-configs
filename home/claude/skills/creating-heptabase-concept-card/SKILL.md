@@ -49,11 +49,14 @@ Never put a *category* word in `()` — a kanji spelling belongs there, a kind-m
 
 1. An **H1 heading whose entire text is bold**, repeating the title verbatim. Every concept card has one — though a bold H1 alone does not make a card this format; plenty of the user's bullet-list notes have one too. What identifies the format is the bold H1 *plus* the single-paragraph body below.
 1. **One** paragraph containing a **single Japanese sentence** that defines the concept. Concepts that already have their own cards appear as inline card mentions, not plain text.
-1. *Conditional:* a third paragraph `出典: ` followed by one URL as a link. Include it in either of two cases:
+1. *Conditional:* a pointer paragraph `解説: ` followed by one card mention, when a companion explainer note exists for the topic (`creating-heptabase-explainer-note` writes those). It is navigation, not exposition, so the one-sentence rule above is untouched — and it is the only thing that makes the explainer discoverable when the card is met in Card Library or through a mention, where the backlink panel is easy to miss. The explainer usually does not exist yet at create time; add the line afterwards with `heptabase note append <cardId> --content-file <path>` holding `解説: {{card <noteId>}}`, which appends a proper paragraph with a real mention and leaves the created-by-ai mark alone.
+1. *Conditional:* a paragraph `出典: ` followed by one URL as a link. Include it in either of two cases:
    - **The card names a concrete referent** — something an entity owns and publishes a page about: a product, brand or company, product series, venue or facility, event, or named proprietary technology (`レモスコ(LEMOSCO)`, `プレック(Plek)`, `エバーチューン(EverTune)`, `レーヴ・デ・リュミエール(Rêve des Lumières)`). The user wants these cards to lead back to the thing itself, so link its **official page** (see step 2b). The discriminating question: *does someone own this and keep a page for it?* General concepts, techniques, dishes and food categories, natural features, historical or mythic subjects, and people get no link from this rule.
    - **The user shared a source.** Cite that URL. When both cases apply, the user's source wins; mention the official page in the report. This is an established habit, not a one-off — the Greek title-term batch (`バシレウス(βασιλεύς, Basileus)`, `アナクス(ἄναξ, Anax)`, `アルコーン(ἄρχων, Archon)`, `テュランノス(τύραννος, Tyrannos)`, `アウトクラトール(αὐτοκράτωρ, Autokrator)`) all carry it.
 
    Omit the line entirely when neither case applies.
+
+   Both pointer paragraphs are optional and at most one of each is allowed. Either order passes the lint, because `note append` can only add at the end: a card that already carries `出典:` gains its `解説:` line below it.
 
 **Sentence template** — dense, comma-separated, ending in `です。`. Sweeping every concept card in the library: that ending is all but universal, none ends in `こと。` (so don't reach for it), and not one has a second `。`. The single-sentence rule is not an aspiration; it is how every card is written.
 
@@ -63,7 +66,7 @@ Concrete example — the exemplar Bagna Cauda card, where `{{card 093f9041-…}}
 
 > にんにく、`{{card 093f9041-cec5-4509-9371-24e83c1b525a}}`、オリーブオイルを煮立たせた熱いソースに、新鮮な野菜をディップして楽しむイタリア・ピエモンテ州発祥の伝統的な郷土料理です。
 
-**The body excludes** properties, sub-headings, bullet lists, code blocks, math, and any paragraph beyond the two required blocks and the optional `出典:` line. Other note styles in the user's library — LaTeX definitions, album cards built from bullet lists, book notes — are *different* formats; do not mix them in.
+**The body excludes** properties, sub-headings, bullet lists, code blocks, math, and any paragraph beyond the two required blocks and the optional `解説:` / `出典:` pointer lines. Other note styles in the user's library — LaTeX definitions, album cards built from bullet lists, book notes — are *different* formats; do not mix them in.
 
 **Tags (step 5) and whiteboard placement (step 6) are part of the card,** not optional polish. A card with no tag and no board is unfinished.
 
@@ -151,14 +154,16 @@ Always pass `--content-md5` so a concurrent edit is detected rather than clobber
    ```
    heptabase tag add --card-id <newCardId> --tag-name "<name exactly as tag list returned it>"
    ```
-1. **If nothing fits, create it explicitly first,** in canonical form for a *new* tag — lowercase ASCII, `snake_case` when multi-word (`set_theory`, `music_score`):
+1. **If nothing fits, create it** — a fitting tag that does not exist yet is a gap to fill, not a reason to under-tag. Use canonical form for a *new* tag — lowercase ASCII, `snake_case` when multi-word (`set_theory`, `music_score`):
 
    ```
    heptabase tag create --name "<canonical name>"
    heptabase tag add --card-id <newCardId> --tag-name "<canonical name>"
    ```
 
-   Go through `tag create` rather than letting a bare `tag add` mint the tag: `tag add` creates an unknown name silently, while `tag create` **fails with 409 if the name already exists** — that 409 is the duplicate guard. Prefer a broad parent that will accumulate siblings, the way `biology`, `chemistry`, and `physics` already do, over a hyper-specific one-off.
+   Go through `tag create` rather than letting a bare `tag add` mint the tag: `tag add` creates an unknown name silently, while `tag create` **fails with 409 if the name already exists** — that 409 is the duplicate guard. Prefer a broad name that will accumulate siblings, the way `biology`, `chemistry`, and `physics` already do, over a hyper-specific one-off.
+
+   **`tag create` takes only `--name`, so a new tag lands at the top level and the CLI cannot re-parent it.** `italian` sits under `food`, but a freshly created `turkish` starts beside `food` until the user drags it in the sidebar. Name it as though it were already nested (`turkish`, `security`, not `food_turkish`), attach it, and put the re-parenting in the report as a one-drag note. Leaving a card on a broad parent tag because the specific one could not be nested — `turkish` for a Turkish dish, `security` for FIDO2 — is exactly the failure this paragraph exists to prevent.
 
 Do not work from a hard-coded list of tag names. The library holds over 80 tags and shifts over time, and guessing produces near-duplicates: the actual tags are `mathematics` and `combinatory_logic`, not `math` or `combinator_logic`. `tag list -n` is the only source of truth.
 
@@ -210,7 +215,7 @@ Check the finished card mechanically:
 nu ~/.claude/skills/creating-heptabase-concept-card/scripts/lint-card.nu <newCardId> --whiteboard <whiteboardId>
 ```
 
-Drop `--whiteboard` if step 6 left the card unplaced. The script prints a JSON report and exits 1 on any error-severity finding. It checks the title's brackets, the body shape, the bold H1, the one-sentence definition, the `出典` line, unparsed mentions, mentions of missing or trashed cards, that a tag is attached, and that the card is on the given board.
+Drop `--whiteboard` if step 6 left the card unplaced. The script prints a JSON report and exits 1 on any error-severity finding. It checks the title's brackets, the body shape, the bold H1, the one-sentence definition, the `解説` and `出典` lines, unparsed mentions, mentions of missing or trashed cards, that a tag is attached, and that the card is on the given board.
 
 - **`ok: true`** — go on to the report.
 - **An error** — fix the card and lint again. `mention.unparsed` → the ProseMirror fallback in step 4. `tags.none` or `whiteboard.not_placed` → steps 5 or 6. A title or body you got wrong → `card trash` and create again (step 4). Do not report success over an error.
@@ -229,9 +234,12 @@ Print, in order:
 1. Each inline card mention inserted (related card title → id).
 1. The lint result: clean, or which warnings remain.
 1. The `出典:` link and why it is there (official page / user's source), or that the card has none because it names a general concept.
+1. The `解説:` pointer, if the card has one, and the note it points at.
 1. Anything you could not confirm — an original script you had to omit, a duplicate tag you noticed and left alone.
 
 Stop there. Do not chain into creating linked stub cards, setting tag database properties, or further organization unless the user asks.
+
+One exception worth naming: when the card's subject is a mechanism — a protocol, an algorithm, a math or logic concept — the one sentence cannot explain how it works, and this format forbids the diagrams and math that would. Do not stretch the card; `creating-heptabase-explainer-note` writes the companion note that carries the mechanism, and the card stays the index entry it is meant to be. Once that note exists, append the `解説:` line (Body item 3) so the pair points both ways.
 
 ## Quick reference
 
@@ -257,7 +265,7 @@ Stop there. Do not chain into creating linked stub cards, setting tag database p
 - **Wrong bracket for the purpose.** `独ソ電撃戦(ボードゲーム)` and `バシレウス【βασιλεύς, Basileus】` both cross the streams. `()` = the head name's other spelling (foreign original, romanization, kanji), `【】` = a Japanese category word.
 - **Retitling or rewriting an existing card.** This skill creates. Older cards break several of these rules — full-width parens, a space before `(`, a missing original script — because they predate them or belong to another format. They are neither models to copy nor yours to fix; an inconsistency you notice goes in the report, not into an edit.
 - **Full-width `（）`, or a space before `(`.** Both belong to the user's *other* note formats. Concept cards use `頭名(reading)` tight and half-width.
-- **Multi-sentence body, bullet lists, code blocks, math, sub-headings.** Compression is the style; merge with commas. The only permitted extra block is the optional `出典:` line.
+- **Multi-sentence body, bullet lists, code blocks, math, sub-headings.** Compression is the style; merge with commas. The only permitted extra blocks are the `解説:` and `出典:` pointer lines.
 - **Unbolded H1.** `# **Title**`.
 - **Forgetting `--no-created-by-ai`.** A later `append`/`save` will not clear the mark, and it is not a tag-database property that `card set-property` can reach. The reliable fix is `card trash` plus a fresh create. These cards are the user's own.
 - **Attaching a tag without `tag list -n` first**, or rewriting an existing tag's casing instead of using it verbatim — both produce duplicates.
@@ -265,6 +273,7 @@ Stop there. Do not chain into creating linked stub cards, setting tag database p
 - **Reaching for ProseMirror JSON** when `{{card <uuid>}}` in markdown already does the job.
 - **Inventing related cards or stub cards.** No clean match → plain text.
 - **Skipping tags or whiteboard placement.** Steps 5 and 6 are part of the format.
+- **Skipping a fitting tag because it does not exist yet**, or because `tag create` cannot nest it under its parent. Create it and note the re-parenting (step 5). Unlike whiteboards, new tags are yours to make.
 - **No `出典:` on a card for a named product, brand, venue, event, or proprietary technology.** Find the official page (step 2b).
 - **Linking a shop, news, or wiki page when an official page exists.** The official page comes first.
 - **Adding an official link to a general concept.** Techniques, dishes, natural features, and people have no owner's page; leave the line off.
@@ -275,7 +284,8 @@ Stop there. Do not chain into creating linked stub cards, setting tag database p
 - Body is two sentences → merge to one.
 - A known related concept sits in the sentence as plain text → search and link it.
 - About to report success without a lint run that came back `ok: true` → run step 7.
-- About to name a tag you have not seen in `tag list -n` output → look it up first, searching one bare word rather than the full name.
+- About to name a tag you have not seen in `tag list -n` output → look it up first, searching one bare word rather than the full name; if it genuinely does not exist, `tag create` it.
+- About to leave a card on a broad parent tag because the specific one does not exist yet → `tag create` the specific one (step 5).
 - About to lowercase an existing tag's name to "fix" it → attach it verbatim instead.
 - `note create` without `--no-created-by-ai` → add it; this is irreversible.
 - Title for a non-Latin-origin term carries only romanization → look up the script and prepend it.
@@ -283,3 +293,4 @@ Stop there. Do not chain into creating linked stub cards, setting tag database p
 - Combined form written as `アップル(Apple)(企業)` → the second group is `【企業】`.
 - Finishing with no tag or no whiteboard → steps 5 and 6.
 - About to create a card for a named product, brand, venue, event, or proprietary technology with no `出典:` → step 2b.
+- An explainer note for the topic exists but the card has no `解説:` line → append it (Body item 3); a pointer that only the backlink panel shows is a pointer the user will not find.

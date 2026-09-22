@@ -282,15 +282,20 @@ fn join(items : Array[String], sep : String) -> String {
 // Body -------------------------------------------------------------------------
 
 ///|
-fn check_shape(kinds : Array[String], out : Array[Finding]) -> Unit {
-  if kinds != ["heading", "paragraph"] &&
-    kinds != ["heading", "paragraph", "paragraph"] {
+/// Returns whether the block sequence is one the format allows, so the caller
+/// can skip the per-paragraph checks on a body that is the wrong shape anyway.
+fn check_shape(kinds : Array[String], out : Array[Finding]) -> Bool {
+  let ok = kinds == ["heading", "paragraph"] ||
+    kinds == ["heading", "paragraph", "paragraph"] ||
+    kinds == ["heading", "paragraph", "paragraph", "paragraph"]
+  if !ok {
     error(
       out,
       "body.shape",
-      "body blocks are [\{join(kinds, ", ")}]; expected heading + one paragraph, plus an optional 出典 paragraph",
+      "body blocks are [\{join(kinds, ", ")}]; expected heading + one paragraph, plus an optional 解説 paragraph and an optional 出典 paragraph",
     )
   }
+  ok
 }
 
 ///|
@@ -376,10 +381,48 @@ fn check_sentence(
 }
 
 ///|
+/// The optional pointer paragraph to the topic's explainer note, written as
+/// "解説: " plus exactly one card mention. It is navigation, not exposition —
+/// the one-sentence definition above it stays untouched.
+fn check_explainer(
+  para : Json,
+  out : Array[Finding],
+  mentions : Array[String],
+) -> Unit {
+  if plain_text(para) != "解説: " {
+    error(
+      out,
+      "explainer.format",
+      "the 解説 paragraph must read exactly \"解説: \" plus one card mention",
+    )
+  }
+  let cards = arr_field(para, "content").filter(fn(n) { node_type(n) == "card" })
+  if cards.length() != 1 {
+    error(
+      out,
+      "explainer.mention",
+      "the 解説 paragraph holds \{cards.length()} card mentions; it takes exactly one",
+    )
+  }
+  for n in cards {
+    match field(n, "attrs") {
+      Some(attrs) =>
+        match str_field(attrs, "cardId") {
+          Some(id) => mentions.push(id)
+          None => ()
+        }
+      None => ()
+    }
+  }
+}
+
+///|
+/// The caller has already matched the 出典 label, so what is left to check is
+/// the space after the colon and the link itself.
 fn check_source(para : Json, out : Array[Finding]) -> Unit {
   if !plain_text(para).has_prefix("出典: ") {
     error(
-      out, "source.format", "a third paragraph is only allowed as \"出典: <link>\"",
+      out, "source.format", "write the citation as \"出典: <link>\", with a space after the colon",
     )
   }
   if !text_nodes(para).iter().any(fn(n) { has_mark(n, "link") }) {
@@ -417,7 +460,7 @@ pub fn lint_note(note_json : String, props_json? : String) -> Report raise {
   let doc = @json.parse(content)
   let blocks = arr_field(doc, "content")
   let kinds = blocks.map(node_type)
-  check_shape(kinds, out)
+  let shape_ok = check_shape(kinds, out)
   if kinds.length() > 0 && kinds[0] == "heading" {
     check_heading(blocks[0], title, out)
   } else {
@@ -426,8 +469,39 @@ pub fn lint_note(note_json : String, props_json? : String) -> Report raise {
   if kinds.length() > 1 && kinds[1] == "paragraph" {
     check_sentence(blocks[1], out, mentions)
   }
-  if kinds.length() == 3 && kinds[2] == "paragraph" {
-    check_source(blocks[2], out)
+  // Trailing pointer paragraphs: at most one 解説 and one 出典, in either
+  // order — a card that already carries 出典 can gain its 解説 line through
+  // `note append`, which can only add at the end.
+  // A body of the wrong shape was already reported; checking its paragraphs
+  // as pointers would only pile synthetic findings on top of that.
+  if shape_ok {
+    let mut has_explainer = false
+    let mut has_source = false
+    for i in 2..<kinds.length() {
+      let para = blocks[i]
+      let text = plain_text(para)
+      if text.has_prefix("解説") {
+        if has_explainer {
+          error(out, "explainer.duplicate", "the card has two 解説 paragraphs")
+        } else {
+          check_explainer(para, out, mentions)
+          has_explainer = true
+        }
+      } else if text.has_prefix("出典") {
+        if has_source {
+          error(out, "source.duplicate", "the card has two 出典 paragraphs")
+        } else {
+          check_source(para, out)
+          has_source = true
+        }
+      } else {
+        error(
+          out,
+          "trailing.format",
+          "a paragraph after the definition is only allowed as \"解説: <card>\" or \"出典: <link>\"",
+        )
+      }
+    }
   }
   let all = StringBuilder()
   for b in blocks {
