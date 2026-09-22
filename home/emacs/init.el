@@ -57,7 +57,11 @@
   (when (memq system-type '(windows-nt ms-dos cygwin)) (elpaca-no-symlink-mode))
 
   (add-hook 'after-init-hook #'elpaca-process-queues)
-  (elpaca `(,@elpaca-order))
+  ;; Queue elpaca itself with the order already substituted.  The upstream
+  ;; spelling, `(elpaca `(,@elpaca-order))', reaches elpaca as the bare symbol
+  ;; `elpaca-order' under neomacs: the recipe URL is then unresolvable, elpaca's
+  ;; own build fails, and elpaca-use-package goes with it.
+  (eval (list 'elpaca elpaca-order) t)
 
   ;; use-package integration
   (elpaca elpaca-use-package
