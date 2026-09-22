@@ -12,6 +12,11 @@ let
   # Native statusline binary, compiled from MoonBit (see ./statusline.nix).
   statusline = import ./statusline.nix { inherit pkgs; };
 
+  # Concept-card format checker, built from the sources that ship with the
+  # creating-heptabase-concept-card skill (see ./hepta-lint.nix). On PATH so
+  # the skill's lint-card.nu finds it instead of building the wasm itself.
+  hepta-lint = import ./hepta-lint.nix { inherit pkgs; };
+
   # Upstream's Lightpanda plugin, repointed at the Nix-managed binary.
   lightpanda-plugin = import ./lightpanda-plugin.nix { inherit pkgs sources; };
   inherit (import ../../pkgs { inherit pkgs sources; }) lightpanda;
@@ -41,6 +46,8 @@ let
     );
 in
 {
+  home.packages = [ hepta-lint ];
+
   programs.claude-code = {
     enable = true;
     context = ./CLAUDE.md;

@@ -1,19 +1,28 @@
 # Lint one Heptabase concept card against the concept-card format.
 #
-# Fetches the card through the Heptabase CLI and runs hepta-lint (MoonBit,
-# compiled to wasm) over it. The checks that need the CLI happen here: that
-# every inline mention points at a live card, and, with --whiteboard, that the
-# card sits on that board. Prints the report as JSON; exits 1 when it holds
-# any error-severity finding.
+# Fetches the card through the Heptabase CLI and runs hepta-lint (MoonBit)
+# over it. The checks that need the CLI happen here: that every inline mention
+# points at a live card, and, with --whiteboard, that the card sits on that
+# board. Prints the report as JSON; exits 1 when it holds any error-severity
+# finding.
 def main [
   card_id: string
   --whiteboard (-w): string # id of the whiteboard the card should be on
 ] {
-  let root = $env.FILE_PWD | path join hepta-lint
-  let wasm = $root | path join _build wasm release build cmd main main.wasm
-  let build = do { cd $root; ^moon build --target wasm --release } | complete
-  if $build.exit_code != 0 {
-    error make { msg: $"hepta-lint failed to build:\n($build.stdout)($build.stderr)" }
+  # Under Nix, hepta-lint.nix builds the wasm and puts a wrapper on PATH; it is
+  # rebuilt by `home-manager switch`, so an edit to lint.mbt does not take
+  # effect before that. Elsewhere the sources next to this script are built on
+  # first use.
+  let lint = if (which hepta-lint | is-not-empty) {
+    { cmd: "hepta-lint", args: [] }
+  } else {
+    let root = $env.FILE_PWD | path join hepta-lint
+    let build = do { cd $root; ^moon build --target wasm --release } | complete
+    if $build.exit_code != 0 {
+      error make { msg: $"hepta-lint failed to build:\n($build.stdout)($build.stderr)" }
+    }
+    { cmd: "moonrun"
+      args: [($root | path join _build wasm release build cmd main main.wasm), "--"] }
   }
 
   # A failed CLI call still yields JSON ({"error": ...}); hepta-lint turns
@@ -23,7 +32,7 @@ def main [
   let props = $tmp | path join props.json
   (hepta note read $card_id).text | save -f $note
   (hepta card properties $card_id).text | save -f $props
-  mut report = ^moonrun $wasm -- $note $props | from json
+  mut report = ^$lint.cmd ...$lint.args $note $props | from json
   rm -rf $tmp
 
   if ($report | get -o error) != null {
