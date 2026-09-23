@@ -104,6 +104,8 @@ nu ~/.claude/skills/creating-heptabase-concept-card/scripts/lint-card.nu <concep
 
 `append` adds a real paragraph with a real mention and leaves the created-by-ai mark alone, so the card need not be recreated. The concept-card format allows this line (`解説:`) alongside `出典:` in either order. With no concept card there is nothing to append to — say so in the report.
 
+If the note shows a diagram of the card's subject, append that one image to the card too, after the `解説:` line and with the same `src`, so the card read on its own shows what it names. The concept-card skill's Body item 5 has the rules: one image, no caption, stable hosts only.
+
 **Rewriting** means `card trash <cardId>` plus a fresh `note create` from corrected markdown: `note save` takes ProseMirror JSON, and re-importing markdown is safer and faster. Report the trashed id.
 
 **Environment on this machine:** `jq`, `python` and `node` are not usable, so parse CLI output with `grep` through the Bash tool (PowerShell's `ConvertFrom-Json` works if you need structure). Output shapes differ per command: `card list` → `{results:[…]}`, `tag list` → `{tags:[…]}`, `note create` → `{id,title}`.

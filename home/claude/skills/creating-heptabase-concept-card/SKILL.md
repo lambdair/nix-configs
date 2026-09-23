@@ -57,6 +57,12 @@ Never put a *category* word in `()` — a kanji spelling belongs there, a kind-m
    Omit the line entirely when neither case applies.
 
    Both pointer paragraphs are optional and at most one of each is allowed. Either order passes the lint, because `note append` can only add at the end: a card that already carries `出典:` gains its `解説:` line below it.
+1. *Conditional:* **one diagram**, so the card read on its own shows what the sentence describes. Only a diagram the explainer note behind the card's `解説:` line already shows qualifies — the note carries its attribution, so the card needs no caption and no citation of its own, and a card without an explainer gets no image. This also keeps photos-as-decoration off food and product cards. Append it after the `解説:` line with `heptabase note append <cardId> --content-file <path>` holding `![](<src>)`, copying the `src` from the note.
+   - **At most one.** When the note has several for the subject (flat and rolling scissors), pick the one that shows the card's head name most directly; the rest stay in the note.
+   - **Sharing is fine.** Sibling cards may carry the same diagram when one figure covers them all (lead, pure and lag pursuit on one plot); the title says which curve is meant.
+   - **No fitting diagram → none.** Do not go looking for one just to fill the slot.
+   - **Stable sources only.** Use a Wikimedia Commons original under `upload.wikimedia.org` rather than a `/thumb/` rendition. Images hotlinked from social media (`pbs.twimg.com`) break when the post goes, so they stay in the note.
+   - `出典:` keeps its meaning (official page / the user's source); it never cites the diagram.
 
 **Sentence template** — dense, comma-separated, ending in `です。`. Sweeping every concept card in the library: that ending is all but universal, none ends in `こと。` (so don't reach for it), and not one has a second `。`. The single-sentence rule is not an aspiration; it is how every card is written.
 
@@ -66,7 +72,7 @@ Concrete example — the exemplar Bagna Cauda card, where `{{card 093f9041-…}}
 
 > にんにく、`{{card 093f9041-cec5-4509-9371-24e83c1b525a}}`、オリーブオイルを煮立たせた熱いソースに、新鮮な野菜をディップして楽しむイタリア・ピエモンテ州発祥の伝統的な郷土料理です。
 
-**The body excludes** properties, sub-headings, bullet lists, code blocks, math, and any paragraph beyond the two required blocks and the optional `解説:` / `出典:` pointer lines. Other note styles in the user's library — LaTeX definitions, album cards built from bullet lists, book notes — are *different* formats; do not mix them in.
+**The body excludes** properties, sub-headings, bullet lists, code blocks, math, captions, and any block beyond the two required ones, the optional `解説:` / `出典:` pointer lines and the one diagram. Other note styles in the user's library — LaTeX definitions, album cards built from bullet lists, book notes — are *different* formats; do not mix them in.
 
 **Tags (step 5) and whiteboard placement (step 6) are part of the card,** not optional polish. A card with no tag and no board is unfinished.
 
@@ -215,7 +221,7 @@ Check the finished card mechanically:
 nu ~/.claude/skills/creating-heptabase-concept-card/scripts/lint-card.nu <newCardId> --whiteboard <whiteboardId>
 ```
 
-Drop `--whiteboard` if step 6 left the card unplaced. The script prints a JSON report and exits 1 on any error-severity finding. It checks the title's brackets, the body shape, the bold H1, the one-sentence definition, the `解説` and `出典` lines, unparsed mentions, mentions of missing or trashed cards, that a tag is attached, and that the card is on the given board.
+Drop `--whiteboard` if step 6 left the card unplaced. The script prints a JSON report and exits 1 on any error-severity finding. It checks the title's brackets, the body shape, the bold H1, the one-sentence definition, the `解説` and `出典` lines, the diagram (at most one, with a `src`, and only alongside `解説`), unparsed mentions, mentions of missing or trashed cards, that a tag is attached, and that the card is on the given board.
 
 - **`ok: true`** — go on to the report.
 - **An error** — fix the card and lint again. `mention.unparsed` → the ProseMirror fallback in step 4. `tags.none` or `whiteboard.not_placed` → steps 5 or 6. A title or body you got wrong → `card trash` and create again (step 4). Do not report success over an error.
@@ -239,7 +245,7 @@ Print, in order:
 
 Stop there. Do not chain into creating linked stub cards, setting tag database properties, or further organization unless the user asks.
 
-One exception worth naming: when the card's subject is a mechanism — a protocol, an algorithm, a math or logic concept — the one sentence cannot explain how it works, and this format forbids the diagrams and math that would. Do not stretch the card; `creating-heptabase-explainer-note` writes the companion note that carries the mechanism, and the card stays the index entry it is meant to be. Once that note exists, append the `解説:` line (Body item 3) so the pair points both ways.
+One exception worth naming: when the card's subject is a mechanism — a protocol, an algorithm, a math or logic concept — the one sentence cannot explain how it works, and one diagram without math or prose cannot either. Do not stretch the card; `creating-heptabase-explainer-note` writes the companion note that carries the mechanism, and the card stays the index entry it is meant to be. Once that note exists, append the `解説:` line (Body item 3) so the pair points both ways, and then the note's diagram of the subject if it has one (Body item 5).
 
 ## Quick reference
 
@@ -265,7 +271,7 @@ One exception worth naming: when the card's subject is a mechanism — a protoco
 - **Wrong bracket for the purpose.** `独ソ電撃戦(ボードゲーム)` and `バシレウス【βασιλεύς, Basileus】` both cross the streams. `()` = the head name's other spelling (foreign original, romanization, kanji), `【】` = a Japanese category word.
 - **Retitling or rewriting an existing card.** This skill creates. Older cards break several of these rules — full-width parens, a space before `(`, a missing original script — because they predate them or belong to another format. They are neither models to copy nor yours to fix; an inconsistency you notice goes in the report, not into an edit.
 - **Full-width `（）`, or a space before `(`.** Both belong to the user's *other* note formats. Concept cards use `頭名(reading)` tight and half-width.
-- **Multi-sentence body, bullet lists, code blocks, math, sub-headings.** Compression is the style; merge with commas. The only permitted extra blocks are the `解説:` and `出典:` pointer lines.
+- **Multi-sentence body, bullet lists, code blocks, math, sub-headings.** Compression is the style; merge with commas. The only permitted extra blocks are the `解説:` and `出典:` pointer lines and one diagram taken from the explainer note.
 - **Unbolded H1.** `# **Title**`.
 - **Forgetting `--no-created-by-ai`.** A later `append`/`save` will not clear the mark, and it is not a tag-database property that `card set-property` can reach. The reliable fix is `card trash` plus a fresh create. These cards are the user's own.
 - **Attaching a tag without `tag list -n` first**, or rewriting an existing tag's casing instead of using it verbatim — both produce duplicates.
