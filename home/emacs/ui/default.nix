@@ -6,7 +6,7 @@
 
 let
   jj-mode = pkgs.callPackage ./jj-mode.nix {
-    inherit (pkgs.emacs.pkgs) trivialBuild magit;
+    inherit (epkgs) trivialBuild magit;
     inherit sources;
   };
 in
