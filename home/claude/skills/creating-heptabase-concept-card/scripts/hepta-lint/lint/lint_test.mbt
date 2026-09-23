@@ -244,6 +244,30 @@ test "出典 paragraph must be a labelled link" {
 }
 
 ///|
+fn image(src? : String = "https://upload.wikimedia.org/x.png") -> Json {
+  { "type": "image", "attrs": { "src": src.to_json() } }
+}
+
+///|
+test "at most one image, after the definition, alongside 解説" {
+  let h = heading([bold("X")])
+  let d = para([text("定義です。")])
+  let k = para([
+    text("解説: "),
+    {
+      "type": "card",
+      "attrs": { "cardId": "11111111-1111-4111-8111-111111111111" },
+    },
+  ])
+  assert_eq(check("X", [h, d, k, image()]), [])
+  assert_eq(check("X", [h, d, image(), k]), [])
+  assert_eq(check("X", [h, d, k, image(), image()]), ["image.count"])
+  assert_eq(check("X", [h, image(), d, k]), ["body.shape"])
+  assert_eq(check("X", [h, d, image()]), ["image.without_explainer"])
+  assert_eq(check("X", [h, d, k, image(src="")]), ["image.no_src"])
+}
+
+///|
 test "tags and CLI errors" {
   let ok = note("X", [heading([bold("X")]), para([text("定義です。")])])
   assert_eq(rules(@lint.lint_note(ok, props_json="{\"tags\":[]}")), [

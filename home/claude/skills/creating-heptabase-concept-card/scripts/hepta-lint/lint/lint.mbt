@@ -284,18 +284,46 @@ fn join(items : Array[String], sep : String) -> String {
 ///|
 /// Returns whether the block sequence is one the format allows, so the caller
 /// can skip the per-paragraph checks on a body that is the wrong shape anyway.
+/// A diagram may sit anywhere after the definition, like the pointer lines,
+/// because `note append` can only add at the end.
 fn check_shape(kinds : Array[String], out : Array[Finding]) -> Bool {
-  let ok = kinds == ["heading", "paragraph"] ||
-    kinds == ["heading", "paragraph", "paragraph"] ||
-    kinds == ["heading", "paragraph", "paragraph", "paragraph"]
+  let rest = kinds.filter(fn(k) { k != "image" })
+  let ok = kinds.length() >= 2 &&
+    kinds[0] == "heading" &&
+    kinds[1] == "paragraph" &&
+    (
+      rest == ["heading", "paragraph"] ||
+      rest == ["heading", "paragraph", "paragraph"] ||
+      rest == ["heading", "paragraph", "paragraph", "paragraph"]
+    )
   if !ok {
     error(
       out,
       "body.shape",
-      "body blocks are [\{join(kinds, ", ")}]; expected heading + one paragraph, plus an optional 解説 paragraph and an optional 出典 paragraph",
+      "body blocks are [\{join(kinds, ", ")}]; expected heading + one paragraph, plus an optional 解説 paragraph, an optional 出典 paragraph and an optional image",
+    )
+  }
+  let images = kinds.length() - rest.length()
+  if images > 1 {
+    error(
+      out,
+      "image.count",
+      "the card holds \{images} images; it takes at most one",
     )
   }
   ok
+}
+
+///|
+fn check_image(image : Json, out : Array[Finding]) -> Unit {
+  let src = match field(image, "attrs") {
+    Some(attrs) => str_field(attrs, "src")
+    None => None
+  }
+  match src {
+    Some(s) if s != "" => ()
+    _ => error(out, "image.no_src", "the image has no src")
+  }
 }
 
 ///|
@@ -477,10 +505,14 @@ pub fn lint_note(note_json : String, props_json? : String) -> Report raise {
   if shape_ok {
     let mut has_explainer = false
     let mut has_source = false
+    let mut has_image = false
     for i in 2..<kinds.length() {
       let para = blocks[i]
       let text = plain_text(para)
-      if text.has_prefix("解説") {
+      if kinds[i] == "image" {
+        check_image(para, out)
+        has_image = true
+      } else if text.has_prefix("解説") {
         if has_explainer {
           error(out, "explainer.duplicate", "the card has two 解説 paragraphs")
         } else {
@@ -501,6 +533,13 @@ pub fn lint_note(note_json : String, props_json? : String) -> Report raise {
           "a paragraph after the definition is only allowed as \"解説: <card>\" or \"出典: <link>\"",
         )
       }
+    }
+    // The diagram is one already shown in the explainer note, which carries
+    // its attribution, so a card with an image needs the 解説 pointer.
+    if has_image && !has_explainer {
+      error(
+        out, "image.without_explainer", "a card with an image needs a 解説 paragraph pointing at the explainer note that shows it",
+      )
     }
   }
   let all = StringBuilder()
