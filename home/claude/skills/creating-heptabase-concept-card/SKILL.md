@@ -11,6 +11,7 @@ The user maintains a Japanese-language knowledge graph in Heptabase where each "
 - Non-Latin origin (script + romanization), and the optional `出典:` line: `バシレウス(βασιλεύς, Basileus)` — id `fc365328-6a45-4904-b1f4-25f74ea899c1`.
 - Disambiguation / category tag (uses 【】, not parens): `独ソ電撃戦【ボードゲーム】` — id `4917f759-7dd3-4814-b788-ceafcbca278b`; `ヴォイテク【熊】` — id `4db6fe3b-af9f-44ee-bbdb-9b73c2e274f0`.
 - A concrete referent (a named product) carrying its official page as `出典:`: `レモスコ(LEMOSCO)` — id `aed01510-180f-4f29-9497-d50833e54f94`.
+- The `解説:` pointer followed by one diagram taken from that explainer note: `ハイ・ヨーヨー(high yo-yo)` — id `8775136a-b5f4-4859-9dde-fd9db2963b83`.
 
 **REQUIRED SUB-SKILL:** This skill drives the Heptabase CLI. Use `heptabase:heptabase-cli` for the actual commands and their up-to-date flags.
 
@@ -241,6 +242,7 @@ Print, in order:
 1. The lint result: clean, or which warnings remain.
 1. The `出典:` link and why it is there (official page / user's source), or that the card has none because it names a general concept.
 1. The `解説:` pointer, if the card has one, and the note it points at.
+1. The diagram appended from that note (its `src`), or why the card has none: no explainer, or no diagram in it that shows the subject.
 1. Anything you could not confirm — an original script you had to omit, a duplicate tag you noticed and left alone.
 
 Stop there. Do not chain into creating linked stub cards, setting tag database properties, or further organization unless the user asks.
@@ -264,6 +266,7 @@ One exception worth naming: when the card's subject is a mechanism — a protoco
 | Find whiteboard | `heptabase whiteboard list -n "<keyword>"` |
 | Inspect a whiteboard | `heptabase whiteboard cards <whiteboardId>` |
 | Place card on whiteboard | `heptabase whiteboard add-card --whiteboard-id <wbId> --card-id <cardId>` |
+| Append 解説 line or diagram | `heptabase note append <cardId> --content-file <path>` (`解説: {{card <noteId>}}` / `![](<src>)`) |
 
 ## Common mistakes
 - **Plain-text mention where a card exists.** If `アンチョビ` has a card and you write the bare word, you broke the graph. Redo step 3 and use `{{card <uuid>}}`.
@@ -298,5 +301,7 @@ One exception worth naming: when the card's subject is a mechanism — a protoco
 - Title uses `（）`, a space before `(`, a category *word* in `()` (a kanji spelling there is fine), or a reading in `【】` → fix the brackets.
 - Combined form written as `アップル(Apple)(企業)` → the second group is `【企業】`.
 - Finishing with no tag or no whiteboard → steps 5 and 6.
+- About to put an image on the card that the explainer note does not show, a second image, or a caption → one diagram, copied from the note (Body item 5).
+- Image `src` is on `pbs.twimg.com` or a Wikimedia `/thumb/` path → leave it in the note; the card takes a Commons original.
 - About to create a card for a named product, brand, venue, event, or proprietary technology with no `出典:` → step 2b.
 - An explainer note for the topic exists but the card has no `解説:` line → append it (Body item 3); a pointer that only the backlink panel shows is a pointer the user will not find.

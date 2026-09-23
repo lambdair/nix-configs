@@ -4,7 +4,7 @@ description: 'Use when the user wants the mechanism behind something explained a
 ---
 ## Overview
 
-The user keeps a Japanese knowledge graph in Heptabase. `creating-heptabase-concept-card` writes the one-sentence entry: what a thing *is*. That format deliberately excludes diagrams, math, headings and second sentences, so it cannot carry *how a thing works*. This skill writes the companion note that can — with Mermaid diagrams and KaTeX math where they earn their place — and keeps it short enough to be read in one sitting.
+The user keeps a Japanese knowledge graph in Heptabase. `creating-heptabase-concept-card` writes the one-sentence entry: what a thing *is*. That format deliberately excludes math, headings and second sentences and holds at most one diagram, so it cannot carry *how a thing works*. This skill writes the companion note that can — with Mermaid diagrams and KaTeX math where they earn their place — and keeps it short enough to be read in one sitting.
 
 Working exemplar in the workspace: `FIDO2の仕組み`, id `d3b2ada3-a5ee-476c-9700-2df3647f05a4`. Read it with `heptabase note read` before writing; it shows the shape faster than this file describes it.
 
@@ -73,6 +73,7 @@ heptabase note create --content-file <path>
 | Display math | `$$ … $$` **on one line** |
 | Inline math | `$ … $` inside a paragraph |
 | Card / note link | `{{card <uuid>}}` |
+| Image | `![](<url>)` — hotlinked, since the CLI cannot upload files; prefer a Wikimedia Commons original, and name the source in the text next to it |
 
 Everything in that table imports faithfully, including `\\` row separators — this was tested. For anything outside it (tables, embeds, todo lists, video), read `references/card-content-schema.md` in the sub-skill.
 
@@ -118,4 +119,4 @@ Place the note on the same whiteboard as the card (`whiteboard add-card`). Never
 
 ## 7. Report
 
-A few lines: the note id and title, its sections in one line each, tags and board, the `解説:` line you appended to the card (or why there was none), what you cut, and anything you could not confirm. The user asked for concision in the notes; the report follows the same rule.
+A few lines: the note id and title, its sections in one line each, tags and board, the `解説:` line and the diagram you appended to the card (or why there was none), what you cut, and anything you could not confirm. The user asked for concision in the notes; the report follows the same rule.
