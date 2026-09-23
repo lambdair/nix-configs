@@ -37,6 +37,13 @@
     hunk = {
       url = "github:modem-dev/hunk";
     };
+    # Pinned to a release so the Emacs underneath the config only moves on an
+    # explicit bump.  Deliberately not following nixpkgs: eval-exec.cachix.org
+    # holds builds made against neomacs's own lock, and following ours turns
+    # every substitution into a from-source Rust build.
+    neomacs = {
+      url = "github:eval-exec/neomacs/v0.0.19";
+    };
     private = {
       url = "git+ssh://git@git.sr.ht/~lambdair/nix-private";
     };

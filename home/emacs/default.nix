@@ -1,9 +1,36 @@
-{ pkgs, sources, ... }:
+{
+  pkgs,
+  sources,
+  inputs,
+  ...
+}:
 
+let
+  neomacs = inputs.neomacs.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  # nixpkgs' elisp builders expect two things neomacs's package lacks: the
+  # setup hook that puts each dependency on EMACSLOADPATH, and meta.platforms.
+  # A symlink shim adds them and leaves neomacs's own derivation (the one in
+  # eval-exec.cachix.org) untouched.  neomacs also ships emacs/emacsclient as
+  # aliases of neomacs/neomacsclient.
+  emacs = pkgs.symlinkJoin {
+    pname = "neomacs-shim";
+    inherit (neomacs) version;
+    paths = [ neomacs ];
+    postBuild = ''
+      rm -f $out/nix-support/setup-hook
+      install -Dm644 ${pkgs.path}/pkgs/applications/editors/emacs/setup-hook.sh \
+        $out/nix-support/setup-hook
+    '';
+    passthru = { inherit (neomacs) src; };
+    meta = neomacs.meta // {
+      platforms = pkgs.lib.platforms.unix;
+    };
+  };
+in
 {
   home.packages = [
     (pkgs.emacsWithPackagesFromUsePackage {
-      package = if pkgs.stdenv.isLinux then pkgs.emacs-pgtk else pkgs.emacs-unstable;
+      package = emacs;
       config = ./init-config.el;
       defaultInitFile = false;
       extraEmacsPackages =
