@@ -87,7 +87,14 @@
   (setq catppuccin-flavor 'frappe)
   (load-theme 'catppuccin :no-confirm))
 
-(use-package nord-theme)
+(use-package nord-theme
+  :init
+  ;; nord-theme.el has no lexical-binding cookie, even upstream (0.6.0), and
+  ;; elpaca loads it from source.  Silence the warning for that file only.
+  (require 'warnings)
+  (when-let* ((file (locate-library "nord-theme.el")))
+    (add-to-list 'warning-suppress-log-types
+                 `(files missing-lexbind-cookie ,(abbreviate-file-name file)))))
 
 (use-package dashboard
   :demand t
