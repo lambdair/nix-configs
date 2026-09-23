@@ -92,7 +92,7 @@ Follow the template. Compress aggressively — one sentence is the style. Identi
 
 ### 2b. Find the official page (concrete referents only)
 
-If the card names a concrete referent (Body item 3), find its official page now with a web search and carry the URL to step 4. Prefer, in order: the owner's page for this exact item (product page, event page) → the owner's home page → a page the owner publishes elsewhere (e.g. a Rakuten store run by the maker). A shop, news, or wiki page is a fallback only when no official page exists — say so in the report. Keep the page you researched the facts from in mind too: when it *is* the official page, that is the one to cite.
+If the card names a concrete referent (Body item 4), find its official page now with a web search and carry the URL to step 4. Prefer, in order: the owner's page for this exact item (product page, event page) → the owner's home page → a page the owner publishes elsewhere (e.g. a Rakuten store run by the maker). A shop, news, or wiki page is a fallback only when no official page exists — say so in the report. Keep the page you researched the facts from in mind too: when it *is* the official page, that is the one to cite.
 
 ### 3. Find existing cards to inline-link
 
@@ -130,7 +130,7 @@ File contents:
 
 - `**bold**` around the heading text produces the required bold H1; the card title is taken from the H1.
 - `{{card <uuid>}}` becomes an inline `card` mention — no ProseMirror JSON needed. This is tested, including the awkward case where the mention sits directly between Japanese 読点 (`にんにく、{{card …}}、オリーブ`): it parses into `text, card, text` correctly. Use only ids resolved in step 3.
-- Keep the `出典:` line only for a concrete referent's official page (step 2b) or a source the user shared (Body item 3); drop it otherwise. The URL doubles as the link text, matching the existing cards. The markdown link form is deliberate: it reproduces the link mark the バシレウス exemplar has, whereas a bare URL may or may not autolink.
+- Keep the `出典:` line only for a concrete referent's official page (step 2b) or a source the user shared (Body item 4); drop it otherwise. The URL doubles as the link text, matching the existing cards. The markdown link form is deliberate: it reproduces the link mark the バシレウス exemplar has, whereas a bare URL may or may not autolink.
 - `--no-created-by-ai` keeps the card as the user's own knowledge entry: they supply the fact and you act as scribe. The mark is settable **only at create time** and cannot be changed by a later `append`/`save`, so it has to be on this call. See the sub-skill's `references/created-by-ai.md`.
 
 If you get the create wrong in a way `save` cannot repair — the mark, or a mistyped title — `heptabase card trash <cardId>` soft-deletes it (`card restore <cardId>` undoes that) and you can create the card again. Say so in the report rather than leaving a broken card behind; do not trash anything you did not just create.
