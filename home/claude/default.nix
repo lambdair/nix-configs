@@ -252,6 +252,12 @@ in
     // deploy "skills" ./skills
     // deploy "rules" ./rules
     // {
+      # Published as a Cursor plugin, which Claude Code cannot add as a
+      # marketplace, so the skill is linked on its own.
+      ".claude/skills/thermo-nuclear-code-quality-review/SKILL.md".source =
+        "${sources.cursor-plugins.src}/cursor-team-kit/skills/thermo-nuclear-code-quality-review/SKILL.md";
+    }
+    // {
       # Claude sessions rewrite known_marketplaces.json and settings.json, so
       # force the overwrite to avoid activation conflicts (the claude-code
       # module owns the source).

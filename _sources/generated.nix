@@ -42,6 +42,18 @@
     };
     date = "2026-09-21";
   };
+  cursor-plugins = {
+    pname = "cursor-plugins";
+    version = "12d587dfb20741cafc376c42c696c5f6e2a64487";
+    src = fetchFromGitHub {
+      owner = "cursor";
+      repo = "plugins";
+      rev = "12d587dfb20741cafc376c42c696c5f6e2a64487";
+      fetchSubmodules = false;
+      sha256 = "sha256-ir2L4nqPFgBc6n4uFbpDxQPPLJRBSsCR92T6/itICGQ=";
+    };
+    date = "2026-09-23";
+  };
   difit = {
     pname = "difit";
     version = "82a765c037ec28fe7fe90ab2f1e4b5748032b4fa";
