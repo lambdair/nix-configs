@@ -21,10 +21,11 @@
   :config
   (auto-save-visited-mode 1))
 
-(setq shell-file-name
-      (if (eq system-type 'windows-nt)
-          (or (executable-find "bash") "cmd.exe")
-        (or (executable-find "bash") "/bin/bash")))
+;; Without bash on Windows, keep Emacs's default (cmdproxy.exe): its
+;; shell-command-switch and w32-quote-process-args are set up for it.
+(let ((bash (executable-find "bash")))
+  (cond (bash (setq shell-file-name bash))
+        ((not (eq system-type 'windows-nt)) (setq shell-file-name "/bin/bash"))))
 (setq use-short-answers 1)
 (setq ring-bell-function 'ignore)
 (setq scroll-conservatively 1)
