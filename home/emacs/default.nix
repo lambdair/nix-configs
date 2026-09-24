@@ -59,6 +59,15 @@ in
             mv guarded.el core/tsc-dyn-get.el
           '';
         });
+        # neomacs rejects a symbol carrying byte-compile position information
+        # where a coding system is expected, and sly-tests.el names one
+        # literally. Removable once neomacs strips the position.
+        sly = prev.sly.overrideAttrs (old: {
+          postPatch = (old.postPatch or "") + ''
+            substituteInPlace lib/sly-tests.el \
+              --replace-fail "'utf-8-unix" '(intern "utf-8-unix")'
+          '';
+        });
         # neomacs's byte-compiler ignores the lexical environment alist `eval`
         # takes, so markdown--dotimes-when-compile expands its generated
         # defface forms with the loop variable unbound. Binding it with `let`
