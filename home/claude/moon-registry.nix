@@ -11,8 +11,9 @@
 # changes). The full 18M index git clone is intentionally dropped so the output
 # hash is stable.
 #
-# Bump outputHash whenever the versions below or the moon toolchain change
-# (nix prints the new hash on mismatch).
+# Bump outputHash whenever the versions below, the moon toolchain, or the
+# formatting mooncakes gives the index lines change (nix prints the new hash on
+# mismatch).
 { pkgs }:
 let
   moon = pkgs.moonbit-bin.moonbit.latest;
@@ -55,12 +56,15 @@ pkgs.stdenv.mkDerivation {
     idx="$MOON_HOME/registry/index/user/moonbitlang"
     mkdir -p "$out/registry/cache" "$out/registry/index/user/moonbitlang"
     cp -r "$MOON_HOME/registry/cache/moonbitlang" "$out/registry/cache/"
-    grep '"version": "${asyncVersion}"' "$idx/async.index" \
+    # The index is one JSON object per line, and mooncakes serves both spaced
+    # and compact forms (x.index has the space, async.index does not), so the
+    # version match has to allow either.
+    grep -E '"version": ?"${pkgs.lib.escapeRegex asyncVersion}"' "$idx/async.index" \
       > "$out/registry/index/user/moonbitlang/async.index"
-    grep '"version": "${xVersion}"' "$idx/x.index" \
+    grep -E '"version": ?"${pkgs.lib.escapeRegex xVersion}"' "$idx/x.index" \
       > "$out/registry/index/user/moonbitlang/x.index"
   '';
   outputHashMode = "recursive";
   outputHashAlgo = "sha256";
-  outputHash = "sha256-QvGxtKOAGD4oc8EP/88madZvki57d/wgyTmfxVOtnq0=";
+  outputHash = "sha256-v+UEgD3ad9LiL87/kGTY8jfSzW0eNmt3ZrHIE/8dGho=";
 }
