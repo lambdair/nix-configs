@@ -33,6 +33,22 @@ in
       package = emacs;
       config = ./init-config.el;
       defaultInitFile = false;
+      # neomacs's byte-compiler ignores the lexical environment alist `eval`
+      # takes, so markdown--dotimes-when-compile expands its generated defface
+      # forms with the loop variable unbound. Binding it with `let` produces
+      # the same expansion under both compilers. The override goes through the
+      # package scope so lsp-mode and claude-code pull in the patched build
+      # too. Removable once neomacs honours the alist.
+      override = _final: prev: {
+        markdown-mode = prev.markdown-mode.overrideAttrs (old: {
+          postPatch = (old.postPatch or "") + ''
+            substituteInPlace markdown-mode.el \
+              --replace-fail \
+                '(push (eval body `((,var . ,i))) code))' \
+                '(push (eval `(let ((,var ,i)) ,body) t) code))'
+          '';
+        });
+      };
       extraEmacsPackages =
         epkgs:
         let
