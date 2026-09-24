@@ -11,7 +11,13 @@
 ;; Nix: disable :ensure entirely (packages are provided by Nix)
 (when my/nix-p
   (setq use-package-always-ensure nil)
-  (setq use-package-ensure-function 'ignore))
+  (setq use-package-ensure-function 'ignore)
+  ;; init-config.el gives some packages an elpaca recipe as `:ensure'.  Stock
+  ;; use-package rejects that form and drops the whole declaration, so accept
+  ;; any value: `use-package-ensure-function' ignores it anyway.
+  (with-eval-after-load 'use-package-ensure
+    (advice-add 'use-package-normalize/:ensure :override
+                (lambda (&rest _) (list nil)))))
 
 ;; Non-Nix: bootstrap Elpaca and enable use-package integration
 (unless my/nix-p
