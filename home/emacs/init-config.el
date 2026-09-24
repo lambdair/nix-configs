@@ -660,7 +660,8 @@ vi style of % jumping to matching brace."
   (pdf-loader-install))
 
 (use-package vterm
-  :if (not (eq system-type 'windows-nt)))
+  :if (not (eq system-type 'windows-nt))
+  :defer t)
 
 (use-package copilot
   :bind (:map copilot-completion-map
