@@ -1,9 +1,10 @@
 { pkgs, sources }:
 let
-  # Node 24's libuv aborts with a kqueue assertion (kqueue.c:279) when pnpm uses
-  # its worker thread pool on macOS. Pin pnpm (and the pnpm used internally by
-  # fetchPnpmDeps) to nodejs_22 LTS as a workaround.
-  pnpm = pkgs.pnpm.override { nodejs = pkgs.nodejs_22; };
+  # pnpm 12 is a Rust rewrite whose store layout fetchPnpmDeps cannot post-process,
+  # so stay on the Node-based pnpm 11. Node 24's libuv aborts with a kqueue
+  # assertion (kqueue.c:279) when pnpm uses its worker thread pool on macOS, hence
+  # nodejs_22 LTS for pnpm and for the pnpm used internally by fetchPnpmDeps.
+  pnpm = pkgs.pnpm_11.override { nodejs-slim = pkgs.nodejs_22; };
   fetchPnpmDeps = pkgs.fetchPnpmDeps.override { inherit pnpm; };
 in
 pkgs.stdenv.mkDerivation (finalAttrs: {
