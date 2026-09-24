@@ -546,6 +546,7 @@ vi style of % jumping to matching brace."
   :hook (clojure-mode . lsp))
 
 (use-package cider
+  :defer t
   :config
   (setq cider-repl-display-help-banner nil))
 
