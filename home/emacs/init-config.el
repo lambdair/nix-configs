@@ -59,27 +59,12 @@
   (set-face-foreground 'show-paren-match "#303446"))
 
 ;; Font configuration
-(cond
- ((eq system-type 'darwin)
-  (set-face-attribute 'default nil
-                      :family "Uiua386"
-                      :height 160)
-  (dolist (charset '(kana han cjk-misc))
-    (set-fontset-font t charset
-                      (font-spec :family "Rounded Mgen+ 2m"))))
- ((eq system-type 'windows-nt)
-  ;; Maple Mono NF CN: the font the rest of the Windows setup uses (Windows
-  ;; Terminal, Zed), installed through scoop's nerd-fonts bucket.  It covers
-  ;; CJK itself, so no per-charset fontset is needed.  :height is 1/10 pt.
-  (set-face-attribute 'default nil
-                      :family "Maple Mono NF CN"
-                      :height 120))
- (t
-  (add-to-list 'default-frame-alist '(font . "Uiua386-12"))
-  (set-fontset-font "fontset-default"
-                    'han "Rounded Mgen+ 2m")
-  (set-fontset-font "fontset-default"
-                    'kana "Rounded Mgen+ 2m")))
+;; Maple Mono NF CN: the font of the terminals (Ghostty, Windows Terminal).
+;; home-manager installs it, and scoop's nerd-fonts bucket on Windows.  It
+;; covers CJK itself, so no per-charset fontset is needed.  :height is 1/10 pt.
+(set-face-attribute 'default nil
+                    :family "Maple Mono NF CN"
+                    :height (if (eq system-type 'darwin) 160 120))
 
 (use-package catppuccin-theme
   :demand t
