@@ -6,6 +6,16 @@
 }:
 
 let
+  # neomacs loads dynamic modules but does not register the error symbols a
+  # failed load signals, so it raises `(error "Invalid error symbol" ...)`
+  # instead of a condition a handler can match.
+  moduleErrorSymbols = pkgs.writeText "neomacs-module-errors.el" ''
+    (unless (get 'module-open-failed 'error-conditions)
+      (define-error 'module-load-failed "Module load failed")
+      (define-error 'module-open-failed "Module could not be opened" 'module-load-failed)
+      (define-error 'module-init-failed "Module initialization failed" 'module-load-failed)
+      (define-error 'module-not-gpl-compatible "Module is not GPL compatible" 'module-load-failed))
+  '';
   neomacs = inputs.neomacs.packages.${pkgs.stdenv.hostPlatform.system}.default;
   # nixpkgs' elisp builders expect two things neomacs's package lacks: the
   # setup hook that puts each dependency on EMACSLOADPATH, and meta.platforms.
@@ -33,13 +43,27 @@ in
       package = emacs;
       config = ./init-config.el;
       defaultInitFile = false;
-      # neomacs's byte-compiler ignores the lexical environment alist `eval`
-      # takes, so markdown--dotimes-when-compile expands its generated defface
-      # forms with the loop variable unbound. Binding it with `let` produces
-      # the same expansion under both compilers. The override goes through the
-      # package scope so lsp-mode and claude-code pull in the patched build
-      # too. Removable once neomacs honours the alist.
+      # Overrides go through the package scope, so the transitive dependants of
+      # a patched package pick the patched build up too.
       override = _final: prev: {
+        # tsc guards its optional load of tsc-dyn with a `module-open-failed`
+        # handler, which never matches under neomacs. Removable once neomacs
+        # registers the symbols itself.
+        tsc = prev.tsc.overrideAttrs (old: {
+          postPatch = (old.postPatch or "") + ''
+            # The file's first line carries its lexical-binding cookie, which
+            # only counts there, so the shim goes on the second.
+            head -n 1 core/tsc-dyn-get.el > guarded.el
+            cat ${moduleErrorSymbols} >> guarded.el
+            tail -n +2 core/tsc-dyn-get.el >> guarded.el
+            mv guarded.el core/tsc-dyn-get.el
+          '';
+        });
+        # neomacs's byte-compiler ignores the lexical environment alist `eval`
+        # takes, so markdown--dotimes-when-compile expands its generated
+        # defface forms with the loop variable unbound. Binding it with `let`
+        # produces the same expansion under both compilers. Removable once
+        # neomacs honours the alist.
         markdown-mode = prev.markdown-mode.overrideAttrs (old: {
           postPatch = (old.postPatch or "") + ''
             substituteInPlace markdown-mode.el \
