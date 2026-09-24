@@ -634,7 +634,8 @@ vi style of % jumping to matching brace."
 (use-package jj-mode
   ;; Not on MELPA/ELPA; the recipe is ignored under Nix (`:ensure' is a no-op).
   :ensure (jj-mode :host github :repo "bolivier/jj-mode.el")
-  :demand t)
+  ;; Nix builds it without generating its autoloads.
+  :commands (jj-log jj-mode-transient))
 
 
 ;;; ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
