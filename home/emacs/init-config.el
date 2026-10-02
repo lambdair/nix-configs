@@ -622,6 +622,11 @@ vi style of % jumping to matching brace."
   ;; Nix builds it without generating its autoloads.
   :commands (jj-log jj-mode-transient))
 
+(use-package majutsu
+  ;; Not on MELPA/ELPA; the recipe is ignored under Nix (`:ensure' is a no-op).
+  :ensure (majutsu :host github :repo "0WD0/majutsu")
+  :defer t)
+
 
 ;;; ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ;;; Org
