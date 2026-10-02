@@ -684,26 +684,6 @@
         },
         "version": "5435c307c6cf2ef0d508a99047b06f35a4308444"
     },
-    "typst-ts-mode": {
-        "cargoLock": null,
-        "date": "2026-06-24",
-        "extract": null,
-        "name": "typst-ts-mode",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "rev": "155bb36cff3afe701a0f6b57bd3fe5c9effaa314",
-            "sha256": "sha256-6QUPLiEoKD64tozOm0KBvCdwCNMxcUpCVZu9qOEVosk=",
-            "sparseCheckout": [],
-            "type": "git",
-            "url": "https://codeberg.org/meow_king/typst-ts-mode"
-        },
-        "version": "155bb36cff3afe701a0f6b57bd3fe5c9effaa314"
-    },
     "ui-utils-hx": {
         "cargoLock": null,
         "date": null,

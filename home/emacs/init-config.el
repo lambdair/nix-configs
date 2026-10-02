@@ -568,9 +568,6 @@ vi style of % jumping to matching brace."
   :hook (nix-mode . eglot-ensure))
 
 (use-package typst-ts-mode
-  ;; Not on MELPA/ELPA; the recipe is ignored under Nix (`:ensure' is a no-op).
-  :ensure (typst-ts-mode :host nil
-                         :repo "https://codeberg.org/meow_king/typst-ts-mode")
   :demand t
   :after eglot
   :mode "\\.typ\\'"

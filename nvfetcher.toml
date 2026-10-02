@@ -3,10 +3,6 @@
 src.git = "https://github.com/leanprover-community/lean4-mode"
 fetch.github = "leanprover-community/lean4-mode"
 
-[typst-ts-mode]
-src.git = "https://codeberg.org/meow_king/typst-ts-mode"
-fetch.git = "https://codeberg.org/meow_king/typst-ts-mode"
-
 [eglot-booster]
 src.git = "https://github.com/jdtsmith/eglot-booster"
 fetch.github = "jdtsmith/eglot-booster"

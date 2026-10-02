@@ -16,10 +16,9 @@ let
     lsp-mode = lsp-mode-plist;
     inherit sources;
   };
-  typst-ts-mode = pkgs.callPackage ./typst/typst-ts-mode.nix {
-    inherit (epkgs) trivialBuild;
-    inherit sources;
-  };
+  # NonGNU's devel archive builds main; its stable archive moves only on version
+  # bumps.
+  typst-ts-mode = epkgs.nongnuDevelPackages.typst-ts-mode;
   # MELPA's archive-contents records no dependencies for lispy, so nothing puts
   # swiper and the rest on the load path and byte-compiling lispy.el fails. The
   # list below is the one lispy-pkg.el declares.

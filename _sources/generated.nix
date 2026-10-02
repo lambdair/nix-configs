@@ -401,20 +401,6 @@
     };
     date = "2026-07-22";
   };
-  typst-ts-mode = {
-    pname = "typst-ts-mode";
-    version = "155bb36cff3afe701a0f6b57bd3fe5c9effaa314";
-    src = fetchgit {
-      url = "https://codeberg.org/meow_king/typst-ts-mode";
-      rev = "155bb36cff3afe701a0f6b57bd3fe5c9effaa314";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sparseCheckout = [ ];
-      sha256 = "sha256-6QUPLiEoKD64tozOm0KBvCdwCNMxcUpCVZu9qOEVosk=";
-    };
-    date = "2026-06-24";
-  };
   ui-utils-hx = {
     pname = "ui-utils-hx";
     version = "3262e80706f9d332b83d3ac0f578ffd40e2e0673";
