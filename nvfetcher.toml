@@ -53,11 +53,6 @@ src.github = "heptameta/project-meta"
 src.prefix = "v"
 fetch.url = "https://github.com/heptameta/project-meta/releases/download/v$ver/Heptabase-$ver.AppImage"
 
-# [awrit]
-# src.github_tag = "chase/awrit"
-# src.prefix = "v"
-# fetch.url = "https://github.com/chase/awrit/releases/download/v$ver/awrit-mac-arm64.tar.xz"
-
 [helix-steel]
 src.git = "https://github.com/mattwparas/helix"
 src.branch = "steel-event-system"
