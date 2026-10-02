@@ -766,6 +766,27 @@
         },
         "version": "5071e4a22fd2952617ae995cd3fab737c77753ae"
     },
+    "yomiyasu": {
+        "cargoLock": null,
+        "date": "2026-10-02",
+        "extract": null,
+        "name": "yomiyasu",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "nanaism",
+            "repo": "yomiyasu",
+            "rev": "e5c6a8443a427726a472e2e560fc8679125ea2b8",
+            "sha256": "sha256-dZc9NRFBTl4tEKfSLAIE77smW50M5dEbzn5vzTXduRk=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "e5c6a8443a427726a472e2e560fc8679125ea2b8"
+    },
     "zmk-battery-center-linux": {
         "cargoLock": null,
         "date": null,

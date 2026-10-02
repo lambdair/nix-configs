@@ -69,6 +69,7 @@ in
       moonbit-code-plugins = sources.moonbit-skills.src;
       superpowers-dev = sources.superpowers.src;
       thedotmack = sources.claude-mem.src;
+      yomiyasu = sources.yomiyasu.src;
     };
     mcpServers.context7 = {
       type = "stdio";
@@ -169,6 +170,7 @@ in
         # Supplies the skill; the MCP server it declares is inert (see
         # mcpServers.lightpanda above).
         "lightpanda@lightpanda" = true;
+        "yomiyasu@yomiyasu" = true;
       };
       statusLine = {
         type = "command";

@@ -452,6 +452,18 @@
     };
     date = "2026-01-29";
   };
+  yomiyasu = {
+    pname = "yomiyasu";
+    version = "e5c6a8443a427726a472e2e560fc8679125ea2b8";
+    src = fetchFromGitHub {
+      owner = "nanaism";
+      repo = "yomiyasu";
+      rev = "e5c6a8443a427726a472e2e560fc8679125ea2b8";
+      fetchSubmodules = false;
+      sha256 = "sha256-dZc9NRFBTl4tEKfSLAIE77smW50M5dEbzn5vzTXduRk=";
+    };
+    date = "2026-10-02";
+  };
   zmk-battery-center-linux = {
     pname = "zmk-battery-center-linux";
     version = "0.12.0";
