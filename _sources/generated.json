@@ -460,27 +460,6 @@
         },
         "version": "8b9f1bad14bc62560dbe3537855379e561a4e066"
     },
-    "nordic": {
-        "cargoLock": null,
-        "date": "2026-05-03",
-        "extract": null,
-        "name": "nordic",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "AlexvZyl",
-            "repo": "nordic.nvim",
-            "rev": "9fb62116b891184049c50ca6ffb0d3bc100a1a6e",
-            "sha256": "sha256-7Wod7nybP/3i3fMBnRdcNEeIWbbzowiyjTlqax8Fn4g=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "9fb62116b891184049c50ca6ffb0d3bc100a1a6e"
-    },
     "nvim-bqn": {
         "cargoLock": null,
         "date": "2023-09-08",

@@ -16,10 +16,6 @@ src.git = "https://github.com/bolivier/jj-mode.el"
 fetch.github = "bolivier/jj-mode.el"
 
 # nvim
-[nordic]
-src.git = "https://github.com/AlexvZyl/nordic.nvim"
-fetch.github = "AlexvZyl/nordic.nvim"
-
 [uiua]
 src.git = "https://github.com/Apeiros-46B/uiua.vim"
 fetch.github = "Apeiros-46B/uiua.vim"

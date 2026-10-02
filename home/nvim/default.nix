@@ -10,11 +10,7 @@
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       which-key-nvim
       lualine-nvim
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "nordic";
-        version = sources.nordic.version;
-        src = sources.nordic.src;
-      })
+      nordic-nvim
       nvim-web-devicons
       mini-icons
       gitsigns-nvim

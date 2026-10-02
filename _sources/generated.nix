@@ -267,18 +267,6 @@
     };
     date = "2026-09-18";
   };
-  nordic = {
-    pname = "nordic";
-    version = "9fb62116b891184049c50ca6ffb0d3bc100a1a6e";
-    src = fetchFromGitHub {
-      owner = "AlexvZyl";
-      repo = "nordic.nvim";
-      rev = "9fb62116b891184049c50ca6ffb0d3bc100a1a6e";
-      fetchSubmodules = false;
-      sha256 = "sha256-7Wod7nybP/3i3fMBnRdcNEeIWbbzowiyjTlqax8Fn4g=";
-    };
-    date = "2026-05-03";
-  };
   nvim-bqn = {
     pname = "nvim-bqn";
     version = "52d8b49f3ebc32d340e2e2b8dba1f6bbd1873b78";
