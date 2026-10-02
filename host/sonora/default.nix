@@ -1,6 +1,9 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 
 {
+  # Ahead of the lix module's overlay, which reads lix from lixPackageSets.
+  nixpkgs.overlays = lib.mkBefore [ (import ../../overlays/lix-fix-darwin-ldflags.nix) ];
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = [
