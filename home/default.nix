@@ -92,7 +92,7 @@ in
       # `.latest` is pinned by the overlay's versions JSON, so it moves only on
       # `just update`; the toolchain bundles core at build time, so nothing is
       # downloaded into ~/.moon at runtime.
-      moonbit-bin.moonbit.latest # MoonBit toolchain (moon, moonc, moonrun, moon-lsp)
+      moonbit-bin.latest # MoonBit toolchain (moon, moonc, moonrun, moon-lsp)
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Zig Development

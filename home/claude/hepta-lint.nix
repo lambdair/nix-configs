@@ -12,7 +12,7 @@
 # outputHash too.
 { pkgs }:
 let
-  moon = pkgs.moonbit-bin.moonbit.latest;
+  moon = pkgs.moonbit-bin.latest;
   moonRegistry = import ./moon-registry.nix { inherit pkgs; };
 in
 pkgs.stdenv.mkDerivation {
