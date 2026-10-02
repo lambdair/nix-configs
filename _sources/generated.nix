@@ -82,18 +82,6 @@
       sha256 = "sha256-Iz4fmUV2NYp0ay7ON5Zp5l0BNSLJlvFtwmVeJypBHGk=";
     };
   };
-  eglot-booster = {
-    pname = "eglot-booster";
-    version = "510f579409627c333ef0e9157db713b1004da842";
-    src = fetchFromGitHub {
-      owner = "jdtsmith";
-      repo = "eglot-booster";
-      rev = "510f579409627c333ef0e9157db713b1004da842";
-      fetchSubmodules = false;
-      sha256 = "sha256-HhWR40j/WFcorp8QttXtOz5yxL1B4JUXL+9IuNpoND0=";
-    };
-    date = "2026-06-30";
-  };
   elio = {
     pname = "elio";
     version = "v1.12.0";

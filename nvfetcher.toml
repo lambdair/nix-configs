@@ -3,10 +3,6 @@
 src.git = "https://github.com/leanprover-community/lean4-mode"
 fetch.github = "leanprover-community/lean4-mode"
 
-[eglot-booster]
-src.git = "https://github.com/jdtsmith/eglot-booster"
-fetch.github = "jdtsmith/eglot-booster"
-
 [jj-mode]
 src.git = "https://github.com/bolivier/jj-mode.el"
 fetch.github = "bolivier/jj-mode.el"

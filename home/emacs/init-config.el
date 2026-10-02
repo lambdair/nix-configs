@@ -387,13 +387,6 @@ vi style of % jumping to matching brace."
 ;;; ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 (setq lsp-keymap-prefix "C-c l")
 
-(use-package eglot-booster
-  ;; Not on MELPA/ELPA; the recipe is ignored under Nix (`:ensure' is a no-op).
-  :ensure (eglot-booster :host github :repo "jdtsmith/eglot-booster")
-  :demand t
-  :after eglot
-  :config (eglot-booster-mode))
-
 (setenv "LSP_USE_PLISTS" "true")
 
 (use-package lsp-mode

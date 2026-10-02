@@ -107,14 +107,7 @@ in
             lsp-mode-plist
             ;
         })
-        ++ (import ./lsp {
-          inherit
-            pkgs
-            epkgs
-            sources
-            lsp-mode-plist
-            ;
-        })
+        ++ (import ./lsp { inherit epkgs lsp-mode-plist; })
         ++ [
           # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           # Package Configuration

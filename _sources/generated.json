@@ -134,27 +134,6 @@
         },
         "version": "1.36.0"
     },
-    "eglot-booster": {
-        "cargoLock": null,
-        "date": "2026-06-30",
-        "extract": null,
-        "name": "eglot-booster",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "jdtsmith",
-            "repo": "eglot-booster",
-            "rev": "510f579409627c333ef0e9157db713b1004da842",
-            "sha256": "sha256-HhWR40j/WFcorp8QttXtOz5yxL1B4JUXL+9IuNpoND0=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "510f579409627c333ef0e9157db713b1004da842"
-    },
     "elio": {
         "cargoLock": null,
         "date": null,
