@@ -54,8 +54,13 @@ let
           | if $in.exit_code == 0 { $in.stdout | str trim } else { "" }
         )
 
-        # Parent set: trunk + wip*
-        let parents = ([$trunk_id] | append $wip_ids)
+        # Parent set: the heads of trunk + wip*. A bookmark below another one,
+        # and trunk once every branch sits on it, are already ancestors.
+        let parents = (
+          jj log -r (['heads(' $trunk_id ' | (' $wip_revset '))'] | str join) --no-graph -T 'change_id ++ "\n"'
+          | lines
+          | where {|x| ($x | str trim) != "" }
+        )
         if ($wip_ids | is-empty) {
           print -e $"warning: no wip bookmarks matched '($wip_revset)' — creating megamerge with trunk only"
         }
@@ -64,11 +69,11 @@ let
           # Swap the parent set of the existing megamerge in place
           let rebase_args = (['-s' $existing_mm] | append ($parents | each {|p| ['-d' $p] } | flatten))
           jj rebase ...$rebase_args
-          print $"updated megamerge ($existing_mm): ($wip_ids | length) wip + trunk"
+          print $"updated megamerge ($existing_mm): ($parents | length) parents"
         } else {
           # Create a new megamerge
           jj new ...$parents -m "megamerge"
-          print $"created megamerge: ($wip_ids | length) wip + trunk"
+          print $"created megamerge: ($parents | length) parents"
         }
       '';
 in

@@ -48,10 +48,10 @@ JJ_MEGAMERGE_WIP='bookmarks(glob:"feature/*") & mine()' jj-megamerge-rebuild
 
 新環境で動作確認するときの手順:
 
-1. `test-1`, `test-2` bookmark を作って `jj-megamerge-rebuild` → 親が3つ（trunk + 2 wip）の megamerge ができる
+1. `test-1`, `test-2` bookmark を作って `jj-megamerge-rebuild` → 親が2つ（各 wip の先端。trunk はその祖先なので親に入らない）の megamerge ができる
 2. もう一度実行 → 同じ megamerge change_id が維持される（in-place rebase）
-3. `test-3` を追加して実行 → 親が4つになり change_id は維持される
-4. `test-1` の bookmark を削除して実行 → 親が3つに減り change_id は維持される
+3. `test-3` を追加して実行 → 親が3つになり change_id は維持される
+4. `test-1` の bookmark を削除して実行 → 親が2つに減り change_id は維持される
 5. jjui を起動して `m` キー → 同じ結果になる
 
 ## 設計メモ
