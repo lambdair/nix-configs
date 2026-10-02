@@ -8,51 +8,51 @@
 {
   agent-toolkit-for-aws = {
     pname = "agent-toolkit-for-aws";
-    version = "dda61487cb4fa8b6dbc75ad4e27c2181adc9d058";
+    version = "decfb6feff04765401800d763a02a4e696edd12d";
     src = fetchFromGitHub {
       owner = "aws";
       repo = "agent-toolkit-for-aws";
-      rev = "dda61487cb4fa8b6dbc75ad4e27c2181adc9d058";
+      rev = "decfb6feff04765401800d763a02a4e696edd12d";
       fetchSubmodules = false;
-      sha256 = "sha256-C7fPsSFT7ImS/D606nWdYT8uLTJ0UAb35zDqPjUstZg=";
+      sha256 = "sha256-3arfchbkrKgOQIc5g3HO+uliPpM9syd/E+jUhjuWecQ=";
     };
-    date = "2026-09-26";
+    date = "2026-09-29";
   };
   bento = {
     pname = "bento";
-    version = "028afd48ad18d87ec0094f146a2d2635af45a282";
+    version = "3a26dba7ee53d047b92602efd2c1d83bf443f611";
     src = fetchFromGitHub {
       owner = "nyblnet";
       repo = "bento";
-      rev = "028afd48ad18d87ec0094f146a2d2635af45a282";
+      rev = "3a26dba7ee53d047b92602efd2c1d83bf443f611";
       fetchSubmodules = false;
-      sha256 = "sha256-61LWHEMCI2G/akg1SCFgAgtsSzOtsA72DIBObKcmZVg=";
+      sha256 = "sha256-mbLHpptQOKYBOiTfMxPDQ9e/SWD3X/tGHLQr+Q982iU=";
     };
-    date = "2026-09-25";
+    date = "2026-09-28";
   };
   claude-mem = {
     pname = "claude-mem";
-    version = "7d0355413c2aaa3fa57fe6788b2ba2717fa7ff6f";
+    version = "ade13f3067d3de486f41dbd8ed90ac5c854de718";
     src = fetchFromGitHub {
       owner = "thedotmack";
       repo = "claude-mem";
-      rev = "7d0355413c2aaa3fa57fe6788b2ba2717fa7ff6f";
+      rev = "ade13f3067d3de486f41dbd8ed90ac5c854de718";
       fetchSubmodules = false;
-      sha256 = "sha256-KGV+69CdW138ayeM+lGBrT9ngk6BLBQQ8UuFCYNGV3s=";
+      sha256 = "sha256-xQB3eRT34T2zDDMeGl27Bsvv4KBSuf7i6WTM0TOHz8g=";
     };
-    date = "2026-09-26";
+    date = "2026-09-28";
   };
   cursor-plugins = {
     pname = "cursor-plugins";
-    version = "ecc249f1e306fc64ddf83c7bed16cacf7c2239db";
+    version = "4b4d98e5e3b3c139f63dbc1ce4b538954c8f2f52";
     src = fetchFromGitHub {
       owner = "cursor";
       repo = "plugins";
-      rev = "ecc249f1e306fc64ddf83c7bed16cacf7c2239db";
+      rev = "4b4d98e5e3b3c139f63dbc1ce4b538954c8f2f52";
       fetchSubmodules = false;
-      sha256 = "sha256-okjUS0AVmgoQfCO3nzzqjL1PnZ8X3r8wjtz5SwrFse0=";
+      sha256 = "sha256-3oK5younDPDhX/fNPCtDNVotsGgd0lidFZqY5x5RhnA=";
     };
-    date = "2026-09-25";
+    date = "2026-09-29";
   };
   difit = {
     pname = "difit";
@@ -68,18 +68,18 @@
   };
   druk-linux = {
     pname = "druk-linux";
-    version = "1.35.3";
+    version = "1.36.0";
     src = fetchurl {
-      url = "https://github.com/letstri/druk/releases/download/v1.35.3/druk-linux-x64.tar.gz";
-      sha256 = "sha256-U72rbmXiJlZ+/V9B3vP68mLSo0TLTgFw17NAdC6hkN4=";
+      url = "https://github.com/letstri/druk/releases/download/v1.36.0/druk-linux-x64.tar.gz";
+      sha256 = "sha256-crhizlrMeuXSbObxd+r70QV9ltfpvZmYfoXleKe4Nis=";
     };
   };
   druk-mac = {
     pname = "druk-mac";
-    version = "1.35.3";
+    version = "1.36.0";
     src = fetchurl {
-      url = "https://github.com/letstri/druk/releases/download/v1.35.3/druk-darwin-arm64.zip";
-      sha256 = "sha256-+LivQ7RCoVKOIZ8tsxDszsctchtCN1EWAEGMWhw1S0I=";
+      url = "https://github.com/letstri/druk/releases/download/v1.36.0/druk-darwin-arm64.zip";
+      sha256 = "sha256-Iz4fmUV2NYp0ay7ON5Zp5l0BNSLJlvFtwmVeJypBHGk=";
     };
   };
   eglot-booster = {
@@ -119,15 +119,15 @@
   };
   helix-mainline = {
     pname = "helix-mainline";
-    version = "079a789e8cb08ead67f19e1971a1b7438b37354b";
+    version = "ba40e547426b0f9896c8bdc699a4ab11f2b37dbc";
     src = fetchFromGitHub {
       owner = "helix-editor";
       repo = "helix";
-      rev = "079a789e8cb08ead67f19e1971a1b7438b37354b";
+      rev = "ba40e547426b0f9896c8bdc699a4ab11f2b37dbc";
       fetchSubmodules = false;
-      sha256 = "sha256-IYDL6Vnf13Sa+wbeXZTAxvdLA4h8Ew5ha0spcJy/Yk0=";
+      sha256 = "sha256-ZjMduEHRsY0H8OHJ5oiF/AcxOBhIiCBwo7D+g1yYwKc=";
     };
-    date = "2026-07-23";
+    date = "2026-09-29";
   };
   helix-steel = {
     pname = "helix-steel";
@@ -197,27 +197,27 @@
   };
   lean4-mode = {
     pname = "lean4-mode";
-    version = "d5ed4b1610de45d265fded03b9b1af904efd6c03";
+    version = "6d4030e494039383664a0c08348a5c137eb4641c";
     src = fetchFromGitHub {
       owner = "leanprover-community";
       repo = "lean4-mode";
-      rev = "d5ed4b1610de45d265fded03b9b1af904efd6c03";
+      rev = "6d4030e494039383664a0c08348a5c137eb4641c";
       fetchSubmodules = false;
-      sha256 = "sha256-LCVc4+n6LyRtwiLzF4sMmgI3XEI6fesEJu1vHqsjfoI=";
+      sha256 = "sha256-FzeGnxjtCpeYbDU3GzadCTnLGtDPoe1q8aTpaZBck7A=";
     };
-    date = "2026-09-23";
+    date = "2026-09-28";
   };
   lean4-skills = {
     pname = "lean4-skills";
-    version = "5df082976431f8efc6a6393db9f1755367491c94";
+    version = "b6243b85b9b0a0ddff5bb6773889044daf687f8e";
     src = fetchFromGitHub {
       owner = "cameronfreer";
       repo = "lean4-skills";
-      rev = "5df082976431f8efc6a6393db9f1755367491c94";
+      rev = "b6243b85b9b0a0ddff5bb6773889044daf687f8e";
       fetchSubmodules = false;
-      sha256 = "sha256-LDyA5PRVDLvuUfHmawmTRY9Bdi1I6x9fIK8EgYAOa+Q=";
+      sha256 = "sha256-p6xs+hNMOpYFwU6Exvo/b69p1xKD0ngqoyNhlz7ATRE=";
     };
-    date = "2026-09-22";
+    date = "2026-09-29";
   };
   lightpanda-linux = {
     pname = "lightpanda-linux";
@@ -303,15 +303,15 @@
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "17e1b24d91163402470370bbe956ecb944521f88";
+    version = "0c9e8260481eed25fdf3429d1fe67cb88fe2164f";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "17e1b24d91163402470370bbe956ecb944521f88";
+      rev = "0c9e8260481eed25fdf3429d1fe67cb88fe2164f";
       fetchSubmodules = false;
-      sha256 = "sha256-qXJ/49ChzI3GU27Cc9PfoSstEHYD8KkIybs04z8Q7fw=";
+      sha256 = "sha256-edw1JClqBZzX6Tzy6fqv8TEPr402vF4w5As8SmVbJAY=";
     };
-    date = "2026-09-16";
+    date = "2026-09-29";
   };
   repl-ui-hx = {
     pname = "repl-ui-hx";
@@ -341,15 +341,15 @@
   };
   steel = {
     pname = "steel";
-    version = "c8570a349262bcbdffd8e13e13daf05256673658";
+    version = "8ed1cbbf7eb4aa9b07a4bf8245e7f42103ec617e";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "steel";
-      rev = "c8570a349262bcbdffd8e13e13daf05256673658";
+      rev = "8ed1cbbf7eb4aa9b07a4bf8245e7f42103ec617e";
       fetchSubmodules = false;
-      sha256 = "sha256-5ekoBdVbtsWCbgFUgz5D9GC4J9kHbO7O1JozqZjG1Sw=";
+      sha256 = "sha256-WOvi7L4iHwToSESuP5js1IFLQpYNjJO0oNUAGC3EMuw=";
     };
-    date = "2026-09-23";
+    date = "2026-09-28";
   };
   sulafat = {
     pname = "sulafat";
@@ -379,18 +379,18 @@
   };
   terminal-browser-linux = {
     pname = "terminal-browser-linux";
-    version = "0.11.1";
+    version = "0.13.0";
     src = fetchurl {
-      url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.11.1/terminal-browser-linux-x64.tar.gz";
-      sha256 = "sha256-sIMnZVqjGQJgzzSAcpS+fHxmhaomOaOTBVt8ZJ7rOko=";
+      url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.13.0/terminal-browser-linux-x64.tar.gz";
+      sha256 = "sha256-ExSiB56U4KI5opOzvoHRU6DgcV5KLKCdYDd9xyusJC4=";
     };
   };
   terminal-browser-mac = {
     pname = "terminal-browser-mac";
-    version = "0.11.1";
+    version = "0.13.0";
     src = fetchurl {
-      url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.11.1/terminal-browser-darwin-arm64.tar.gz";
-      sha256 = "sha256-myFynke8wH6WmRMiNwXOGuW8qo5JCU1slwXEzKgxHZA=";
+      url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.13.0/terminal-browser-darwin-arm64.tar.gz";
+      sha256 = "sha256-erVu2KgZgoZZCzv5yaUZ/gp2K+yktZ+g8MwHdZ99q/s=";
     };
   };
   tolaria = {

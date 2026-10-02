@@ -2,7 +2,7 @@
 # directory (statusline, hepta-lint).
 #
 # MoonBit is not in nixpkgs; the toolchain comes from the moonbit-overlay input
-# (pkgs.moonbit-bin.moonbit.latest). Package builds must not touch the network,
+# (pkgs.moonbit-bin.latest). Package builds must not touch the network,
 # so the deps are fetched here — in a fixed-output derivation, the only step
 # allowed network access — and served to the builds through MOON_HOME.
 #
@@ -16,7 +16,7 @@
 # mismatch).
 { pkgs }:
 let
-  moon = pkgs.moonbit-bin.moonbit.latest;
+  moon = pkgs.moonbit-bin.latest;
 
   asyncVersion = "0.20.6";
   xVersion = "0.5.1";

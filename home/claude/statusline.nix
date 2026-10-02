@@ -1,11 +1,11 @@
 # Claude Code statusline: a MoonBit program built to a native binary.
 #
 # MoonBit is not in nixpkgs; the toolchain comes from the moonbit-overlay input
-# (pkgs.moonbit-bin.moonbit.latest). The deps come from the shared offline
+# (pkgs.moonbit-bin.latest). The deps come from the shared offline
 # registry in ./moon-registry.nix, served to the build via MOON_HOME.
 { pkgs }:
 let
-  moon = pkgs.moonbit-bin.moonbit.latest;
+  moon = pkgs.moonbit-bin.latest;
   moonRegistry = import ./moon-registry.nix { inherit pkgs; };
 in
 pkgs.stdenv.mkDerivation {
