@@ -54,6 +54,18 @@
     };
     date = "2026-10-04";
   };
+  claude-qamods = {
+    pname = "claude-qamods";
+    version = "432ee81c179a1be51531eb3a3464056dbba3d40c";
+    src = fetchFromGitHub {
+      owner = "aieo-product";
+      repo = "claude_qamods";
+      rev = "432ee81c179a1be51531eb3a3464056dbba3d40c";
+      fetchSubmodules = false;
+      sha256 = "sha256-hf/BGQvTK3IYrBFGx+NEWgAJ46mO4E7VjFFatCUdzLY=";
+    };
+    date = "2026-10-05";
+  };
   cursor-plugins = {
     pname = "cursor-plugins";
     version = "e43c7ee26e0038c6c1fa8380dd34ce86ff94cb2a";

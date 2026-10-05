@@ -83,6 +83,27 @@
         },
         "version": "1caee126ae256a36fd02e89f78b38333273516ca"
     },
+    "claude-qamods": {
+        "cargoLock": null,
+        "date": "2026-10-05",
+        "extract": null,
+        "name": "claude-qamods",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "aieo-product",
+            "repo": "claude_qamods",
+            "rev": "432ee81c179a1be51531eb3a3464056dbba3d40c",
+            "sha256": "sha256-hf/BGQvTK3IYrBFGx+NEWgAJ46mO4E7VjFFatCUdzLY=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "432ee81c179a1be51531eb3a3464056dbba3d40c"
+    },
     "cursor-plugins": {
         "cargoLock": null,
         "date": "2026-10-03",

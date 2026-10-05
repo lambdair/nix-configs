@@ -64,6 +64,7 @@ in
       agent-toolkit-for-aws = sources.agent-toolkit-for-aws.src;
       bento = sources.bento.src;
       claude-image-view = sources.claude-image-view.src;
+      claude-qamods = sources.claude-qamods.src;
       heptabase-cli-skills = sources.heptabase-cli-skills.src;
       lean4-skills = sources.lean4-skills.src;
       lightpanda = lightpanda-plugin;
@@ -169,6 +170,7 @@ in
         "claude-mem@thedotmack" = false;
         "heptabase@heptabase-cli-skills" = true;
         "image-view@claude-image-view" = true;
+        "qa-guide@claude-qamods" = true;
         # Supplies the skill; the MCP server it declares is inert (see
         # mcpServers.lightpanda above).
         "lightpanda@lightpanda" = true;

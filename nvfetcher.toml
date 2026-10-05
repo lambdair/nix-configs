@@ -199,6 +199,10 @@ fetch.github = "nanaism/yomiyasu"
 src.git = "https://github.com/jarrodwatts/claude-image-view"
 fetch.github = "jarrodwatts/claude-image-view"
 
+[claude-qamods]
+src.git = "https://github.com/aieo-product/claude_qamods"
+fetch.github = "aieo-product/claude_qamods"
+
 [cursor-plugins]
 src.git = "https://github.com/cursor/plugins"
 fetch.github = "cursor/plugins"
