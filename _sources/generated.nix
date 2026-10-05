@@ -8,51 +8,51 @@
 {
   agent-toolkit-for-aws = {
     pname = "agent-toolkit-for-aws";
-    version = "decfb6feff04765401800d763a02a4e696edd12d";
+    version = "d00d03ae6e4872b9f35a2b2ca86d0cbdbaa81684";
     src = fetchFromGitHub {
       owner = "aws";
       repo = "agent-toolkit-for-aws";
-      rev = "decfb6feff04765401800d763a02a4e696edd12d";
+      rev = "d00d03ae6e4872b9f35a2b2ca86d0cbdbaa81684";
       fetchSubmodules = false;
-      sha256 = "sha256-3arfchbkrKgOQIc5g3HO+uliPpM9syd/E+jUhjuWecQ=";
+      sha256 = "sha256-5ZUC4VdG/97/GJvgDl9ALg0n1ZEh8LY2jQL59TAfIHY=";
     };
-    date = "2026-09-29";
+    date = "2026-10-03";
   };
   bento = {
     pname = "bento";
-    version = "3a26dba7ee53d047b92602efd2c1d83bf443f611";
+    version = "da2cb308500bb2a6aabfde9cbdc2b5dd8153331a";
     src = fetchFromGitHub {
       owner = "nyblnet";
       repo = "bento";
-      rev = "3a26dba7ee53d047b92602efd2c1d83bf443f611";
+      rev = "da2cb308500bb2a6aabfde9cbdc2b5dd8153331a";
       fetchSubmodules = false;
-      sha256 = "sha256-mbLHpptQOKYBOiTfMxPDQ9e/SWD3X/tGHLQr+Q982iU=";
+      sha256 = "sha256-HzUNTvt7TMfAbGxJjZVkqg2rIC56A5HpUR4amflX8JM=";
     };
-    date = "2026-09-28";
+    date = "2026-10-04";
   };
   claude-mem = {
     pname = "claude-mem";
-    version = "ade13f3067d3de486f41dbd8ed90ac5c854de718";
+    version = "1caee126ae256a36fd02e89f78b38333273516ca";
     src = fetchFromGitHub {
       owner = "thedotmack";
       repo = "claude-mem";
-      rev = "ade13f3067d3de486f41dbd8ed90ac5c854de718";
+      rev = "1caee126ae256a36fd02e89f78b38333273516ca";
       fetchSubmodules = false;
-      sha256 = "sha256-xQB3eRT34T2zDDMeGl27Bsvv4KBSuf7i6WTM0TOHz8g=";
+      sha256 = "sha256-r2smYbKuowzlEVQ2EOOUBXCPn64EQFWLjW/zP1Ngm6Q=";
     };
-    date = "2026-09-28";
+    date = "2026-10-04";
   };
   cursor-plugins = {
     pname = "cursor-plugins";
-    version = "4b4d98e5e3b3c139f63dbc1ce4b538954c8f2f52";
+    version = "e43c7ee26e0038c6c1fa8380dd34ce86ff94cb2a";
     src = fetchFromGitHub {
       owner = "cursor";
       repo = "plugins";
-      rev = "4b4d98e5e3b3c139f63dbc1ce4b538954c8f2f52";
+      rev = "e43c7ee26e0038c6c1fa8380dd34ce86ff94cb2a";
       fetchSubmodules = false;
-      sha256 = "sha256-3oK5younDPDhX/fNPCtDNVotsGgd0lidFZqY5x5RhnA=";
+      sha256 = "sha256-AZlQa2TypJr8W8Y6YDwRc65LWK+CEbrTiM2BRYU+Rok=";
     };
-    date = "2026-09-29";
+    date = "2026-10-03";
   };
   difit = {
     pname = "difit";
@@ -119,15 +119,15 @@
   };
   helix-steel = {
     pname = "helix-steel";
-    version = "df595c7dc5729e2712c79dd2e35977e3474b3ec6";
+    version = "ee451df4ff6b0f6416a128f26affc2052b0669c6";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "helix";
-      rev = "df595c7dc5729e2712c79dd2e35977e3474b3ec6";
+      rev = "ee451df4ff6b0f6416a128f26affc2052b0669c6";
       fetchSubmodules = false;
-      sha256 = "sha256-zWOzgArhg4PCgi8AMKLtcttBtchlQJay6atEpobCASk=";
+      sha256 = "sha256-pPQFqMoUvDFsCDBjEWzrxb6x+5YXY/ELD5CTl/Tf5N8=";
     };
-    date = "2026-09-26";
+    date = "2026-09-30";
   };
   heptabase = {
     pname = "heptabase";
@@ -209,18 +209,18 @@
   };
   lightpanda-linux = {
     pname = "lightpanda-linux";
-    version = "0.4.1";
+    version = "1.0.0";
     src = fetchurl {
-      url = "https://github.com/lightpanda-io/browser/releases/download/0.4.1/lightpanda-x86_64-linux";
-      sha256 = "sha256-HUCAHnLAvGGyy9PzVivPxG3nt54FaPM/aGtk8uWHYQo=";
+      url = "https://github.com/lightpanda-io/browser/releases/download/1.0.0/lightpanda-x86_64-linux";
+      sha256 = "sha256-qlpLjtU9Hjizxz9bJkfQqEqC5nRFV/RfmpyFhYqgMcM=";
     };
   };
   lightpanda-mac = {
     pname = "lightpanda-mac";
-    version = "0.4.1";
+    version = "1.0.0";
     src = fetchurl {
-      url = "https://github.com/lightpanda-io/browser/releases/download/0.4.1/lightpanda-aarch64-macos";
-      sha256 = "sha256-meZ3Oe2M9bmFr3y/p8drK6slexcbLa0hEJvXS087tRA=";
+      url = "https://github.com/lightpanda-io/browser/releases/download/1.0.0/lightpanda-aarch64-macos";
+      sha256 = "sha256-lVRABTqEdU3WTGL5cESaVqKzUM30PqXy6AmnMEe4Fz0=";
     };
   };
   lightpanda-skill = {
@@ -279,15 +279,15 @@
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "0c9e8260481eed25fdf3429d1fe67cb88fe2164f";
+    version = "5029bdb7d22b4ce7848fbd74d34224c450e2da16";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "0c9e8260481eed25fdf3429d1fe67cb88fe2164f";
+      rev = "5029bdb7d22b4ce7848fbd74d34224c450e2da16";
       fetchSubmodules = false;
-      sha256 = "sha256-edw1JClqBZzX6Tzy6fqv8TEPr402vF4w5As8SmVbJAY=";
+      sha256 = "sha256-5oWK0TjpiPkfIuDcy2mIJktrbCGtlpUI8Kqww7s1LgY=";
     };
-    date = "2026-09-29";
+    date = "2026-10-01";
   };
   repl-ui-hx = {
     pname = "repl-ui-hx";
@@ -355,18 +355,18 @@
   };
   terminal-browser-linux = {
     pname = "terminal-browser-linux";
-    version = "0.13.0";
+    version = "0.13.4";
     src = fetchurl {
-      url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.13.0/terminal-browser-linux-x64.tar.gz";
-      sha256 = "sha256-ExSiB56U4KI5opOzvoHRU6DgcV5KLKCdYDd9xyusJC4=";
+      url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.13.4/terminal-browser-linux-x64.tar.gz";
+      sha256 = "sha256-YnfaqrqxZxGrPxlhzf+tnvrF5wrFXVB24shkltZJ06Q=";
     };
   };
   terminal-browser-mac = {
     pname = "terminal-browser-mac";
-    version = "0.13.0";
+    version = "0.13.4";
     src = fetchurl {
-      url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.13.0/terminal-browser-darwin-arm64.tar.gz";
-      sha256 = "sha256-erVu2KgZgoZZCzv5yaUZ/gp2K+yktZ+g8MwHdZ99q/s=";
+      url = "https://github.com/zenbu-labs/terminal-browser/releases/download/v0.13.4/terminal-browser-darwin-arm64.tar.gz";
+      sha256 = "sha256-8BcjDHjGCgfvRFGh6wqScn8LlVqPzYeuw1iRDF0MA8c=";
     };
   };
   tolaria = {
@@ -416,15 +416,15 @@
   };
   yomiyasu = {
     pname = "yomiyasu";
-    version = "e5c6a8443a427726a472e2e560fc8679125ea2b8";
+    version = "4075fc34fb0333ca1fe42d32cd619338f4a138ba";
     src = fetchFromGitHub {
       owner = "nanaism";
       repo = "yomiyasu";
-      rev = "e5c6a8443a427726a472e2e560fc8679125ea2b8";
+      rev = "4075fc34fb0333ca1fe42d32cd619338f4a138ba";
       fetchSubmodules = false;
-      sha256 = "sha256-dZc9NRFBTl4tEKfSLAIE77smW50M5dEbzn5vzTXduRk=";
+      sha256 = "sha256-t5nqoxpJtyd+p4SOsSyYY5nPUrbRsuCqOj70k8M2Vuk=";
     };
-    date = "2026-10-02";
+    date = "2026-10-05";
   };
   zmk-battery-center-linux = {
     pname = "zmk-battery-center-linux";
