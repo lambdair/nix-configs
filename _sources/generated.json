@@ -41,6 +41,27 @@
         },
         "version": "da2cb308500bb2a6aabfde9cbdc2b5dd8153331a"
     },
+    "claude-image-view": {
+        "cargoLock": null,
+        "date": "2026-10-03",
+        "extract": null,
+        "name": "claude-image-view",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "jarrodwatts",
+            "repo": "claude-image-view",
+            "rev": "b3c412bb6d167cafade79148e95f9114ee1aad7c",
+            "sha256": "sha256-WCJJrInTO6iOrcrFIm2adgg+3J0L8J+KNANanYSB3Rc=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "b3c412bb6d167cafade79148e95f9114ee1aad7c"
+    },
     "claude-mem": {
         "cargoLock": null,
         "date": "2026-10-04",

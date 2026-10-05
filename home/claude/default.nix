@@ -63,6 +63,7 @@ in
     marketplaces = {
       agent-toolkit-for-aws = sources.agent-toolkit-for-aws.src;
       bento = sources.bento.src;
+      claude-image-view = sources.claude-image-view.src;
       heptabase-cli-skills = sources.heptabase-cli-skills.src;
       lean4-skills = sources.lean4-skills.src;
       lightpanda = lightpanda-plugin;
@@ -167,6 +168,7 @@ in
         # v13.5.2 worker and blocks UserPromptSubmit seven times in a row.
         "claude-mem@thedotmack" = false;
         "heptabase@heptabase-cli-skills" = true;
+        "image-view@claude-image-view" = true;
         # Supplies the skill; the MCP server it declares is inert (see
         # mcpServers.lightpanda above).
         "lightpanda@lightpanda" = true;

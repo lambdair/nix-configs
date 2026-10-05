@@ -30,6 +30,18 @@
     };
     date = "2026-10-04";
   };
+  claude-image-view = {
+    pname = "claude-image-view";
+    version = "b3c412bb6d167cafade79148e95f9114ee1aad7c";
+    src = fetchFromGitHub {
+      owner = "jarrodwatts";
+      repo = "claude-image-view";
+      rev = "b3c412bb6d167cafade79148e95f9114ee1aad7c";
+      fetchSubmodules = false;
+      sha256 = "sha256-WCJJrInTO6iOrcrFIm2adgg+3J0L8J+KNANanYSB3Rc=";
+    };
+    date = "2026-10-03";
+  };
   claude-mem = {
     pname = "claude-mem";
     version = "1caee126ae256a36fd02e89f78b38333273516ca";
