@@ -19,7 +19,6 @@ let
 
   # Upstream's Lightpanda plugin, repointed at the Nix-managed binary.
   lightpanda-plugin = import ./lightpanda-plugin.nix { inherit pkgs sources; };
-  inherit (import ../../pkgs { inherit pkgs sources; }) lightpanda;
 
   # Paths of every file under `dir`, relative to it.
   filesUnder =
@@ -81,13 +80,6 @@ in
         "-y"
         "@upstash/context7-mcp"
       ];
-    };
-    # Declared here rather than left to the plugin: Claude Code ignores the
-    # mcpServers block in a marketplace.json, so this is what actually starts.
-    mcpServers.lightpanda = {
-      type = "stdio";
-      command = lib.getExe lightpanda;
-      args = [ "mcp" ];
     };
     settings = {
       permissions.allow = [
@@ -173,8 +165,6 @@ in
         "image-view@claude-image-view" = true;
         "qa-guide@claude-qamods" = true;
         "i-have-adhd@i-have-adhd" = true;
-        # Supplies the skill; the MCP server it declares is inert (see
-        # mcpServers.lightpanda above).
         "lightpanda@lightpanda" = true;
         "yomiyasu@yomiyasu" = true;
       };
