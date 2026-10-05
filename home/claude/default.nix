@@ -66,6 +66,7 @@ in
       claude-image-view = sources.claude-image-view.src;
       claude-qamods = sources.claude-qamods.src;
       heptabase-cli-skills = sources.heptabase-cli-skills.src;
+      i-have-adhd = sources.i-have-adhd.src;
       lean4-skills = sources.lean4-skills.src;
       lightpanda = lightpanda-plugin;
       moonbit-code-plugins = sources.moonbit-skills.src;
@@ -171,6 +172,7 @@ in
         "heptabase@heptabase-cli-skills" = true;
         "image-view@claude-image-view" = true;
         "qa-guide@claude-qamods" = true;
+        "i-have-adhd@i-have-adhd" = true;
         # Supplies the skill; the MCP server it declares is inert (see
         # mcpServers.lightpanda above).
         "lightpanda@lightpanda" = true;

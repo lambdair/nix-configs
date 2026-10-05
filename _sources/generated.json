@@ -311,6 +311,27 @@
         },
         "version": "11-0"
     },
+    "i-have-adhd": {
+        "cargoLock": null,
+        "date": "2026-09-19",
+        "extract": null,
+        "name": "i-have-adhd",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "ayghri",
+            "repo": "i-have-adhd",
+            "rev": "839872f9d1cd634fed642b4589ce7226199cc15f",
+            "sha256": "sha256-UExi0k71MOtLwqVaFRGhgvqq6+jxwbQxZZVZxceHGrw=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "839872f9d1cd634fed642b4589ce7226199cc15f"
+    },
     "jj-mode": {
         "cargoLock": null,
         "date": "2026-08-31",

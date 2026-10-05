@@ -181,6 +181,18 @@
       sha256 = "sha256-xDedPsTlTen9LEj7a3cuB7tmr+gPcZW4t6BTVib9iu8=";
     };
   };
+  i-have-adhd = {
+    pname = "i-have-adhd";
+    version = "839872f9d1cd634fed642b4589ce7226199cc15f";
+    src = fetchFromGitHub {
+      owner = "ayghri";
+      repo = "i-have-adhd";
+      rev = "839872f9d1cd634fed642b4589ce7226199cc15f";
+      fetchSubmodules = false;
+      sha256 = "sha256-UExi0k71MOtLwqVaFRGhgvqq6+jxwbQxZZVZxceHGrw=";
+    };
+    date = "2026-09-19";
+  };
   jj-mode = {
     pname = "jj-mode";
     version = "7e299b60e536d61e694f75fb7a2d1b922f09a5a5";
