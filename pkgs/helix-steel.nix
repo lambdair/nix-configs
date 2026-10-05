@@ -47,6 +47,16 @@ let
         "rpmspec"
         "wikitext"
       ]);
+    # perl: the pinned revision ships its own bsearch() definition, which glibc
+    # 2.44 headers turn into a _Generic macro expansion under C23. Removable once
+    # languages.toml pins a perl revision that compiles as C23.
+    grammarOverlays = [
+      (final: prev: {
+        perl = prev.perl.overrideAttrs (old: {
+          FLAGS = old.FLAGS ++ [ "-std=gnu17" ];
+        });
+      })
+    ];
   };
 
   # helix-steel's fork predates upstream moonbit support, so its languages.toml
