@@ -126,6 +126,10 @@
             name = "elio";
             path = customPkgs.elio;
           }
+          {
+            name = "miditui";
+            path = customPkgs.miditui;
+          }
           # The only output CI builds for real on Linux, so lightpanda's
           # autoPatchelf is exercised here.
           {

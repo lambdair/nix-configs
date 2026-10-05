@@ -113,6 +113,11 @@ fetch.github = "yoshiko-pg/difit"
 src.github = "elio-fm/elio"
 fetch.github = "elio-fm/elio"
 
+# miditui has no release tags, so the default branch's head is tracked.
+[miditui]
+src.git = "https://github.com/pinkpixel-dev/miditui"
+fetch.github = "pinkpixel-dev/miditui"
+
 # druk ships one release archive per platform, so each host's archive is
 # tracked separately.
 [druk-mac]

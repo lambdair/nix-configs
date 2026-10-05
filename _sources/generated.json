@@ -481,6 +481,27 @@
         },
         "version": "2-2"
     },
+    "miditui": {
+        "cargoLock": null,
+        "date": "2026-09-20",
+        "extract": null,
+        "name": "miditui",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "pinkpixel-dev",
+            "repo": "miditui",
+            "rev": "95829a641e46700ac5c3a845c1aa92cbfcefc54f",
+            "sha256": "sha256-9ndnPJkttsNfQSYE7Lu5FZNKTBygE1peOrEmZNQ+m98=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "95829a641e46700ac5c3a845c1aa92cbfcefc54f"
+    },
     "moonbit-skills": {
         "cargoLock": null,
         "date": "2026-09-18",

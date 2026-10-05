@@ -279,6 +279,18 @@
       sha256 = "sha256-9wOGjyjtO6GAV8PmjqO0IUD7MmGkt+v88OJ8N2nPSHg=";
     };
   };
+  miditui = {
+    pname = "miditui";
+    version = "95829a641e46700ac5c3a845c1aa92cbfcefc54f";
+    src = fetchFromGitHub {
+      owner = "pinkpixel-dev";
+      repo = "miditui";
+      rev = "95829a641e46700ac5c3a845c1aa92cbfcefc54f";
+      fetchSubmodules = false;
+      sha256 = "sha256-9ndnPJkttsNfQSYE7Lu5FZNKTBygE1peOrEmZNQ+m98=";
+    };
+    date = "2026-09-20";
+  };
   moonbit-skills = {
     pname = "moonbit-skills";
     version = "8b9f1bad14bc62560dbe3537855379e561a4e066";
