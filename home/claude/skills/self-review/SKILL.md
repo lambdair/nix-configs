@@ -20,6 +20,8 @@ jj log -r 'remote_bookmarks()..@' --no-graph -T 'change_id.short() ++ " " ++ des
 jj diff -r <change-id> --git
 ```
 
+レビュアーが分かっていて（ユーザーの指示、同じスタックの前の PR のレビュアー）、MEMORY.md にその人の基準のメモがあれば、先に開いて手順2〜4の判定に加える。
+
 見るもの:
 
 **実装の妥当性**
