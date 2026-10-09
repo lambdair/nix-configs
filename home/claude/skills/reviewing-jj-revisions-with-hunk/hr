@@ -57,9 +57,23 @@
                 "\nHunk セッションが起動しているか確認してください (別ターミナルで hunk diff など)")))
     (json/parse-string out true)))
 
+(defn patch-session-in-repo?
+  "この repo の中で、標準入力のパッチから開いた Hunk セッションがあるか。
+   そのセッションは repo を持たないので --repo で引けず、Hunk は reload も受け付けない"
+  []
+  (let [{:keys [exit out]} (run {} "hunk" "session" "list" "--json")
+        in-repo? #(or (= % repo-root) (str/starts-with? (str %) (str repo-root "/")))]
+    (and (zero? exit)
+         (some #(and (= "patch" (:inputKind %)) (in-repo? (:cwd %)))
+               (:sessions (json/parse-string out true))))))
+
 (defn reload! [rev]
   (let [{:keys [exit err]} (run {} "hunk" "session" "reload" "--repo" repo-root "--" "show" rev)]
-    (when-not (zero? exit) (die (str "reload 失敗 (" rev "): " (str/trim err))))))
+    (when-not (zero? exit)
+      (die (str "reload 失敗 (" rev "): " (str/trim err)
+                (when (patch-session-in-repo?)
+                  (str "\nパッチから開いたセッションは reload できません。"
+                       "hr を使うなら hunk show " rev " で開き直してください")))))))
 
 (defn comments-now []
   (:comments (hunk-json "comment" "list" "--repo" repo-root)))

@@ -21,7 +21,7 @@ Also: `hunk session comment clear --repo .` wipes **all** comments in the sessio
 
 ## Workflow
 
-1. **Confirm a live session.** `hunk session list --json`. Empty? Ask the user to launch `hunk show <rev>` (or `hunk diff`) **in a real terminal** — a `!`-prefixed / non-TTY invocation never registers with the daemon.
+1. **Confirm a live session.** `hunk session list --json`. Empty? Ask the user to launch `hunk show <rev>` (or `hunk diff`) **in a real terminal** — a `!`-prefixed / non-TTY invocation never registers with the daemon. A session opened from a piped patch (`jj diff --git | hunk patch`, `"inputKind": "patch"`) has no repo root: `--repo .` does not find it, and `reload` refuses it ("Session reload requires the initial Hunk session to be rooted in a repository"). For such a session, pass its `sessionId` (positional, in place of `--repo .`) to `review`, `navigate` and `comment *`, and instead of step 4's reload, ask the user to open the next revision's patch; take the new ID from `hunk session list` each time. `hr` switches revisions with reload, so it needs a session from `hunk show`/`hunk diff`.
 2. **Enumerate the stack.** `jj log -r 'trunk()..@ | @' --no-graph -T 'change_id.shortest(8) ++ " " ++ description.first_line() ++ "\n"'`.
 3. **Read & verify each revision's diff yourself.** `jj show -r <id> --git`. Check each hunk is correct; grep the final state (`@`) for dangling references to symbols a revision deleted.
 4. **Per revision, in stack order:**
@@ -60,8 +60,8 @@ Backups live in `~/.local/share/hunk-review/<repo>/comments/` (persistent, unlik
 
 | Need | Command |
 |------|---------|
-| Detect session | `hunk session list --json` |
-| Switch revision | `hunk session reload --repo . -- show <change-id>` |
+| Detect session | `hunk session list --json` (piped-patch session: use its `sessionId` instead of `--repo .`) |
+| Switch revision | `hunk session reload --repo . -- show <change-id>` (refused for a piped-patch session: the user opens the next patch) |
 | Hunk structure | `hunk session review --repo . --json` (jq `.review.files[] \| .hunks[]`) |
 | Add one note | `hunk session comment add --repo . --file F --new-line N --summary "..."` (no `--hunk` here) |
 | Add batch | `... | hunk session comment apply --repo . --stdin` (supports `hunkNumber`) |
