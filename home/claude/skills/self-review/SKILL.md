@@ -55,7 +55,7 @@ jj diff -r <change-id> --git | grep -E '^\+\((s/)?def'   # Clojure の例
 - 既存のもので足りないか。同じ働きの関数・テストのヘルパーを Grep で探す
 - 名前は中身と合っているか。単数・複数、動詞の選び方を、リポジトリでの使われ方と照らす。同じ名前の定義がリポジトリに無いかも Grep し、あれば中身の違いが docstring から分かるかを見る
 - docstring を1文ずつ、それを真にしている実装の行に対応させる。対応する行が無い文は、誤りか不要。主語と目的語を補って言い直せない文（「何を何から見分けるのか」が分からない言い方など）や、遠回しな言い方は直す。呼び出す関数の docstring の言い直しは減らし、この関数が決めることを書く
-- 型注釈は、docstring や名前が約束する形と同じ強さか。足した注釈のうち何でも通すもの（Clojure なら `{s/Keyword s/Any}`・`s/Keyword`・`s/Any`。`jj diff -r <change-id> --git | grep -nE '^\+.*:- \[?(\{s/Keyword s/Any\}|s/Keyword|s/Any)'`）を数え、引数と戻り値の1件ずつに、その値を言い表す schema や集合が同じ ns や entity にあるかを書く。あればそれで受ける（集合なら `(apply s/enum 集合)`、docstring が「entity と同じ形」と言うならその形の schema）。無ければ名前を付けた schema にするか、絞れない理由を1行書く
+- 型注釈は、docstring や名前が約束する形と同じ強さか。足した注釈のうち何でも通すもの（Clojure なら `{s/Keyword s/Any}`・`s/Keyword`・`s/Any`。`jj diff -r <change-id> --git | grep -nE '^\+.*:- \[?(\{s/Keyword s/Any\}|s/Keyword|s/Any)'`）を数え、引数と戻り値の1件ずつに、その値を言い表す schema や集合が同じ ns や entity にあるかを書く。あればそれで受ける（集合なら `(apply s/enum 集合)`、docstring が「entity と同じ形」と言うならその形の schema）。無ければ、その値を組み立てている箇所を全部開いてキー（keyword なら取り得る値）を数え、決まっていればその形の schema にする。決まらなくても名前を付けた schema にし、絞れない理由は schema の docstring に書く
 - 置き場所（ns）は、使う側と同じか。同じ API を呼ぶ関数などが別の ns にあれば、役割が重ならないかを見る
 - 後のリビジョンで docstring や名前が書き換わるなら、途中の段でも正しいか。レビュアーは途中の段を読む
 
