@@ -4,10 +4,9 @@
 
 ### 編集前の必須チェック
 
-ファイルを Edit/Write する前に、以下を確認すること:
-1. `jj diff --stat` で現在のリビジョンの変更を確認
-2. `jj log -r @ --no-graph -T description` でリビジョンの目的を確認
-3. これから行う変更が既存の変更と同じ論理単位か判断
+Edit/Write の直前に PreToolUse フック（`~/.claude/hooks/revision-context.bb`）が、現在のリビジョンの目的と `jj diff --stat` を表示する。それを見て、これから行う変更が既存の変更と同じ論理単位か判断する。フックが走らない編集（Bash 経由の書き換えなど）では、同じ2点を自分で確認する:
+1. `jj diff --stat` で現在のリビジョンの変更
+2. `jj log -r @ --no-graph -T description` でリビジョンの目的
 
 既に変更があり、これから行う変更が別の論理単位である場合:
 → `jj new -m "目的"` で新しいリビジョンを作成してから編集する
