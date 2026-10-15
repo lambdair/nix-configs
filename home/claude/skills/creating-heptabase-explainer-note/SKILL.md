@@ -33,7 +33,7 @@ heptabase card list -q "<English name>" --card-types note --limit 100
 
 ## 3. Concision is the whole job
 
-A long explanation is the easy failure, and it is what the user objects to. The first FIDO2 explainer had six sections, three diagrams, two formulas — the flowchart repeated the bullet list above it, the `Verify` formula restated the `Sign` formula, and the key insight sat in section five. Rewritten to four sections, two diagrams and one formula it said the same thing and could actually be read. For scale: the two test explainers written under this rule came out at 2.4 KB and 2.9 KB of markdown; the same prompts without it produced 6.8 KB and 11.9 KB.
+A long explanation is the easy failure, and it is what the user objects to. Four sections, two diagrams and one formula say what six sections, three diagrams and two formulas say, and can actually be read; a note written to this rule is a few kilobytes of markdown, not ten.
 
 - **Core idea first**, never as a conclusion. If the payoff is in the last section, move it to the lead paragraph.
 - **Four sections, give or take one** — the lead paragraph is not a section.
