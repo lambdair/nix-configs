@@ -43,7 +43,7 @@ done
 
 ## hr — CLI helper (this skill ships one)
 
-`hr` (a babashka script next to this SKILL.md) wraps the per-revision loop so the user doesn't type `hunk session ...` by hand. Invoke with `bb <path-to>/hr` (the skills dir isn't chmod-able, so don't rely on the exec bit; alias `hr='bb ~/.claude/skills/reviewing-jj-revisions-with-hunk/hr'`).
+`hr` (a babashka script next to this SKILL.md) wraps the per-revision loop so the user doesn't type `hunk session ...` by hand. It is deployed with the executable bit set, so `~/.claude/skills/reviewing-jj-revisions-with-hunk/hr` runs directly (alias `hr` to that path).
 
 ```
 hr target <bookmark|revset>   # remember the review stack (uses trunk()..<target>)
