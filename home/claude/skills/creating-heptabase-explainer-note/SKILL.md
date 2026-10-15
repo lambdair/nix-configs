@@ -109,7 +109,7 @@ If the note shows a diagram of the card's subject, append that one image to the 
 
 **Rewriting** means `card trash <cardId>` plus a fresh `note create` from corrected markdown: `note save` takes ProseMirror JSON, and re-importing markdown is safer and faster. Report the trashed id.
 
-**Environment on this machine:** `jq`, `python` and `node` are not usable, so parse CLI output with `grep` through the Bash tool (PowerShell's `ConvertFrom-Json` works if you need structure). Output shapes differ per command: `card list` → `{results:[…]}`, `tag list` → `{tags:[…]}`, `note create` → `{id,title}`.
+**Parsing CLI output:** use `jq` when it is on PATH; otherwise `grep` through the Bash tool (or PowerShell's `ConvertFrom-Json` on Windows). Output shapes differ per command: `card list` → `{results:[…]}`, `tag list` → `{tags:[…]}`, `note create` → `{id,title}`.
 
 ## 6. Tags and whiteboard
 
