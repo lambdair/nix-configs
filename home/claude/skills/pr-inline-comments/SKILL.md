@@ -169,4 +169,4 @@ gh api repos/<owner>/<repo>/pulls/<PR番号>/comments \
 ## 関連
 
 - PR 本文の書き方・テンプレートはプロジェクト規約に従う（`.github/pull_request_template.md` があればそれに沿う）。
-- 自己レビューで指摘事項を洗い出す場合は [[diff-review]] と併用する。
+- 自己レビューで指摘事項を洗い出す場合は `self-review` skill と併用する。
