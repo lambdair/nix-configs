@@ -230,7 +230,7 @@ Drop `--whiteboard` if step 6 left the card unplaced. The script prints a JSON r
 
 What it cannot check is still yours: whether the sentence is a good definition, whether the original script is *correct* rather than merely present, whether a Latin-only reading needed a script at all (`ハムサ(Hamsa)` passes), and whether the tag and board were the right choices.
 
-The checker itself lives in `scripts/hepta-lint/` (MoonBit, compiled to wasm on first run; `moon test --target wasm` there runs its tests against real-card fixtures).
+The checker itself lives in `scripts/hepta-lint/` (MoonBit). Under Nix a prebuilt `hepta-lint` is on PATH and `lint-card.nu` uses it; elsewhere the script compiles it to wasm on first run. In the repo checkout, `moon test --target wasm` there runs its tests against real-card fixtures (the tests and fixtures are not deployed to `~/.claude`).
 
 ### 8. Report back
 
