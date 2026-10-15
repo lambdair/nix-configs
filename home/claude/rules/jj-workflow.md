@@ -35,7 +35,7 @@ jj rebase -b REV -d DEST       # ブランチ全体を移動
 jj rebase -r REV -A AFTER      # AFTER の後に挿入（--insert-after）
 jj rebase -r REV -B BEFORE     # BEFORE の前に挿入（--insert-before）
 ```
-**注**: 0.42 では宛先指定の正式名は `-o/--onto`（`-d/--destination` はエイリアスとして有効）。
+**注**: 宛先指定の正式名は `-o/--onto`（`-d/--destination` はエイリアスとして有効）。
 
 ### describe — メッセージ編集
 ```bash
