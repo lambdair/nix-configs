@@ -34,7 +34,7 @@ From the repo root, enumerate workarounds from three sources:
 
 - **Pins:** the `<name> = pkgs-pinned.<name>;` attrs in `overlays/pin-broken-pkg.nix`.
 - **Custom overlays:** each `overlays/*.nix` except `pin-broken-pkg.nix` (source-patching overlays imported in `flake.nix`).
-- **Overrides:** `.override` / `.overrideAttrs` call sites under `home/` and `host/` (use Grep).
+- **Overrides:** `.override` / `.overrideAttrs` call sites under `pkgs/`, `home/` and `host/` (use Grep).
 
 For each item record: file:line, target package/attr, and the explanatory comment
 (the "why"). If a workaround has **no comment**, flag it as `reason-unknown` in the
@@ -56,14 +56,14 @@ the workaround, against the current flake's nixpkgs. Let
   `(F).inputs.nixpkgs.legacyPackages.${S}.<X>`
   (If the override is nested/derived, build the smallest target that exercises the
   fix — e.g. the package that consumes it.)
-  - **Caveat — override whose consumer is flake-internal** (e.g. `home/difit.nix`
+  - **Caveat — override whose consumer is flake-internal** (e.g. `pkgs/difit.nix`
     pins `pnpm` to fix a libuv abort that only happens while *difit* builds):
     building the bare overridden dep is a **false positive** — `pnpm` builds fine
     on its own; the fix is exercised by `difit`, which is not in `legacyPackages`.
     There is no cheap standalone expr. **Skip the helper** for this item and test
     it via the step 5 path directly: drop the override in its own revision, run
     `just check` + build the consumer, keep only if green (revert if red).
-- **Custom overlay** (e.g. `emacs-objc-std.nix`): build the overlaid attr from
+- **Custom overlay** (e.g. `obsidian-fix-sourceroot.nix`): build the overlaid attr from
   nixpkgs **without** that overlay. Easiest: reference the package as it is in the
   MacHome pkgs but with the overlay list excluding the file — construct via an
   `import F.inputs.nixpkgs { system = S; overlays = [ ... ]; }` expr that drops the
