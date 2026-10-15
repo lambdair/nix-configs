@@ -646,11 +646,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1784171351,
-        "narHash": "sha256-oCsDP9eeSBtfPSIvcMEBe6ijYQNCkdBXa/V6jVbtzaM=",
+        "lastModified": 1792038150,
+        "narHash": "sha256-ud+thewaPcMXtS9ZX1EM4CEqGTeRMDPv234/f//OtUo=",
         "ref": "refs/heads/master",
-        "rev": "070b2ce27d7ed783ec06ffc1e9453da49476e0a4",
-        "revCount": 9,
+        "rev": "564540848eac922619c64bef6a712e829e07409d",
+        "revCount": 11,
         "type": "git",
         "url": "ssh://git@git.sr.ht/~lambdair/nix-private"
       },
