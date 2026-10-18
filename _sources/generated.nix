@@ -8,27 +8,27 @@
 {
   agent-toolkit-for-aws = {
     pname = "agent-toolkit-for-aws";
-    version = "9f10c2850730cb87d4ce9c6aabc55d09b7050d47";
+    version = "44ba1a5451913998815111cc2d518f5c45f95ef7";
     src = fetchFromGitHub {
       owner = "aws";
       repo = "agent-toolkit-for-aws";
-      rev = "9f10c2850730cb87d4ce9c6aabc55d09b7050d47";
+      rev = "44ba1a5451913998815111cc2d518f5c45f95ef7";
       fetchSubmodules = false;
-      sha256 = "sha256-vke5fU7Ag89kYsKDMx4L9nkNhWgI3DnJ2A1Rx4nNvfQ=";
+      sha256 = "sha256-lei6F568Qjeaj3a2pTOJKiPmeh+uy5Odxg6DJCMPUks=";
     };
-    date = "2026-10-14";
+    date = "2026-10-16";
   };
   bento = {
     pname = "bento";
-    version = "3b20e33feeac24ca1aa2308fca7fc93b3441132b";
+    version = "b406030e9b9c02078b6172cdcc30201c1b5e72c4";
     src = fetchFromGitHub {
       owner = "nyblnet";
       repo = "bento";
-      rev = "3b20e33feeac24ca1aa2308fca7fc93b3441132b";
+      rev = "b406030e9b9c02078b6172cdcc30201c1b5e72c4";
       fetchSubmodules = false;
-      sha256 = "sha256-XbADcsntVfjI/zJDPhSu8gUP6ijyKqZEBPrO7feGqjo=";
+      sha256 = "sha256-O7r6q5DW9+13w3aF1vvo2wlswAREud74Xd3cm4heTAY=";
     };
-    date = "2026-10-13";
+    date = "2026-10-17";
   };
   claude-image-view = {
     pname = "claude-image-view";
@@ -44,15 +44,15 @@
   };
   claude-mem = {
     pname = "claude-mem";
-    version = "fef3402e674bebbf72a23aeb735e91c92cd34afd";
+    version = "b85cd123daf8e5bd59edb2d1c7b98e0bba28b3a0";
     src = fetchFromGitHub {
       owner = "thedotmack";
       repo = "claude-mem";
-      rev = "fef3402e674bebbf72a23aeb735e91c92cd34afd";
+      rev = "b85cd123daf8e5bd59edb2d1c7b98e0bba28b3a0";
       fetchSubmodules = false;
-      sha256 = "sha256-l46oHMBaz0i2YlNAjEqFee86GDcdYHbRDC2+aWXmQ2E=";
+      sha256 = "sha256-Gily9VzCtRT1+t2Z1pKLLR8WoW0EPX/250vBmLY/iZE=";
     };
-    date = "2026-10-13";
+    date = "2026-10-17";
   };
   claude-qamods = {
     pname = "claude-qamods";
@@ -68,15 +68,15 @@
   };
   cursor-plugins = {
     pname = "cursor-plugins";
-    version = "837067b75aa20ab58d7b2a2f6c0531e37118c596";
+    version = "019a6a20592c10bf92869e5740368f578a9997fd";
     src = fetchFromGitHub {
       owner = "cursor";
       repo = "plugins";
-      rev = "837067b75aa20ab58d7b2a2f6c0531e37118c596";
+      rev = "019a6a20592c10bf92869e5740368f578a9997fd";
       fetchSubmodules = false;
-      sha256 = "sha256-+9D0e8fZ6LZWhHpZ/cevM7+gmkhuYFtPnoZFvLBq2fk=";
+      sha256 = "sha256-hbSUx47mqjGJyE0rGtsBHfNP9l2EWMN2REsBIC7fK3s=";
     };
-    date = "2026-10-13";
+    date = "2026-10-17";
   };
   difit = {
     pname = "difit";
@@ -92,18 +92,18 @@
   };
   druk-linux = {
     pname = "druk-linux";
-    version = "1.39.1";
+    version = "1.40.0";
     src = fetchurl {
-      url = "https://github.com/letstri/druk/releases/download/v1.39.1/druk-linux-x64.tar.gz";
-      sha256 = "sha256-oJREO+lk3vO+soX8QN/lmwwTLyiRASqUSfQ0biId0yQ=";
+      url = "https://github.com/letstri/druk/releases/download/v1.40.0/druk-linux-x64.tar.gz";
+      sha256 = "sha256-XTNJ+vPz8BfQq6yXR+tMGoU6vqyx1+kputeGFVzY3NY=";
     };
   };
   druk-mac = {
     pname = "druk-mac";
-    version = "1.39.1";
+    version = "1.40.0";
     src = fetchurl {
-      url = "https://github.com/letstri/druk/releases/download/v1.39.1/druk-darwin-arm64.zip";
-      sha256 = "sha256-fmE6xjp0GO+7gWE2Onh2v9lLLfVLDajtWBJ+GAqd4MM=";
+      url = "https://github.com/letstri/druk/releases/download/v1.40.0/druk-darwin-arm64.zip";
+      sha256 = "sha256-Ozjn0fdXz2WurSR60XiQ0+Jq28YSphrayoOeFETUJzg=";
     };
   };
   elio = {
@@ -155,10 +155,10 @@
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.112.5";
+    version = "1.112.6";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.112.5/Heptabase-1.112.5.AppImage";
-      sha256 = "sha256-iB4zSI3aUWaLnziDtTsDgw1JOV1BXpNy2IbGK4OepSc=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.112.6/Heptabase-1.112.6.AppImage";
+      sha256 = "sha256-3PR+W9mYnl/WrUC1YhgnvHsP1uPnblAuOXusECK+aGk=";
     };
   };
   heptabase-cli-skills = {
@@ -245,18 +245,18 @@
   };
   lightpanda-linux = {
     pname = "lightpanda-linux";
-    version = "1.0.0";
+    version = "1.0.1";
     src = fetchurl {
-      url = "https://github.com/lightpanda-io/browser/releases/download/1.0.0/lightpanda-x86_64-linux";
-      sha256 = "sha256-qlpLjtU9Hjizxz9bJkfQqEqC5nRFV/RfmpyFhYqgMcM=";
+      url = "https://github.com/lightpanda-io/browser/releases/download/1.0.1/lightpanda-x86_64-linux";
+      sha256 = "sha256-VRdH41xRuhB7XVJ37KS0jgd7KjtA8JoEe/ZnBEi8Nf0=";
     };
   };
   lightpanda-mac = {
     pname = "lightpanda-mac";
-    version = "1.0.0";
+    version = "1.0.1";
     src = fetchurl {
-      url = "https://github.com/lightpanda-io/browser/releases/download/1.0.0/lightpanda-aarch64-macos";
-      sha256 = "sha256-lVRABTqEdU3WTGL5cESaVqKzUM30PqXy6AmnMEe4Fz0=";
+      url = "https://github.com/lightpanda-io/browser/releases/download/1.0.1/lightpanda-aarch64-macos";
+      sha256 = "sha256-1LZqyEhPSdekngW2+TQnFsdHEpUn/L6P/jZnn/oY3WA=";
     };
   };
   lightpanda-skill = {
@@ -464,15 +464,15 @@
   };
   yomiyasu = {
     pname = "yomiyasu";
-    version = "60bf877acebc86651e0b67d70112a66245f87758";
+    version = "84e1f5b15e497538fcfe19ab7e9c6f6d138f19ff";
     src = fetchFromGitHub {
       owner = "nanaism";
       repo = "yomiyasu";
-      rev = "60bf877acebc86651e0b67d70112a66245f87758";
+      rev = "84e1f5b15e497538fcfe19ab7e9c6f6d138f19ff";
       fetchSubmodules = false;
-      sha256 = "sha256-hBM4uV/otDc5YlHGW8GNze9v7EOuj+zbxArxk04MCrQ=";
+      sha256 = "sha256-cvZgUFMYWVJ2yuYmbDCR+jzO9n2qEOiDU++VfKPi1c8=";
     };
-    date = "2026-10-13";
+    date = "2026-10-17";
   };
   zmk-battery-center-linux = {
     pname = "zmk-battery-center-linux";
