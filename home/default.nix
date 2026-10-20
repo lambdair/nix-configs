@@ -340,7 +340,7 @@ in
         et = "emacsclient -nw -a hx";
         es = "emacs --daemon";
         ek = "emacsclient -e '(kill-emacs)'";
-        vi = "nvim";
+        # vi = "nvim";
         uu = "uiua repl";
         cl = "claude";
         hr = "bb ~/.claude/skills/reviewing-jj-revisions-with-hunk/hr";
@@ -423,7 +423,7 @@ in
     lazygit = {
       enable = true;
       settings = {
-        os.editPreset = "nvim";
+        os.editPreset = "hx";
       };
     };
 

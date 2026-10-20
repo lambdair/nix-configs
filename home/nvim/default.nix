@@ -1,7 +1,7 @@
 { pkgs, sources, ... }:
 {
   programs.neovim = {
-    enable = true;
+    enable = false;
     viAlias = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
