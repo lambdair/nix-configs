@@ -185,7 +185,6 @@ in
       # Database
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       rainfrog # Database management TUI for PostgreSQL
-      lazysql # Terminal client for MySQL, PostgreSQL, SQLite
       sqldef # Idempotent SQL schema management tool
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
