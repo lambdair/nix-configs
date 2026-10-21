@@ -1,7 +1,7 @@
 //! Serialization + secret-scan wrapper around the real `jj` binary.
 //!
 //! Two gates share this one wrapper because both must cover every jj
-//! invocation, the CLI and TUIs such as jjui / lazyjj alike: a repo-shared
+//! invocation, the CLI and TUIs such as jjui alike: a repo-shared
 //! flock that serializes the operation log, and a betterleaks scan that runs
 //! before `jj git push` publishes anything.
 //!
