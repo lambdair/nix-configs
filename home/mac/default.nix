@@ -15,7 +15,6 @@ in
 rec {
   imports = [
     ../ghostty.nix
-    ../terminal-browser.nix
     ./neomacs-app.nix
     ./zmk-battery-center.nix
   ];
