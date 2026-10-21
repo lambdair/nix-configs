@@ -128,7 +128,6 @@ in
       clojure # Dynamic, general-purpose programming language on the JVM
       clojure-lsp # Language Server Protocol (LSP) for Clojure
       clj-kondo # Linter for Clojure code that sparks joy
-      cljfmt # Tool for formatting Clojure code
       cljstyle # Clojure code formatter
       babashka # Clojure babushka for the grey areas of Bash
       fennel-ls # Language server for Fennel Programming Language
