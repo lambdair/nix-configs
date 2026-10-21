@@ -230,7 +230,6 @@ in
       # Finance Management
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       budget-tracker-tui # TUI budget tracker (Budget_Tracker)
-      bagels # TUI expense tracker
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Other CLI Utilities
