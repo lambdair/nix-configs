@@ -220,9 +220,7 @@ in
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Notes / Knowledge Management
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      nb # Command line note-taking and knowledge base
       rucola # Terminal-based markdown note manager
-      basalt # TUI for managing Obsidian notes
       tdf # TUI-based PDF viewer
       glow # Render markdown on the CLI
       sdcv # StarDict console version
