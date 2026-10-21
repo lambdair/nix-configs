@@ -12,8 +12,6 @@ rec {
   home.homeDirectory = "/home/${home.username}";
 
   home.packages = with pkgs; [
-    vivaldi
-    nyxt
     thunderbird
     discord
     obsidian # Knowledge base
