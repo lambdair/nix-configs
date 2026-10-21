@@ -123,10 +123,6 @@
             path = customPkgs.difit;
           }
           {
-            name = "elio";
-            path = customPkgs.elio;
-          }
-          {
             name = "miditui";
             path = customPkgs.miditui;
           }

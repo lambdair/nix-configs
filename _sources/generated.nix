@@ -94,17 +94,6 @@
       sha256 = "sha256-Ozjn0fdXz2WurSR60XiQ0+Jq28YSphrayoOeFETUJzg=";
     };
   };
-  elio = {
-    pname = "elio";
-    version = "v1.14.0";
-    src = fetchFromGitHub {
-      owner = "elio-fm";
-      repo = "elio";
-      rev = "v1.14.0";
-      fetchSubmodules = false;
-      sha256 = "sha256-E4MEr/Hz7CJvnbqTyrf+rVp9CCJLJN7hWRW+DHNCavg=";
-    };
-  };
   fixw = {
     pname = "fixw";
     version = "036d0f2cd2d6e061f5acf0835662f194509f2a46";
