@@ -265,7 +265,6 @@ in
     ./helix.nix # Post-modern modal text editor (hx)
     ./helix-steel.nix # Helix with the Steel plugin runtime
     ./emacs # Extensible, customizable text editor
-    ./druk.nix # Terminal code editor with tree-sitter syntax, LSP and git
 
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     # Git / Version Control

@@ -125,36 +125,6 @@
         },
         "version": "82a765c037ec28fe7fe90ab2f1e4b5748032b4fa"
     },
-    "druk-linux": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "druk-linux",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-XTNJ+vPz8BfQq6yXR+tMGoU6vqyx1+kputeGFVzY3NY=",
-            "type": "url",
-            "url": "https://github.com/letstri/druk/releases/download/v1.40.0/druk-linux-x64.tar.gz"
-        },
-        "version": "1.40.0"
-    },
-    "druk-mac": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "druk-mac",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-Ozjn0fdXz2WurSR60XiQ0+Jq28YSphrayoOeFETUJzg=",
-            "type": "url",
-            "url": "https://github.com/letstri/druk/releases/download/v1.40.0/druk-darwin-arm64.zip"
-        },
-        "version": "1.40.0"
-    },
     "fixw": {
         "cargoLock": null,
         "date": "2026-06-06",

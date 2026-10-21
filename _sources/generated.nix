@@ -78,22 +78,6 @@
     };
     date = "2026-08-29";
   };
-  druk-linux = {
-    pname = "druk-linux";
-    version = "1.40.0";
-    src = fetchurl {
-      url = "https://github.com/letstri/druk/releases/download/v1.40.0/druk-linux-x64.tar.gz";
-      sha256 = "sha256-XTNJ+vPz8BfQq6yXR+tMGoU6vqyx1+kputeGFVzY3NY=";
-    };
-  };
-  druk-mac = {
-    pname = "druk-mac";
-    version = "1.40.0";
-    src = fetchurl {
-      url = "https://github.com/letstri/druk/releases/download/v1.40.0/druk-darwin-arm64.zip";
-      sha256 = "sha256-Ozjn0fdXz2WurSR60XiQ0+Jq28YSphrayoOeFETUJzg=";
-    };
-  };
   fixw = {
     pname = "fixw";
     version = "036d0f2cd2d6e061f5acf0835662f194509f2a46";
