@@ -296,21 +296,6 @@ in
 
   programs = {
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    # Terminal Emulators
-    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    # GPU-accelerated terminal emulator and multiplexer
-    wezterm = {
-      enable = true;
-      extraConfig = builtins.readFile ./wezterm.lua;
-    };
-
-    # GPU-based terminal emulator
-    kitty = {
-      enable = true;
-      font.name = "Uiua386";
-    };
-
-    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     # Shell
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     # Structured-data shell (nu)

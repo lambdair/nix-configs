@@ -14,7 +14,7 @@ binds {
 
     // Launchers
     Mod+D { spawn "vicinae" "toggle"; }
-    Mod+T { spawn "kitty"; }
+    Mod+T { spawn "ghostty"; }
     Super+Alt+L { spawn "swaylock"; }
 
     // Audio (work even when locked)
