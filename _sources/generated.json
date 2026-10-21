@@ -62,27 +62,6 @@
         },
         "version": "370b8e7bc0708bebe9762e63534f7ca18bc3e802"
     },
-    "claude-mem": {
-        "cargoLock": null,
-        "date": "2026-10-20",
-        "extract": null,
-        "name": "claude-mem",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "thedotmack",
-            "repo": "claude-mem",
-            "rev": "bbb337902271db56849b7645fee0f3b77b9aabf6",
-            "sha256": "sha256-95FBqkFVqiasMhZerZIcnAMeatFcwevHcaHzhYDx1LY=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "bbb337902271db56849b7645fee0f3b77b9aabf6"
-    },
     "claude-qamods": {
         "cargoLock": null,
         "date": "2026-10-07",

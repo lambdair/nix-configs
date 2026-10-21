@@ -70,7 +70,6 @@ in
       lightpanda = lightpanda-plugin;
       moonbit-code-plugins = sources.moonbit-skills.src;
       superpowers-dev = sources.superpowers.src;
-      thedotmack = sources.claude-mem.src;
       yomiyasu = sources.yomiyasu.src;
     };
     mcpServers.context7 = {
@@ -158,9 +157,6 @@ in
         "bento-slides@bento" = true;
         "moonbit-skills@moonbit-code-plugins" = true;
         "superpowers@superpowers-dev" = true;
-        # Disabled: the stale v10.0.4 hook left in ~/.claude does not match nix's
-        # v13.5.2 worker and blocks UserPromptSubmit seven times in a row.
-        "claude-mem@thedotmack" = false;
         "heptabase@heptabase-cli-skills" = true;
         "image-view@claude-image-view" = true;
         "qa-guide@claude-qamods" = true;

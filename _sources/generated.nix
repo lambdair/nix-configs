@@ -42,18 +42,6 @@
     };
     date = "2026-10-12";
   };
-  claude-mem = {
-    pname = "claude-mem";
-    version = "bbb337902271db56849b7645fee0f3b77b9aabf6";
-    src = fetchFromGitHub {
-      owner = "thedotmack";
-      repo = "claude-mem";
-      rev = "bbb337902271db56849b7645fee0f3b77b9aabf6";
-      fetchSubmodules = false;
-      sha256 = "sha256-95FBqkFVqiasMhZerZIcnAMeatFcwevHcaHzhYDx1LY=";
-    };
-    date = "2026-10-20";
-  };
   claude-qamods = {
     pname = "claude-qamods";
     version = "37c473c3af806fcf238756c9b4dd8e7d08c9710f";
