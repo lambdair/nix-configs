@@ -437,17 +437,6 @@ in
     zellij = {
       enable = true;
     };
-
-    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    # Media / Music
-    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    # ncurses Spotify client
-    ncspot = {
-      enable = true;
-      settings = {
-        use_nerdfont = true;
-      };
-    };
   };
 
   home.file.".clojure/deps.edn".source = ./deps.edn;
