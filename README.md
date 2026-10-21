@@ -18,7 +18,7 @@ macOS through nix-darwin, and WSL — from one nixpkgs-unstable tree.
 ## Layout
 
 - `host/` — system configuration: shared base, fonts, and one directory per host
-- `home/` — home-manager: packages, Emacs, Neovim, Helix, and the Claude Code setup
+- `home/` — home-manager: packages, Emacs, Helix, and the Claude Code setup
 - `pkgs/` — derivations for what nixpkgs does not carry, shared with `ci-heavy`
 - `overlays/` — fixes and pins for packages broken on unstable
 - `scripts/` — maintenance run through `just`

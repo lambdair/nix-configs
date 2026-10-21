@@ -481,26 +481,6 @@
         },
         "version": "8b9f1bad14bc62560dbe3537855379e561a4e066"
     },
-    "nvim-bqn": {
-        "cargoLock": null,
-        "date": "2023-09-08",
-        "extract": null,
-        "name": "nvim-bqn",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "rev": "52d8b49f3ebc32d340e2e2b8dba1f6bbd1873b78",
-            "sha256": "sha256-5wITedTuUn9BKLqmQtPWeFNOa8dXfPIRpUvPSkNJcas=",
-            "sparseCheckout": [],
-            "type": "git",
-            "url": "https://git.sr.ht/~detegr/nvim-bqn"
-        },
-        "version": "52d8b49f3ebc32d340e2e2b8dba1f6bbd1873b78"
-    },
     "overeasy": {
         "cargoLock": null,
         "date": null,
@@ -694,27 +674,6 @@
             "url": "https://github.com/waddie/ui-utils.hx"
         },
         "version": "3262e80706f9d332b83d3ac0f578ffd40e2e0673"
-    },
-    "uiua": {
-        "cargoLock": null,
-        "date": "2026-01-29",
-        "extract": null,
-        "name": "uiua",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "Apeiros-46B",
-            "repo": "uiua.vim",
-            "rev": "5071e4a22fd2952617ae995cd3fab737c77753ae",
-            "sha256": "sha256-ppTyUS1MZbmZavluI61SsnbzyMrZNEpjVpPrunFFK84=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "5071e4a22fd2952617ae995cd3fab737c77753ae"
     },
     "yomiyasu": {
         "cargoLock": null,

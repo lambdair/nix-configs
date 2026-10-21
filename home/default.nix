@@ -264,7 +264,6 @@ in
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     ./helix.nix # Post-modern modal text editor (hx)
     ./helix-steel.nix # Helix with the Steel plugin runtime
-    ./nvim # Vim fork focused on extensibility and agility
     ./emacs # Extensible, customizable text editor
     ./druk.nix # Terminal code editor with tree-sitter syntax, LSP and git
 
@@ -294,7 +293,6 @@ in
     flavor = "frappe";
     enable = true;
     autoEnable = true;
-    nvim.enable = false;
   };
 
   programs = {
@@ -327,7 +325,6 @@ in
         et = "emacsclient -nw -a hx";
         es = "emacs --daemon";
         ek = "emacsclient -e '(kill-emacs)'";
-        # vi = "nvim";
         uu = "uiua repl";
         cl = "claude";
         hr = "bb ~/.claude/skills/reviewing-jj-revisions-with-hunk/hr";

@@ -280,20 +280,6 @@
     };
     date = "2026-09-18";
   };
-  nvim-bqn = {
-    pname = "nvim-bqn";
-    version = "52d8b49f3ebc32d340e2e2b8dba1f6bbd1873b78";
-    src = fetchgit {
-      url = "https://git.sr.ht/~detegr/nvim-bqn";
-      rev = "52d8b49f3ebc32d340e2e2b8dba1f6bbd1873b78";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sparseCheckout = [ ];
-      sha256 = "sha256-5wITedTuUn9BKLqmQtPWeFNOa8dXfPIRpUvPSkNJcas=";
-    };
-    date = "2023-09-08";
-  };
   overeasy = {
     pname = "overeasy";
     version = "4-3";
@@ -410,18 +396,6 @@
       sparseCheckout = [ ];
       sha256 = "sha256-ur4qbWalj7yfLD05u8k4BRilpT47A4Jh264N6ewjhvk=";
     };
-  };
-  uiua = {
-    pname = "uiua";
-    version = "5071e4a22fd2952617ae995cd3fab737c77753ae";
-    src = fetchFromGitHub {
-      owner = "Apeiros-46B";
-      repo = "uiua.vim";
-      rev = "5071e4a22fd2952617ae995cd3fab737c77753ae";
-      fetchSubmodules = false;
-      sha256 = "sha256-ppTyUS1MZbmZavluI61SsnbzyMrZNEpjVpPrunFFK84=";
-    };
-    date = "2026-01-29";
   };
   yomiyasu = {
     pname = "yomiyasu";

@@ -7,11 +7,6 @@ fetch.github = "leanprover-community/lean4-mode"
 src.git = "https://github.com/bolivier/jj-mode.el"
 fetch.github = "bolivier/jj-mode.el"
 
-# nvim
-[uiua]
-src.git = "https://github.com/Apeiros-46B/uiua.vim"
-fetch.github = "Apeiros-46B/uiua.vim"
-
 # racket-langserver plus the dependencies the Racket distribution does not
 # ship. `raco pkg install` would resolve these from the package catalog, which
 # a sandboxed build cannot reach, so they are pinned here and placed on the
@@ -40,10 +35,6 @@ fetch.url = "https://www.neilvandyke.org/racket/mcfly--$ver.zip"
 [overeasy]
 src.manual = "4-3"
 fetch.url = "https://www.neilvandyke.org/racket/overeasy--$ver.zip"
-
-[nvim-bqn]
-src.git = "https://git.sr.ht/~detegr/nvim-bqn"
-fetch.git = "https://git.sr.ht/~detegr/nvim-bqn"
 
 # other
 # Alpha tags are cut without release assets, so the AppImage is only reachable
