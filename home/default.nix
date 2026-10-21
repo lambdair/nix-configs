@@ -191,7 +191,6 @@ in
       # Docker / Containers
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       oxker # Simple TUI to view & control docker containers
-      lazydocker # Simple terminal UI for docker and docker-compose
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # System Monitoring
