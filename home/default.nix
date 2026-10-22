@@ -452,6 +452,20 @@ in
     key = "I"
     scope = "revisions"
 
+    [[actions]]
+    name = "review-in-tuicr"
+    desc = "review revision in tuicr"
+    lua = ''''
+    local change_id = context.change_id()
+    if not change_id or change_id == "" then
+      flash({ text = "No revision selected", error = true })
+      return
+    end
+    exec_shell(string.format("tuicr -r %q", change_id))
+    ''''
+    key = "T"
+    scope = "revisions"
+
     # Review the selected revision by opening it in difit (in the browser).
     [[actions]]
     name = "difit-review"
