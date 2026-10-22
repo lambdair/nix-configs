@@ -56,10 +56,11 @@ the workaround, against the current flake's nixpkgs. Let
   `(F).inputs.nixpkgs.legacyPackages.${S}.<X>`
   (If the override is nested/derived, build the smallest target that exercises the
   fix — e.g. the package that consumes it.)
-  - **Caveat — override whose consumer is flake-internal** (e.g. `pkgs/difit.nix`
-    pins `pnpm` to fix a libuv abort that only happens while *difit* builds):
-    building the bare overridden dep is a **false positive** — `pnpm` builds fine
-    on its own; the fix is exercised by `difit`, which is not in `legacyPackages`.
+  - **Caveat — override whose consumer is flake-internal** (e.g. a derivation in
+    `pkgs/` that pins a build tool to fix a failure that only happens while that
+    package builds): building the bare overridden dep is a **false positive** —
+    the tool builds fine on its own; the fix is exercised by the `pkgs/` package,
+    which is not in `legacyPackages`.
     There is no cheap standalone expr. **Skip the helper** for this item and test
     it via the step 5 path directly: drop the override in its own revision, run
     `just check` + build the consumer, keep only if green (revert if red).

@@ -96,10 +96,6 @@ src.git = "https://git.sr.ht/~lambdair/lean-unicode.hx"
 src.branch = "main"
 fetch.git = "https://git.sr.ht/~lambdair/lean-unicode.hx"
 
-[difit]
-src.git = "https://github.com/yoshiko-pg/difit"
-fetch.github = "yoshiko-pg/difit"
-
 # miditui has no release tags, so the default branch's head is tracked.
 [miditui]
 src.git = "https://github.com/pinkpixel-dev/miditui"

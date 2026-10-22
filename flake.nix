@@ -116,10 +116,6 @@
             path = customPkgs.sulafat;
           }
           {
-            name = "difit";
-            path = customPkgs.difit;
-          }
-          {
             name = "miditui";
             path = customPkgs.miditui;
           }

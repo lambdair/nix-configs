@@ -1,9 +1,9 @@
 #!/usr/bin/env nu
 
 # Recompute the dependency hashes written by hand in pkgs/. Each one pins the
-# result of a fetch that the package's own source dictates — pnpm's dependency
-# set, a cargo git dependency — so an nvfetcher source bump leaves it stale and
-# the build then fails with the new dependencies missing from the sandbox.
+# result of a fetch that the package's own source dictates — a cargo git
+# dependency — so an nvfetcher source bump leaves it stale and the build then
+# fails with the new dependencies missing from the sandbox.
 # The update workflow runs this so the pull request it opens is self-consistent.
 
 # Building with a placeholder forces the fetch to run; its mismatch error
@@ -14,7 +14,6 @@ const FAKE = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
 # derivation under ./pkgs whose build reports the value.
 const TARGETS = [
   [file anchor attr];
-  ["pkgs/difit.nix" 'hash = "' "difit.pnpmDeps"]
   ["pkgs/helix-steel.nix" 'steelCoreHashForHelix = "' "helix-steel-unwrapped.cargoDeps"]
   ["pkgs/helix-steel.nix" 'steelCoreHashForSulafat = "' "sulafat.cargoDeps"]
 ]
