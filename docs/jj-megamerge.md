@@ -31,7 +31,8 @@ JJ_MEGAMERGE_WIP='bookmarks(glob:"feature/*") & mine()' jj-megamerge-rebuild
 | key | 動作 |
 |-----|------|
 | `m` | `jj-megamerge-rebuild`（fetch なし） |
-| `F` | `jj git fetch` + `jj-megamerge-rebuild` |
+
+fetch も行うときは、jjui 標準の `g` → `f` で fetch したあと `m` を押す。
 
 ## 提供される revset-aliases
 
@@ -59,5 +60,4 @@ JJ_MEGAMERGE_WIP='bookmarks(glob:"feature/*") & mine()' jj-megamerge-rebuild
 実装上の要点:
 
 - `description(exact:"megamerge")` ではなく `subject(exact:"megamerge")` で照合する（jj は description 末尾に改行を付けるため `description` の完全一致は効かない）
-- jjui キーは `F`（jjui の key 表記は単一文字）
 - `wip()` は `wip/*` prefix ではなく「trunk 未マージの自分の bookmark」という状態で対象を検出する。push 時に prefix を外す手間をなくし、素のブランチ名のまま PR に使えるようにするため

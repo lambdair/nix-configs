@@ -423,36 +423,6 @@ in
 
   xdg.configFile."jjui/config.toml".text = ''
     [[actions]]
-    name = "show-diff-in-hunk"
-    desc = "show diff in hunk"
-    lua = ''''
-    local change_id = context.change_id()
-    if not change_id or change_id == "" then
-      flash({ text = "No revision selected", error = true })
-      return
-    end
-    exec_shell(string.format("jj diff -r %q --git --color always | hunk pager", change_id))
-    ''''
-    key = "H"
-    scope = "revisions"
-
-    # hunk has no whitespace-ignoring option of its own, so jj drops the
-    # whitespace-only changes before the diff reaches the pager.
-    [[actions]]
-    name = "show-diff-in-hunk-ignore-whitespace"
-    desc = "show diff in hunk (ignore whitespace)"
-    lua = ''''
-    local change_id = context.change_id()
-    if not change_id or change_id == "" then
-      flash({ text = "No revision selected", error = true })
-      return
-    end
-    exec_shell(string.format("jj diff -r %q --git -w --color always | hunk pager", change_id))
-    ''''
-    key = "I"
-    scope = "revisions"
-
-    [[actions]]
     name = "review-in-tuicr"
     desc = "review revision in tuicr"
     lua = ''''
@@ -466,21 +436,6 @@ in
     key = "T"
     scope = "revisions"
 
-    # Review the selected revision by opening it in difit (in the browser).
-    [[actions]]
-    name = "difit-review"
-    desc = "review revision in difit"
-    lua = ''''
-    local commit_id = context.commit_id()
-    if not commit_id or commit_id == "" then
-      flash({ text = "No revision selected", error = true })
-      return
-    end
-    exec_shell(string.format("difit %q", commit_id))
-    ''''
-    key = "V"
-    scope = "revisions"
-
     [[actions]]
     name = "megamerge-rebuild"
     desc = "rebuild megamerge (no fetch)"
@@ -488,15 +443,6 @@ in
     exec_shell("JJ_MEGAMERGE_FETCH=0 jj-megamerge-rebuild")
     ''''
     key = "m"
-    scope = "revisions"
-
-    [[actions]]
-    name = "megamerge-fetch-rebuild"
-    desc = "fetch + rebuild megamerge"
-    lua = ''''
-    exec_shell("jj-megamerge-rebuild")
-    ''''
-    key = "F"
     scope = "revisions"
   '';
 }
