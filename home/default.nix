@@ -437,6 +437,9 @@ in
   '';
 
   xdg.configFile."jjui/config.toml".text = ''
+    [bookmark]
+    interactive_bookmark_pane = true
+
     [[actions]]
     name = "review-in-tuicr"
     desc = "review revision in tuicr"
