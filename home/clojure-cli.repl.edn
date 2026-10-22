@@ -1,0 +1,3 @@
+;; clojure-cli.repl のユーザー設定。
+;; cider-nrepl は deps.edn の :cider alias を付けて起動したときだけ載る。
+{:middleware [^:optional cider.nrepl/cider-middleware]}

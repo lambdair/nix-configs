@@ -415,6 +415,8 @@ in
   };
 
   home.file.".clojure/deps.edn".source = ./deps.edn;
+  # Linked file by file: clojure-cli.repl writes its history next to the config.
+  home.file.".clojure/.cljconf/org.clojure/clojure-cli.repl.edn".source = ./clojure-cli.repl.edn;
 
   # "auto" ignores whitespace in JavaScript, TypeScript, JSON and Rust diffs,
   # and the overrides add the languages reviewed here whose meaning does not

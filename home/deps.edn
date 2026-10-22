@@ -26,4 +26,8 @@
   :ccr/attach {:replace-paths []
                :replace-deps {io.github.clojure/clojure-cli.repl-client {:mvn/version "0.2.1"}}
                :jvm-opts ["--enable-native-access=ALL-UNNAMED"]
-               :main-opts ["-m" "clojure-cli.repl.client"]}}}
+               :main-opts ["-m" "clojure-cli.repl.client"]}
+
+  ;; CIDER 用ミドルウェア。clojure-cli.repl.edn の :middleware が、これが載っている
+  ;; ときだけ読み込む。例: clojure -M:dev:flowstorm:cider:ccr/serve
+  :cider {:extra-deps {cider/cider-nrepl {:mvn/version "0.63.1"}}}}}
