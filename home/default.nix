@@ -415,6 +415,12 @@ in
 
   home.file.".clojure/deps.edn".source = ./deps.edn;
 
+  # "auto" ignores whitespace in JavaScript, TypeScript, JSON and Rust diffs
+  # and compares it in every other file type, Python and YAML included.
+  xdg.configFile."tuicr/config.toml".text = ''
+    ignore_whitespace = "auto"
+  '';
+
   xdg.configFile."jjui/config.toml".text = ''
     [[actions]]
     name = "show-diff-in-hunk"
