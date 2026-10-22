@@ -22,8 +22,7 @@ let
   xVersion = "0.5.1";
 
   # Manifest listing the exact deps to fetch. Kept in sync with the moon.mod of
-  # every package that uses this registry. The module name is part of what
-  # `moon install` writes, so it stays as it was when outputHash was taken.
+  # every package that uses this registry.
   depsMod = pkgs.writeText "deps-moon.mod" ''
     name = "vendor/statusline-deps"
     version = "0.0.0"
@@ -50,7 +49,7 @@ pkgs.stdenv.mkDerivation {
     cp ${depsMod} proj/moon.mod
     cd proj
     moon update      # clone the registry index
-    moon install     # download the pinned dep zips
+    moon check       # download the pinned dep zips
   '';
   installPhase = ''
     idx="$MOON_HOME/registry/index/user/moonbitlang"
@@ -66,5 +65,5 @@ pkgs.stdenv.mkDerivation {
   '';
   outputHashMode = "recursive";
   outputHashAlgo = "sha256";
-  outputHash = "sha256-v+UEgD3ad9LiL87/kGTY8jfSzW0eNmt3ZrHIE/8dGho=";
+  outputHash = "sha256-vZgJMcKPedeaHSOdG5hNpTlXRdP0z2DphngRDqfTWj0=";
 }
