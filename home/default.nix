@@ -414,10 +414,26 @@ in
 
   home.file.".clojure/deps.edn".source = ./deps.edn;
 
-  # "auto" ignores whitespace in JavaScript, TypeScript, JSON and Rust diffs
-  # and compares it in every other file type, Python and YAML included.
+  # "auto" ignores whitespace in JavaScript, TypeScript, JSON and Rust diffs,
+  # and the overrides add the languages reviewed here whose meaning does not
+  # depend on whitespace. Every other file type, Python, YAML, Lean and
+  # Markdown included, still compares it.
   xdg.configFile."tuicr/config.toml".text = ''
     ignore_whitespace = "auto"
+
+    [ignore_whitespace_overrides]
+    nix = true
+    clj = true
+    cljs = true
+    cljc = true
+    edn = true
+    bb = true
+    mbt = true
+    el = true
+    scm = true
+    zig = true
+    nu = true
+    lua = true
   '';
 
   xdg.configFile."jjui/config.toml".text = ''
