@@ -13,4 +13,17 @@
               :extra-deps {com.github.flow-storm/clojure {:mvn/version "1.12.5"}
                            com.github.flow-storm/flow-storm-dbg {:mvn/version "4.5.9"}}
               :jvm-opts ["-Dclojure.storm.instrumentEnable=true"
-                         "-Dclojure.storm.instrumentAutoPrefixes=true"]}}}
+                         "-Dclojure.storm.instrumentAutoPrefixes=true"]}
+
+  ;; clojure-cli.repl: nREPL サーバと JLine クライアントの2プロセスで動く端末 REPL。
+  ;; :ccr/repl はサーバを起動してクライアントも開く。:ccr/serve はサーバだけを起動して
+  ;; .nrepl-port を書き、:ccr/attach はそこへクライアントを繋ぐ（エディタ連携用）。
+  ;; プロジェクトの同名 alias に置き換えられないよう ccr/ で修飾している。
+  :ccr/repl   {:extra-deps {io.github.clojure/clojure-cli.repl-server {:mvn/version "0.2.1"}}
+               :main-opts ["-m" "clojure-cli.repl.server" "repl"]}
+  :ccr/serve  {:extra-deps {io.github.clojure/clojure-cli.repl-server {:mvn/version "0.2.1"}}
+               :main-opts ["-m" "clojure-cli.repl.server"]}
+  :ccr/attach {:replace-paths []
+               :replace-deps {io.github.clojure/clojure-cli.repl-client {:mvn/version "0.2.1"}}
+               :jvm-opts ["--enable-native-access=ALL-UNNAMED"]
+               :main-opts ["-m" "clojure-cli.repl.client"]}}}
