@@ -383,6 +383,8 @@ in
           "pager"
         ];
         ui.diff-formatter = ":git";
+        # The revisions of branch x that trunk does not contain yet
+        revset-aliases."br(x)" = "trunk()..x";
       };
     };
 
