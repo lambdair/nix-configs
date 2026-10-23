@@ -2,6 +2,9 @@
 {;; cider-nrepl は deps.edn の :cider alias を付けて起動したときだけ載る。
  :middleware [^:optional cider.nrepl/cider-middleware]
 
+ ;; 括弧の位置で働く lispy 風の特殊キー（clojure-cli.repl/src/dev/lispy.clj）
+ :keybindings dev.lispy/install
+
  :doc-at-cursor "C-x d"
  :inspect       "C-x i"
 
