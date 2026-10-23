@@ -508,6 +508,10 @@ vi style of % jumping to matching brace."
   :demand t
   :config
   (define-key lispy-mode-map (kbd "M-.") nil)
+  ;; > and < move the bracket at point the way the arrow points, so > barfs
+  ;; at an opening bracket
+  (lispy-define-key lispy-mode-map ">" 'lispy-slurp-or-barf-right)
+  (lispy-define-key lispy-mode-map "<" 'lispy-slurp-or-barf-left)
   (add-hook 'clojure-mode-hook #'lispy-mode)
   (add-hook 'emacs-lisp-mode-hook #'lispy-mode)
   (add-hook 'scheme-mode-hook #'lispy-mode))
