@@ -385,6 +385,9 @@ in
         ui.diff-formatter = ":git";
         # The revisions of branch x that trunk does not contain yet
         revset-aliases."br(x)" = "trunk()..x";
+        # Other workspaces' working copies that are empty, undescribed and have no children
+        revset-aliases."idle_workspaces()" =
+          ''(working_copies() ~ @) & empty() & description(exact:"") & visible_heads()'';
       };
     };
 
@@ -448,6 +451,10 @@ in
     [bookmark]
     interactive_bookmark_pane = true
 
+    # builtin_log() without idle_workspaces() and the trunk commits only they reach
+    [revisions]
+    revset = 'present(@) | ancestors((immutable_heads()..) ~ idle_workspaces(), 2) | trunk()'
+
     [[actions]]
     name = "review-in-tuicr"
     desc = "review revision in tuicr"
@@ -469,6 +476,19 @@ in
     exec_shell("JJ_MEGAMERGE_FETCH=0 jj-megamerge-rebuild")
     ''''
     key = "m"
+    scope = "revisions"
+
+    [[actions]]
+    name = "toggle-idle-workspaces"
+    desc = "show/hide idle workspaces"
+    lua = ''''
+    if revset.current() == "builtin_log()" then
+      revset.reset()
+    else
+      revset.set("builtin_log()")
+    end
+    ''''
+    key = "w"
     scope = "revisions"
   '';
 }
