@@ -8,15 +8,15 @@
 {
   agent-toolkit-for-aws = {
     pname = "agent-toolkit-for-aws";
-    version = "655a3239c809e18c777e7d1328dda07382d8415a";
+    version = "8eee01d92fc1b2573e5169149ef6844b3d77ed81";
     src = fetchFromGitHub {
       owner = "aws";
       repo = "agent-toolkit-for-aws";
-      rev = "655a3239c809e18c777e7d1328dda07382d8415a";
+      rev = "8eee01d92fc1b2573e5169149ef6844b3d77ed81";
       fetchSubmodules = false;
-      sha256 = "sha256-4uK2XA+Eb5JMbD3xtbWGxwlYYzaGo6VqbeVK8fwzOj8=";
+      sha256 = "sha256-wxfBe1EeesojQ6SFysqfK+briTx0ljlzA31aVhx9d+M=";
     };
-    date = "2026-10-27";
+    date = "2026-10-30";
   };
   bento = {
     pname = "bento";
@@ -56,15 +56,15 @@
   };
   cursor-plugins = {
     pname = "cursor-plugins";
-    version = "c742dd61706fbacc1b95f1a20b7b988cf096ce6c";
+    version = "ae5650febf4320793844c12c4adaa937f417f8da";
     src = fetchFromGitHub {
       owner = "cursor";
       repo = "plugins";
-      rev = "c742dd61706fbacc1b95f1a20b7b988cf096ce6c";
+      rev = "ae5650febf4320793844c12c4adaa937f417f8da";
       fetchSubmodules = false;
-      sha256 = "sha256-YB+9AIZJ6aR5Yx1OC22Xc6HdoxvDDjja/z2yMUt5gWs=";
+      sha256 = "sha256-sX6KIElyFreuDPt4zViNis2nuAn9QG0n38z3uejJU98=";
     };
-    date = "2026-10-27";
+    date = "2026-10-31";
   };
   fixw = {
     pname = "fixw";
@@ -104,10 +104,10 @@
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.114.0";
+    version = "1.115.0";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.114.0/Heptabase-1.114.0.AppImage";
-      sha256 = "sha256-BR3v0EUfUSob/Uv/CkOz4oq201oTvTO7kb598b1mAkw=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.115.0/Heptabase-1.115.0.AppImage";
+      sha256 = "sha256-D3b/M6TClzKqWmHbjS67fDHaSaEJVaJOd8grtzLBaTw=";
     };
   };
   heptabase-cli-skills = {
@@ -170,15 +170,15 @@
   };
   lean4-mode = {
     pname = "lean4-mode";
-    version = "6d4030e494039383664a0c08348a5c137eb4641c";
+    version = "32daa3e56120e6bfc88fcdfa297c4af04b3c08b0";
     src = fetchFromGitHub {
       owner = "leanprover-community";
       repo = "lean4-mode";
-      rev = "6d4030e494039383664a0c08348a5c137eb4641c";
+      rev = "32daa3e56120e6bfc88fcdfa297c4af04b3c08b0";
       fetchSubmodules = false;
-      sha256 = "sha256-FzeGnxjtCpeYbDU3GzadCTnLGtDPoe1q8aTpaZBck7A=";
+      sha256 = "sha256-Zn2f98bm9tykyg/T0TfP+KbiI+OVCT636anJ2+zkCuA=";
     };
-    date = "2026-09-28";
+    date = "2026-10-30";
   };
   lean4-skills = {
     pname = "lean4-skills";
@@ -338,10 +338,10 @@
   };
   tolaria = {
     pname = "tolaria";
-    version = "2026.10.26";
+    version = "2026.10.30";
     src = fetchurl {
-      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.10.26_amd64.AppImage";
-      sha256 = "sha256-JRvFGT6qx1EpllZ0H25kOxhZWjtf3KYF8YmnN8iAOzI=";
+      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.10.30_amd64.AppImage";
+      sha256 = "sha256-JcP6mnIDsZrpAvPCz+EBccpBQVI3fY1he9mnsN4xp9c=";
     };
   };
   tree-sitter-moonbit = {
@@ -371,15 +371,15 @@
   };
   yomiyasu = {
     pname = "yomiyasu";
-    version = "41e5aec228f080fe24e5f795efee2ac3fda61839";
+    version = "29d67ccb05e370b5958d72920a9cd1aa829dee80";
     src = fetchFromGitHub {
       owner = "nanaism";
       repo = "yomiyasu";
-      rev = "41e5aec228f080fe24e5f795efee2ac3fda61839";
+      rev = "29d67ccb05e370b5958d72920a9cd1aa829dee80";
       fetchSubmodules = false;
-      sha256 = "sha256-oux/b3Xn0UCfBZuCrzs7pKnXeZwS4jsU3vblsCPQAh0=";
+      sha256 = "sha256-9cGUSvLgc1+996i3lWQuQm1aTWOxSY6fbS9+vn5aElw=";
     };
-    date = "2026-10-26";
+    date = "2026-10-30";
   };
   zmk-battery-center-linux = {
     pname = "zmk-battery-center-linux";
