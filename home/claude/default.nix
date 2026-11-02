@@ -153,6 +153,13 @@ in
         "WebSearch"
         "LSP"
       ];
+      # From a worktree, jj writes to the shared .jj/repo, which the sandbox
+      # does not allow. self-review-gate.bb --mark calls jj, so it runs outside
+      # the sandbox too.
+      sandbox.excludedCommands = [
+        "jj *"
+        "bb ~/.claude/hooks/self-review-gate.bb *"
+      ];
       enabledPlugins = {
         "bento-slides@bento" = true;
         "moonbit-skills@moonbit-code-plugins" = true;
