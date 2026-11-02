@@ -353,10 +353,12 @@ fn scanIsClean(root: []const u8, args: []const [*:0]const u8) bool {
     var root_z: [max_path]u8 = undefined;
     const rz = std.fmt.bufPrintZ(&root_z, "{s}", .{root}) catch return false;
 
+    // `.git` is a directory in the main workspace and a `gitdir:` file in a
+    // workspace added as a git worktree; git walks the shared history from both.
     var git_z: [max_path]u8 = undefined;
     const git = std.fmt.bufPrintZ(&git_z, "{s}/.git", .{root}) catch return false;
     var st: c.struct_stat = undefined;
-    const colocated = c.stat(git.ptr, &st) == 0 and st.st_mode & c.S_IFMT == c.S_IFDIR;
+    const colocated = c.stat(git.ptr, &st) == 0;
 
     var opts_buf: [1 << 13]u8 = undefined;
     const scope: Scope = if (colocated) pushScope(args, &opts_buf) else .{ .log_opts = "" };
