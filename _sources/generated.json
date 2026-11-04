@@ -1,7 +1,7 @@
 {
     "agent-toolkit-for-aws": {
         "cargoLock": null,
-        "date": "2026-10-30",
+        "date": "2026-11-03",
         "extract": null,
         "name": "agent-toolkit-for-aws",
         "passthru": null,
@@ -13,16 +13,16 @@
             "name": null,
             "owner": "aws",
             "repo": "agent-toolkit-for-aws",
-            "rev": "8eee01d92fc1b2573e5169149ef6844b3d77ed81",
-            "sha256": "sha256-wxfBe1EeesojQ6SFysqfK+briTx0ljlzA31aVhx9d+M=",
+            "rev": "174379354c7c93f9e80249265f3fffa67a42f0c1",
+            "sha256": "sha256-AIwYT3rLNyIhkn+Qs9fgqas3cS7e56p3iNvsED7u+sk=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "8eee01d92fc1b2573e5169149ef6844b3d77ed81"
+        "version": "174379354c7c93f9e80249265f3fffa67a42f0c1"
     },
     "bento": {
         "cargoLock": null,
-        "date": "2026-10-27",
+        "date": "2026-11-03",
         "extract": null,
         "name": "bento",
         "passthru": null,
@@ -34,12 +34,12 @@
             "name": null,
             "owner": "nyblnet",
             "repo": "bento",
-            "rev": "9d1281ca426129c20077a42ec03b90b08a7395ac",
-            "sha256": "sha256-s/yXN831wIx7CmDq9gtXJ3CPpIC1OKUeVqX7kZQAuVM=",
+            "rev": "10990a657457eb1a14ec84a1bc50c4e47a0fac53",
+            "sha256": "sha256-rlQ3ToWVf5Uj6Abx1GQfdn+XlZvzM4+tB0E0LkyCdyY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "9d1281ca426129c20077a42ec03b90b08a7395ac"
+        "version": "10990a657457eb1a14ec84a1bc50c4e47a0fac53"
     },
     "claude-image-view": {
         "cargoLock": null,
@@ -85,7 +85,7 @@
     },
     "cursor-plugins": {
         "cargoLock": null,
-        "date": "2026-10-31",
+        "date": "2026-11-03",
         "extract": null,
         "name": "cursor-plugins",
         "passthru": null,
@@ -97,12 +97,12 @@
             "name": null,
             "owner": "cursor",
             "repo": "plugins",
-            "rev": "ae5650febf4320793844c12c4adaa937f417f8da",
-            "sha256": "sha256-sX6KIElyFreuDPt4zViNis2nuAn9QG0n38z3uejJU98=",
+            "rev": "fd268b808c786469e6dd8c8d9db864d0de4d669e",
+            "sha256": "sha256-v1fjmZuy5dX/vcKOfkwHdfxDd0SZOQtI6TFmktrb+B8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "ae5650febf4320793844c12c4adaa937f417f8da"
+        "version": "fd268b808c786469e6dd8c8d9db864d0de4d669e"
     },
     "fixw": {
         "cargoLock": null,
@@ -176,15 +176,15 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-D3b/M6TClzKqWmHbjS67fDHaSaEJVaJOd8grtzLBaTw=",
+            "sha256": "sha256-G/HM2IiLk0cJOKqm5jthOpFIUuPWqkbo8EWhlnCb0Y0=",
             "type": "url",
-            "url": "https://github.com/heptameta/project-meta/releases/download/v1.115.0/Heptabase-1.115.0.AppImage"
+            "url": "https://github.com/heptameta/project-meta/releases/download/v1.116.0/Heptabase-1.116.0.AppImage"
         },
-        "version": "1.115.0"
+        "version": "1.116.0"
     },
     "heptabase-cli-skills": {
         "cargoLock": null,
-        "date": "2026-10-26",
+        "date": "2026-11-03",
         "extract": null,
         "name": "heptabase-cli-skills",
         "passthru": null,
@@ -196,12 +196,12 @@
             "name": null,
             "owner": "heptameta",
             "repo": "heptabase-cli-skills",
-            "rev": "c5b1ff715bf4a8af0c32af96f0686418510ebb72",
-            "sha256": "sha256-5HeXwi+a8bkKI0hoQxIf4e/8SjPSyFwVWQq4Ypi050k=",
+            "rev": "eee593904a11f489cf7c64c7bef115ff24aca8fe",
+            "sha256": "sha256-tQVmcWlfbdsv5D8TSrSQFHephJlCoLas50x8jQFoBpk=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "c5b1ff715bf4a8af0c32af96f0686418510ebb72"
+        "version": "eee593904a11f489cf7c64c7bef115ff24aca8fe"
     },
     "html-parsing": {
         "cargoLock": null,
@@ -411,7 +411,7 @@
     },
     "moonbit-skills": {
         "cargoLock": null,
-        "date": "2026-09-18",
+        "date": "2026-11-02",
         "extract": null,
         "name": "moonbit-skills",
         "passthru": null,
@@ -423,12 +423,12 @@
             "name": null,
             "owner": "moonbitlang",
             "repo": "skills",
-            "rev": "8b9f1bad14bc62560dbe3537855379e561a4e066",
-            "sha256": "sha256-EdDvxq3qTiQFgI6LPONjdF5wUvNbJS3+lzulKIFMezY=",
+            "rev": "321f9b7effe4667a478032895ff7f4a5755f56f6",
+            "sha256": "sha256-7InAl5wcg/sviVnrlb6c1mHBlOa7rhfv4r1pjL9dpxI=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "8b9f1bad14bc62560dbe3537855379e561a4e066"
+        "version": "321f9b7effe4667a478032895ff7f4a5755f56f6"
     },
     "overeasy": {
         "cargoLock": null,
@@ -447,7 +447,7 @@
     },
     "racket-langserver": {
         "cargoLock": null,
-        "date": "2026-10-23",
+        "date": "2026-11-03",
         "extract": null,
         "name": "racket-langserver",
         "passthru": null,
@@ -459,12 +459,12 @@
             "name": null,
             "owner": "jeapostrophe",
             "repo": "racket-langserver",
-            "rev": "b7c4642055ccda877e3e6380e76e2776031a3c52",
-            "sha256": "sha256-pnRt4BUIhqUgIntoK0a9HllW5uwEA/5tAtPy0dr8i24=",
+            "rev": "23e19894f1a11ce38bc56028ee048adb984bca06",
+            "sha256": "sha256-NWG1TMO8WGx2Dy/GU47FdD6auXmEEhbzGYCaGiRtAtI=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b7c4642055ccda877e3e6380e76e2776031a3c52"
+        "version": "23e19894f1a11ce38bc56028ee048adb984bca06"
     },
     "repl-ui-hx": {
         "cargoLock": null,
@@ -549,7 +549,7 @@
     },
     "superpowers": {
         "cargoLock": null,
-        "date": "2026-10-21",
+        "date": "2026-11-03",
         "extract": null,
         "name": "superpowers",
         "passthru": null,
@@ -561,12 +561,12 @@
             "name": null,
             "owner": "obra",
             "repo": "superpowers",
-            "rev": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
-            "sha256": "sha256-9+69YEdjdaDu5sWTyAbufSVcZgGD7h6wAq4nUVY2syE=",
+            "rev": "22f0b463e7a5e579904dd6211a520321035526f7",
+            "sha256": "sha256-rP5YsyGuPd9YSW/Fj3aukrq1bLuV+nwwQMK4JaZQgkI=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+        "version": "22f0b463e7a5e579904dd6211a520321035526f7"
     },
     "tolaria": {
         "cargoLock": null,
@@ -577,11 +577,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-JcP6mnIDsZrpAvPCz+EBccpBQVI3fY1he9mnsN4xp9c=",
+            "sha256": "sha256-oQavEHrPbAWNT9oEfyht4Fqk/n+hk1bkonrYCnk/14Y=",
             "type": "url",
-            "url": "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.10.30_amd64.AppImage"
+            "url": "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.11.2_amd64.AppImage"
         },
-        "version": "2026.10.30"
+        "version": "2026.11.2"
     },
     "tree-sitter-moonbit": {
         "cargoLock": null,
@@ -654,11 +654,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-GlUsE/pi8aEiXjEjGZ72pAGu82wjdCVt1iilcw85kIY=",
+            "sha256": "sha256-moJgaLVeN4iiY9Pcz7S+QwrH6ZxSXviybFZnf0G6c9M=",
             "type": "url",
-            "url": "https://github.com/kot149/zmk-battery-center/releases/download/v0.13.0/zmk-battery-center_0.13.0_amd64.AppImage"
+            "url": "https://github.com/kot149/zmk-battery-center/releases/download/v0.13.2/zmk-battery-center_0.13.2_amd64.AppImage"
         },
-        "version": "0.13.0"
+        "version": "0.13.2"
     },
     "zmk-battery-center-mac": {
         "cargoLock": null,
@@ -669,10 +669,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-8gXUq4MG2a3Tm42qS2zcyAUs2QdTRft9VFracWz3TPs=",
+            "sha256": "sha256-Rk60PFd4NLqf4dHzHG8OhNGgh0rDkbTwsms9WobM4j8=",
             "type": "url",
-            "url": "https://github.com/kot149/zmk-battery-center/releases/download/v0.13.0/zmk-battery-center_0.13.0_aarch64.app.tar.gz"
+            "url": "https://github.com/kot149/zmk-battery-center/releases/download/v0.13.2/zmk-battery-center_0.13.2_aarch64.app.tar.gz"
         },
-        "version": "0.13.0"
+        "version": "0.13.2"
     }
 }
