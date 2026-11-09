@@ -1,6 +1,6 @@
 ---
 name: pr-inline-comments
-description: 'Use when writing or updating a PR description, or right after pushing/creating a PR, and some of the explanation is tied to specific lines or hunks rather than the whole change — e.g. なぜこの分岐にしたか, ついで修正の理由, 非自明な選択, ワークアラウンドの背景, 既存挙動との差, 再現手順やスクショ付きの補足, 移動と変更が混ざった差分の要点. Those belong as inline review comments at the exact location, NOT buried in the PR body. Triggers: "PRの説明を書いて/直して", "PRに解説を追加", "行ごとの背景を残したい", "self-review コメント", "インラインコメントで説明", reviewing your own diff before requesting review.'
+description: 'Use when writing or updating a PR description, or right after pushing/creating a PR, and some of the explanation is tied to specific lines or hunks rather than the whole change — e.g. なぜこの分岐にしたか, ついで修正の理由, 非自明な選択, ワークアラウンドの背景, 既存挙動との差, 再現手順やスクショ付きの補足, 移動と変更が混ざった差分の要点. Those belong as inline review comments at the exact location, NOT buried in the PR body. Use it alongside toyokumo-pr-description or any PR template: run it before filling the template headings, so the body keeps only the abstract story. Triggers: "PRの説明を書いて/直して", "PRに解説を追加", "行ごとの背景を残したい", "self-review コメント", "インラインコメントで説明", reviewing your own diff before requesting review.'
 ---
 
 ## 何のためのスキルか
@@ -26,6 +26,22 @@ PR の説明には2種類ある。**全体の説明**（何を・なぜ・どう
 - 既存挙動との差、後続 PR への布石
 - 挙動変更・バグ修正の**再現手順／スクリーンショット／動画**
 - 移動と変更を分けなかった hunk の、実質の変更点
+
+本文に何を残すかの基準は、グローバル rule（`coding-preferences.md`）の「PR 本文」節にある。`toyokumo-pr-description` などのテンプレートに沿って書くときも、その基準で見出しを埋める。
+
+## 本文の草稿から具体的な話を降ろす
+
+本文を先に書いてしまったときや、テンプレートを埋めた直後は、草稿を次の目印で読み直す。当たった文は、そのまま本文に残さずインラインコメントへ移す。
+
+- コードブロック（インターフェースの形そのものが設計判断であるものを除く）
+- ファイルパス、行番号（`foo.clj:42`、`L42`）
+- コードの位置を指す指示語（「この分岐」「ここで」「下の〜」）
+- ファイルごと・関数ごとの説明の列挙
+- 1つの hunk にしか当てはまらない「A でなく B にした」、再現手順、スクリーンショット
+
+移した文の主張は残し、置き場所だけを変える。PR 単位の判断（なぜこの方式か）だった部分は、識別子を役割の言葉に言い換えて本文に残す。
+
+降ろしたあと、本文がまだ「何をしたか」「なぜこの方式か」「どの順に読むか」に答えているか確かめる。答えなくなっていたら降ろしすぎで、PR 単位の話まで行の話として扱っている。
 
 ## 1文目で、その変更をなぜしたかに答える
 
@@ -88,7 +104,7 @@ gh api "repos/<owner>/<repo>/contents/<path>?ref=<sha>" --jq '.content' | base64
 ## 手順
 
 1. 差分を確認し、レビュアーが疑問を持ちそうな非自明な箇所を列挙する
-2. 各箇所を「本文 or インラインコメント」に振り分ける（上の判断基準）
+2. 各箇所を「本文 or インラインコメント」に振り分ける（上の判断基準）。本文の草稿が既にあれば、「本文の草稿から具体的な話を降ろす」の目印で読み直す
 3. 各コメントの1文目が、その行で選んだことを名指しして、なぜそうしたかに答えているか確かめる（「1文目で、その変更をなぜしたかに答える」参照）
 4. 各コメントについて、コード・ソースコメント・呼び先の docstring・テスト名・コミットメッセージ・PR 本文で読めることを削る（「短く書く」参照）
 5. owner / repo / PR番号 / head SHA を取得する
