@@ -6,10 +6,7 @@
   ...
 }:
 let
-  inherit (import ../pkgs { inherit pkgs sources; })
-    lightpanda
-    racket-with-langserver
-    ;
+  inherit (import ../pkgs { inherit pkgs sources; }) racket-with-langserver;
 
   # jj wrapped with a serialization lock and a betterleaks secret-scan gate on
   # `jj git push` (see ./jj-lock.zig for both mechanisms). Wrapping the binary
@@ -210,7 +207,6 @@ in
       xh # Friendly and fast HTTP request tool
       himalaya # CLI to manage emails
       chawan # Lightweight terminal web browser
-      lightpanda # Headless browser for agents (JS, CDP, MCP)
       ngrok # Secure tunnels to localhost
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

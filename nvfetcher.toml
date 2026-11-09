@@ -101,21 +101,6 @@ fetch.git = "https://git.sr.ht/~lambdair/lean-unicode.hx"
 src.git = "https://github.com/pinkpixel-dev/miditui"
 fetch.github = "pinkpixel-dev/miditui"
 
-# lightpanda ships one release binary per platform, so each host's binary is
-# tracked separately. The tag list mixes the rolling `nightly`/`beta`/`alpha`
-# tags with the retired `v0.2.x` scheme, and GitHub's own "latest release"
-# resolves to `nightly`, so the regex keeps this on the bare-numeric stable
-# tags.
-[lightpanda-mac]
-src.github_tag = "lightpanda-io/browser"
-src.include_regex = "[0-9]+\\.[0-9]+\\.[0-9]+"
-fetch.url = "https://github.com/lightpanda-io/browser/releases/download/$ver/lightpanda-aarch64-macos"
-
-[lightpanda-linux]
-src.github_tag = "lightpanda-io/browser"
-src.include_regex = "[0-9]+\\.[0-9]+\\.[0-9]+"
-fetch.url = "https://github.com/lightpanda-io/browser/releases/download/$ver/lightpanda-x86_64-linux"
-
 [tolaria]
 src.cmd = "curl -fsSL https://github.com/refactoringhq/tolaria/releases/latest/download/stable-latest.json | jq -r .version"
 fetch.url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_$ver_amd64.AppImage"
@@ -174,10 +159,3 @@ fetch.github = "cursor/plugins"
 [moonbit-skills]
 src.git = "https://github.com/moonbitlang/skills"
 fetch.github = "moonbitlang/skills"
-
-# The official Lightpanda skill, packaged as a marketplace. Its paths and
-# install instructions assume the nightly binary in ~/.local/bin, so
-# home/claude/lightpanda-plugin.nix rewrites them onto the one from pkgs/.
-[lightpanda-skill]
-src.git = "https://github.com/lightpanda-io/agent-skill"
-fetch.github = "lightpanda-io/agent-skill"

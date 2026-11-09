@@ -17,9 +17,6 @@ let
   # the skill's lint-card.nu finds it instead of building the wasm itself.
   hepta-lint = import ./hepta-lint.nix { inherit pkgs; };
 
-  # Upstream's Lightpanda plugin, repointed at the Nix-managed binary.
-  lightpanda-plugin = import ./lightpanda-plugin.nix { inherit pkgs sources; };
-
   # Paths of every file under `dir`, relative to it.
   filesUnder =
     dir:
@@ -67,7 +64,6 @@ in
       heptabase-cli-skills = sources.heptabase-cli-skills.src;
       i-have-adhd = sources.i-have-adhd.src;
       lean4-skills = sources.lean4-skills.src;
-      lightpanda = lightpanda-plugin;
       moonbit-code-plugins = sources.moonbit-skills.src;
       superpowers-dev = sources.superpowers.src;
       yomiyasu = sources.yomiyasu.src;
@@ -139,9 +135,6 @@ in
         "Bash(tail *)"
         "Bash(wc *)"
 
-        # lightpanda: one-off page reads, when the MCP session is overkill
-        "Bash(lightpanda fetch *)"
-
         # misc
         "Bash(cd *)"
         "Bash(just *)"
@@ -168,7 +161,6 @@ in
         "image-view@claude-image-view" = true;
         "qa-guide@claude-qamods" = true;
         "i-have-adhd@i-have-adhd" = true;
-        "lightpanda@lightpanda" = true;
         "yomiyasu@yomiyasu" = true;
       };
       statusLine = {
