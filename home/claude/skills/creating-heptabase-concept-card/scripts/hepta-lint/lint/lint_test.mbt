@@ -95,20 +95,20 @@ test "ハムサ(Hamsa): a missing original script is invisible to the checker" {
 
 ///|
 fn text(s : String) -> Json {
-  { "type": "text", "text": s.to_json() }
+  { "type": "text", "text": ToJson::to_json(s) }
 }
 
 ///|
 fn bold(s : String) -> Json {
-  { "type": "text", "marks": [{ "type": "strong" }], "text": s.to_json() }
+  { "type": "text", "marks": [{ "type": "strong" }], "text": ToJson::to_json(s) }
 }
 
 ///|
 fn link(url : String) -> Json {
   {
     "type": "text",
-    "marks": [{ "type": "link", "attrs": { "href": url.to_json() } }],
-    "text": url.to_json(),
+    "marks": [{ "type": "link", "attrs": { "href": ToJson::to_json(url) } }],
+    "text": ToJson::to_json(url),
   }
 }
 
@@ -116,23 +116,23 @@ fn link(url : String) -> Json {
 fn heading(nodes : Array[Json], level? : Int = 1) -> Json {
   {
     "type": "heading",
-    "attrs": { "level": level.to_json() },
-    "content": nodes.to_json(),
+    "attrs": { "level": ToJson::to_json(level) },
+    "content": ToJson::to_json(nodes),
   }
 }
 
 ///|
 fn para(nodes : Array[Json]) -> Json {
-  { "type": "paragraph", "content": nodes.to_json() }
+  { "type": "paragraph", "content": ToJson::to_json(nodes) }
 }
 
 ///|
 fn note(title : String, blocks : Array[Json]) -> String {
-  let doc : Json = { "type": "doc", "content": blocks.to_json() }
+  let doc : Json = { "type": "doc", "content": ToJson::to_json(blocks) }
   let outer : Json = {
     "id": "synthetic",
-    "title": title.to_json(),
-    "content": doc.stringify().to_json(),
+    "title": ToJson::to_json(title),
+    "content": ToJson::to_json(doc.stringify()),
   }
   outer.stringify()
 }
@@ -245,7 +245,7 @@ test "出典 paragraph must be a labelled link" {
 
 ///|
 fn image(src? : String = "https://upload.wikimedia.org/x.png") -> Json {
-  { "type": "image", "attrs": { "src": src.to_json() } }
+  { "type": "image", "attrs": { "src": ToJson::to_json(src) } }
 }
 
 ///|

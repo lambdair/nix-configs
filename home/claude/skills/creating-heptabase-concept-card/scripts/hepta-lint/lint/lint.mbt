@@ -41,17 +41,17 @@ pub fn Report::errors(self : Report) -> Int {
 pub fn Report::render(self : Report) -> Json {
   let findings : Array[Json] = self.findings.map(fn(f) {
     {
-      "rule": f.rule.to_json(),
-      "severity": f.severity.label().to_json(),
-      "message": f.message.to_json(),
+      "rule": ToJson::to_json(f.rule),
+      "severity": ToJson::to_json(f.severity.label()),
+      "message": ToJson::to_json(f.message),
     }
   })
   {
-    "id": self.id.to_json(),
-    "title": self.title.to_json(),
-    "ok": (self.errors() == 0).to_json(),
-    "findings": findings.to_json(),
-    "mentions": self.mentions.to_json(),
+    "id": ToJson::to_json(self.id),
+    "title": ToJson::to_json(self.title),
+    "ok": ToJson::to_json(self.errors() == 0),
+    "findings": ToJson::to_json(findings),
+    "mentions": ToJson::to_json(self.mentions),
   }
 }
 

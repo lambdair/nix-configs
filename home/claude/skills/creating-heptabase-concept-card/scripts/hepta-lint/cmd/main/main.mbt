@@ -34,6 +34,6 @@ fn read(path : String) -> String? {
 
 ///|
 fn fail_with(message : String) -> Unit {
-  let report : Json = { "ok": false, "error": message.to_json() }
+  let report : Json = { "ok": false, "error": ToJson::to_json(message) }
   println(report.stringify())
 }
