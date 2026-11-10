@@ -25,6 +25,7 @@ in
     ./ports/yazi.nix
     ./ports/lazygit.nix
     ./ports/zellij.nix
+    ./ports/tuicr.nix
   ];
 
   options.flowerTheme = {
