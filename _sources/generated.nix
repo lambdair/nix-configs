@@ -8,27 +8,27 @@
 {
   agent-toolkit-for-aws = {
     pname = "agent-toolkit-for-aws";
-    version = "0a218f8cc13220013f72147e2e0fdbe350b34ae2";
+    version = "00840a095dcc53242dcb19402e7140fa896d2d46";
     src = fetchFromGitHub {
       owner = "aws";
       repo = "agent-toolkit-for-aws";
-      rev = "0a218f8cc13220013f72147e2e0fdbe350b34ae2";
+      rev = "00840a095dcc53242dcb19402e7140fa896d2d46";
       fetchSubmodules = false;
-      sha256 = "sha256-nDiwRRH0nOunUHYsA7SsOmcI/LZdUw+7MwYvNKMBUxM=";
+      sha256 = "sha256-NhdyUPQcP2yWOz8eZC9UKwY77D5I0dEw6/VZCsCrmcI=";
     };
-    date = "2026-11-06";
+    date = "2026-11-10";
   };
   bento = {
     pname = "bento";
-    version = "0066df041897589e022b4fa7683f583d411ab394";
+    version = "d5b8f89f6f3d5e1c0b7f08b88ade3cf35f0647ff";
     src = fetchFromGitHub {
       owner = "nyblnet";
       repo = "bento";
-      rev = "0066df041897589e022b4fa7683f583d411ab394";
+      rev = "d5b8f89f6f3d5e1c0b7f08b88ade3cf35f0647ff";
       fetchSubmodules = false;
-      sha256 = "sha256-COg/YhCkjgM/QHx34zrzNamvVshqe/ptea6aCIHd6/E=";
+      sha256 = "sha256-qVxqKtKUK9ikJaVr69b2QvpGYRIpd4QpzwIefAehjTo=";
     };
-    date = "2026-11-07";
+    date = "2026-11-10";
   };
   claude-image-view = {
     pname = "claude-image-view";
@@ -56,15 +56,15 @@
   };
   cursor-plugins = {
     pname = "cursor-plugins";
-    version = "6b0300214a09fd6029cfb7077043125758cd1fd2";
+    version = "246bc508c139c5e036dfafea8978d31a7433279f";
     src = fetchFromGitHub {
       owner = "cursor";
       repo = "plugins";
-      rev = "6b0300214a09fd6029cfb7077043125758cd1fd2";
+      rev = "246bc508c139c5e036dfafea8978d31a7433279f";
       fetchSubmodules = false;
-      sha256 = "sha256-TDuZ1v+taPdqyvvCs1VHUjtpSy8zHxhQKJv/kIPTpK8=";
+      sha256 = "sha256-I9Ptc57x2VgLY+6zb37QuOfEnSV+Q0vZ4DQFRAgwsW8=";
     };
-    date = "2026-11-06";
+    date = "2026-11-10";
   };
   fixw = {
     pname = "fixw";
@@ -80,15 +80,15 @@
   };
   helix-mainline = {
     pname = "helix-mainline";
-    version = "ba40e547426b0f9896c8bdc699a4ab11f2b37dbc";
+    version = "57d864129eb54e1d4890a938e692ca465adaee3f";
     src = fetchFromGitHub {
       owner = "helix-editor";
       repo = "helix";
-      rev = "ba40e547426b0f9896c8bdc699a4ab11f2b37dbc";
+      rev = "57d864129eb54e1d4890a938e692ca465adaee3f";
       fetchSubmodules = false;
-      sha256 = "sha256-ZjMduEHRsY0H8OHJ5oiF/AcxOBhIiCBwo7D+g1yYwKc=";
+      sha256 = "sha256-vD2EBNmDfhDu8NwEUtpv5K8EWvXoYJC17Mj4lpooMW8=";
     };
-    date = "2026-09-29";
+    date = "2026-11-11";
   };
   helix-steel = {
     pname = "helix-steel";
@@ -104,23 +104,23 @@
   };
   heptabase = {
     pname = "heptabase";
-    version = "1.117.0";
+    version = "1.117.1";
     src = fetchurl {
-      url = "https://github.com/heptameta/project-meta/releases/download/v1.117.0/Heptabase-1.117.0.AppImage";
-      sha256 = "sha256-ljFalPNYgZZhE4QWZLvcXN0pceitLRNldYni86TUC40=";
+      url = "https://github.com/heptameta/project-meta/releases/download/v1.117.1/Heptabase-1.117.1.AppImage";
+      sha256 = "sha256-/rr5M5HcxBNiw+XqTAjudP3kk1KTJMNo9lPDk6Lfx6k=";
     };
   };
   heptabase-cli-skills = {
     pname = "heptabase-cli-skills";
-    version = "8c63cd1932bb0c4448d99781c2a7f2556a5aff16";
+    version = "e7bdc81c46f95e0bbde93108bc713e5e6fb9d02b";
     src = fetchFromGitHub {
       owner = "heptameta";
       repo = "heptabase-cli-skills";
-      rev = "8c63cd1932bb0c4448d99781c2a7f2556a5aff16";
+      rev = "e7bdc81c46f95e0bbde93108bc713e5e6fb9d02b";
       fetchSubmodules = false;
-      sha256 = "sha256-8IXi91k1YZfZBKyutPF7W2gCdYyUO2220VcuGzmqFvc=";
+      sha256 = "sha256-oaG6dhjq9grRkJc0A8iq3zS3AV+UVV9xJ7ec9F4C7yc=";
     };
-    date = "2026-11-06";
+    date = "2026-11-09";
   };
   html-parsing = {
     pname = "html-parsing";
@@ -182,43 +182,15 @@
   };
   lean4-skills = {
     pname = "lean4-skills";
-    version = "83582df9d9172456993929f32ac4dd9d99c6211c";
+    version = "3f913c66251b8712bb58e6ce83a453fa96e3f94f";
     src = fetchFromGitHub {
       owner = "cameronfreer";
       repo = "lean4-skills";
-      rev = "83582df9d9172456993929f32ac4dd9d99c6211c";
+      rev = "3f913c66251b8712bb58e6ce83a453fa96e3f94f";
       fetchSubmodules = false;
-      sha256 = "sha256-IXsV/FJlYQAdtVkN+04+G8/dwyggQ4+lYdP9G3Zpj1U=";
+      sha256 = "sha256-6aPUpLW61XAvZ2+yLY9RhY1/N5zlQtBE3Em/PBANuoc=";
     };
-    date = "2026-10-20";
-  };
-  lightpanda-linux = {
-    pname = "lightpanda-linux";
-    version = "1.0.3";
-    src = fetchurl {
-      url = "https://github.com/lightpanda-io/browser/releases/download/1.0.3/lightpanda-x86_64-linux";
-      sha256 = "sha256-U+s02gkVnc+PBIZdv+PmPpplIGJoRJWqfO1d3XyC6LA=";
-    };
-  };
-  lightpanda-mac = {
-    pname = "lightpanda-mac";
-    version = "1.0.3";
-    src = fetchurl {
-      url = "https://github.com/lightpanda-io/browser/releases/download/1.0.3/lightpanda-aarch64-macos";
-      sha256 = "sha256-evr2fnKu4CQ+GuxWzrpdLyAMfwGLBl9y6E1Er9da8dE=";
-    };
-  };
-  lightpanda-skill = {
-    pname = "lightpanda-skill";
-    version = "5626852622316b5ea401295c1ca3f08667ede479";
-    src = fetchFromGitHub {
-      owner = "lightpanda-io";
-      repo = "agent-skill";
-      rev = "5626852622316b5ea401295c1ca3f08667ede479";
-      fetchSubmodules = false;
-      sha256 = "sha256-POyX0bejsMXgS5lDgFGgAnVdZEfrsCLrChcBJncO3Ds=";
-    };
-    date = "2026-11-05";
+    date = "2026-11-07";
   };
   mcfly = {
     pname = "mcfly";
@@ -262,15 +234,15 @@
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "330896fda5b2e41e7af131f382c26c8a947d7f10";
+    version = "1defb5054961276199dfd284f83764ef068c1a2b";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "330896fda5b2e41e7af131f382c26c8a947d7f10";
+      rev = "1defb5054961276199dfd284f83764ef068c1a2b";
       fetchSubmodules = false;
-      sha256 = "sha256-JrZREQfwmnVaxoiSFEneTLeNdNeAhAiCgTdMw+6ZZn8=";
+      sha256 = "sha256-B7aD0yQVWL5N57kweWjJeBeILH0TZTpNAtN4LwJd4NY=";
     };
-    date = "2026-11-06";
+    date = "2026-11-08";
   };
   repl-ui-hx = {
     pname = "repl-ui-hx";
@@ -338,10 +310,10 @@
   };
   tolaria = {
     pname = "tolaria";
-    version = "2026.11.6";
+    version = "2026.11.10";
     src = fetchurl {
-      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.11.6_amd64.AppImage";
-      sha256 = "sha256-WCB+Y7oONd2bywCmFhbXDgyFXKQRiXYjxrNC49obJ6M=";
+      url = "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_2026.11.10_amd64.AppImage";
+      sha256 = "sha256-Kq9nrVhpPdOOyn0u/3F5582eJbRGyqroGg7DJS8ikIQ=";
     };
   };
   tree-sitter-moonbit = {
@@ -371,15 +343,15 @@
   };
   yomiyasu = {
     pname = "yomiyasu";
-    version = "8394e099486aaa2e28cf89992e46f5ebe5ed839d";
+    version = "7b212ff2f037953b8c233ae315e5c08e7fc36da6";
     src = fetchFromGitHub {
       owner = "nanaism";
       repo = "yomiyasu";
-      rev = "8394e099486aaa2e28cf89992e46f5ebe5ed839d";
+      rev = "7b212ff2f037953b8c233ae315e5c08e7fc36da6";
       fetchSubmodules = false;
-      sha256 = "sha256-0ozlVPllwcxnKIn/o9Vs++3Mmr/F1N7068lnPGBua8U=";
+      sha256 = "sha256-6+CiX3zd2iMUNm6ZlMJ/UVbAAMnm46GpW8aig/SagLg=";
     };
-    date = "2026-11-04";
+    date = "2026-11-11";
   };
   zmk-battery-center-linux = {
     pname = "zmk-battery-center-linux";
