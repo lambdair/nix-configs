@@ -118,9 +118,12 @@ in
       )
       // {
         # Before the rest: keys after a table header would land in that table.
+        # tuicr leaves panel_bg transparent by default while still painting the
+        # other backgrounds, so a terminal with another background shows both.
         "tuicr/config.toml".text = lib.mkBefore ''
           theme_dark = "${name "dark"}"
           theme_light = "${name "light"}"
+          transparent_background = false
 
         '';
       };
