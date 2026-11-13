@@ -31,6 +31,12 @@ let
   # runtime queries (a revision skew silently breaks highlighting). grammars.nix
   # emits the platform-correct extension (.dylib on macOS, .so on Linux).
   helix-steel-grammars = pkgs.callPackage "${sources.helix-steel.src}/grammars.nix" {
+    # The fork's grammars.nix reads the deprecated stdenv.isLinux, which warns on
+    # every evaluation. Answer it from hostPlatform; the derivations stay the
+    # same. Removable once the fork picks up upstream's hostPlatform check.
+    stdenv = pkgs.stdenv // {
+      inherit (pkgs.stdenv.hostPlatform) isLinux;
+    };
     # proverif: its grammar moved from Codeberg to GitHub, and the Codeberg URL
     # languages.toml pins now answers 504/401, so fetching that revision fails.
     # Removable once languages.toml points at the new location.
