@@ -19,16 +19,25 @@
         (str/trim (:out result))))
     (catch Exception _ nil)))
 
+(defn diff-counts
+  "Insertions and deletions reported by `jj diff --stat`, as
+   {:insertions X :deletions Y}, both 0 when there is no summary. The summary
+   is the last line: \"N files changed, X insertion(s)(+), Y deletion(s)(-)\"."
+  [stat]
+  (let [last-line (or (last (str/split-lines (or stat ""))) "")
+        count-of (fn [label]
+                   (if-let [[_ n] (re-find (re-pattern (str "(\\d+) " label)) last-line)]
+                     (Long/parseLong n)
+                     0))]
+    {:insertions (count-of "insertion")
+     :deletions (count-of "deletion")}))
+
 (defn changed-lines
   "Total insertions + deletions reported by `jj diff --stat`, 0 when there is
-   no summary. The summary is the last line — \"N files changed, X
-   insertion(s)(+), Y deletion(s)(-)\" — whose leading file count is dropped."
+   no summary."
   [stat]
-  (let [last-line (last (str/split-lines (or stat "")))
-        nums (re-seq #"\d+" (or last-line ""))]
-    (if (and nums (>= (count nums) 2))
-      (reduce + (map #(Long/parseLong %) (rest nums)))
-      0)))
+  (let [{:keys [insertions deletions]} (diff-counts stat)]
+    (+ insertions deletions)))
 
 ;; === Self-review record ===
 ;; A revision counts as reviewed when the record holds the hash its diff has
