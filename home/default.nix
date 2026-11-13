@@ -313,6 +313,7 @@ in
         EDITOR = "hx";
       };
       configFile.source = ./config.nu;
+      loadSessionVariables = false;
     };
 
     # Multi-shell command argument completer
