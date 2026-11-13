@@ -27,11 +27,18 @@
 ;; No changes yet → no context needed
 (when (str/blank? stat) (System/exit 0))
 
+(def counts (diff-counts stat))
 (def total-lines (changed-lines stat))
 
 (def line-warning
   (when (> total-lines 150)
     (str "\n⚠ 変更行数が " total-lines " 行です（目安: 150行以下）。意味のある単位で分割できないか検討してください。")))
+
+(def addition-warning
+  (when (addition-heavy? counts)
+    (str "\n⚠ 追加 " (:insertions counts) " 行・削除 " (:deletions counts)
+         " 行の追加主体の変更です（目安: 追加100行以下）。"
+         "骨組み → 機能 → 付随する設定のように、各段が単独で動く段に分けられないか検討してください。")))
 
 ;; Output additionalContext
 (println
@@ -44,4 +51,5 @@
            "現在の変更:\n" stat "\n"
            "これから編集: " file-path "\n"
            "→ この編集が現在のリビジョンと無関係なら、先に `jj new -m \"目的\"` で新しいリビジョンを作ること。"
-           (or line-warning ""))}}))
+           (or line-warning "")
+           (or addition-warning ""))}}))

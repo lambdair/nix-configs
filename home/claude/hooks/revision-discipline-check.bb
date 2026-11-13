@@ -37,12 +37,15 @@
   (System/exit 0))
 
 ;; Check each revision's line count
-(def violations
+(def sized
   (vec
-    (for [{:keys [id desc]} revisions
-          :let [total (changed-lines (sh "jj" "diff" "--stat" "--no-pager" "-r" id))]
-          :when (> total 150)]
-      {:id id :desc desc :lines total})))
+    (for [{:keys [id] :as rev} revisions
+          :let [stat (sh "jj" "diff" "--stat" "--no-pager" "-r" id)]]
+      (assoc rev :lines (changed-lines stat) :counts (diff-counts stat)))))
+
+(def violations (filterv #(> (:lines %) 150) sized))
+
+(def addition-heavy (filterv #(addition-heavy? (:counts %)) sized))
 
 ;; Also check if current working copy has changes with no description
 (def wc-desc (or (sh "jj" "log" "--no-pager" "-r" "@" "--no-graph" "-T" "description.first_line()") ""))
@@ -77,6 +80,13 @@
                       " 行の変更があります（目安: 150行以下）"
                       "\n→ 分割を検討すること（`jj split` または `jj new`）"))
                violations))
+
+    (seq addition-heavy)
+    (into (map (fn [{:keys [id desc counts]}]
+                 (str "リビジョン " id " (\"" desc "\") は追加 " (:insertions counts)
+                      " 行・削除 " (:deletions counts) " 行の追加主体の変更です（目安: 追加100行以下）"
+                      "\n→ 各段が単独で動く段に分けられないか検討すること（revision-discipline.md「追加だけの差分」）"))
+               addition-heavy))
 
     (and wc-has-changes wc-no-desc)
     (conj "現在のワーキングコピー (@) に変更がありますが、description が未設定です")))

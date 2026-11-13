@@ -39,6 +39,14 @@
   (let [{:keys [insertions deletions]} (diff-counts stat)]
     (+ insertions deletions)))
 
+(defn addition-heavy?
+  "True when `counts` (from diff-counts) add more than 100 lines and delete at
+   most a tenth as many. revision-discipline.md asks for such a diff to be
+   split into stages even under the 150-line total."
+  [{:keys [insertions deletions]}]
+  (and (> insertions 100)
+       (<= (* 10 deletions) insertions)))
+
 ;; === Self-review record ===
 ;; A revision counts as reviewed when the record holds the hash its diff has
 ;; now, so a rebase keeps the entry while an edit to the content drops it.
