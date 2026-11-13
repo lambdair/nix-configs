@@ -1,4 +1,5 @@
-# tuicr themes for the selected flower: a local theme per variant.
+# tuicr themes for the selected flower: a local theme per variant, each with a
+# tmTheme beside it so syntax highlighting draws from the palette too.
 { config, lib, ... }:
 let
   cfg = config.flowerTheme;
@@ -27,6 +28,7 @@ let
 
       syntax_add_bg = "${mix 0.16 r.bg r.added}"
       syntax_del_bg = "${mix 0.16 r.bg r.removed}"
+      syntax_theme = "${v.name}.tmTheme"
 
       file_added = "${r.added}"
       file_modified = "${r.changed}"
@@ -62,6 +64,46 @@ let
       mode_bg = "${r.keyword}"
     '';
 
+  # Same scopes as hunk's flower themes, so both tools highlight code alike.
+  syntax =
+    v:
+    let
+      r = v.hex.roles;
+      scope = scope: foreground: {
+        name = scope;
+        inherit scope;
+        settings = { inherit foreground; };
+      };
+    in
+    lib.generators.toPlist { escape = true; } {
+      name = v.title;
+      settings = [
+        {
+          settings = {
+            background = r.bg;
+            foreground = r.text;
+            caret = r.text;
+            lineHighlight = r.cursorline;
+            selection = r.selection;
+          };
+        }
+        (scope "comment" r.comment)
+        (scope "keyword" r.keyword)
+        (scope "keyword.operator" r.special)
+        (scope "storage.type" r.keyword)
+        (scope "string" r.string)
+        (scope "constant" r.constant)
+        (scope "constant.numeric" r.constant)
+        (scope "entity.name.function" r.function)
+        (scope "support.function" r.function)
+        (scope "entity.name.type" r.type)
+        (scope "support.type" r.type)
+        (scope "variable" r.text)
+        (scope "variable.parameter" r.subtext)
+        (scope "punctuation" r.subtext)
+      ];
+    };
+
   variants = map (flowerLib.variant cfg.flower) flowerLib.modes;
   name = mode: "flower-${cfg.flower}-${if cfg.mode == "auto" then mode else cfg.mode}";
 in
@@ -69,7 +111,10 @@ in
   config = lib.mkIf (cfg.flower != null) {
     xdg.configFile =
       lib.listToAttrs (
-        map (v: lib.nameValuePair "tuicr/themes/${v.name}.toml" { text = theme v; }) variants
+        lib.concatMap (v: [
+          (lib.nameValuePair "tuicr/themes/${v.name}.toml" { text = theme v; })
+          (lib.nameValuePair "tuicr/themes/${v.name}.tmTheme" { text = syntax v; })
+        ]) variants
       )
       // {
         # Before the rest: keys after a table header would land in that table.
