@@ -258,7 +258,7 @@ in
       "${config.home.homeDirectory}/.claude/settings.json".force = true;
     }
     # macOS only: symlink shared settings for secondary account
-    // lib.optionalAttrs pkgs.stdenv.isDarwin {
+    // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
       # Claude sessions rewrite this one too, and their atomic write replaces
       # the symlink with a regular file, so force it back.
       ".claude-personal/settings.json" = link "settings.json" // {

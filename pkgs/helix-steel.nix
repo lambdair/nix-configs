@@ -25,7 +25,7 @@ let
         pkgs.lib.removePrefix "version = \"" (builtins.elemAt lines (nameAt + 1))
       );
 
-  grammarExt = if pkgs.stdenv.isDarwin then "dylib" else "so";
+  grammarExt = if pkgs.stdenv.hostPlatform.isDarwin then "dylib" else "so";
 
   # Grammars from helix-steel's own languages.toml pins, kept in lockstep with its
   # runtime queries (a revision skew silently breaks highlighting). grammars.nix

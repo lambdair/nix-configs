@@ -6,7 +6,7 @@
 
     # nixpkgs builds ghostty on Linux only; on darwin the app is installed
     # outside Nix and just reads the config written here.
-    package = if pkgs.stdenv.isDarwin then null else pkgs.ghostty;
+    package = if pkgs.stdenv.hostPlatform.isDarwin then null else pkgs.ghostty;
 
     # The theme comes from the catppuccin module via catppuccin.autoEnable.
     settings = {
@@ -26,7 +26,7 @@
         "U+FF00-U+FFEF=Maple Mono NF CN"
       ];
     }
-    // lib.optionalAttrs pkgs.stdenv.isDarwin {
+    // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
       # The macOS login shell is zsh, so ghostty has to launch nu itself.
       command = "${lib.getExe pkgs.nushell} --login";
 

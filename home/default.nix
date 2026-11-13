@@ -248,7 +248,7 @@ in
       apl386
       bqn386
     ]
-    ++ lib.optionals pkgs.stdenv.isLinux [
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       abella # Interactive theorem prover (Linux only: darwin build fails on ocaml-4.12.1 thread tests)
       d2 # Modern diagram scripting language (Linux only: darwin build fails on libdrm/mesa-libgbm)
       dict # Dictionary client (Linux only: darwin build fails on dictd → flex 2.5.35 K&R C)

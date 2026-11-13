@@ -36,7 +36,8 @@ let
     meta.mainProgram = "hx";
   };
 
-  nreplLibName = if pkgs.stdenv.isDarwin then "libsteel_nrepl.dylib" else "libsteel_nrepl.so";
+  nreplLibName =
+    if pkgs.stdenv.hostPlatform.isDarwin then "libsteel_nrepl.dylib" else "libsteel_nrepl.so";
 in
 {
   programs.helix.package = helix-steel;
