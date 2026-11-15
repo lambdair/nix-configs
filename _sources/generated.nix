@@ -8,27 +8,27 @@
 {
   agent-toolkit-for-aws = {
     pname = "agent-toolkit-for-aws";
-    version = "00840a095dcc53242dcb19402e7140fa896d2d46";
+    version = "9ca16b9c39341d6464990696623001644719118d";
     src = fetchFromGitHub {
       owner = "aws";
       repo = "agent-toolkit-for-aws";
-      rev = "00840a095dcc53242dcb19402e7140fa896d2d46";
+      rev = "9ca16b9c39341d6464990696623001644719118d";
       fetchSubmodules = false;
-      sha256 = "sha256-NhdyUPQcP2yWOz8eZC9UKwY77D5I0dEw6/VZCsCrmcI=";
+      sha256 = "sha256-rGKVHYBLcmGSu9E9R0evpOssg+xaxgYLT1uOslgg8gc=";
     };
-    date = "2026-11-10";
+    date = "2026-11-14";
   };
   bento = {
     pname = "bento";
-    version = "d5b8f89f6f3d5e1c0b7f08b88ade3cf35f0647ff";
+    version = "08afafaf2459fff6e1e1a983a7608ee1361cfc78";
     src = fetchFromGitHub {
       owner = "nyblnet";
       repo = "bento";
-      rev = "d5b8f89f6f3d5e1c0b7f08b88ade3cf35f0647ff";
+      rev = "08afafaf2459fff6e1e1a983a7608ee1361cfc78";
       fetchSubmodules = false;
-      sha256 = "sha256-qVxqKtKUK9ikJaVr69b2QvpGYRIpd4QpzwIefAehjTo=";
+      sha256 = "sha256-eoXB/1ta+n/F7Ges44dfCUD4xRhh71Efum7spafoCLQ=";
     };
-    date = "2026-11-10";
+    date = "2026-11-14";
   };
   claude-image-view = {
     pname = "claude-image-view";
@@ -56,15 +56,15 @@
   };
   cursor-plugins = {
     pname = "cursor-plugins";
-    version = "246bc508c139c5e036dfafea8978d31a7433279f";
+    version = "3dbd22ff12742fb28c9700b9760baa29ed41dc13";
     src = fetchFromGitHub {
       owner = "cursor";
       repo = "plugins";
-      rev = "246bc508c139c5e036dfafea8978d31a7433279f";
+      rev = "3dbd22ff12742fb28c9700b9760baa29ed41dc13";
       fetchSubmodules = false;
-      sha256 = "sha256-I9Ptc57x2VgLY+6zb37QuOfEnSV+Q0vZ4DQFRAgwsW8=";
+      sha256 = "sha256-w7Ia9fuCQg8txWPc2Ebg1Zif608Zuj/87QMp+WH1Qr8=";
     };
-    date = "2026-11-10";
+    date = "2026-11-13";
   };
   fixw = {
     pname = "fixw";
@@ -80,15 +80,15 @@
   };
   helix-mainline = {
     pname = "helix-mainline";
-    version = "57d864129eb54e1d4890a938e692ca465adaee3f";
+    version = "a714a818a3a4f6dd5aad3b003a78692f90a1703f";
     src = fetchFromGitHub {
       owner = "helix-editor";
       repo = "helix";
-      rev = "57d864129eb54e1d4890a938e692ca465adaee3f";
+      rev = "a714a818a3a4f6dd5aad3b003a78692f90a1703f";
       fetchSubmodules = false;
-      sha256 = "sha256-vD2EBNmDfhDu8NwEUtpv5K8EWvXoYJC17Mj4lpooMW8=";
+      sha256 = "sha256-DRPuwFZs2eu5XnbfLqXydXcCFE9zvuxBVrLcZsmPoeU=";
     };
-    date = "2026-11-11";
+    date = "2026-11-12";
   };
   helix-steel = {
     pname = "helix-steel";
@@ -272,15 +272,15 @@
   };
   steel = {
     pname = "steel";
-    version = "d92320e4040e11d3b1cd06a3a3dda3dbd4fbaa2d";
+    version = "addcf6dd98a91bcd76dcf292b0e792f075e74815";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "steel";
-      rev = "d92320e4040e11d3b1cd06a3a3dda3dbd4fbaa2d";
+      rev = "addcf6dd98a91bcd76dcf292b0e792f075e74815";
       fetchSubmodules = false;
-      sha256 = "sha256-O/tBXPbkVoNyXSw2vzi2CHMpmQWsz2CIL92uxfDJWlw=";
+      sha256 = "sha256-7dp8dFwuxaK3qwf+pJ9xBGpFY01coRH5qz8tt+YAItY=";
     };
-    date = "2026-11-06";
+    date = "2026-11-10";
   };
   sulafat = {
     pname = "sulafat";
@@ -343,15 +343,15 @@
   };
   yomiyasu = {
     pname = "yomiyasu";
-    version = "7b212ff2f037953b8c233ae315e5c08e7fc36da6";
+    version = "db78b9bc5e868549b517a037df7a4d1c93edac23";
     src = fetchFromGitHub {
       owner = "nanaism";
       repo = "yomiyasu";
-      rev = "7b212ff2f037953b8c233ae315e5c08e7fc36da6";
+      rev = "db78b9bc5e868549b517a037df7a4d1c93edac23";
       fetchSubmodules = false;
-      sha256 = "sha256-6+CiX3zd2iMUNm6ZlMJ/UVbAAMnm46GpW8aig/SagLg=";
+      sha256 = "sha256-5CVfVx2cNxOdW8uKOdo3Gjs8zJrNYdBFqwR/qBg/Gpk=";
     };
-    date = "2026-11-11";
+    date = "2026-11-12";
   };
   zmk-battery-center-linux = {
     pname = "zmk-battery-center-linux";
