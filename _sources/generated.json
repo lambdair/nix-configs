@@ -1,7 +1,7 @@
 {
     "agent-toolkit-for-aws": {
         "cargoLock": null,
-        "date": "2026-11-14",
+        "date": "2026-11-17",
         "extract": null,
         "name": "agent-toolkit-for-aws",
         "passthru": null,
@@ -13,16 +13,16 @@
             "name": null,
             "owner": "aws",
             "repo": "agent-toolkit-for-aws",
-            "rev": "9ca16b9c39341d6464990696623001644719118d",
-            "sha256": "sha256-rGKVHYBLcmGSu9E9R0evpOssg+xaxgYLT1uOslgg8gc=",
+            "rev": "2caa7fb4e7caac5ee44acab19880e0cf133f993b",
+            "sha256": "sha256-zosyptaoeSW8ksP2lDSir567f14Dy8JVlSp8q3avKyE=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "9ca16b9c39341d6464990696623001644719118d"
+        "version": "2caa7fb4e7caac5ee44acab19880e0cf133f993b"
     },
     "bento": {
         "cargoLock": null,
-        "date": "2026-11-14",
+        "date": "2026-11-15",
         "extract": null,
         "name": "bento",
         "passthru": null,
@@ -34,12 +34,12 @@
             "name": null,
             "owner": "nyblnet",
             "repo": "bento",
-            "rev": "08afafaf2459fff6e1e1a983a7608ee1361cfc78",
-            "sha256": "sha256-eoXB/1ta+n/F7Ges44dfCUD4xRhh71Efum7spafoCLQ=",
+            "rev": "bceaaa15a188f97590ac3f269b6a33dcc2f62cf1",
+            "sha256": "sha256-R8gJocJ7B4ut4Z+CfUb4l1tCE8hY16Jb8+pVyKeEIS8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "08afafaf2459fff6e1e1a983a7608ee1361cfc78"
+        "version": "bceaaa15a188f97590ac3f269b6a33dcc2f62cf1"
     },
     "claude-image-view": {
         "cargoLock": null,
@@ -85,7 +85,7 @@
     },
     "cursor-plugins": {
         "cargoLock": null,
-        "date": "2026-11-13",
+        "date": "2026-11-17",
         "extract": null,
         "name": "cursor-plugins",
         "passthru": null,
@@ -97,12 +97,12 @@
             "name": null,
             "owner": "cursor",
             "repo": "plugins",
-            "rev": "3dbd22ff12742fb28c9700b9760baa29ed41dc13",
-            "sha256": "sha256-w7Ia9fuCQg8txWPc2Ebg1Zif608Zuj/87QMp+WH1Qr8=",
+            "rev": "93b916d4a1e806507e22f4716b352fa91f2b227e",
+            "sha256": "sha256-oRE9Gex04mi1ekiCBw9c6hwRrCWe++JRYWuSkGaIi1c=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "3dbd22ff12742fb28c9700b9760baa29ed41dc13"
+        "version": "93b916d4a1e806507e22f4716b352fa91f2b227e"
     },
     "fixw": {
         "cargoLock": null,
@@ -127,7 +127,7 @@
     },
     "helix-mainline": {
         "cargoLock": null,
-        "date": "2026-11-12",
+        "date": "2026-11-17",
         "extract": null,
         "name": "helix-mainline",
         "passthru": null,
@@ -139,12 +139,12 @@
             "name": null,
             "owner": "helix-editor",
             "repo": "helix",
-            "rev": "a714a818a3a4f6dd5aad3b003a78692f90a1703f",
-            "sha256": "sha256-DRPuwFZs2eu5XnbfLqXydXcCFE9zvuxBVrLcZsmPoeU=",
+            "rev": "872b240251876e56787ad7ec312cefae70e3e28e",
+            "sha256": "sha256-MBvN8eAA2/GiPhDl3S3pq4DS9wn6dgjsgHPj0+uEePQ=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "a714a818a3a4f6dd5aad3b003a78692f90a1703f"
+        "version": "872b240251876e56787ad7ec312cefae70e3e28e"
     },
     "helix-steel": {
         "cargoLock": null,
@@ -396,7 +396,7 @@
     },
     "racket-langserver": {
         "cargoLock": null,
-        "date": "2026-11-08",
+        "date": "2026-11-16",
         "extract": null,
         "name": "racket-langserver",
         "passthru": null,
@@ -408,12 +408,12 @@
             "name": null,
             "owner": "jeapostrophe",
             "repo": "racket-langserver",
-            "rev": "1defb5054961276199dfd284f83764ef068c1a2b",
-            "sha256": "sha256-B7aD0yQVWL5N57kweWjJeBeILH0TZTpNAtN4LwJd4NY=",
+            "rev": "3f5c385a63aa450d6eda8ee2a815b36b40a52547",
+            "sha256": "sha256-wc4/awRs3aix4dgQ16EydUyaFV75AgU5ECLwH4DURN0=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "1defb5054961276199dfd284f83764ef068c1a2b"
+        "version": "3f5c385a63aa450d6eda8ee2a815b36b40a52547"
     },
     "repl-ui-hx": {
         "cargoLock": null,
@@ -457,7 +457,7 @@
     },
     "steel": {
         "cargoLock": null,
-        "date": "2026-11-10",
+        "date": "2026-11-17",
         "extract": null,
         "name": "steel",
         "passthru": null,
@@ -469,12 +469,12 @@
             "name": null,
             "owner": "mattwparas",
             "repo": "steel",
-            "rev": "addcf6dd98a91bcd76dcf292b0e792f075e74815",
-            "sha256": "sha256-7dp8dFwuxaK3qwf+pJ9xBGpFY01coRH5qz8tt+YAItY=",
+            "rev": "28aa28e35b26e4eb149342389441637e2c1a1f9a",
+            "sha256": "sha256-5OgVze5eEBVdDs+5SNuetX/i/nC8Nri6EOXwQXzb5ew=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "addcf6dd98a91bcd76dcf292b0e792f075e74815"
+        "version": "28aa28e35b26e4eb149342389441637e2c1a1f9a"
     },
     "sulafat": {
         "cargoLock": null,

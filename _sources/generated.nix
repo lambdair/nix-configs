@@ -8,27 +8,27 @@
 {
   agent-toolkit-for-aws = {
     pname = "agent-toolkit-for-aws";
-    version = "9ca16b9c39341d6464990696623001644719118d";
+    version = "2caa7fb4e7caac5ee44acab19880e0cf133f993b";
     src = fetchFromGitHub {
       owner = "aws";
       repo = "agent-toolkit-for-aws";
-      rev = "9ca16b9c39341d6464990696623001644719118d";
+      rev = "2caa7fb4e7caac5ee44acab19880e0cf133f993b";
       fetchSubmodules = false;
-      sha256 = "sha256-rGKVHYBLcmGSu9E9R0evpOssg+xaxgYLT1uOslgg8gc=";
+      sha256 = "sha256-zosyptaoeSW8ksP2lDSir567f14Dy8JVlSp8q3avKyE=";
     };
-    date = "2026-11-14";
+    date = "2026-11-17";
   };
   bento = {
     pname = "bento";
-    version = "08afafaf2459fff6e1e1a983a7608ee1361cfc78";
+    version = "bceaaa15a188f97590ac3f269b6a33dcc2f62cf1";
     src = fetchFromGitHub {
       owner = "nyblnet";
       repo = "bento";
-      rev = "08afafaf2459fff6e1e1a983a7608ee1361cfc78";
+      rev = "bceaaa15a188f97590ac3f269b6a33dcc2f62cf1";
       fetchSubmodules = false;
-      sha256 = "sha256-eoXB/1ta+n/F7Ges44dfCUD4xRhh71Efum7spafoCLQ=";
+      sha256 = "sha256-R8gJocJ7B4ut4Z+CfUb4l1tCE8hY16Jb8+pVyKeEIS8=";
     };
-    date = "2026-11-14";
+    date = "2026-11-15";
   };
   claude-image-view = {
     pname = "claude-image-view";
@@ -56,15 +56,15 @@
   };
   cursor-plugins = {
     pname = "cursor-plugins";
-    version = "3dbd22ff12742fb28c9700b9760baa29ed41dc13";
+    version = "93b916d4a1e806507e22f4716b352fa91f2b227e";
     src = fetchFromGitHub {
       owner = "cursor";
       repo = "plugins";
-      rev = "3dbd22ff12742fb28c9700b9760baa29ed41dc13";
+      rev = "93b916d4a1e806507e22f4716b352fa91f2b227e";
       fetchSubmodules = false;
-      sha256 = "sha256-w7Ia9fuCQg8txWPc2Ebg1Zif608Zuj/87QMp+WH1Qr8=";
+      sha256 = "sha256-oRE9Gex04mi1ekiCBw9c6hwRrCWe++JRYWuSkGaIi1c=";
     };
-    date = "2026-11-13";
+    date = "2026-11-17";
   };
   fixw = {
     pname = "fixw";
@@ -80,15 +80,15 @@
   };
   helix-mainline = {
     pname = "helix-mainline";
-    version = "a714a818a3a4f6dd5aad3b003a78692f90a1703f";
+    version = "872b240251876e56787ad7ec312cefae70e3e28e";
     src = fetchFromGitHub {
       owner = "helix-editor";
       repo = "helix";
-      rev = "a714a818a3a4f6dd5aad3b003a78692f90a1703f";
+      rev = "872b240251876e56787ad7ec312cefae70e3e28e";
       fetchSubmodules = false;
-      sha256 = "sha256-DRPuwFZs2eu5XnbfLqXydXcCFE9zvuxBVrLcZsmPoeU=";
+      sha256 = "sha256-MBvN8eAA2/GiPhDl3S3pq4DS9wn6dgjsgHPj0+uEePQ=";
     };
-    date = "2026-11-12";
+    date = "2026-11-17";
   };
   helix-steel = {
     pname = "helix-steel";
@@ -234,15 +234,15 @@
   };
   racket-langserver = {
     pname = "racket-langserver";
-    version = "1defb5054961276199dfd284f83764ef068c1a2b";
+    version = "3f5c385a63aa450d6eda8ee2a815b36b40a52547";
     src = fetchFromGitHub {
       owner = "jeapostrophe";
       repo = "racket-langserver";
-      rev = "1defb5054961276199dfd284f83764ef068c1a2b";
+      rev = "3f5c385a63aa450d6eda8ee2a815b36b40a52547";
       fetchSubmodules = false;
-      sha256 = "sha256-B7aD0yQVWL5N57kweWjJeBeILH0TZTpNAtN4LwJd4NY=";
+      sha256 = "sha256-wc4/awRs3aix4dgQ16EydUyaFV75AgU5ECLwH4DURN0=";
     };
-    date = "2026-11-08";
+    date = "2026-11-16";
   };
   repl-ui-hx = {
     pname = "repl-ui-hx";
@@ -272,15 +272,15 @@
   };
   steel = {
     pname = "steel";
-    version = "addcf6dd98a91bcd76dcf292b0e792f075e74815";
+    version = "28aa28e35b26e4eb149342389441637e2c1a1f9a";
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "steel";
-      rev = "addcf6dd98a91bcd76dcf292b0e792f075e74815";
+      rev = "28aa28e35b26e4eb149342389441637e2c1a1f9a";
       fetchSubmodules = false;
-      sha256 = "sha256-7dp8dFwuxaK3qwf+pJ9xBGpFY01coRH5qz8tt+YAItY=";
+      sha256 = "sha256-5OgVze5eEBVdDs+5SNuetX/i/nC8Nri6EOXwQXzb5ew=";
     };
-    date = "2026-11-10";
+    date = "2026-11-17";
   };
   sulafat = {
     pname = "sulafat";
