@@ -15,7 +15,7 @@ rec {
     thunderbird
     discord
     obsidian # Knowledge base
-    bitwarden-desktop # pinned in overlays/pin-broken-pkg.nix
+    bitwarden-desktop # Password manager
     obs-studio # Free and open source streaming/recording software
     (symlinkJoin {
       name = "peek";

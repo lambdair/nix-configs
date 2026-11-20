@@ -49,7 +49,7 @@ rec {
   home.packages = with pkgs; [
     macskk # Japanese SKK input method for macOS
     obsidian # Knowledge base
-    bitwarden-desktop # pinned in overlays/pin-broken-pkg.nix
+    bitwarden-desktop # Password manager
     cmux # Ghostty-based terminal for coding agents
     mole-cleaner # CLI tool for cleaning and optimizing macOS systems (mo)
   ];
