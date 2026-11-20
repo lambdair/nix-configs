@@ -125,7 +125,7 @@ fn write_cache(path : String, content : String) -> Unit {
 /// Call the OAuth usage API with a 5s timeout. On a 200 with a `five_hour`
 /// field, cache and return the body; otherwise cache "{}" and return empty.
 async fn call_api(token : String, cache_path : String) -> Json {
-  let headers = {
+  let headers : Map[@http.CaseInsensitiveString, String] = {
     "Authorization": "Bearer " + token,
     "anthropic-beta": "oauth-2025-04-20",
     "Content-Type": "application/json",

@@ -18,8 +18,8 @@
 let
   moon = pkgs.moonbit-bin.latest;
 
-  asyncVersion = "0.20.6";
-  xVersion = "0.5.1";
+  asyncVersion = "0.22.10";
+  xVersion = "0.5.7";
 
   # Manifest listing the exact deps to fetch. Kept in sync with the moon.mod of
   # every package that uses this registry.
@@ -65,5 +65,5 @@ pkgs.stdenv.mkDerivation {
   '';
   outputHashMode = "recursive";
   outputHashAlgo = "sha256";
-  outputHash = "sha256-vZgJMcKPedeaHSOdG5hNpTlXRdP0z2DphngRDqfTWj0=";
+  outputHash = "sha256-bVShJBaKa3YtJvHrhYlM4oLSETmCvx5hj8cbro/CSdM=";
 }
