@@ -64,7 +64,7 @@ the workaround, against the current flake's nixpkgs. Let
     There is no cheap standalone expr. **Skip the helper** for this item and test
     it via the step 5 path directly: drop the override in its own revision, run
     `just check` + build the consumer, keep only if green (revert if red).
-- **Custom overlay** (e.g. `obsidian-fix-sourceroot.nix`): build the overlaid attr from
+- **Custom overlay** (e.g. `uiua386-fix-monospace.nix`): build the overlaid attr from
   nixpkgs **without** that overlay. Easiest: reference the package as it is in the
   MacHome pkgs but with the overlay list excluding the file — construct via an
   `import F.inputs.nixpkgs { system = S; overlays = [ ... ]; }` expr that drops the
