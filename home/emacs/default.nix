@@ -33,23 +33,6 @@ in
       package = emacs;
       config = ./init-config.el;
       defaultInitFile = false;
-      # Overrides go through the package scope, so the transitive dependants of
-      # a patched package pick the patched build up too.
-      override = _final: prev: {
-        # neomacs's byte-compiler ignores the lexical environment alist `eval`
-        # takes, so markdown--dotimes-when-compile expands its generated
-        # defface forms with the loop variable unbound. Binding it with `let`
-        # produces the same expansion under both compilers. Removable once
-        # neomacs honours the alist.
-        markdown-mode = prev.markdown-mode.overrideAttrs (old: {
-          postPatch = (old.postPatch or "") + ''
-            substituteInPlace markdown-mode.el \
-              --replace-fail \
-                '(push (eval body `((,var . ,i))) code))' \
-                '(push (eval `(let ((,var ,i)) ,body) t) code))'
-          '';
-        });
-      };
       extraEmacsPackages =
         epkgs:
         let
