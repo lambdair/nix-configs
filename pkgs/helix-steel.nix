@@ -37,10 +37,6 @@ let
     stdenv = pkgs.stdenv // {
       inherit (pkgs.stdenv.hostPlatform) isLinux;
     };
-    # proverif: its grammar moved from Codeberg to GitHub, and the Codeberg URL
-    # languages.toml pins now answers 504/401, so fetching that revision fails.
-    # Removable once languages.toml points at the new location.
-    #
     # rpmspec and wikitext: their repositories carry paths differing only in
     # case. On a case-insensitive filesystem Lix drops one side of each
     # collision while Nix keeps both, so the two disagree on this derivation's
@@ -49,7 +45,6 @@ let
     includeGrammarIf =
       grammar:
       !(builtins.elem grammar.name [
-        "proverif"
         "rpmspec"
         "wikitext"
       ]);
