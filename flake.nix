@@ -39,7 +39,7 @@
     # holds builds made against neomacs's own lock, and following ours turns
     # every substitution into a from-source Rust build.
     neomacs = {
-      url = "github:eval-exec/neomacs/v0.0.19";
+      url = "github:eval-exec/neomacs/v0.0.20";
     };
     private = {
       url = "git+ssh://git@git.sr.ht/~lambdair/nix-private";
